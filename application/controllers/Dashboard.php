@@ -668,7 +668,7 @@ public function dataAccount()
 
 
 			$row[] = $datatable->nama_account;
-			$row[] = $datatable->target."%";
+			// $row[] = $datatable->target."%";
 			$row[] = '<a  class="label label-sm label-danger" id="showTokoAccount" href="#page'.$datatable->id_account.'"><small>Show Toko Account</small></a>';
 			if ($this->session->userdata("akses")=="3") {
 
@@ -767,7 +767,7 @@ public function EditdataAccount()
 				foreach ($id_toko as $key => $value) {
 					$ins_temp['id_toko'] = $value;
 					$ins_temp['nama_account'] = $this->input->post("nama_account");
-					$ins_temp['target'] = $this->input->post("target");
+					// $ins_temp['target'] = $this->input->post("target");
 					$this->db->insert("sada_account_temp",$ins_temp);
 				}
 			}
@@ -976,9 +976,9 @@ public function getTokoo()
 				$target_user = $this->db->select("id_target_user,target")->where(array("id_toko"=>$val_toko->id_toko,"id_user"=>$id))->get("sada_target_user")->row();
 
 				// foreach ($target_user->result() as $key => $user_target) {
-				$arrayName['target'] = $target_user->target;
+				// $arrayName['target'] = $target_user->target;
 
-				$arrayName['id_target_user'] = $target_user->id_target_user;
+				// $arrayName['id_target_user'] = $target_user->id_target_user;
 				// }
 				// echo $target_user;
 				$data[] = $arrayName;
@@ -1663,7 +1663,7 @@ public function dataSku()
 
 			else{
 
-				$row[] = '<center><span class="btn grey-cascade" style="cursor:default;">Rp '.number_format($select_price->price,0,",",".").",-</span></center>";
+				$row[] = '<center><span class="btn grey-cascade" style="cursor:default;">Rp '.substr($select_price->price,0,2).','.substr($select_price->price,2,3).'.'.substr($select_price->price,5,5)."</span></center>";
 
 
 			}
@@ -2749,12 +2749,17 @@ public function InsertTokoTarget()
 
 	$data['target'] = htmlentities($this->input->post("target",TRUE), ENT_QUOTES, 'utf-8');
 
-	if ($this->db->insert('sada_target',$data)) {
+	if ($data['id_kategori'] == 0) {
+		$this->session->set_flashdata('msg', 'Data target sudah lengkap');
+	}
+	else{
+		if ($this->db->insert('sada_target',$data)) {
 
-		$this->session->set_flashdata('msg', 'Data '.$data['nama'].' has been Updated');
+			$this->session->set_flashdata('msg', 'Data '.$data['nama'].' has been Updated');
 
-		// redirect('Dashboard/dataToko','refresh');
+			// redirect('Dashboard/dataToko','refresh');
 
+		}
 	}
 
 }
@@ -4359,7 +4364,7 @@ public function reportpromo()
 					$promina_foto .= "Foto Belum Ada";
 				}
 				else {
-					$promina_foto .= "<img src='assets/upload/".$value."' class='img-thumbnail'>";
+					$promina_foto .= "<img src='".base_url('')."assets/upload/".$value."' class='img-thumbnail'>";
 				}
 
 			}
@@ -4377,7 +4382,7 @@ public function reportpromo()
 					$kompetitor_foto .= "Foto Belum Ada";
 				}
 				else {
-					$kompetitor_foto .= "<img src='assets/upload/".$values."' class='img-thumbnail'>";
+					$kompetitor_foto .= "<img src='".base_url('')."assets/upload/".$values."' class='img-thumbnail'>";
 				}
 
 			}

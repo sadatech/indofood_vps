@@ -85,7 +85,7 @@
                                                 <th> No. </th>
                                                 <th> Store id </th>
                                                 <th> Nama Toko </th>
-                                                <th> Target </th>
+                                                <!-- <th> Target </th> -->
                                             </tr>
                                         </thead>
                                         <tbody id="dataShowToko">

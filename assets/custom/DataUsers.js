@@ -108,13 +108,13 @@ function loadPage(url)  //the function that loads pages via AJAX
                     data += "<td>"+msg[i]['store_id']+"</td>";
                     data += "<td>"+msg[i]['nama']+"</td>";
 
-                    if (msg[i]['target'] != null) {
-                        target = "<td><span class='label label-default'>"+msg[i]['target']+"%</span><a href='"+base_url+"/indofod/users/targetUser/"+msg[i]['id_user']+"/"+msg[i]['id_toko']+"/"+msg[i]['target']+"/"+msg[i]['id_target_user']+"' class='btn btn-xs green' style='float:right;'>Update Target</a></td>";
-                    }
-                    else{
-                        target = "<td>Target Belum ditentukan <a href='"+base_url+"/indofod/users/targetUser/"+msg[i]['id_user']+"/"+msg[i]['id_toko']+"/"+msg[i]['target']+"/"+msg[i]['id_target_user']+"' class='btn btn-xs blue-hoki' style='float:right;'>Set Target</a></td>";
-                    }
-                    data += target;
+                    // if (msg[i]['target'] != null) {
+                    //     target = "<td><span class='label label-default'>"+msg[i]['target']+"%</span><a href='"+base_url+"/indofod/users/targetUser/"+msg[i]['id_user']+"/"+msg[i]['id_toko']+"/"+msg[i]['target']+"/"+msg[i]['id_target_user']+"' class='btn btn-xs green' style='float:right;'>Update Target</a></td>";
+                    // }
+                    // else{
+                    //     target = "<td>Target Belum ditentukan <a href='"+base_url+"/indofod/users/targetUser/"+msg[i]['id_user']+"/"+msg[i]['id_toko']+"/"+msg[i]['target']+"/"+msg[i]['id_target_user']+"' class='btn btn-xs blue-hoki' style='float:right;'>Set Target</a></td>";
+                    // }
+                    // data += target;
                     data += "</tr>";
                 }
                 $("#dataShowToko").html(data);

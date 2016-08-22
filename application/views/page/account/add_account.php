@@ -97,7 +97,7 @@
 
 					<?php echo form_error('target'); ?>   
 
-					<div class="input-group">
+					<!-- <div class="input-group">
 
 						<span class="input-group-addon">
 
@@ -107,7 +107,7 @@
 
 						<input id="target" type="text" class="form-control" name="target" placeholder="Target" > </div>
 
-					</div>
+					</div> -->
 					<div class="form-actions">
 						<input type="submit" value="submit" class="btn blue"></input>
 						<a type="button" class="btn default" href="/account">Cancel</a>

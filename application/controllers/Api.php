@@ -183,13 +183,12 @@ class Api extends CI_Controller{
 
   }
 
+
   public function dataSKU()
 
   {
 
     $data = $this->input->get();
-
-
 
     if (count($data)==0) {
 
@@ -3940,6 +3939,40 @@ public function testing123()
 
   }
 
+}
+public function change_password()
+{
+    $id_user = htmlentities($this->input->post("id_user",TRUE), ENT_QUOTES, 'utf-8');
+    $old_password = md5($this->input->post("old_password",TRUE));
+    $new_password = htmlentities(md5($this->input->post("new_password",TRUE)), ENT_QUOTES, 'utf-8');
+
+    $password = $this->db->select("password")->where(array("id_user"=>$id_user))->get("sada_user")->row();
+
+    if ($id_user != null) {
+      if ($old_password == $password->password) {
+        if ($this->db->update("sada_user",array("password"=>$new_password),array("id_user"=>$id_user))) {
+            $res = array("code"=>3,
+                    "success"=>true,
+                    "msg"=>"Data password sudah di update");
+          }
+          else{
+            $res = array("code"=>2,
+                    "success"=>false,
+                    "msg"=>"Gagal Update Data");
+          }
+      }
+      else{
+        $res = array("code"=>1,
+                    "success"=>false,
+                    "msg"=>"Password lama tidak sesuai");
+      }
+    }
+    else{
+      $res = array("code"=>0,
+                    "success"=>false,
+                    "msg"=>"User ID kosong");
+    }
+    echo json_encode($res , JSON_PRETTY_PRINT);
 }
 
 }

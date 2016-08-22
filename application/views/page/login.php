@@ -47,11 +47,11 @@
             <div class="row bs-reset">
                 <div class="col-md-6 bs-reset">
                     <div class="login-bg" style="background-image:url(<?php echo base_url()?>/assets/pages/img/login/bg1.jpg)">
-                        <img class="login-logo" src="<?php echo base_url()?>/assets/pages/img/login/logo.png" /> </div>
+                        <img class="login-logo" width="100" src="<?php echo base_url()?>/assets/pages/img/login/logo.png" /> </div>
                 </div>
                 <div class="col-md-6 login-container bs-reset">
                     <div class="login-content">
-                        <h1>Retail Apps Indofood</h1>
+                        <h1>Retail Apps BA Pro</h1>
                         <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo

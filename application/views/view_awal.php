@@ -51,7 +51,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <!-- BEGIN LOGO -->
                 <div class="page-logo">
                     <a href="index.html">
-                        <img src="<?php echo base_url() ?>assets/layouts/layout4/img/indofood.jpg" width="150" alt="logo" class="logo-default" /> </a>
+                        <img src="<?php echo base_url() ?>assets/layouts/layout4/img/indofood.png" width="60" alt="logo" class="logo-default" /> </a>
                     <div class="menu-toggler sidebar-toggler">
                         <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
                     </div>
@@ -68,13 +68,13 @@ License: You must have a valid license purchased only from themeforest(the above
                 <div class="page-top">
                     <!-- BEGIN HEADER SEARCH BOX -->
                     <!-- DOC: Apply "search-form-expanded" right after the "search-form" class to have half expanded search box -->
-                    <form class="search-form" action="page_general_search_2.html" method="GET">
+                    <form class="search-form" action="" method="GET">
                         <div class="input-group">
                             <input type="text" class="form-control input-sm" placeholder="Search..." name="query">
                             <span class="input-group-btn">
-                                <a href="javascript:;" class="btn submit">
+                                <!-- <a href="javascript:;" class="btn submit">
                                     <i class="icon-magnifier"></i>
-                                </a>
+                                </a> -->
                             </span>
                         </div>
                     </form>

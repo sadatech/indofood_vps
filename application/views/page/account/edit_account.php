@@ -100,7 +100,7 @@
 					</div>
 					<div class="form-group">
 
-					<label id="nama">Target</label>
+					<!-- <label id="nama">Target</label>
 
 					<?php echo form_error('target'); ?>   
 
@@ -110,10 +110,10 @@
 
 							<i class="fa fa-plus-square-o"></i>
 
-						</span>
+						</span> -->
 
-						<input id="target" type="text" class="form-control" value="<?php echo $target; ?>" name="target" placeholder="Target" > </div>
-						<input id="id_account" type="text" class="form-control" value="<?php echo $id_account; ?>" name="id_account" placeholder="Target" > </div>
+						<!-- <input id="target" type="text" class="form-control" value="<?php echo $target; ?>" name="target" placeholder="Target" > </div> -->
+						<input id="id_account" type="hidden" class="form-control" value="<?php echo $id_account; ?>" name="id_account" placeholder="Target" > </div>
 
 					</div>
 					<div class="form-actions">

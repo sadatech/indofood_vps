@@ -1,4 +1,4 @@
-<!-- <?php if ($query->num_rows() == 0): ?> -->
+<?php if ($query->num_rows() == 0): ?> -->
 <div class="row">
     <div class="col-xs-12">
         <div class="mt-element-ribbon" style="background: white;">
@@ -42,7 +42,7 @@
                             No
                         </th>
                         <th> Nama Account </th>
-                        <th> Target </th>
+                        <!-- <th> Target </th> -->
                         <th> Nama Toko </th>
                         <th> Actions </th>
                     </tr>
@@ -67,4 +67,4 @@
         </table>
     </div>
 </div>
-<!-- <?php endif ?> -->
+<!-- <?php endif ?>

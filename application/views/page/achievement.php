@@ -3,7 +3,7 @@
         <div class="portlet box bg-green-haze">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="fa fa-cogs"></i>Achievement National Report </div>
+                    <i class="fa fa-cogs"></i> </div>
                     <div class="tools">
                         <a href="javascript:;" class="collapse"> </a>
                         <a href="#portlet-config" data-toggle="modal" class="config"> </a>
