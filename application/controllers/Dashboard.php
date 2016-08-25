@@ -189,6 +189,66 @@ class Dashboard extends CI_Controller {
 
 	}
 }
+public function kategori_segmen()
+{
+	if ($this->input->post()) {
+
+			foreach ($this->input->post() as $key => $value) {
+				$field = strip_tags(trim($key));
+		        $val = strip_tags(trim(mysql_real_escape_string($value)));
+
+				$exp = explode(':', $field);
+				$id_kat = $exp[1];
+				$field = $exp[0];
+
+				if (!empty(id_kat) && !empty($field) && !empty($value)) {
+					$this->db->query("UPDATE sada_kategori SET $field = '$value' WHERE id = $id_kat");
+					echo "Success Updated";
+				}
+				else{
+					echo "Gagal";
+				}
+
+			}
+
+
+	} else {
+
+		$dataDas['title'] = "Kategori Segmen";
+
+		$dataDas['desk'] = "Kategori Segmen";
+
+		$dataDas['page'] = "keterangan/kategori_segmen";
+
+		$dataDas['css'] = $this->sada->CssdataTable();
+
+		$dataDas['js']	= $this->sada->JsdataTable();
+
+		$dataDas['css'][]  	= "assets/global/plugins/select2/css/select2-bootstrap.min.css";
+
+		$dataDas['css'][]	= "assets/global/plugins/select2/css/select2.min.css";
+
+
+
+		$dataDas['js'][]	= "assets/pages/scripts/components-select2.min.js";
+
+
+
+		    // $dataDas['js'][] ="assets/custom/select2Filter.js";
+
+		$dataDas['js'][]	= "assets/custom/kategori_segmen.js";
+
+		$dataDas['js'][]	= "assets/global/plugins/select2/js/select2.full.min.js";
+
+
+
+	    	// $this->db->order_by("id_kota","asc");
+
+
+		$this->load->view('view_awal', $dataDas, FALSE);
+
+	}
+}
 public function template_email()
 {
 

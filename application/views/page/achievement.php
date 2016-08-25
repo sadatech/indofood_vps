@@ -390,7 +390,7 @@ echo "</tr>";
             $sum_qty_bc += $val['qty_bc_arr'];
             $sum_tar_bc += $val['tar_bc_arr'];
         }
-        echo $sum_qty_bc."+".$sum_tar_bc."=".round($sum_qty_bc * 100 / $sum_tar_bc)."%";
+        echo round($sum_qty_bc * 100 / $sum_tar_bc)."%";
          ?>
     </td>
     <td style="" align="center">
@@ -401,7 +401,7 @@ echo "</tr>";
             $sum_qty_bti += $val['qty_bti_arr'];
             $sum_tar_bti += $val['tar_bti_arr'];
         }
-        echo $sum_qty_bti."+".$sum_tar_bti."=".round($sum_qty_bti * 100 / $sum_tar_bti)."%";
+        echo round($sum_qty_bti * 100 / $sum_tar_bti)."%";
          ?>
     </td>
     <td style="" align="center">
@@ -412,7 +412,7 @@ echo "</tr>";
             $sum_qty_rusk += $val['qty_rusk_arr'];
             $sum_tar_rusk += $val['tar_rusk_arr'];
         }
-        echo $sum_qty_rusk."+".$sum_tar_rusk."=".round($sum_qty_rusk * 100 / $sum_tar_rusk)."%";
+        echo round($sum_qty_rusk * 100 / $sum_tar_rusk)."%";
          ?>
     </td>
     <td style="" align="center">
@@ -423,7 +423,7 @@ echo "</tr>";
             $sum_qty_pudding += $val['qty_pudding_arr'];
             $sum_tar_pudding += $val['tar_pudding_arr'];
         }
-        echo $sum_qty_pudding."+".$sum_tar_pudding."=".round($sum_qty_pudding * 100 / $sum_tar_pudding)."%";
+        echo round($sum_qty_pudding * 100 / $sum_tar_pudding)."%";
          ?>
     </td>
     <td style="" align="center">
@@ -434,7 +434,7 @@ echo "</tr>";
             $sum_qty_others += $val['qty_others_arr'];
             $sum_tar_others += $val['tar_others_arr'];
         }
-        echo $sum_qty_others."+".$sum_tar_others."=".round($sum_qty_others * 100 / $sum_tar_others)."%";
+        echo round($sum_qty_others * 100 / $sum_tar_others)."%";
          ?>
     </td>
     <td style="" align="center">Total Total</td>

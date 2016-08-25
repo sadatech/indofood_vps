@@ -146,6 +146,9 @@
                                 <li class="nav-item  ">
                                     <?php echo anchor('keterangan_oos', '<span class="title">Keterangan OOS</span>', 'class="nav-link "'); ?>
                                 </li>
+                                <li class="nav-item  ">
+                                    <?php echo anchor('kategori_segmen', '<span class="title">Kategori Segmen</span>', 'class="nav-link "'); ?>
+                                </li>
                                 <!-- <li class="nav-item  ">
                                     <?php echo anchor('kota/add', '<span class="title">Tambah Kota</span>', 'class="nav-link "'); ?>
                                 </li> -->

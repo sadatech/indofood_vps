@@ -289,6 +289,8 @@ $route['topAccount'] 				= 'Dashboard/reportTopAccount';
 
 	$route['keterangan_oos'] 				= 'Dashboard/keterangan_oos';
 
+	$route['kategori_segmen'] 				= 'Dashboard/kategori_segmen';
+
 	$route['keterangan/form_keterangan'] 				= 'Dashboard/form_keterangan';
 
 	$route['keterangan/form_keterangan/(:num)'] 				= 'Dashboard/form_keterangan';
