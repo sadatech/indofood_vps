@@ -38,7 +38,7 @@ $(document).ready(function() {
         "processing": true,
         "serverSide": true,
         "ajax": {
-            "url": base_url+"/indofod/users.jsp",
+            "url": base_url+"/users.jsp",
             "type": "POST"
         },
         "initComplete": function() {
@@ -95,7 +95,7 @@ function loadPage(url)  //the function that loads pages via AJAX
 
     $.ajax({    //create an ajax request to load_page.php
         type: "POST",
-        url: base_url+"/indofod/getToko",
+        url: base_url+"/getToko",
         data: 'id='+url,  //with the page number as a parameter
         dataType: "json",   //expect html to be returned
         success: function(msg){
@@ -109,10 +109,10 @@ function loadPage(url)  //the function that loads pages via AJAX
                     data += "<td>"+msg[i]['nama']+"</td>";
 
                     // if (msg[i]['target'] != null) {
-                    //     target = "<td><span class='label label-default'>"+msg[i]['target']+"%</span><a href='"+base_url+"/indofod/users/targetUser/"+msg[i]['id_user']+"/"+msg[i]['id_toko']+"/"+msg[i]['target']+"/"+msg[i]['id_target_user']+"' class='btn btn-xs green' style='float:right;'>Update Target</a></td>";
+                    //     target = "<td><span class='label label-default'>"+msg[i]['target']+"%</span><a href='"+base_url+"/users/targetUser/"+msg[i]['id_user']+"/"+msg[i]['id_toko']+"/"+msg[i]['target']+"/"+msg[i]['id_target_user']+"' class='btn btn-xs green' style='float:right;'>Update Target</a></td>";
                     // }
                     // else{
-                    //     target = "<td>Target Belum ditentukan <a href='"+base_url+"/indofod/users/targetUser/"+msg[i]['id_user']+"/"+msg[i]['id_toko']+"/"+msg[i]['target']+"/"+msg[i]['id_target_user']+"' class='btn btn-xs blue-hoki' style='float:right;'>Set Target</a></td>";
+                    //     target = "<td>Target Belum ditentukan <a href='"+base_url+"/users/targetUser/"+msg[i]['id_user']+"/"+msg[i]['id_toko']+"/"+msg[i]['target']+"/"+msg[i]['id_target_user']+"' class='btn btn-xs blue-hoki' style='float:right;'>Set Target</a></td>";
                     // }
                     // data += target;
                     data += "</tr>";

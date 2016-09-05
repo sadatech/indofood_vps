@@ -86,7 +86,7 @@
 
                             type: "POST",
 
-                            url: base_url+"indofod/api/filterkota?key=ganteng",
+                            url: base_url+"/api/filterkota?key=ganteng",
 
                             data: {id_cabang:$(this).val()},
 
@@ -140,7 +140,7 @@
         var base_url = window.location.origin;
 
         $.ajax({
-            url: base_url+'/indofod/users/changeCabang.jsp?key=ganteng',
+            url: base_url+'/users/changeCabang.jsp?key=ganteng',
             type: 'POST',
             dataType: 'json',
             data: {id_cab: id},

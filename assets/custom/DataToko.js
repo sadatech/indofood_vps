@@ -10,8 +10,8 @@ $(document).ready(function() {
         "processing": true,
         "serverSide": true,
         "ajax": {
-            // "url": "http://localhost/indofod.co.id/kota.jsp",
-            "url": base_url+"/indofod/toko.jsp",
+            // "url": "http://localhost.co.id/kota.jsp",
+            "url": base_url+"/toko.jsp",
             "type": "POST"
         },
         "initComplete": function() {
@@ -64,8 +64,8 @@ function loadPage(url)  //the function that loads pages via AJAX
 
     $.ajax({    //create an ajax request to load_page.php
         type: "POST",
-        // url: "http://localhost/indofod.co.id/getKota",
-        url: base_url+"/indofod/getTokoTarget",
+        // url: "http://localhost.co.id/getKota",
+        url: base_url+"/getTokoTarget",
         data: 'id='+url,  //with the page number as a parameter
         dataType: "json",   //expect html to be returned
         success: function(msg){
@@ -76,7 +76,7 @@ function loadPage(url)  //the function that loads pages via AJAX
                 for (var i = msg.length - 1; i >= 0; i--) {
                     data += "<tr><td>No</td>";
                     data += "<td>"+msg[i]['nama']+"</td>";
-                    data += "<td>"+msg[i]['target']+"</td><td><a class='btn btn-xs blue' href='"+base_url+"/indofod/toko/editTarget/"+msg[i]['id_target']+"'>Update Target</a></td></tr>";
+                    data += "<td>"+msg[i]['target']+"</td><td><a class='btn btn-xs blue' href='"+base_url+"/toko/editTarget/"+msg[i]['id_target']+"'>Update Target</a></td></tr>";
                 }
                 $("#dataShowTarget").html(data);
             }

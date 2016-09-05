@@ -4,8 +4,8 @@ $(document).ready(function() {
         "processing": true,
         "serverSide": true,
         "ajax": {
-            // "url": "http://localhost/indofod.co.id/kota.jsp",
-            "url": base_url+"/indofod/kota.jsp",
+            // "url": "http://localhost.co.id/kota.jsp",
+            "url": base_url+"/kota.jsp",
             "type": "POST"
         },
         "initComplete": function() {
@@ -59,7 +59,7 @@ function loadPage(url)  //the function that loads pages via AJAX
 
     $.ajax({    //create an ajax request to load_page.php
         type: "POST",
-        // url: "http://localhost/indofod.co.id/getKota",
+        // url: "http://localhost.co.id/getKota",
         url: "http://ba.promina.co.id/getKota",
         data: 'id='+url,  //with the page number as a parameter
         dataType: "html",   //expect html to be returned

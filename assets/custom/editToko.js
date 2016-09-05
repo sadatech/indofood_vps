@@ -20,7 +20,7 @@ $("#editToko").validate({
         var arr = {"id_toko" : fields[1].value, "store_id" : fields[2].value, "toko" : fields[3].value, "kota" : fields[4].value};
         // console.log(arr);
         $.ajax({
-            "url": base_url+"/indofod/toko/edit/"+arr.id_toko+".jsp",
+            "url": base_url+"/toko/edit/"+arr.id_toko+".jsp",
             "type": "POST",
             "data" : arr,
             success : function(data) {
@@ -48,7 +48,7 @@ $("#editTarget").validate({
         // var arr = {"id_toko" : fields[1].value, "store_id" : fields[2].value, "toko" : fields[3].value, "kota" : fields[4].value};
         // // console.log(arr);
         // $.ajax({
-        //     "url": base_url+"/indofod/toko/edit/"+arr.id_toko+".jsp",
+        //     "url": base_url+"/toko/edit/"+arr.id_toko+".jsp",
         //     "type": "POST",
         //     "data" : arr,
         //     success : function(data) {

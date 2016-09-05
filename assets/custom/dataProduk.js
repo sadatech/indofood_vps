@@ -38,8 +38,8 @@ $(document).ready(function() {
         "processing": true,
         "serverSide": true,
         "ajax": {
-            "url": base_url+"/indofod/sku.jsp",
-            // "url": "http://localhost/indofod.co.id/sku.jsp",
+            "url": base_url+"/sku.jsp",
+            // "url": "http://localhost.co.id/sku.jsp",
             "type": "POST"
         },
         "initComplete": function() {

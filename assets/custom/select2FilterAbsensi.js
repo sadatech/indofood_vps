@@ -29,7 +29,7 @@ $( document ).ready(function() {
     });
     var base_url = window.location.origin;
     var base_url_semmi = window.location.origin+'';
-    $.getJSON(base_url_semmi+'/indofod/api/getTlCabangAndkota?key=ganteng&id_tl='+id_tl,function(data){
+    $.getJSON(base_url_semmi+'/api/getTlCabangAndkota?key=ganteng&id_tl='+id_tl,function(data){
       var arrCabang = [{id:0, text : 'Cabang'}];
       var arrKota = [{id:0, text : 'Kota'}];
       $.each(data,function(key,value){

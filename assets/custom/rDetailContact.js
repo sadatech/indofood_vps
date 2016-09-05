@@ -31,7 +31,7 @@ $("#form_detail_contact").validate({
          ],
     // "serverSide": true,
     "ajax": {
-        "url": base_url+"/indofod/detailcontact.jsp",
+        "url": base_url+"/detailcontact.jsp",
         "type": "POST",
         "data" : arr
     },

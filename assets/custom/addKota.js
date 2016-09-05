@@ -58,13 +58,13 @@
 
 
 
-        $.post( base_url+"/indofod/kota/add.jsp" , arr, function() {
+        $.post( base_url+"/kota/add.jsp" , arr, function() {
 
           console.log('post');
 
         }).done(function(){
 
-          window.location.href = window.location.origin+'/indofod/kota.jsp';
+          window.location.href = window.location.origin+'/kota.jsp';
 
         });
 

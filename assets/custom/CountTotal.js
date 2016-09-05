@@ -12,10 +12,10 @@ $("#a").validate({
     var base_url = window.location.origin;
     var fields = $(":input").serializeArray();
     
-    var url = base_url+"/indofod/api/dContactTotal/?key=ganteng&ba="+ fields[1].value+"&toko="+ fields[2].value+"&cabang="+fields[3].value+"&kota="+ fields[4].value+"&startDate="+ fields[5].value+"&endDate="+ fields[6].value;
+    var url = base_url+"/api/dContactTotal/?key=ganteng&ba="+ fields[1].value+"&toko="+ fields[2].value+"&cabang="+fields[3].value+"&kota="+ fields[4].value+"&startDate="+ fields[5].value+"&endDate="+ fields[6].value;
     $.ajax({
         type: "POST",
-        url: base_url+"/indofod/api/CountTotalContact?key=ganteng",
+        url: base_url+"/api/CountTotalContact?key=ganteng",
         data: { "ba" : fields[1].value, "toko" : fields[2].value, "cabang" : fields[3].value, "kota" : fields[4].value, "startDate" : fields[5].value, "endDate" : fields[6].value},
         dataType: 'json',
         success : function(data) {
