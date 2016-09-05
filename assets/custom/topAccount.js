@@ -15,7 +15,7 @@ $("#top_ba").validate({
 
 		var topSkuArray = [];
 		$.ajax({
-			url: base_url+'/indofod/topAccount.jsp',
+			url: base_url+'/topAccount.jsp',
 			type: 'POST',
 			dataType: 'json',
 			data: arr,
@@ -104,7 +104,7 @@ $(document).ready(function() {
 
 			var topSkuArray = [];
 			$.ajax({
-				url: base_url+'/indofod/topAccount.jsp',
+				url: base_url+'/topAccount.jsp',
 				type: 'POST',
 				dataType: 'json',
 				data: arr,
@@ -188,7 +188,7 @@ $(document).ready(function() {
 
 			var topSkuArray = [];
 			$.ajax({
-				url: base_url+'/indofod/topAccount.jsp',
+				url: base_url+'/topAccount.jsp',
 				type: 'POST',
 				dataType: 'json',
 				data: arr,
