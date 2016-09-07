@@ -1983,12 +1983,12 @@ public function inputOutOfStock()
 
                 $from_email = "rizaldichozzone@gmail.com";
 
-                $headers = "From: " . strip_tags($from_email) . "\r\n";
-                $headers .= "Reply-To: ". strip_tags($data_emailpic) . "\r\n";
+
+                $headers = 'From: Info out of stock oos_info@ba-promina.co.id' . "\r\n" ;
+                // $headers .= "Reply-To: ". strip_tags($data_emailpic) . "\r\n";
                 $headers .='X-Mailer: PHP/' . phpversion();
                 $headers .= "MIME-Version: 1.0\r\n";
-                $headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
-
+                $headers .= "Content-type: text/html; charset=iso-8859-1\r\n";   
                 $content .= '</table>
               </div>
             </div>
@@ -2007,12 +2007,12 @@ public function inputOutOfStock()
       foreach ($data_emailaspm as $aspm) {
           array_push($push, $aspm);
       }
-      foreach ($push as $mail_pic) {
-          if(mail($mail_pic, 'Report Out Of Stock',$content,$headers))
+      // foreach ($push as $mail_pic) {
+          if(mail($datax->email_pic, 'Report Out Of Stock',$content,$headers))
             $this->session->set_flashdata("msg","Email sent successfully."); 
           else 
             $this->session->set_flashdata("msg",'error');
-      }
+      // }
 
     }else{
 
