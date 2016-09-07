@@ -1988,14 +1988,13 @@ public function inputOutOfStock()
         </div>
       </body>
       </html>';
-      $mail_pic = "";
-      foreach ($data_emailpic as $mailer_pic) {
-          $mail_pic[]= $mailer_pic;
-      }
-      if(mail($mail_pic, 'Report Out Of Stock',$content,$headers))
+
+      foreach ($data_emailpic as $mail_pic) {
+          if(mail($mail_pic, 'Report Out Of Stock',$content,$headers))
             $this->session->set_flashdata("msg","Email sent successfully."); 
           else 
             $this->session->set_flashdata("msg",'error');
+      }
 
     }else{
 
