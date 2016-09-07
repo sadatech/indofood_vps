@@ -1974,7 +1974,7 @@ public function inputOutOfStock()
                   }
                 }
 
-                $from_email = "rizaldi354313@gmail.com";
+                $from_email = "rizaldichozzone@gmail.com";
 
                 $headers = "From: " . strip_tags($from_email) . "\r\n";
                 $headers .= "Reply-To: ". strip_tags($data_emailpic) . "\r\n";
