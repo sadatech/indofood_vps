@@ -1988,7 +1988,7 @@ public function inputOutOfStock()
                 $headers .='X-Mailer: PHP/' . phpversion();
                 $headers .= "MIME-Version: 1.0\r\n";
                 $headers .= "Content-type: text/html; charset=iso-8859-1\r\n"; 
-                $headers .= 'Cc: '.$datax->email_aspm.'' . "\r\n";
+                $headers .= 'Cc: '.$datax->email_aspm.',rizal@sada.co.id' . "\r\n";
                 $content .= '</table>
               </div>
             </div>
