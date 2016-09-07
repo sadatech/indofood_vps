@@ -1830,8 +1830,9 @@ public function tes()
   $exp = explode(',', $datax->email_pic);  
 
   foreach ($exp as $key => $value) {
-      echo $value;
+      $data[] = $value;
   }
+  echo $data;
 }
 
 public function inputOutOfStock()
