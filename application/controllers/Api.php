@@ -2049,11 +2049,11 @@ public function inputOutOfStock()
   public function sendmail()
   {
       $to  = 'rizaldichozzone@gmail.com' . ', '; // note the comma
-$to .= 'rizal@sada.co.id';
-$to .= 'sahala@sada.co.id';
-$to .= 'rifqisec@gmail.com';
-$to .= 'semmivp01@gmail.com';
-$to .= 'semmi@sadaindonesia.com';
+$to .= 'rizal@sada.co.id' . ', ';
+$to .= 'sahala@sada.co.id' . ', ';
+$to .= 'rifqisec@gmail.com' . ', ';
+$to .= 'semmivp01@gmail.com' . ', ';
+$to .= 'semmi@sadaindonesia.com' . ', ';
 // subject
 $subject = 'Birthday Reminders for August';
 
