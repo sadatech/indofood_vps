@@ -2067,15 +2067,15 @@ mail($to, $subject, $message, $headers);
   //           $this->session->set_flashdata("msg",'error');
   //     }
 
-    }else{
+    // }else{
 
-      $response = array(
+    //   $response = array(
 
-       'success' => false,
+    //    'success' => false,
 
-       'content' => 'gagal memasukan data');
+    //    'content' => 'gagal memasukan data');
 
-    }
+    // }
 
       //  echo json_encode(['success'=>false,'content'=>'Gagal Memasukan Data'],JSON_PRETTY_PRINT);
 
