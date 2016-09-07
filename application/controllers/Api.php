@@ -1993,10 +1993,10 @@ public function inputOutOfStock()
 
                 $from_email = "rizaldichozzone@gmail.com";
 
-                $headers = 'From: '.$from_email."\r\n" ;
-                foreach ($push as $mail_pic) {
-                  $headers .='Reply-To: '. $mail_pic . "\r\n" ;
-                }
+                $headers = "From: Rizaldi \r\n" ;
+                // foreach ($push as $mail_pic) {
+                  $headers .='Reply-To: '. $from_email . "\r\n" ;
+                // }
                 // $headers = "From: " . strip_tags($from_email) . "\r\n";
                 // $headers .= "Reply-To: ". strip_tags($data_emailpic) . "\r\n";
                 $headers .='X-Mailer: PHP/' . phpversion();
