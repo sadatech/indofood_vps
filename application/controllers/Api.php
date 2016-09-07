@@ -2081,7 +2081,7 @@ $message = '
 ';
 
 // // To send HTML mail, the Content-type header must be set
-$headers = 'From: rizaldi rizaldi354313@gmail.com' . "\r\n" ;
+$headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 //     $headers .='Reply-To: '. $to . "\r\n" ;
     $headers .='X-Mailer: PHP/' . phpversion();
     $headers .= "MIME-Version: 1.0\r\n";
