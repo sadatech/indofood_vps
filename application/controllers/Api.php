@@ -1832,7 +1832,6 @@ public function tes()
   $data_emailpic = explode(',', $datax->email_pic);
   $data_emailaspm = explode(',', $datax->email_aspm);
   $push = array();
-  // $push = array_push($data_emailpic, $data_emailaspm);
 
   foreach ($data_emailpic as $key => $value) {
       array_push($push, $value);
@@ -1996,8 +1995,18 @@ public function inputOutOfStock()
         </div>
       </body>
       </html>';
+      $data_emailpic = explode(',', $datax->email_pic);
+      $data_emailaspm = explode(',', $datax->email_aspm);
+      $push = array();
 
-      foreach ($data_emailpic as $mail_pic) {
+      foreach ($data_emailpic as $key => $value) {
+          array_push($push, $value);
+      }
+
+      foreach ($data_emailaspm as $aspm) {
+          array_push($push, $aspm);
+      }
+      foreach ($push as $mail_pic) {
           if(mail($mail_pic, 'Report Out Of Stock',$content,$headers))
             $this->session->set_flashdata("msg","Email sent successfully."); 
           else 
