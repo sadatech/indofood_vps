@@ -1883,89 +1883,69 @@ public function inputOutOfStock()
 
 
 
-  // $content = '
+  $content = '
   
-  // <!DOCTYPE html>
-  // <html>
-  // <head>
-  //   <style type="text/css">
-  //       table {
-  //         border-collapse: collapse;
-  //         border-spacing: 0;
-  //         width: 100%;
-  //         border: 1px solid #ddd;
-  //       }
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <style type="text/css">
+        table {
+          border-collapse: collapse;
+          border-spacing: 0;
+          width: 100%;
+          border: 1px solid #ddd;
+        }
 
-  //       th, td {
-  //         border: none;
-  //         text-align: left;
-  //         padding: 8px;
-  //       }
+        th, td {
+          border: none;
+          text-align: left;
+          padding: 8px;
+        }
 
-  //       tr:nth-child(even){background-color: #f2f2f2}
-  //   </style>
-  //   <title></title>
-  // </head>
-  // <body>
-  //   <div style="width:100%;height: 900px;background: #336e7b;font-family: sans-serif;" align="center">
-  //     <div align="center">
-  //       <img src="'.base_url("assets/layouts/layout4/img/indofood.png").'" width="50" height="50">
-  //       <span style="color: #fff;font-family: sans-serif;">
-  //         <b>BA Promina AppRetail</b>
-  //       </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  //       <span style="color: #000;font-family: sans-serif;">
-  //         <b>To Website</b>
-  //       </span>
-  //       <br>
-  //       <br>
-  //     </div>
-  //     <div style="width:95%;height: 800px;background: #fff;">
-  //       <div style="padding: 10px;">
-  //         Perihal :
-  //         <span><b>
-  //           Report Out Of Stock</b>
-  //         </span>
-  //         <hr></hr>
-  //       </div>
-  //       <div style="padding-left: 30px;" align="left">
-  //         <h3>
-  //           <p style="color: #2ecc71 ;">Kepada Bpk/Ibu <b>'.$datax->pic.'</b></p>
-  //         </h3>
-  //         <h4>
-  //           <p>berikut ini kami laporkan data out of stock di cabang '.$datax->nama.' berdasarkan hasil input brand ambassador(BA) di toko</p>
-  //         </h4>
+        tr:nth-child(even){background-color: #f2f2f2}
+    </style>
+    <title></title>
+  </head>
+  <body>
+    <div style="width:100%;height: 900px;background: #336e7b;font-family: sans-serif;" align="center">
+      <div align="center">
+        <img src="'.base_url("assets/layouts/layout4/img/indofood.png").'" width="50" height="50">
+        <span style="color: #fff;font-family: sans-serif;">
+          <b>BA Promina AppRetail</b>
+        </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span style="color: #000;font-family: sans-serif;">
+          <b>To Website</b>
+        </span>
+        <br>
+        <br>
+      </div>
+      <div style="width:95%;height: 800px;background: #fff;">
+        <div style="padding: 10px;">
+          Perihal :
+          <span><b>
+            Report Out Of Stock</b>
+          </span>
+          <hr></hr>
+        </div>
+        <div style="padding-left: 30px;" align="left">
+          <h3>
+            <p style="color: #2ecc71 ;">Kepada Bpk/Ibu <b>'.$datax->pic.'</b></p>
+          </h3>
+          <h4>
+            <p>berikut ini kami laporkan data out of stock di cabang '.$datax->nama.' berdasarkan hasil input brand ambassador(BA) di toko</p>
+          </h4>
 
-  //         <div style="overflow-x:auto;width:95%;" align="center">
-  //           <table>
-  //             <tr>
-  //               <th>nama BA</th>
-  //               <th>nama toko</th>
-  //               <th>nama barang</th>
-  //               <th>keterangan Out of stock</th>
-  //               <th>tanggal</th>
-  //             </tr>
-  //             ';
-            $content = '
-<html>
-<head>
-  <title>Birthday Reminders for August</title>
-</head>
-<body>
-  <p>Here are the birthdays upcoming in August!</p>
-  <table>
-    <tr>
-      <th>Person</th><th>Day</th><th>Month</th><th>Year</th>
-    </tr>
-    <tr>
-      <td>Joe</td><td>3rd</td><td>August</td><td>1970</td>
-    </tr>
-    <tr>
-      <td>Sally</td><td>17th</td><td>August</td><td>1973</td>
-    </tr>
-  </table>
-</body>
-</html>
-';
+          <div style="overflow-x:auto;width:95%;" align="center">
+            <table>
+              <tr>
+                <th>nama BA</th>
+                <th>nama toko</th>
+                <th>nama barang</th>
+                <th>keterangan Out of stock</th>
+                <th>tanggal</th>
+              </tr>
+              ';
+
               $baAkses = $this->sada->getUserStatus($id_us);
 
               if($baAkses->akses == 1){
@@ -2009,13 +1989,13 @@ public function inputOutOfStock()
                 $headers .='X-Mailer: PHP/' . phpversion();
                 $headers .= "MIME-Version: 1.0\r\n";
                 $headers .= "Content-type: text/html; charset=iso-8859-1\r\n";   
-      //           $content .= '</table>
-      //         </div>
-      //       </div>
-      //     </div>
-      //   </div>
-      // </body>
-      // </html>';
+                $content .= '</table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </body>
+      </html>';
       $data_emailpic = explode(',', $datax->email_pic);
       $data_emailaspm = explode(',', $datax->email_aspm);
       $push = array();
