@@ -1993,15 +1993,28 @@ public function inputOutOfStock()
 
                 $from_email = "rizaldichozzone@gmail.com";
 
-                $headers = "From: Rizaldi \r\n" ;
-                // foreach ($push as $mail_pic) {
-                  $headers .='Reply-To: '. $from_email . "\r\n" ;
-                // }
-                // $headers = "From: " . strip_tags($from_email) . "\r\n";
-                // $headers .= "Reply-To: ". strip_tags($data_emailpic) . "\r\n";
-                $headers .='X-Mailer: PHP/' . phpversion();
-                $headers .= "MIME-Version: 1.0\r\n";
-                $headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
+                $headers  = 'MIME-Version: 1.0' . "\r\n";
+                $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+                $headers .= 'To: Rizaldi <rizaldi354313@gmail.com>' . "\r\n";
+                $headers .= 'From: Rizaldi <'.$from_email.'>' . "\r\n";
+                // $headers .= 'Cc: birthdayarchive@example.com' . "\r\n";
+                // $headers .= 'Bcc: birthdaycheck@example.com' . "\r\n";
+
+                // $headers = 'From: Rizaldi '.$from_email.'' . "\r\n" ;
+                // $headers .='Reply-To: '. $to . "\r\n" ;
+                // $headers .='X-Mailer: PHP/' . phpversion();
+                // $headers .= "MIME-Version: 1.0\r\n";
+                // $headers .= "Content-type: text/html; charset=iso-8859-1\r\n";   
+                // $headers = "From: Rizaldi \r\n" ;
+                // // foreach ($push as $mail_pic) {
+                //   $headers .='Reply-To: '. $from_email . "\r\n" ;
+                // // }
+                // // $headers = "From: " . strip_tags($from_email) . "\r\n";
+                // // $headers .= "Reply-To: ". strip_tags($data_emailpic) . "\r\n";
+                // $headers .='X-Mailer: PHP/' . phpversion();
+                // $headers .= "MIME-Version: 1.0\r\n";
+                // $headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
 
                 $content .= '</table>
               </div>
