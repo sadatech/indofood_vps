@@ -1827,13 +1827,18 @@ public function tes()
 {
   $store_id = $this->input->get('id_toko');
   $datax = $this->sada->getEmail($store_id)->row();
-  $exp = explode(',', $datax->email_pic);  
+  // $exp = explode(',', $datax->email_pic);  
+
+  $data_emailpic = explode(',', $datax->email_pic);
+  $data_emailaspm = explode(',', $datax->email_aspm);
+
+  $push = array_push($data_emailpic, $data_emailaspm);
 
   // foreach ($exp as $key => $value) {
   //     $data[] = $value;
   // }
   // echo $data;
-  var_dump($exp);
+  var_dump($push);
 }
 
 public function inputOutOfStock()
