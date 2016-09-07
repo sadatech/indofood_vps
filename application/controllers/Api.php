@@ -1928,8 +1928,10 @@ public function inputOutOfStock()
         </div>
         <div style="padding-left: 30px;" align="left">
           <h3>
+            <p style="color: #2ecc71 ;">Kepada Bpk/Ibu <b>'.$datax->pic.'</b></p>
           </h3>
           <h4>
+            <p>berikut ini kami laporkan data out of stock di cabang '.$datax->nama.' berdasarkan hasil input brand ambassador(BA) di toko</p>
           </h4>
 
           <div style="overflow-x:auto;width:95%;" align="center">
