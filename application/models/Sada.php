@@ -1368,7 +1368,9 @@ function _getLoginMobile($dataLogin)
 
                 'password'     => $row->password,
 
-                'Store_id'=> $row_toko->store_id
+                'Store_id'=> $row_toko->store_id,
+
+                'id_toko' => $row_toko->id_toko
 
                 );
 

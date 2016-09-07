@@ -1958,7 +1958,7 @@ public function inputOutOfStock()
                   }
                 }
 
-                $from_email = "rizaldichozzone@gmail.com";
+                $from_email = "oos_info@ba-promina.co.id";
 
                 $headers = "From: " . strip_tags($from_email) . "\r\n";
                 $headers .= "Reply-To: ". strip_tags($datax->email_pic) . "\r\n";
