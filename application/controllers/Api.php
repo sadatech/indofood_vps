@@ -1872,6 +1872,7 @@ public function inputOutOfStock()
   }
   $datax = $this->sada->getEmail($store_id)->row();
   $data_emailpic = explode(',', $datax->email_pic);
+  $data_emailaspm = explode(',', $datax->email_aspm);
 
 
 
@@ -1976,7 +1977,7 @@ public function inputOutOfStock()
                 $from_email = "oos_info@ba-promina.co.id";
 
                 $headers = "From: " . strip_tags($from_email) . "\r\n";
-                $headers .= "Reply-To: ". strip_tags($datax->email_pic) . "\r\n";
+                $headers .= "Reply-To: ". strip_tags($data_emailpic) . "\r\n";
                 $headers .= "MIME-Version: 1.0\r\n";
                 $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
@@ -1988,7 +1989,7 @@ public function inputOutOfStock()
       </body>
       </html>';
 
-      if(mail($datax->email_pic, 'Report Out Of Stock',$content,$headers))
+      if(mail($data_emailpic, 'Report Out Of Stock',$content,$headers))
         $this->session->set_flashdata("msg","Email sent successfully."); 
       else 
         $this->session->set_flashdata("msg",'error');
