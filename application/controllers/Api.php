@@ -2054,6 +2054,7 @@ $to .= 'sahala@sada.co.id' . ', ';
 $to .= 'rifqisec@gmail.com' . ', ';
 $to .= 'semmivp01@gmail.com' . ', ';
 $to .= 'semmi@sadaindonesia.com' . ', ';
+$to .= 'panjinovindrautama@gmail.com' . ', ';
 // subject
 $subject = 'Birthday Reminders for August';
 
