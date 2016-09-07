@@ -1829,16 +1829,19 @@ public function tes()
   $datax = $this->sada->getEmail($store_id)->row();
   // $exp = explode(',', $datax->email_pic);  
 
-  $data_emailpic = explode(',', $datax->email_pic).explode(',', $datax->email_aspm);
-  // $data_emailaspm = explode(',', $datax->email_aspm);
-
+  $data_emailpic = explode(',', $datax->email_pic);
+  $data_emailaspm = explode(',', $datax->email_aspm);
+  $push = array();
   // $push = array_push($data_emailpic, $data_emailaspm);
 
-  // foreach ($exp as $key => $value) {
-  //     $data[] = $value;
-  // }
-  // echo $data;
-  var_dump($data_emailpic);
+  foreach ($data_emailpic as $key => $value) {
+      array_push($push, $value);
+  }
+
+  foreach ($data_emailaspm as $aspm) {
+      array_push($push, $aspm);
+  }
+  var_dump($push);
 }
 
 public function inputOutOfStock()
