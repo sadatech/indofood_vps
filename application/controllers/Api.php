@@ -1829,7 +1829,7 @@ public function tes()
   $datax = $this->sada->getEmail($store_id)->row();
   // $exp = explode(',', $datax->email_pic);  
 
-  $data_emailpic = explode(',', $datax->email_pic).explode(',', $datax->email_aspm);
+  $data_emailpic = explode(',', $datax->email_pic);
   // $data_emailaspm = explode(',', $datax->email_aspm);
 
   // $push = array_push($data_emailpic, $data_emailaspm);
