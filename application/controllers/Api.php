@@ -1827,7 +1827,11 @@ public function tes()
 {
   $store_id = $this->input->get('id_toko');
   $datax = $this->sada->getEmail($store_id)->row();
-  var_dump(explode(',', $datax->email_pic));  
+  $exp = explode(',', $datax->email_pic);  
+
+  foreach ($exp as $key => $value) {
+      echo $value;
+  }
 }
 
 public function inputOutOfStock()
