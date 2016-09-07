@@ -1829,10 +1829,11 @@ public function tes()
   $datax = $this->sada->getEmail($store_id)->row();
   $exp = explode(',', $datax->email_pic);  
 
-  foreach ($exp as $key => $value) {
-      $data[] = $value;
-  }
-  echo $data;
+  // foreach ($exp as $key => $value) {
+  //     $data[] = $value;
+  // }
+  // echo $data;
+  var_dump($exp);
 }
 
 public function inputOutOfStock()
