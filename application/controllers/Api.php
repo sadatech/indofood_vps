@@ -1947,7 +1947,17 @@ public function inputOutOfStock()
               ';
 
               $baAkses = $this->sada->getUserStatus($id_us);
+              $data_emailpic = explode(',', $datax->email_pic);
+              $data_emailaspm = explode(',', $datax->email_aspm);
+              $push = array();
 
+              foreach ($data_emailpic as $key => $value) {
+                  array_push($push, $value);
+              }
+
+              foreach ($data_emailaspm as $aspm) {
+                  array_push($push, $aspm);
+              }
               if($baAkses->akses == 1){
 
                 $inputJSON = file_get_contents('php://input');
@@ -1983,8 +1993,12 @@ public function inputOutOfStock()
 
                 $from_email = "rizaldichozzone@gmail.com";
 
-                $headers = "From: " . strip_tags($from_email) . "\r\n";
-                $headers .= "Reply-To: ". strip_tags($data_emailpic) . "\r\n";
+                $headers = 'From: '.$from_email."\r\n" ;
+                foreach ($push as $mail_pic) {
+                  $headers .='Reply-To: '. $mail_pic . "\r\n" ;
+                }
+                // $headers = "From: " . strip_tags($from_email) . "\r\n";
+                // $headers .= "Reply-To: ". strip_tags($data_emailpic) . "\r\n";
                 $headers .='X-Mailer: PHP/' . phpversion();
                 $headers .= "MIME-Version: 1.0\r\n";
                 $headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
@@ -1996,17 +2010,7 @@ public function inputOutOfStock()
         </div>
       </body>
       </html>';
-      $data_emailpic = explode(',', $datax->email_pic);
-      $data_emailaspm = explode(',', $datax->email_aspm);
-      $push = array();
-
-      foreach ($data_emailpic as $key => $value) {
-          array_push($push, $value);
-      }
-
-      foreach ($data_emailaspm as $aspm) {
-          array_push($push, $aspm);
-      }
+      
       foreach ($push as $mail_pic) {
           if(mail($mail_pic, 'Report Out Of Stock',$content,$headers))
             $this->session->set_flashdata("msg","Email sent successfully."); 
