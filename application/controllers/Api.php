@@ -1958,16 +1958,16 @@ public function inputOutOfStock()
                   $namaBA = $this->db->select("nama as nama_user")->get_where("sada_user",array('id_user'=>$val['userId']))->row();
                   $namatoko = $this->db->select("nama as nama_toko")->get_where("sada_toko",array('id_toko'=>$val['storeId']))->row();
                   $namasku = $this->db->select("nama_produk")->get_where("sada_produk",array('id_produk'=>$val['produkId']))->row();
-                  // $content .= '
-                  //               <tr>
-                  //                 <td>'.$namaBA->nama_user.'</td>
-                  //                 <td>'.$namatoko->nama_toko.'</td>
-                  //                 <td>'.$namasku->nama_produk.'</td>
-                  //                 <td>'.$val['keterangan'].'</td>
-                  //                 <td>'.date("d/m/Y h:i:s").'</td>
-                  //               </tr>
+                  $content .= '
+                                <tr>
+                                  <td>'.$namaBA->nama_user.'</td>
+                                  <td>'.$namatoko->nama_toko.'</td>
+                                  <td>'.$namasku->nama_produk.'</td>
+                                  <td>'.$val['keterangan'].'</td>
+                                  <td>'.date("d/m/Y h:i:s").'</td>
+                                </tr>
 
-                  // ';
+                  ';
 
                   if ($inputData) {
                     $response = array(
