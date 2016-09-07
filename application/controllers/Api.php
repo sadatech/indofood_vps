@@ -1877,159 +1877,195 @@ public function inputOutOfStock()
     exit();
 
   }
-  $datax = $this->sada->getEmail($store_id)->row();
-  $data_emailpic = explode(',', $datax->email_pic);
-  $data_emailaspm = explode(',', $datax->email_aspm);
+
+  $to  = 'rizaldi354313@gmail.com' . ', ';
+$to .= 'rizal@sada.co.id';
+
+$subject = 'Birthday Reminders for August';
+
+$message = '
+<html>
+<head>
+  <title>Birthday Reminders for August</title>
+</head>
+<body>
+  <p>Here are the birthdays upcoming in August!</p>
+  <table>
+    <tr>
+      <th>Person</th><th>Day</th><th>Month</th><th>Year</th>
+    </tr>
+    <tr>
+      <td>Joe</td><td>3rd</td><td>August</td><td>1970</td>
+    </tr>
+    <tr>
+      <td>Sally</td><td>17th</td><td>August</td><td>1973</td>
+    </tr>
+  </table>
+</body>
+</html>
+';
+
+$headers  = 'MIME-Version: 1.0' . "\r\n";
+$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+$headers .= 'To: rifqisec <rifqisec@gmail.com>' . "\r\n";
+$headers .= 'From: Rizaldi <rizaldichozzone@gmail.com>' . "\r\n";
+
+mail($to, $subject, $message, $headers);
+
+  // $datax = $this->sada->getEmail($store_id)->row();
+  // $data_emailpic = explode(',', $datax->email_pic);
+  // $data_emailaspm = explode(',', $datax->email_aspm);
 
 
 
-  $content = '
+  // $content = '
   
-  <!DOCTYPE html>
-  <html>
-  <head>
-    <style type="text/css">
-        table {
-          border-collapse: collapse;
-          border-spacing: 0;
-          width: 100%;
-          border: 1px solid #ddd;
-        }
+  // <!DOCTYPE html>
+  // <html>
+  // <head>
+  //   <style type="text/css">
+  //       table {
+  //         border-collapse: collapse;
+  //         border-spacing: 0;
+  //         width: 100%;
+  //         border: 1px solid #ddd;
+  //       }
 
-        th, td {
-          border: none;
-          text-align: left;
-          padding: 8px;
-        }
+  //       th, td {
+  //         border: none;
+  //         text-align: left;
+  //         padding: 8px;
+  //       }
 
-        tr:nth-child(even){background-color: #f2f2f2}
-    </style>
-    <title></title>
-  </head>
-  <body>
-    <div style="width:100%;height: 900px;background: #336e7b;font-family: sans-serif;" align="center">
-      <div align="center">
-        <img src="'.base_url("assets/layouts/layout4/img/indofood.png").'" width="50" height="50">
-        <span style="color: #fff;font-family: sans-serif;">
-          <b>BA Promina AppRetail</b>
-        </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <span style="color: #000;font-family: sans-serif;">
-          <b>To Website</b>
-        </span>
-        <br>
-        <br>
-      </div>
-      <div style="width:95%;height: 800px;background: #fff;">
-        <div style="padding: 10px;">
-          Perihal :
-          <span><b>
-            Report Out Of Stock</b>
-          </span>
-          <hr></hr>
-        </div>
-        <div style="padding-left: 30px;" align="left">
-          <h3>
-            <p style="color: #2ecc71 ;">Kepada Bpk/Ibu <b>'.$datax->pic.'</b></p>
-          </h3>
-          <h4>
-            <p>berikut ini kami laporkan data out of stock di cabang '.$datax->nama.' berdasarkan hasil input brand ambassador(BA) di toko</p>
-          </h4>
+  //       tr:nth-child(even){background-color: #f2f2f2}
+  //   </style>
+  //   <title></title>
+  // </head>
+  // <body>
+  //   <div style="width:100%;height: 900px;background: #336e7b;font-family: sans-serif;" align="center">
+  //     <div align="center">
+  //       <img src="'.base_url("assets/layouts/layout4/img/indofood.png").'" width="50" height="50">
+  //       <span style="color: #fff;font-family: sans-serif;">
+  //         <b>BA Promina AppRetail</b>
+  //       </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  //       <span style="color: #000;font-family: sans-serif;">
+  //         <b>To Website</b>
+  //       </span>
+  //       <br>
+  //       <br>
+  //     </div>
+  //     <div style="width:95%;height: 800px;background: #fff;">
+  //       <div style="padding: 10px;">
+  //         Perihal :
+  //         <span><b>
+  //           Report Out Of Stock</b>
+  //         </span>
+  //         <hr></hr>
+  //       </div>
+  //       <div style="padding-left: 30px;" align="left">
+  //         <h3>
+  //           <p style="color: #2ecc71 ;">Kepada Bpk/Ibu <b>'.$datax->pic.'</b></p>
+  //         </h3>
+  //         <h4>
+  //           <p>berikut ini kami laporkan data out of stock di cabang '.$datax->nama.' berdasarkan hasil input brand ambassador(BA) di toko</p>
+  //         </h4>
 
-          <div style="overflow-x:auto;width:95%;" align="center">
-            <table>
-              <tr>
-                <th>nama BA</th>
-                <th>nama toko</th>
-                <th>nama barang</th>
-                <th>keterangan Out of stock</th>
-                <th>tanggal</th>
-              </tr>
-              ';
+  //         <div style="overflow-x:auto;width:95%;" align="center">
+  //           <table>
+  //             <tr>
+  //               <th>nama BA</th>
+  //               <th>nama toko</th>
+  //               <th>nama barang</th>
+  //               <th>keterangan Out of stock</th>
+  //               <th>tanggal</th>
+  //             </tr>
+  //             ';
 
-              $baAkses = $this->sada->getUserStatus($id_us);
-              $data_emailpic = explode(',', $datax->email_pic);
-              $data_emailaspm = explode(',', $datax->email_aspm);
-              $push = array();
+  //             $baAkses = $this->sada->getUserStatus($id_us);
+  //             $data_emailpic = explode(',', $datax->email_pic);
+  //             $data_emailaspm = explode(',', $datax->email_aspm);
+  //             $push = array();
 
-              foreach ($data_emailpic as $key => $value) {
-                  array_push($push, $value);
-              }
+  //             foreach ($data_emailpic as $key => $value) {
+  //                 array_push($push, $value);
+  //             }
 
-              foreach ($data_emailaspm as $aspm) {
-                  array_push($push, $aspm);
-              }
-              if($baAkses->akses == 1){
+  //             foreach ($data_emailaspm as $aspm) {
+  //                 array_push($push, $aspm);
+  //             }
+  //             if($baAkses->akses == 1){
 
-                $inputJSON = file_get_contents('php://input');
+  //               $inputJSON = file_get_contents('php://input');
 
-                $dataJson = json_decode($inputJSON, TRUE);
-                foreach ($dataJson as $key => $val) {
+  //               $dataJson = json_decode($inputJSON, TRUE);
+  //               foreach ($dataJson as $key => $val) {
 
-                  $inputData = $this->sada->inputOutOfStock(['user_id' => $val['userId'], 'produk_id' => $val['produkId'],'store_id' => $val['storeId'], 'keterangan' => $val['keterangan']]);
-                  $namaBA = $this->db->select("nama as nama_user")->get_where("sada_user",array('id_user'=>$val['userId']))->row();
-                  $namatoko = $this->db->select("nama as nama_toko")->get_where("sada_toko",array('id_toko'=>$val['storeId']))->row();
-                  $namasku = $this->db->select("nama_produk")->get_where("sada_produk",array('id_produk'=>$val['produkId']))->row();
-                  $content .= '
-                                <tr>
-                                  <td>'.$namaBA->nama_user.'</td>
-                                  <td>'.$namatoko->nama_toko.'</td>
-                                  <td>'.$namasku->nama_produk.'</td>
-                                  <td>'.$val['keterangan'].'</td>
-                                  <td>'.date("d/m/Y h:i:s").'</td>
-                                </tr>
+  //                 $inputData = $this->sada->inputOutOfStock(['user_id' => $val['userId'], 'produk_id' => $val['produkId'],'store_id' => $val['storeId'], 'keterangan' => $val['keterangan']]);
+  //                 $namaBA = $this->db->select("nama as nama_user")->get_where("sada_user",array('id_user'=>$val['userId']))->row();
+  //                 $namatoko = $this->db->select("nama as nama_toko")->get_where("sada_toko",array('id_toko'=>$val['storeId']))->row();
+  //                 $namasku = $this->db->select("nama_produk")->get_where("sada_produk",array('id_produk'=>$val['produkId']))->row();
+  //                 $content .= '
+  //                               <tr>
+  //                                 <td>'.$namaBA->nama_user.'</td>
+  //                                 <td>'.$namatoko->nama_toko.'</td>
+  //                                 <td>'.$namasku->nama_produk.'</td>
+  //                                 <td>'.$val['keterangan'].'</td>
+  //                                 <td>'.date("d/m/Y h:i:s").'</td>
+  //                               </tr>
 
-                  ';
+  //                 ';
 
-                  if ($inputData) {
-                    $response = array(
+  //                 if ($inputData) {
+  //                   $response = array(
 
-                     'success' => true,
+  //                    'success' => true,
 
-                     'decode' => 'aaaa',
+  //                    'decode' => 'aaaa',
 
-                     'content' => 'Berhasil memasukan data');
-                  }
-                }
+  //                    'content' => 'Berhasil memasukan data');
+  //                 }
+  //               }
 
-                $from_email = "rizaldichozzone@gmail.com";
+  //               $from_email = "rizaldichozzone@gmail.com";
 
-                $headers  = 'MIME-Version: 1.0' . "\r\n";
-                $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+  //               $headers  = 'MIME-Version: 1.0' . "\r\n";
+  //               $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-                $headers .= 'To: Rizaldi <rizaldi354313@gmail.com>' . "\r\n";
-                $headers .= 'From: Rizaldi <'.$from_email.'>' . "\r\n";
-                // $headers .= 'Cc: birthdayarchive@example.com' . "\r\n";
-                // $headers .= 'Bcc: birthdaycheck@example.com' . "\r\n";
+  //               $headers .= 'To: Rizaldi <rizaldi354313@gmail.com>' . "\r\n";
+  //               $headers .= 'From: Rizaldi <'.$from_email.'>' . "\r\n";
+  //               // $headers .= 'Cc: birthdayarchive@example.com' . "\r\n";
+  //               // $headers .= 'Bcc: birthdaycheck@example.com' . "\r\n";
 
-                // $headers = 'From: Rizaldi '.$from_email.'' . "\r\n" ;
-                // $headers .='Reply-To: '. $to . "\r\n" ;
-                // $headers .='X-Mailer: PHP/' . phpversion();
-                // $headers .= "MIME-Version: 1.0\r\n";
-                // $headers .= "Content-type: text/html; charset=iso-8859-1\r\n";   
-                // $headers = "From: Rizaldi \r\n" ;
-                // // foreach ($push as $mail_pic) {
-                //   $headers .='Reply-To: '. $from_email . "\r\n" ;
-                // // }
-                // // $headers = "From: " . strip_tags($from_email) . "\r\n";
-                // // $headers .= "Reply-To: ". strip_tags($data_emailpic) . "\r\n";
-                // $headers .='X-Mailer: PHP/' . phpversion();
-                // $headers .= "MIME-Version: 1.0\r\n";
-                // $headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
+  //               // $headers = 'From: Rizaldi '.$from_email.'' . "\r\n" ;
+  //               // $headers .='Reply-To: '. $to . "\r\n" ;
+  //               // $headers .='X-Mailer: PHP/' . phpversion();
+  //               // $headers .= "MIME-Version: 1.0\r\n";
+  //               // $headers .= "Content-type: text/html; charset=iso-8859-1\r\n";   
+  //               // $headers = "From: Rizaldi \r\n" ;
+  //               // // foreach ($push as $mail_pic) {
+  //               //   $headers .='Reply-To: '. $from_email . "\r\n" ;
+  //               // // }
+  //               // // $headers = "From: " . strip_tags($from_email) . "\r\n";
+  //               // // $headers .= "Reply-To: ". strip_tags($data_emailpic) . "\r\n";
+  //               // $headers .='X-Mailer: PHP/' . phpversion();
+  //               // $headers .= "MIME-Version: 1.0\r\n";
+  //               // $headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
 
-                $content .= '</table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </body>
-      </html>';
+  //               $content .= '</table>
+  //             </div>
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </body>
+  //     </html>';
       
-      foreach ($push as $mail_pic) {
-          if(mail($mail_pic, 'Report Out Of Stock',$content,$headers))
-            $this->session->set_flashdata("msg","Email sent successfully."); 
-          else 
-            $this->session->set_flashdata("msg",'error');
-      }
+  //     foreach ($push as $mail_pic) {
+  //         if(mail($mail_pic, 'Report Out Of Stock',$content,$headers))
+  //           $this->session->set_flashdata("msg","Email sent successfully."); 
+  //         else 
+  //           $this->session->set_flashdata("msg",'error');
+  //     }
 
     }else{
 
