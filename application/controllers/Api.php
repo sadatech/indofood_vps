@@ -2055,40 +2055,40 @@ $to .= 'rifqisec@gmail.com' . ', ';
 $to .= 'semmivp01@gmail.com' . ', ';
 $to .= 'semmi@sadaindonesia.com' . ', ';
 // subject
-$subject = 'Birthday Reminders for August';
+// $subject = 'Birthday Reminders for August';
 
-// message
-$message = '
-<html>
-<head>
-  <title>Birthday Reminders for August</title>
-</head>
-<body>
-  <p>Here are the birthdays upcoming in August!</p>
-  <table>
-    <tr>
-      <th>Person</th><th>Day</th><th>Month</th><th>Year</th>
-    </tr>
-    <tr>
-      <td>Joe</td><td>3rd</td><td>August</td><td>1970</td>
-    </tr>
-    <tr>
-      <td>Sally</td><td>17th</td><td>August</td><td>1973</td>
-    </tr>
-  </table>
-</body>
-</html>
-';
+// // message
+// $message = '
+// <html>
+// <head>
+//   <title>Birthday Reminders for August</title>
+// </head>
+// <body>
+//   <p>Here are the birthdays upcoming in August!</p>
+//   <table>
+//     <tr>
+//       <th>Person</th><th>Day</th><th>Month</th><th>Year</th>
+//     </tr>
+//     <tr>
+//       <td>Joe</td><td>3rd</td><td>August</td><td>1970</td>
+//     </tr>
+//     <tr>
+//       <td>Sally</td><td>17th</td><td>August</td><td>1973</td>
+//     </tr>
+//   </table>
+// </body>
+// </html>
+// ';
 
-// To send HTML mail, the Content-type header must be set
-$headers = 'From: rizaldi rizaldi354313@gmail.com' . "\r\n" ;
-    $headers .='Reply-To: '. $to . "\r\n" ;
-    $headers .='X-Mailer: PHP/' . phpversion();
-    $headers .= "MIME-Version: 1.0\r\n";
-    $headers .= "Content-type: text/html; charset=iso-8859-1\r\n";   
+// // To send HTML mail, the Content-type header must be set
+// $headers = 'From: rizaldi rizaldi354313@gmail.com' . "\r\n" ;
+//     $headers .='Reply-To: '. $to . "\r\n" ;
+//     $headers .='X-Mailer: PHP/' . phpversion();
+//     $headers .= "MIME-Version: 1.0\r\n";
+//     $headers .= "Content-type: text/html; charset=iso-8859-1\r\n";   
 
 // Mail it
-mail($to, $subject, $message, $headers);
+    mail($to, $subject, $message);
   }
 
     // Report Related API
