@@ -1823,7 +1823,12 @@ public function inputConsumerPromo()
 
 }
 
-
+public function tes()
+{
+  $store_id = $this->input->get('id_toko');
+  $datax = $this->sada->getEmail($store_id)->row();
+  var_dump(explode(',', $datax->email_pic));  
+}
 
 public function inputOutOfStock()
 
@@ -1860,6 +1865,10 @@ public function inputOutOfStock()
 
   }
   $datax = $this->sada->getEmail($store_id)->row();
+  $data_emailpic = explode(',', $datax->email_pic);
+
+
+
   $content = '
   
   <!DOCTYPE html>

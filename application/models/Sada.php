@@ -2136,7 +2136,7 @@ public function getEmail($id_toko)
 {
     $data = $this->db->distinct()
 
-    ->select(['cabang.email_pic','cabang.nama','cabang.pic'])
+    ->select(['cabang.email_pic','cabang.nama','cabang.pic','cabang.aspm','cabang.email_aspm'])
 
     ->join('sada_kota kota','kota.id_kota = sada_toko.id_kota','inner')
     ->join('sada_cabang cabang','kota.id_cabang = cabang.id_cabang','inner')
