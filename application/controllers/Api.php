@@ -1902,7 +1902,7 @@ public function inputOutOfStock()
   <body>
     <div style="width:100%;height: 900px;background: #336e7b;font-family: sans-serif;" align="center">
       <div align="center">
-        <img src="'.base_url("assets/layouts/layout4/img/indofoodz.png").'" width="50" height="50">
+        <img src="'.base_url("assets/layouts/layout4/img/indofood.png").'" width="50" height="50">
         <span style="color: #fff;font-family: sans-serif;">
           <b>BA Promina AppRetail</b>
         </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -1974,7 +1974,7 @@ public function inputOutOfStock()
                   }
                 }
 
-                $from_email = "oos_info@ba-promina.co.id";
+                $from_email = "rizaldi354313@gmail.com";
 
                 $headers = "From: " . strip_tags($from_email) . "\r\n";
                 $headers .= "Reply-To: ". strip_tags($data_emailpic) . "\r\n";
