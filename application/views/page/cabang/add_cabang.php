@@ -29,7 +29,7 @@
         border:none;
         box-shadow:0 0 5px
     }
-</style>		
+</style>        
 
 <div class="row">
  <div class="col-md-12 ">
@@ -40,10 +40,10 @@
                 <i class="fa fa-user-plus"></i>
                 <span class="caption-subject bold uppercase"> <?php echo $title ?></span>
             </div>
-
+<a href="#" id="add_pic" class="btn btn-primary add_pic"><i class="glyphicon glyphicon-plus"></i></a>
         </div>
         <div class="portlet-body form">
-            <?php echo form_open('cabang/add', 'role="form"'); ?>
+            <?php echo form_open('', array()); ?>
             <div class="form-body">
                 <div class="form-group">
                     <label id="cabang">Nama Cabang</label>
@@ -53,6 +53,7 @@
                             <i class="fa fa-plus-square-o"></i>
                         </span>
                         <input id="nama-cabang" type="text" class="form-control" name="nama-cabang" placeholder="Nama Cabang">
+
                     </div>
                 </div>
                 <!-- <div class="form-group">
@@ -66,18 +67,73 @@
                         <span id='errmsg' style="color:red;"></span>
                     </div>
                 </div> -->
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label id="nik">PIC</label>
                     <?php echo form_error('pic'); ?>
-                    <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="fa fa-plus-square-o"></i>
-                        </span>
-                        <input id="pic" type="text" class="form-control" name="pic" placeholder="pic"> 
-                        <span id='errmsg' style="color:red;"></span>
+                    <div class="addpicdiv">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fa fa-plus-square-o"></i>
+                            </span>
+                                <input id="pic" type="text" class="form-control" name="pic[]" placeholder="PIC" style="width: 90%;"><span style="padding: 10px;"></span>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
+            <div class="form-group">
+                    <label id="nik">Nama PIC</label>
+                    <?php echo form_error('emailpic'); ?>
+                    <div class="addemailtestdiv">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fa fa-plus-square-o"></i>
+                            </span>
+                                <input id="pic" type="text" class="form-control" name="namapic[]" placeholder="Nama PIC" style="width: 90%;">
+                                <!-- <span style="padding: 10px;"><a href="#" id="add_pic" class="btn btn-primary add_email_pic"><i class="glyphicon glyphicon-plus"></i></a></span>
+ -->                        </div>
+                    </div>
+                </div>
+            <div class="form-group">
+                    <label id="nik">Email PIC</label>
+                    <?php echo form_error('emailpic'); ?>
+                    <div class="addemaildiv">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fa fa-plus-square-o"></i>
+                            </span>
+                                <input id="pic" type="text" class="form-control" name="emailpic[]" placeholder="Email PIC" style="width: 90%;">
+                                <!-- <span style="padding: 10px;"><a href="#" id="add_pic" class="btn btn-primary add_email_pic"><i class="glyphicon glyphicon-plus"></i></a></span>
+ -->              </div>
+                    </div>
+                </div>
+            </div> 
+
+            <div class="form-group">
+                    <label id="nik">ASPM</label>
+                    <?php echo form_error('pic'); ?>
+                    <div class="addaspmdiv">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fa fa-plus-square-o"></i>
+                            </span>
+                                <input id="pic" type="text" class="form-control" name="aspm[]" placeholder="ASPM" style="width: 90%;">
+                        </div>
+                    </div>
+                </div>
+            <div class="form-group">
+                    <label id="nik">Email ASPM</label>
+                    <?php echo form_error('emailpic'); ?>
+                    <div class="addemailaspmdiv">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fa fa-plus-square-o"></i>
+                            </span>
+                                <input id="pic" type="text" class="form-control" name="emailaspm[]" placeholder="Email ASPM" style="width: 90%;">
+                                <!-- <span style="padding: 10px;"><a href="#" id="add_pic" class="btn btn-primary add_email_pic"><i class="glyphicon glyphicon-plus"></i></a></span>
+ -->                        </div>
+                    </div>
+                </div>
+                
             <div class="form-actions">
                 <input type="submit" value="submit" class="btn blue"></input>
                 <a type="button" class="btn default" href="/cabang">Cancel</a>
@@ -90,4 +146,6 @@
 <!-- END SAMPLE FORM PORTLET-->
 </div>
 </div>
-
+</div>
+</div>
+</div>
