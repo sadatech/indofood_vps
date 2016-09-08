@@ -2182,14 +2182,8 @@ public function addDataCabang()
 
 	$dataDas['page'] = "cabang/add_cabang";
 
-
-
-	$this->db->where('status','Y');
-
-	$dataDas['q_cabang'] = $this->db->get('sada_cabang');
-
-
-	$dataDas['js'][] ="assets/custom/validation_number.js";
+	
+	$dataDas['js'][] ="assets/custom/add_cabang.js";
 
 	$this->load->view('view_awal', $dataDas, FALSE);
 
@@ -2203,41 +2197,32 @@ public function insertDataCabang()
 
 	$this->load->library('form_validation');
 
-		//$inCabang = htmlentities($this->input->post("nama-cabang",TRUE), ENT_QUOTES, 'utf-8');
-
 	$cabangName = htmlentities($this->input->post("nama-cabang",TRUE), ENT_QUOTES, 'utf-8');
-	// $target = htmlentities($this->input->post("target",TRUE), ENT_QUOTES, 'utf-8');
-	$pic = htmlentities($this->input->post("pic",TRUE), ENT_QUOTES, 'utf-8');
+	$pic = $this->input->post("namapic");
+	$email_pic_field = $this->input->post("emailpic");
+	$aspm_field = $this->input->post("aspm");
+	$aspm_email_field = $this->input->post("emailaspm");
 
+	// echo print_r($this->input->post());
+	// $this->form_validation->set_error_delimiters('<span class="error">', '</span>');
+	// $this->form_validation->set_rules('nama-cabang', 'Nama Cabang', 'required');
+	// $this->form_validation->set_rules('pic', 'PIC', 'required');
 
+	// // if ($this->form_validation->run() == FALSE)
+	// // {
 
-	$this->form_validation->set_error_delimiters('<span class="error">', '</span>');
-
-	$this->form_validation->set_rules('nama-cabang', 'Nama Cabang', 'required');
-
-	// $this->form_validation->set_rules('target', 'Target', 'required');
-
-	$this->form_validation->set_rules('pic', 'PIC', 'required');
-
-		//$idCabang = $this->db->get_where('sada_cabang',['nama' => $inCabang])->first_row();
-
-	if ($this->form_validation->run() == FALSE)
-
-	{
-
-		$this->addDataCabang();
-
-	}
-
-	else{
-
+	// // 	$this->addDataCabang();
+	// // }
+	// // else{
 		$this->sada->addNewCabang([
 
 				//'id_cabang' => $idCabang->id_cabang,
 
 			'nama' => $cabangName,
-			// 'target' => $target,
-			'pic' => $pic
+			'pic' => implode(',', $pic),
+			'email_pic' => implode(',', $email_pic_field),
+			'aspm' => implode(',', $aspm_field),
+			'email_aspm' => implode(',', $aspm_email_field)
 
 			]);
 
@@ -2245,7 +2230,7 @@ public function insertDataCabang()
 
 		redirect('Dashboard/dataCabang', 'refresh');
 
-	}
+	// // }
 
 }
 
