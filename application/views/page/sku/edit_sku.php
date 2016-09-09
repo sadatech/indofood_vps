@@ -22,7 +22,7 @@
                             </div>
                         </div>
 
-                        <!-- <div class="form-group">
+                        <div class="form-group">
                             <label id="kategori-sku">Kategori SKU</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
@@ -41,7 +41,7 @@
                                 ?>
                             </select>
                         </div>
-                    </div> -->
+                    </div>
                         <!-- <div class="form-group">
                             <label id="kategori-sku">Toko</label>
                             <div class="input-group">
@@ -66,7 +66,7 @@
 
                     </div>
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label id="nik">Price</label>
                         <div class="input-group">
                             <span class="input-group-addon">
@@ -75,7 +75,7 @@
                             <input id="price" type="text" value="<?php echo $loopEditSku->price; ?>" class="form-control" name="price" placeholder="price"> 
                             <span id='errmsg' style="color:red;"></span>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="form-actions">
                     <input type="submit" value="submit" class="btn blue"></input>
