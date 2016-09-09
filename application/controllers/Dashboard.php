@@ -2249,6 +2249,7 @@ public function editDataCabang()
 
 	$dataDas['js'][] ="assets/custom/validation_number.js";
 
+	$dataDas['js'][] ="assets/custom/add_cabang.js";
 	$dataDas['paramId'] = $this->uri->segment(3);
 
 	$dataDas['loopEditCabang'] = $this->sada->editCabang($dataDas['paramId']);
