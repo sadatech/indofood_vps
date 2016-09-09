@@ -89,6 +89,7 @@
                                 <i class="fa fa-plus-square-o"></i>
                             </span>
                                 <input id="pic" type="text" class="form-control" name="namapic[]" placeholder="Nama PIC" style="width: 90%;">
+                                <span style="padding: 10px;"><a href="#" id="add_pic" class="btn btn-primary add_pic"><i class="glyphicon glyphicon-plus"></i></a></span>
                                 <!-- <span style="padding: 10px;"><a href="#" id="add_pic" class="btn btn-primary add_email_pic"><i class="glyphicon glyphicon-plus"></i></a></span>
  -->                        </div>
                     </div>
