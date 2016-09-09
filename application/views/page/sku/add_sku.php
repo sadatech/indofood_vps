@@ -75,7 +75,7 @@
                     </select> 
                 </div>
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label id="nik">Price</label>
                     <?php echo form_error('price'); ?>
                 <div class="input-group">
@@ -86,7 +86,7 @@
                     <span id='errmsg' style="color:red;"></span>
                 </div>
             </div>
-        </div>
+        </div> -->
                                             <!-- <div class="form-group">
                                                 <label id="kategori-sku">Toko</label>
                                                 <?php echo form_error('kategori-store'); ?> 

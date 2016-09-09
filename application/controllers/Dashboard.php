@@ -1903,11 +1903,11 @@ public function insertDataSku()
 
 	$skuStore = htmlentities($this->input->post("kategori-store",TRUE), ENT_QUOTES, 'utf-8');
 	
-	$price = htmlentities($this->input->post("price",TRUE), ENT_QUOTES, 'utf-8');
+	// $price = htmlentities($this->input->post("price",TRUE), ENT_QUOTES, 'utf-8');
 
-	$rep = array("Rp ",".","_");
+	// $rep = array("Rp ",".","_");
 
-	$replace = str_replace($rep, "", $price);
+	// $replace = str_replace($rep, "", $price);
 
 	$idCategory = $this->db->get_where('sada_kategori',['nama' => $skuCategory])->first_row();
 
@@ -1919,7 +1919,7 @@ public function insertDataSku()
 
 	$this->form_validation->set_rules('kategori-sku', 'Kategori Sku', 'required');
 
-	$this->form_validation->set_rules('price', 'Price', 'required');
+	// $this->form_validation->set_rules('price', 'Price', 'required');
 
 			// $this->form_validation->set_rules('kategori-store', 'Kategori Store', 'required');
 
@@ -1943,9 +1943,9 @@ public function insertDataSku()
 
 			'nama_produk' => $skuName,
 
-			'id_kategori' => $idCategory->id,
+			'id_kategori' => $idCategory->id
 
-			'price' 	  => $replace
+			// 'price' 	  => $replace
 
 					// 'id_store' 	=> $idStore->id_toko
 

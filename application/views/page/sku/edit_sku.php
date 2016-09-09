@@ -22,7 +22,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label id="kategori-sku">Kategori SKU</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
@@ -41,7 +41,7 @@
                                 ?>
                             </select>
                         </div>
-                    </div>
+                    </div> -->
                         <!-- <div class="form-group">
                             <label id="kategori-sku">Toko</label>
                             <div class="input-group">
