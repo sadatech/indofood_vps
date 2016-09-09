@@ -40,7 +40,6 @@
                 <i class="fa fa-user-plus"></i>
                 <span class="caption-subject bold uppercase"> <?php echo $title ?></span>
             </div>
-<a href="#" id="add_pic" class="btn btn-primary add_pic"><i class="glyphicon glyphicon-plus"></i></a>
         </div>
         <div class="portlet-body form">
             <?php echo form_open('', array()); ?>
@@ -89,6 +88,7 @@
                                 <i class="fa fa-plus-square-o"></i>
                             </span>
                                 <input id="pic" type="text" class="form-control" name="namapic[]" placeholder="Nama PIC" style="width: 90%;">
+                                <a href="#" id="add_pic" class="btn btn-primary add_pic"><i class="glyphicon glyphicon-plus"></i></a>
                                 <!-- <span style="padding: 10px;"><a href="#" id="add_pic" class="btn btn-primary add_email_pic"><i class="glyphicon glyphicon-plus"></i></a></span>
  -->                        </div>
                     </div>
