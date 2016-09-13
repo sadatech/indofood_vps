@@ -2385,9 +2385,10 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
     $filterHasilReport =($this->input->post('filterKategori') == "0") ? "" : $this->input->post('filterKategori');
 
-    $startDate =  date('Y-m-d H:i:s', strtotime($this->input->post('startDate')));
+    $startDate =  date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 11:59:59"));
 
-    $endDate = date('Y-m-d H:i:s', strtotime($this->input->post('endDate')));
+    $endDate = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 11:59:59"));
+
 
 
 
