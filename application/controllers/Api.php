@@ -3274,7 +3274,6 @@ public function reportPrm(){
 
 
 
-
   $select = "SELECT DISTINCT sada_promo.tipe,sada_promo.jenis,sada_promo.selesaiTanggal,CAST(sada_promo.timestamp AS DATE) timestamp,
     (
 
