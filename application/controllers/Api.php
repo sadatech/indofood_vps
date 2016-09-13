@@ -432,7 +432,7 @@ public function filterdetailcontact()
 
     if ($arr['startDate'] != "1970-01-01 07:00:00" && $arr['endDate'] != "1970-01-01 07:00:00") {
 
-      $where = "WHERE sada_form_contact.tgl_contact BETWEEN '".$arr['startDate']."' and '".$arr['endDate']."'";
+      $where = "WHERE sada_form_contact.tgl_contact BETWEEN '".$arr['startDate']."' AND '".$arr['endDate']."'";
 
       if ($arr['tl'] != 0) {
 
@@ -534,7 +534,7 @@ kota.nama_kota 'nama_kota'
 
 FROM sada_form_contact LEFT JOIN sada_user ON sada_form_contact.user_id=sada_user.id_user ".$join." ".$where." ";
 
-  // echo $select;
+  echo $select;
 
 $data = $this->db->query($select);
 
