@@ -3256,7 +3256,325 @@ $this->excel->downloadtotalcontact(count($keys),$val_cabang);
 
 public function reportPrm(){
 
-  echo "string";
+  $this->load->library('excel');
+
+  $arr['tl'] = $this->input->get("tl");
+
+  $arr['ba'] = $this->input->get("ba");
+
+  $arr['toko'] = $this->input->get("toko");
+
+  $arr['cabang'] = $this->input->get("cabang");
+
+  $arr['kota'] = $this->input->get("kota");
+
+  $arr['startDate'] = date('Y-m-d H:i:s', strtotime($this->input->get("startDate")));
+
+  $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->get("endDate")));
+
+
+
+  $select = "SELECT DISTINCT sada_promo.tipe,sada_promo.jenis,sada_promo.selesaiTanggal,CAST(sada_promo.timestamp AS DATE) timestamp,
+    (
+
+    SELECT
+
+    GROUP_CONCAT(prom.awalTanggal SEPARATOR '\n')
+
+    FROM
+
+    sada_promo AS prom
+
+    WHERE
+
+    prom.tipe = sada_promo.tipe
+
+    AND prom.jenis = sada_promo.jenis
+
+    AND prom.user_id = sada_user.id_user
+
+    AND prom.store_id = toko.id_toko
+
+    AND date(prom.timestamp) = date(sada_promo.timestamp)
+
+    ) AS 'awalTanggal',
+    (
+
+    SELECT
+
+    GROUP_CONCAT(prom.selesaiTanggal SEPARATOR '\n')
+
+    FROM
+
+    sada_promo AS prom
+
+    WHERE
+
+    prom.tipe = sada_promo.tipe
+
+    AND prom.jenis = sada_promo.jenis
+
+    AND prom.user_id = sada_user.id_user
+
+    AND prom.store_id = toko.id_toko
+
+    AND date(prom.timestamp) = date(sada_promo.timestamp)
+
+    ) AS 'selesaiTanggal',
+
+
+
+    (
+
+    SELECT
+
+    GROUP_CONCAT(prom.foto SEPARATOR '\n')
+
+    FROM
+
+    sada_promo AS prom
+
+    WHERE
+
+    prom.merk LIKE '%romina%'
+
+    AND prom.tipe = sada_promo.tipe
+
+    AND prom.jenis = sada_promo.jenis
+
+    AND prom.user_id = sada_user.id_user
+
+    AND prom.store_id = toko.id_toko
+
+    AND date(prom.timestamp) = date(sada_promo.timestamp)
+
+    ) AS 'promina_foto',
+
+    (
+
+    SELECT
+
+    GROUP_CONCAT(prom.foto SEPARATOR '\n')
+
+    FROM
+
+    sada_promo AS prom
+
+    WHERE
+
+    prom.merk NOT LIKE '%romina%'
+
+    AND prom.tipe = sada_promo.tipe
+
+    AND prom.jenis = sada_promo.jenis
+
+    AND prom.user_id = sada_user.id_user
+
+    AND prom.store_id = toko.id_toko
+
+    AND date(prom.timestamp) = date(sada_promo.timestamp)
+
+    ) AS 'kompetitor_foto',
+
+    (
+
+    SELECT
+
+    GROUP_CONCAT(prom.keterangan SEPARATOR '\n')
+
+    FROM
+
+    sada_promo AS prom
+
+    WHERE
+
+    prom.merk  LIKE '%romina%'
+
+    AND prom.tipe = sada_promo.tipe
+
+    AND prom.jenis = sada_promo.jenis
+
+    AND prom.user_id = sada_user.id_user
+
+    AND prom.store_id = toko.id_toko
+
+    AND date(prom.timestamp) = date(sada_promo.timestamp)
+
+    ) AS 'keteranganPromina',
+
+    (
+
+    SELECT
+
+    GROUP_CONCAT(prom.keterangan SEPARATOR '\n')
+
+    FROM
+
+    sada_promo AS prom
+
+    WHERE
+
+    prom.merk NOT LIKE '%romina%'
+
+    AND prom.tipe = sada_promo.tipe
+ 
+    AND prom.jenis = sada_promo.jenis
+
+    AND prom.user_id = sada_user.id_user
+
+    AND prom.store_id = toko.id_toko
+
+    AND date(prom.timestamp) = date(sada_promo.timestamp)
+
+    ) AS 'keteranganKomptetitor',
+
+  ";
+
+  $select .= "toko.id_toko,
+
+  toko.store_id,
+
+  toko.id_kota,
+
+  toko.nama AS 'nama_toko',
+
+  sada_user.id_user AS 'id_user',
+
+  sada_user.nama AS 'nama_user',
+
+  sada_user.stay AS 'stay_user',
+
+  (SELECT nama FROM sada_user WHERE id_user=tl.id_user) as 'nama_tl',
+  ";
+
+
+
+  $where = "";
+
+  if ($arr['startDate'] != "1970-01-01" && $arr['endDate'] != "1970-01-01") {
+
+    $where = "WHERE CAST(sada_promo.timestamp AS DATE) BETWEEN '".$arr['startDate']."' and '".$arr['endDate']."'";
+
+    if ($arr['tl'] != 0) {
+
+      $where .= " AND sada_user.id_user='".$arr['tl']."'";
+
+    }
+
+    if ($arr['ba'] != 0) {
+
+      $where .= " AND sada_user.id_user='".$arr['ba']."'";
+
+    }
+
+  }
+
+  else{
+
+   if ($arr['tl'] != 0) {
+
+    $where = " WHERE sada_user.id_user='".$arr['tl']."'";
+
+  }
+
+  if ($arr['ba'] != 0) {
+
+    $where = " WHERE sada_user.id_user='".$arr['ba']."'";
+
+  }
+
+}
+
+$join = "";
+
+if ($arr['tl'] == 0) {
+
+  if ($arr['ba'] !=0) {
+
+    if ($arr['toko'] != 0) {
+
+      $where .= " AND toko.id_toko='".$arr['toko']."'";
+
+      if ($arr['cabang'] !=0) {
+
+        if ($arr['kota'] !=0) {
+
+          $where .= " AND cabang.id_cabang in (SELECT id_cabang FROM sada_kota WHERE id_cabang='".$arr['cabang']."')";
+
+        }
+
+        else{
+
+          $where .= " AND cabang.id_cabang='".$arr['cabang']."'";
+
+        }
+
+      }
+
+    }
+
+    else{
+
+      if ($arr['cabang'] != 0) {
+
+       $where .= " AND cabang.id_cabang in (SELECT id_cabang FROM sada_kota WHERE id_cabang='".$arr['cabang']."')";
+
+     }
+
+   }
+
+ }
+
+}
+
+else{
+
+  if ($arr['ba']==0) {
+
+    $select .= "";
+
+  }
+
+}
+
+
+
+$join .= " LEFT JOIN sada_toko toko ON sada_promo.store_id=toko.id_toko";
+
+$join .= " LEFT JOIN sada_kota kota ON toko.id_kota=kota.id_kota";
+
+$join .= " LEFT JOIN sada_cabang cabang ON kota.id_cabang=cabang.id_cabang";
+
+$join .= " LEFT JOIN sada_tl_in_kota tl ON kota.id_kota = tl.id_kota";
+
+
+
+
+$select .= "
+
+cabang.nama AS 'nama_cabang',
+
+kota.nama_kota 'nama_kota'
+
+FROM sada_promo LEFT JOIN sada_user ON sada_promo.user_id=sada_user.id_user ".$join." ".$where." ";
+
+
+
+$data = $this->db->query($select);
+
+
+
+foreach ($data->result() as $key => $value) {
+
+  $datas[] = $value;
+
+  $keys[] = $key;
+
+  $val_cabang[] = $value;
+
+}
+
+$this->excel->downloadreportpromo(count($keys),$val_cabang);
 
 }
 
