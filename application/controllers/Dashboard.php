@@ -3687,7 +3687,7 @@ public function reportdetailcontact()
 
 		FROM sada_form_contact LEFT JOIN sada_user ON sada_form_contact.user_id=sada_user.id_user ".$join." ".$where." ";
 
-  // echo $select;
+  echo $select;
 
 		$data = $this->db->query($select);
 
