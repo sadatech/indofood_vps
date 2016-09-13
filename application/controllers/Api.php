@@ -380,9 +380,9 @@ public function filterdetailcontact()
 
   $arr['kota'] = $this->input->post("kota");
 
-  $arr['startDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 11:59:59"));
+  $arr['startDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 00:00:00"));
 
-    $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 11:59:59"));
+  $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 23:59:59"));
 
 
 
@@ -810,9 +810,9 @@ public function dContactExcel()
 
   $arr['kota'] = $this->input->get("kota");
 
-  $arr['startDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 11:59:59"));
+  $arr['startDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 00:00:00"));
 
-  $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 11:59:59"));
+  $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 23:59:59"));
 
 
 
@@ -1018,9 +1018,9 @@ public function CountTotalContact()
 
   $arr['kota'] = $this->input->post("kota");
 
-  $arr['startDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 11:59:59"));
+  $arr['startDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 00:00:00"));
 
-  $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 11:59:59"));
+  $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 23:59:59"));
 
 
 
@@ -1651,7 +1651,7 @@ public function inputContactForm()
 
   'namaibu' => $data['namaibu'],
 
-  'namaibu' => $data['namaanak'],
+  'namaanak' => $data['namaanak'],
 
   'telp' => $data['telp'],
 
@@ -2387,7 +2387,7 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
     $filterHasilReport =($this->input->post('filterKategori') == "0") ? "" : $this->input->post('filterKategori');
 
-    $startDate =  date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 11:59:59"));
+    $startDate =  date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 00:00:00"));
 
     $endDate = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 11:59:59"));
 
@@ -2650,13 +2650,17 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
     $filterKota = ($this->input->post('kota') == "0") ? "" : $this->input->post('kota');
 
-    $startDate =  date('Y-m-d H:i:s', strtotime($this->input->post('startDate')));
+    // $startDate =  date('Y-m-d H:i:s', strtotime($this->input->post('startDate')));
 
-    $endDate = date('Y-m-d H:i:s', strtotime($this->input->post('endDate')));
+    // $endDate = date('Y-m-d H:i:s', strtotime($this->input->post('endDate')));
 
-    $startDate =  date('Y-m-d H:i:s', strtotime($this->input->post('startDate')));
+    // $startDate =  date('Y-m-d H:i:s', strtotime($this->input->post('startDate')));
 
-    $endDate = date('Y-m-d H:i:s', strtotime($this->input->post('endDate')));
+    // $endDate = date('Y-m-d H:i:s', strtotime($this->input->post('endDate')));
+
+    $startDate =  date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 00:00:00"));
+
+    $endDate = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 11:59:59"));
 
     $query = $this->sada->outOfStockReport(['startDate' => $startDate , 'endDate' => $endDate, 'filterName' => $filterName,'filterToko' => $filterToko,'filterCabang' => $filterCabang,'filterKota' => $filterKota]);
 
@@ -2890,9 +2894,9 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
     $filterKota = ($this->input->get('kota') == "0") ? "" : $this->input->get('kota');
 
-    $startDate =  date('Y-m-d H:i:s', strtotime($this->input->get('startDate')));
+    $startDate =  date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 00:00:00"));
 
-    $endDate = date('Y-m-d H:i:s', strtotime($this->input->get('endDate')));
+    $endDate = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 11:59:59"));
 
     $query = $this->sada->outOfStockReport(['startDate' => $startDate , 'endDate' => $endDate, 'filterName' => $filterName,'filterToko' => $filterToko,'filterCabang' => $filterCabang,'filterKota' => $filterKota]);
 
@@ -2954,11 +2958,13 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
     $arr['kota'] = $this->input->get("kota");
 
-    $arr['startDate'] = date('Y-m-d H:i:s', strtotime($this->input->get("startDate")));
+    // $arr['startDate'] = date('Y-m-d H:i:s', strtotime($this->input->get("startDate")));
 
-    $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->get("endDate")));
+    // $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->get("endDate")));
 
+    $arr['startDate'] =  date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 00:00:00"));
 
+    $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 11:59:59"));
 
     $select = "SELECT
 
@@ -3262,9 +3268,10 @@ public function reportPrm(){
 
   $arr['kota'] = $this->input->get("kota");
 
-  $arr['startDate'] = date('Y-m-d H:i:s', strtotime($this->input->get("startDate")));
+  $arr['startDate'] =  date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 00:00:00"));
 
-  $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->get("endDate")));
+  $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 11:59:59"));
+
 
 
 
@@ -3592,6 +3599,9 @@ public function excelReport()
 
   $endDate = date('Y-m-d H:i:s', strtotime($this->input->get('endDate')));
 
+  $startDate =  date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 00:00:00"));
+
+  $endDate = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 11:59:59"));
 
 
 
