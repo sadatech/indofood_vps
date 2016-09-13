@@ -380,9 +380,9 @@ public function filterdetailcontact()
 
   $arr['kota'] = $this->input->post("kota");
 
-  $arr['startDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("startDate")));
+  $arr['startDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 11:59:59"));
 
-  $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")));
+    $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 11:59:59"));
 
 
 
@@ -810,9 +810,9 @@ public function dContactExcel()
 
   $arr['kota'] = $this->input->get("kota");
 
-  $arr['startDate'] = date('Y-m-d H:i:s', strtotime($this->input->get("startDate")));
+  $arr['startDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 11:59:59"));
 
-  $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->get("endDate")));
+  $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 11:59:59"));
 
 
 
@@ -1018,9 +1018,9 @@ public function CountTotalContact()
 
   $arr['kota'] = $this->input->post("kota");
 
-  $arr['startDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("startDate")));
+  $arr['startDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 11:59:59"));
 
-  $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")));
+  $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 11:59:59"));
 
 
 

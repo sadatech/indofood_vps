@@ -3687,7 +3687,7 @@ public function reportdetailcontact()
 
 		FROM sada_form_contact LEFT JOIN sada_user ON sada_form_contact.user_id=sada_user.id_user ".$join." ".$where." ";
 
-  echo $select;
+  // echo $select;
 
 		$data = $this->db->query($select);
 
@@ -4029,9 +4029,9 @@ public function reportpromo()
 
 		$arr['kota'] = $this->input->post("kota");
 
-		$arr['startDate'] = date('Y-m-d', strtotime($this->input->post("startDate")));
+		$arr['startDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 11:59:59"));
 
-		$arr['endDate'] = date('Y-m-d', strtotime($this->input->post("endDate")));
+		$arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 11:59:59"));
 
 
 
