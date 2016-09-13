@@ -196,6 +196,7 @@ $("#oos").validate({
             { 'data' : 'namaCabang'},
             { 'data' : 'nama_kota'},
             { 'data' : 'store_id'},
+            { 'data' : 'tipe'},
             { 'data' : 'namaToko'},
             { 'data' : 'namaBa'},
             { 'data' : 'date'},
