@@ -1943,6 +1943,7 @@ public function inputOutOfStock()
                 <th>nama toko</th>
                 <th>nama barang</th>
                 <th>keterangan Out of stock</th>
+                <th>Tipe</th>
                 <th>tanggal</th>
               </tr>
               ';
@@ -1956,7 +1957,7 @@ public function inputOutOfStock()
                 $dataJson = json_decode($inputJSON, TRUE);
                 foreach ($dataJson as $key => $val) {
 
-                  $inputData = $this->sada->inputOutOfStock(['user_id' => $val['userId'], 'produk_id' => $val['produkId'],'store_id' => $val['storeId'], 'keterangan' => $val['keterangan']]);
+                  $inputData = $this->sada->inputOutOfStock(['user_id' => $val['userId'], 'produk_id' => $val['produkId'],'store_id' => $val['storeId'], 'keterangan' => $val['keterangan'], 'tipe'=> $val['tipe']]);
                   $namaBA = $this->db->select("nama as nama_user")->get_where("sada_user",array('id_user'=>$val['userId']))->row();
                   $namatoko = $this->db->select("nama as nama_toko")->get_where("sada_toko",array('id_toko'=>$val['storeId']))->row();
                   $namasku = $this->db->select("nama_produk")->get_where("sada_produk",array('id_produk'=>$val['produkId']))->row();
@@ -1966,6 +1967,7 @@ public function inputOutOfStock()
                                   <td>'.$namatoko->nama_toko.'</td>
                                   <td>'.$namasku->nama_produk.'</td>
                                   <td>'.$val['keterangan'].'</td>
+                                  <td>'.$val['tipe'].'</td>
                                   <td>'.date("d/m/Y h:i:s").'</td>
                                 </tr>
 
