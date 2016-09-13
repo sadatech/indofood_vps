@@ -3268,9 +3268,9 @@ public function reportPrm(){
 
   $arr['kota'] = $this->input->get("kota");
 
-  $arr['startDate'] =  date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 00:00:00"));
+  $arr['startDate'] =  date('Y-m-d H:i:s', strtotime($this->input->get("startDate")." 00:00:00"));
 
-  $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 23:59:59"));
+  $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->get("endDate")." 23:59:59"));
 
 
 
