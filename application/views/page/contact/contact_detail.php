@@ -96,6 +96,7 @@
                     <th> Nama BA </th>
                     <th> Nama Toko </th>
                     <th> Nama Orang Tua </th>
+                    <th> Nama Anak </th>
                     <th> No telp </th>
                     <th> Tgl Lahir Anak </th>
                     <th> Status </th>

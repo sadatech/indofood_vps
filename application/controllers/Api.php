@@ -1651,6 +1651,8 @@ public function inputContactForm()
 
   'namaibu' => $data['namaibu'],
 
+  'namaibu' => $data['namaanak'],
+
   'telp' => $data['telp'],
 
   'ttl' => $data['ttl'],

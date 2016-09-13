@@ -3463,7 +3463,7 @@ public function reportdetailcontact()
 
 		$this->load->model('datatable');
 
-		$select = "SELECT sada_form_contact.namaibu,sada_form_contact.tgl_contact,sada_form_contact.ttl,sada_form_contact.telp,sada_form_contact.tipe,sada_form_contact.beli,sada_form_contact.oldProduct,sada_form_contact.sampling,sada_form_contact.segmen,
+		$select = "SELECT sada_form_contact.namaibu,sada_form_contact.tgl_contact,sada_form_contact.ttl,sada_form_contact.telp,sada_form_contact.tipe,sada_form_contact.beli,sada_form_contact.oldProduct,sada_form_contact.sampling,sada_form_contact.segmen,sada_form_contact.namaanak,
 
 		(SELECT sada_kategori.nama FROM sada_kategori where sada_kategori.id=sada_form_contact.kategori_id) AS 'sada_kategori_label',
 
@@ -3710,6 +3710,8 @@ public function reportdetailcontact()
 			$row[] = $value->nama_toko;
 
 			$row[] = $value->namaibu;
+
+			$row[] = $value->namaanak;
 
 			$row[] = $value->telp;
 
