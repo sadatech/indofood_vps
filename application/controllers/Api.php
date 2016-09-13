@@ -2389,7 +2389,7 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
     $startDate =  date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 00:00:00"));
 
-    $endDate = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 11:59:59"));
+    $endDate = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 23:59:59"));
 
 
 
@@ -2660,7 +2660,7 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
     $startDate =  date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 00:00:00"));
 
-    $endDate = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 11:59:59"));
+    $endDate = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 23:59:59"));
 
     $query = $this->sada->outOfStockReport(['startDate' => $startDate , 'endDate' => $endDate, 'filterName' => $filterName,'filterToko' => $filterToko,'filterCabang' => $filterCabang,'filterKota' => $filterKota]);
 
@@ -2896,7 +2896,7 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
     $startDate =  date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 00:00:00"));
 
-    $endDate = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 11:59:59"));
+    $endDate = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 23:59:59"));
 
     $query = $this->sada->outOfStockReport(['startDate' => $startDate , 'endDate' => $endDate, 'filterName' => $filterName,'filterToko' => $filterToko,'filterCabang' => $filterCabang,'filterKota' => $filterKota]);
 
@@ -2964,7 +2964,7 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
     $arr['startDate'] =  date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 00:00:00"));
 
-    $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 11:59:59"));
+    $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 23:59:59"));
 
     $select = "SELECT
 
@@ -3270,7 +3270,7 @@ public function reportPrm(){
 
   $arr['startDate'] =  date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 00:00:00"));
 
-  $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 11:59:59"));
+  $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 23:59:59"));
 
 
 
@@ -3601,7 +3601,7 @@ public function excelReport()
 
   $startDate =  date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 00:00:00"));
 
-  $endDate = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 11:59:59"));
+  $endDate = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 23:59:59"));
 
 
 
