@@ -2678,6 +2678,8 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
       'store_id' => $value->store_id,
 
+      'tipe' => $value->tipe,
+
       'namaToko' => $value->namaToko,
 
       'namaBa' => $value->namaBa,

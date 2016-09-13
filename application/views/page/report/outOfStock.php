@@ -78,6 +78,7 @@
                         <th> Cabang </th>
                         <th> Kota </th>
                         <th> Customer Id </th>
+                        <th> Tipe </th>
                         <th> Nama Toko </th>
                         <th> Nama Ba </th>
                         <th> Tanggal </th>
