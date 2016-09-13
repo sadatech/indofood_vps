@@ -137,8 +137,8 @@ class Api extends CI_Controller{
 
   public function getTopSku()
   {
-    $startDate = date('Y-m-d H:i:s', strtotime($this->input->get('startDate')));
-    $endDate = date('Y-m-d H:i:s', strtotime($this->input->get('endDate')));
+    $startDate = date('Y-m-d H:i:s', strtotime($this->input->get('startDate')." 00:00:00"));
+    $endDate = date('Y-m-d H:i:s', strtotime($this->input->get('endDate')." 23:59:59"));
     $monthAgo = new DateTime($startDate);
     $monthAgo->modify('-1 month');
     $monthAgoEnd = new DateTime($endDate);

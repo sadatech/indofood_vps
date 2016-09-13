@@ -328,8 +328,8 @@ public function achievement()
 public function reportTopSKu()
 {
 	if ($this->input->post()) {
-		$date = array('startDate' => date('Y-m-d H:i:s', strtotime($this->input->post('startDate'))),
-			'endDate' => date('Y-m-d H:i:s', strtotime($this->input->post('endDate'))));
+		$date = array('startDate' => date('Y-m-d H:i:s', strtotime($this->input->post('startDate')." 00:00:00")),
+			'endDate' => date('Y-m-d H:i:s', strtotime($this->input->post('endDate')." 23:59:59")));
 
 		$monthAgo = new DateTime($date['startDate']);
 		$monthAgo->modify('-1 month');
@@ -382,8 +382,8 @@ public function reportTopSKu()
 public function reportTopBA()
 {
 	if ($this->input->post()) {
-		$date = array('startDate' => date('Y-m-d H:i:s', strtotime($this->input->post('startDate'))),
-			'endDate' => date('Y-m-d H:i:s', strtotime($this->input->post('endDate'))));
+		$date = array('startDate' => date('Y-m-d H:i:s', strtotime($this->input->post('startDate')." 00:00:00")),
+			'endDate' => date('Y-m-d H:i:s', strtotime($this->input->post('endDate')." 23:59:59")));
 
 		$monthAgo = new DateTime($date['startDate']);
 		$monthAgo->modify('-1 month');
@@ -433,8 +433,8 @@ public function reportTopBA()
 public function reportTopCabang()
 {
 	if ($this->input->post()) {
-		$date = array('startDate' => date('Y-m-d H:i:s', strtotime($this->input->post('startDate'))),
-			'endDate' => date('Y-m-d H:i:s', strtotime($this->input->post('endDate'))));
+		$date = array('startDate' => date('Y-m-d H:i:s', strtotime($this->input->post('startDate')." 00:00:00")),
+			'endDate' => date('Y-m-d H:i:s', strtotime($this->input->post('endDate')." 23:59:59")));
 
 		$monthAgo = new DateTime($date['startDate']);
 		$monthAgo->modify('-1 month');
@@ -483,8 +483,8 @@ public function reportTopCabang()
 public function reportTopAccount()
 {
 	if ($this->input->post()) {
-		$date = array('startDate' => date('Y-m-d H:i:s', strtotime($this->input->post('startDate'))),
-			'endDate' => date('Y-m-d H:i:s', strtotime($this->input->post('endDate'))));
+		$date = array('startDate' => date('Y-m-d H:i:s', strtotime($this->input->post('startDate')." 00:00:00")),
+			'endDate' => date('Y-m-d H:i:s', strtotime($this->input->post('endDate')." 23:59:59")));
 
 		$monthAgo = new DateTime($date['startDate']);
 		$monthAgo->modify('-1 month');
