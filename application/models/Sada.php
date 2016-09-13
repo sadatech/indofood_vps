@@ -2993,7 +2993,7 @@ public function outOfStockReport($filter)
 
   ->join('sada_user u','o.user_id = u.id_user','inner')
 
-  ->group_by(['o.user_id','o.store_id'])
+  ->group_by(['o.user_id','CAST(o.date  AS DATE)','o.store_id'])
 
   ->where("o.date BETWEEN '$a'  AND '$b' ");
 
