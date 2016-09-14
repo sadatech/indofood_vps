@@ -36,8 +36,19 @@
                                 $dat = array();
                                 $cab = $this->db->get_where("sada_cabang",array('id_region'=>$reg->id_region));
                                 // echo "Jumlah".$cab->num_rows();
+                                $compass = "";
+                                if ($reg->region == "Sumatera") {
+                                    $compass .= "West";
+                                }
+                                elseif ($reg->region == "Jabodetabek" && $reg->region == "Jawa Barat") {
+                                    $compass .= "Central";
+                                }
+                                else{
+                                    $compass .= "East";
+                                }
+
                                 echo "<tr>";
-                                echo "<td rowspan='".$cab->num_rows()."'>".$reg->region."</td>";
+                                echo "<td rowspan='".$cab->num_rows()."'>".$compass."</td>";
                                 echo "<td rowspan='".$cab->num_rows()."'>".$reg->region."</td>";
                                 echo "";
                                 foreach ($cab->result() as $cabang) {
@@ -380,6 +391,7 @@ echo "</tr>";
 }
 ?>
 <tr>
+    <td style="" align="center"></td>
     <td style="background-color: #548235;color: white;" align="center">Total</td>
     <td style="" align="center">Total</td>
     <td style="" align="center">
