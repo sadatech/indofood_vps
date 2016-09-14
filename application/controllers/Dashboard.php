@@ -596,9 +596,16 @@ public function dataUser()
 
 				$row[] = '<center><span class="label label-sm label-primary"> Admin </span></center>';
 
-			}else{
+			}
+
+			elseif ($datatable->akses == 3) {
 
 				$row[] = '<center><span class="label label-sm label-danger"> Indofood</span></center>';
+
+			}
+			else{
+
+				$row[] = '<center><span class="label label-sm label-danger"> KAS</span></center>';
 
 			}
 
