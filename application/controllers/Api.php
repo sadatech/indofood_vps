@@ -1285,13 +1285,13 @@ foreach ($data->result() as $key => $value) {
 
 }
 
-if (count($datas) == 0) {
-  $array = array("status"=>'falses',"content"=>"data kosong");
-}
+// if (count($datas) == 0) {
+//   $array = array("status"=>'falses',"content"=>"data kosong");
+// }
 
-else{
+// else{
   $array = $datas;
-}
+// }
   echo json_encode($array,JSON_PRETTY_PRINT);
 
 }

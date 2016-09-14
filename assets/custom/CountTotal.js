@@ -19,17 +19,18 @@ $("#a").validate({
         data: { "ba" : fields[1].value, "toko" : fields[2].value, "cabang" : fields[3].value, "kota" : fields[4].value, "startDate" : fields[5].value, "endDate" : fields[6].value},
         dataType: 'json',
         success : function(data) {
-            var datas = "";
-            var aaa = "";
-                datas += "";
-                for (var i = data.length - 1; i >= 0; i--) {
-                    // datas += "<tr><td>No</td>";
-                    if (data[i]['status'] != "falses") {
+            if (data == null) {
                         datas += "<tr>";
                         datas += "<td colspan='18'>Data Kosong</td>";
                         datas += "</tr>";
                     }
                     else{
+            var datas = "";
+            var aaa = "";
+               
+                datas += "";
+                for (var i = data.length - 1; i >= 0; i--) {
+                    // datas += "<tr><td>No</td>";
                         datas += "<tr>";
                         datas += "<td>"+data[i]['nama_cabang']+"</td>";
                         datas += "<td>"+data[i]['nama_user']+"</td>";
@@ -126,10 +127,12 @@ $("#a").validate({
                         // datas += "<td>"+data[i]['sada_kategori_label']+"</td></tr>";
                         aaa += "<td>"+data[i]['sada_kategori_label']+"</td>";
                     }
-                }
                 $("#excelCDetail").attr('href',url);
                 $("#dataContactTotal").html(datas);    
                 // $("#sampling").append(aaa);    
+                }
+                $("#excelCDetail").attr('href',url);
+                $("#dataContactTotal").html(datas); 
            }
         })
     }
