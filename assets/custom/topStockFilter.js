@@ -16,6 +16,7 @@ function fetchTopSkuData() {
               namaProduk : value.namaProduk,
               segmen : value.segmen,
               price : (value.price == 0) ? 'Rp. 0,-' : value.price,
+              prices : (value.prices == 0) ? 'Rp. 0,-' : value.prices,
               monthVolume : (value.monthVolume == null) ? '0' : value.monthVolume,
               monthAgoVolume :(value.monthAgoVolume == null) ? '0' : value.monthAgoVolume
           });
@@ -34,7 +35,7 @@ function fetchTopSkuData() {
             data += '<td>' + no +'</td>';
             data += '<td>'+ topSkuArray[i].segmen+'</td>';
             data += '<td>'+ topSkuArray[i].namaProduk+'</td>';
-            data += '<td>'+ topSkuArray[i].price * topSkuArray[i].monthVolume +'</td>';
+            data += '<td>'+ topSkuArray[i].prices+'</td>';
             data += '<td>'+ topSkuArray[i].monthVolume+'</td>';
             if(parseInt(topSkuArray[i].monthAgoVolume) === 0){
                 growth = ' Trend belum bisa dihitung';
@@ -65,7 +66,8 @@ $(document).ready(function() {
                       idProduk : value.idProduk,
                       namaProduk : value.namaProduk,
                       segmen : value.segmen,
-                      price : value.price,
+                      price : (value.price == 0) ? 'Rp. 0,-' : value.price,
+                      prices : (value.prices == 0) ? 'Rp. 0,-' : value.prices,
                       monthVolume : (value.monthVolume == null) ? '0' : value.monthVolume,
                       monthAgoVolume :(value.monthAgoVolume == null) ? '0' : value.monthAgoVolume
                   });
@@ -84,7 +86,7 @@ $(document).ready(function() {
                     data += '<td>' + no +'</td>';
                     data += '<td>'+ topSkuArray[i].segmen+'</td>';
                     data += '<td>'+ topSkuArray[i].namaProduk+'</td>';
-                    data += '<td>'+ topSkuArray[i].price * topSkuArray[i].monthVolume +'</td>';
+                    data += '<td>'+ topSkuArray[i].prices+'</td>';
                     data += '<td>'+ topSkuArray[i].monthVolume+'</td>';
                     if(parseInt(topSkuArray[i].monthAgoVolume) === 0){
                         growth = ' Trend belum bisa dihitung';
@@ -111,7 +113,8 @@ $(document).ready(function() {
                       idProduk : value.idProduk,
                       namaProduk : value.namaProduk,
                       segmen : value.segmen,
-                      price : value.price,
+                      price : (value.price == 0) ? 'Rp. 0,-' : value.price,
+                      prices : (value.prices == 0) ? 'Rp. 0,-' : value.prices,
                       monthVolume : (value.monthVolume == null) ? '0' : value.monthVolume,
                       monthAgoVolume :(value.monthAgoVolume == null) ? '0' : value.monthAgoVolume
               });
@@ -130,7 +133,7 @@ $(document).ready(function() {
                     data += '<td>' + no +'</td>';
                     data += '<td>'+ topSkuArray[i].segmen+'</td>';
                     data += '<td>'+ topSkuArray[i].namaProduk+'</td>';
-                    data += '<td>'+ topSkuArray[i].price * topSkuArray[i].monthVolume +'</td>';
+                    data += '<td>'+ topSkuArray[i].prices+'</td>';
                     data += '<td>'+ topSkuArray[i].monthVolume+'</td>';
                     if(parseInt(topSkuArray[i].monthAgoVolume) === 0){
                         growth = ' Trend belum bisa dihitung';
