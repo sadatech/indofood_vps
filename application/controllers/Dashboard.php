@@ -195,7 +195,7 @@ public function kategori_segmen()
 
 			foreach ($this->input->post() as $key => $value) {
 				$field = strip_tags(trim($key));
-		        $val = strip_tags(trim(mysql_real_escape_string($value)));
+		        $val = $value;
 
 				$exp = explode(':', $field);
 				$id_kat = $exp[1];

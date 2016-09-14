@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $(this).attr("id").inputmask('Rp 999.999.999', { numericInput: true });
+    // $(this).attr("id").inputmask('Rp 999.999.999', { numericInput: true });
     var message_status = $("#status");
     var base_url = window.location.origin;
     $("td[contenteditable=true]").blur(function(){
