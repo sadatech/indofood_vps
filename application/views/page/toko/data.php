@@ -61,6 +61,7 @@
                                             <th> STORE ID </th>
                                             <th> KOTA </th>
                                             <th> NAMA TOKO </th>
+                                            <th> TARGET </th>
                                             <th> Actions </th>
                                         </tr>
                                     </thead>
