@@ -60,7 +60,7 @@ class Sada extends CI_Model{
         'idProduk' => $value->id_produk,
         'namaProduk' => $value->namaProduk,
         'segmen' => $value->segmen,
-        'price'=>'Rp '.number_format($value->price,0,",",".").',-',
+        'price'=>$value->price,
         'prices'=>$value->price
         ];
       }
