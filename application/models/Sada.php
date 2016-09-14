@@ -55,19 +55,18 @@ class Sada extends CI_Model{
     $response = [
     ];
     foreach ($merged as $key => $value) {
-      if (isset($value->id_produk) && isset($value->namaProduk) && isset($value->segmen) && isset($value->price) && isset($value->monthVolume)) {
+      if (isset($value->id_produk) && isset($value->namaProduk) && isset($value->segmen) && isset($value->price)) {
         $response[$value->id_produk] = [
         'idProduk' => $value->id_produk,
         'namaProduk' => $value->namaProduk,
         'segmen' => $value->segmen,
         'price'=>'Rp '.number_format($value->price * $value->monthVolume,0,",",".").',-',
-        'prices'=>$value->price
         ];
       }
       if (isset($value->monthVolume)) {
         $response[$value->id_produk]['monthVolume']= $value->monthVolume;
 
-        $response[$value->id_produk]['prices']= $value->monthVolume * $value->price;
+        $response[$value->id_produk]['prices']= 'a';
 
         // $response[$value->id_produk]['pricevvv']= $value->price;
       }
