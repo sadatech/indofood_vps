@@ -75,7 +75,7 @@
 
                 </div>
             </div>
-            <table style="overflow: scroll;" class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1" border="1">
+            <table style="overflow-x: scroll;" class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1" border="1">
                 <thead>
                     <tr align='center'>
                         <th rowspan="2" width='100'>Cabang</th>
