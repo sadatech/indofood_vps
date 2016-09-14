@@ -35,7 +35,7 @@ function fetchTopSkuData() {
             data += '<td>' + no +'</td>';
             data += '<td>'+ topSkuArray[i].segmen+'</td>';
             data += '<td>'+ topSkuArray[i].namaProduk+'</td>';
-            data += '<td>'+ topSkuArray[i].price * topSkuArray[i].monthVolume+'</td>';
+            data += '<td>'+ topSkuArray[i].price+'</td>';
             data += '<td>'+ topSkuArray[i].monthVolume+'</td>';
             if(parseInt(topSkuArray[i].monthAgoVolume) === 0){
                 growth = ' Trend belum bisa dihitung';
@@ -86,7 +86,7 @@ $(document).ready(function() {
                     data += '<td>' + no +'</td>';
                     data += '<td>'+ topSkuArray[i].segmen+'</td>';
                     data += '<td>'+ topSkuArray[i].namaProduk+'</td>';
-                    data += '<td>'+ topSkuArray[i].price * topSkuArray[i].monthVolume+'</td>';
+                    data += '<td>'+ topSkuArray[i].prices+'</td>';
                     data += '<td>'+ topSkuArray[i].monthVolume+'</td>';
                     if(parseInt(topSkuArray[i].monthAgoVolume) === 0){
                         growth = ' Trend belum bisa dihitung';
@@ -133,7 +133,7 @@ $(document).ready(function() {
                     data += '<td>' + no +'</td>';
                     data += '<td>'+ topSkuArray[i].segmen+'</td>';
                     data += '<td>'+ topSkuArray[i].namaProduk+'</td>';
-                    data += '<td>'+ topSkuArray[i].price * topSkuArray[i].monthVolume+'</td>';
+                    data += '<td>'+ topSkuArray[i].prices+'</td>';
                     data += '<td>'+ topSkuArray[i].monthVolume+'</td>';
                     if(parseInt(topSkuArray[i].monthAgoVolume) === 0){
                         growth = ' Trend belum bisa dihitung';
