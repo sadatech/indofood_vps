@@ -5,6 +5,7 @@ $(document).ready(function() {
     $("td[contenteditable=true]").blur(function(){
         var id_kat = $(this).attr("id");
         var value = $(this).text();
+        $(this).attr("id").inputmask('Rp 999.999.999', { numericInput: true });
         $.post(base_url+'/kategori_segmen.jsp' , id_kat + "=" + value, function(data){
             if(data != '')
             {
