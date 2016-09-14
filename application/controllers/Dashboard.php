@@ -2073,7 +2073,7 @@ public function dataCabang()
 
 	$table 	= "sada_cabang";
 
-	$column = array('id_cabang','nama','pic');
+	$column = array('id_cabang','nama','pic','email_pic','aspm','email_aspm');
 
 	$odb 	= array("id_cabang"=>"asc");
 
@@ -2094,6 +2094,13 @@ public function dataCabang()
 		// $row[] 		= $datatable->target;
 
 		$row[] 		= $datatable->pic;
+		
+		$row[] 		= $datatable->email_pic;
+
+		$row[] 		= $datatable->aspm;
+
+		$row[] 		= $datatable->email_aspm;
+
 
 		if ($this->session->userdata("akses")=="3") {
 

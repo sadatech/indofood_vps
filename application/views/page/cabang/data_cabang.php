@@ -44,6 +44,9 @@
                             <th> Nama Cabang </th>
                             <!-- <th> Target </th> -->
                             <th> PIC </th>
+                            <th> Email PIC </th>
+                            <th> ASPM </th>
+                            <th> Email ASPM </th>
                             <th> Actions </th>
                         </tr>
                     </thead>
