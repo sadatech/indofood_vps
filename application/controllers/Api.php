@@ -1286,16 +1286,13 @@ foreach ($data->result() as $key => $value) {
 }
 
 if (count($datas) == 0) {
-
-  echo json_encode(array("status"=>false,"content"=>"data kosong"));
-
+  $array = array("status"=>false,"content"=>"data kosong");
 }
 
 else{
-
-  echo json_encode($datas,JSON_PRETTY_PRINT);
-
+  $array = $datas;
 }
+  echo json_encode($array,JSON_PRETTY_PRINT);
 
 }
 
