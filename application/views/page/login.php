@@ -47,17 +47,17 @@
             <div class="row bs-reset">
                 <div class="col-md-6 bs-reset">
                     <div class="login-bg" style="background-image:url(<?php echo base_url()?>/assets/pages/img/login/bg1.jpg)">
-                        <img class="login-logo" width="100" src="<?php echo base_url()?>/assets/pages/img/login/logo.png" /> </div>
+                        <img class="login-logo" width="500" src="<?php echo base_url()?>/assets/pages/img/login/logo.png" /> </div>
                 </div>
                 <div class="col-md-6 login-container bs-reset">
                     <div class="login-content">
                         <h1>Retail Apps BA Pro</h1>
-                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        <!-- <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
                         cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p> -->
                         
                         <?php echo form_open('', 'class="login-form"'); ?>
 
