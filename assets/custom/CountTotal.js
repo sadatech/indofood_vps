@@ -24,12 +24,12 @@ $("#a").validate({
                 datas += "";
                 for (var i = data.length - 1; i >= 0; i--) {
                     // datas += "<tr><td>No</td>";
-                    if (data[i]['status'] == "falses") {
+                    if (data[i]['status'] != "falses") {
                         datas += "<tr>";
                         datas += "<td colspan='18'>Data Kosong</td>";
                         datas += "</tr>";
                     }
-                        else{
+                    else{
                         datas += "<tr>";
                         datas += "<td>"+data[i]['nama_cabang']+"</td>";
                         datas += "<td>"+data[i]['nama_user']+"</td>";
