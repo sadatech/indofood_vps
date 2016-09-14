@@ -91,20 +91,11 @@ $(document).ready(function() {
                 var data ='';
                 var no = 1;
                 for( var i = 0 ; i < topSkuArray.length ; i++){
-                    var rev     = parseInt(topSkuArray[i].price * topSkuArray[i].monthVolume, 10).toString().split('').reverse().join('');
-                    var rev2    = '';
-                    for(var i = 0; i < rev.length; i++){
-                        rev2  += rev[i];
-                        if((i + 1) % 3 === 0 && i !== (rev.length - 1)){
-                            rev2 += '.';
-                        }
-                    }
-
                     data += '<tr class="odd gradeX">';
                     data += '<td>' + no +'</td>';
                     data += '<td>'+ topSkuArray[i].segmen+'</td>';
                     data += '<td>'+ topSkuArray[i].namaProduk+'</td>';
-                    data += '<td>'+ 'Rp. ' + rev2.split('').reverse().join('') + ',00'+'</td>';
+                    data += '<td>'+ topSkuArray[i].price * topSkuArray[i].monthVolume+'</td>';
                     data += '<td>'+ topSkuArray[i].monthVolume+'</td>';
                     if(parseInt(topSkuArray[i].monthAgoVolume) === 0){
                         growth = ' Trend belum bisa dihitung';
@@ -147,20 +138,11 @@ $(document).ready(function() {
                 var data ='';
                 var no = 1;
                 for( var i = 0 ; i < topSkuArray.length ; i++){
-                    var rev     = parseInt(topSkuArray[i].price * topSkuArray[i].monthVolume, 10).toString().split('').reverse().join('');
-                    var rev2    = '';
-                    for(var i = 0; i < rev.length; i++){
-                        rev2  += rev[i];
-                        if((i + 1) % 3 === 0 && i !== (rev.length - 1)){
-                            rev2 += '.';
-                        }
-                    }
-                    
                     data += '<tr class="odd gradeX">';
                     data += '<td>' + no +'</td>';
                     data += '<td>'+ topSkuArray[i].segmen+'</td>';
                     data += '<td>'+ topSkuArray[i].namaProduk+'</td>';
-                    data += '<td>'+ 'Rp. ' + rev2.split('').reverse().join('') + ',00'+'</td>';
+                    data += '<td>'+ topSkuArray[i].price * topSkuArray[i].monthVolume+'</td>';
                     data += '<td>'+ topSkuArray[i].monthVolume+'</td>';
                     if(parseInt(topSkuArray[i].monthAgoVolume) === 0){
                         growth = ' Trend belum bisa dihitung';
