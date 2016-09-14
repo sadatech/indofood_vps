@@ -1,3 +1,6 @@
+<style type="text/css">
+    th, td { min-width: 200px; }
+</style>
 <form action="#" id="a" class="form-horizontal" method="post">
     <div class="table-toolbar">
         <div class="row">
