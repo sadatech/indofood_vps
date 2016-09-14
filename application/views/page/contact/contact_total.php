@@ -1,6 +1,4 @@
-<style type="text/css">
-    th, td { width: 200px; }
-</style>
+<style type="text/css"></style>
 <form action="#" id="a" class="form-horizontal" method="post">
     <div class="table-toolbar">
         <div class="row">
@@ -78,7 +76,7 @@
 
                 </div>
             </div>
-            <table style="overflow-x: scroll;width: 110px;" class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1" border="1">
+            <table style="overflow-x: scroll;" class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1" border="1">
                 <thead>
                     <tr align='center'>
                         <th rowspan="2" width='100'>Cabang</th>
