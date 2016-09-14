@@ -24,7 +24,7 @@ $("#a").validate({
                 datas += "";
                 for (var i = data.length - 1; i >= 0; i--) {
                     // datas += "<tr><td>No</td>";
-                    if (data[i]['status'] == false) {
+                    if (data[i]['status'] == 'false') {
                         datas += "<tr>";
                         datas += "<td colspan='18'>Data Kosong</td>";
                         datas += "</tr>";
