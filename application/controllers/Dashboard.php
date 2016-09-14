@@ -204,13 +204,13 @@ public function kategori_segmen()
 				$field = $exp[0];
 
 				print_r($replace);
-				// if (!empty(id_kat) && !empty($field) && !empty($value)) {
-				// 	$this->db->query("UPDATE sada_kategori SET $field = '$value' WHERE id = $id_kat");
-				// 	echo "Success Updated";
-				// }
-				// else{
-				// 	echo "Gagal";
-				// }
+				if (!empty(id_kat) && !empty($field) && !empty($value)) {
+					$this->db->query("UPDATE sada_kategori SET $field = '$replace' WHERE id = $id_kat");
+					echo "Success Updated";
+				}
+				else{
+					echo "Gagal";
+				}
 
 			}
 
