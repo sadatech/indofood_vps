@@ -1286,7 +1286,7 @@ foreach ($data->result() as $key => $value) {
 }
 
 if (count($datas) == 0) {
-  $array = array("status"=>false,"content"=>"data kosong");
+  $array = array("status"=>'falses',"content"=>"data kosong");
 }
 
 else{
