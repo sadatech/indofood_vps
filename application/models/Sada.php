@@ -66,7 +66,7 @@ class Sada extends CI_Model{
       if (isset($value->monthVolume)) {
         $response[$value->id_produk]['monthVolume']= $value->monthVolume;
 
-        $response[$value->id_produk]['price']= $value->price * $value->monthVolume;
+        $response[$value->id_produk]['price']= 'Rp '.number_format($value->price * $value->monthVolume,0,",",".").',-';
 
         // $response[$value->id_produk]['pricevvv']= $value->price;
       }
