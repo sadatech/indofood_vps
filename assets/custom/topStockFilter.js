@@ -31,17 +31,11 @@ function fetchTopSkuData() {
         var data ='';
         var no = 1;
         for( var i = 0 ; i < topSkuArray.length ; i++){
-            var rupiah = '';
-            var dat = topSkuArray[i].price * topSkuArray[i].monthVolume;
-            var angkarev = dat.toString().split('').reverse().join('');
-            for(var i = 0; i < angkarev.length; i++) if(i%3 == 0) rupiah += angkarev.substr(i,3)+'.';
-            // return rupiah.split('',rupiah.length-1).reverse().join('');
-
             data += '<tr class="odd gradeX">';
             data += '<td>' + no +'</td>';
             data += '<td>'+ topSkuArray[i].segmen+'</td>';
             data += '<td>'+ topSkuArray[i].namaProduk+'</td>';
-            data += '<td>'+ rupiah.split('',rupiah.length-1).reverse().join('')+'</td>';
+            data += '<td>'+ topSkuArray[i].price * topSkuArray[i].monthVolume+'</td>';
             data += '<td>'+ topSkuArray[i].monthVolume+'</td>';
             if(parseInt(topSkuArray[i].monthAgoVolume) === 0){
                 growth = ' Trend belum bisa dihitung';
