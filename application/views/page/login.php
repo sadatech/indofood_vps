@@ -43,7 +43,7 @@
 
     <body class=" login">
         <!-- BEGIN : LOGIN PAGE 5-1 -->
-        <div class="user-login-5">
+        <div class="user-login-5" style="margin-top: 20px;">
             <div class="row bs-reset">
                 <div class="col-md-6 bs-reset">
                     <div class="login-bg" style="background-image:url(<?php echo base_url()?>/assets/pages/img/login/bg1.jpg)">
