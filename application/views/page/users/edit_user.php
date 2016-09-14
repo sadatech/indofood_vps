@@ -170,6 +170,20 @@
 
 
 
+                                                        }elseif ($loopEditUser->akses==4) {
+
+                                                            echo '<option value="0">TEAM LEADER</option>';
+
+                                                            echo '<option value="1">BRAND AMBASADOR</option>';
+
+                                                            echo '<option value="2">ADMINISTRATOR</option>';
+
+                                                            echo '<option value="3">INDOFOOD</option>';
+
+                                                            echo '<option value="4" selected>KAS</option>';
+
+
+
                                                         } ?>
 
                                                         ?> -->
