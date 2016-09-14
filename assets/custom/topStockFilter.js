@@ -31,11 +31,12 @@ function fetchTopSkuData() {
         var data ='';
         var no = 1;
         for( var i = 0 ; i < topSkuArray.length ; i++){
-            var rupiah = topSkuArray[i].price * topSkuArray[i].monthVolume;
-            var angkarev = angka.toString().split('').reverse().join('');
+            var rupiah = '';
+            var dat = topSkuArray[i].price * topSkuArray[i].monthVolume;
+            var angkarev = dat.toString().split('').reverse().join('');
             for(var i = 0; i < angkarev.length; i++) if(i%3 == 0) rupiah += angkarev.substr(i,3)+'.';
             // return rupiah.split('',rupiah.length-1).reverse().join('');
-            
+
             data += '<tr class="odd gradeX">';
             data += '<td>' + no +'</td>';
             data += '<td>'+ topSkuArray[i].segmen+'</td>';
