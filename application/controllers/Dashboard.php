@@ -238,18 +238,9 @@ public function kategori_segmen()
 
 		$dataDas['js'][]	= "assets/custom/kategori_segmen.js";
 
-		// $dataDas['js'][]	= "assets/global/plugins/select2/js/select2.full.min.js";
+		$dataDas['js'][]	= "assets/global/plugins/select2/js/select2.full.min.js";
 
-		// $dataDas['js'][]  = "assets/pages/scripts/decimal/inputmask.js";	
-		// $dataDas['js'][]  = "assets/pages/scripts/decimal/inputmask.extensions.js";	
-		// $dataDas['js'][]  = "assets/pages/scripts/decimal/inputmask.numeric.extensions.js";	
-		// $dataDas['js'][]  = "assets/pages/scripts/decimal/inputmask.phone.extensions.js";	
-		// $dataDas['js'][]  = "assets/pages/scripts/decimal/inputmask.regex.extensions.js";	
-		// $dataDas['js'][]  = "assets/pages/scripts/decimal/jquery.inputmask.js";	
 
-		// $dataDas['js'][]  = "assets/global/scripts/app.min.js";
-
-		// $dataDas['js'][] ="assets/custom/price.js";
 
 	    	// $this->db->order_by("id_kota","asc");
 
