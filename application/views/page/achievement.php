@@ -43,6 +43,9 @@
                                 elseif ($reg->region == "Jabodetabek") {
                                     $compass .= "Central";
                                 }
+                                elseif ($reg->region == "Jawa Barat") {
+                                    $compass .= "Central";
+                                }
                                 else{
                                     $compass .= "East";
                                 }
