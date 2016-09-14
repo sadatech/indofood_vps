@@ -178,6 +178,8 @@ box-shadow:0 0 5px
 
                                                         <option value="3">INDOFOOD</option>
 
+                                                        <option value="4">KAS</option>
+
                                                     </select>
 
                                                 </div>
