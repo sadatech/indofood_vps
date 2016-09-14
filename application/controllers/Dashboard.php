@@ -203,7 +203,7 @@ public function kategori_segmen()
 				$id_kat = $exp[1];
 				$field = $exp[0];
 
-				print_r($val['price']);
+				print_r($value);
 				// if (!empty(id_kat) && !empty($field) && !empty($value)) {
 				// 	$this->db->query("UPDATE sada_kategori SET $field = '$value' WHERE id = $id_kat");
 				// 	echo "Success Updated";
