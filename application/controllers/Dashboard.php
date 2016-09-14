@@ -192,18 +192,18 @@ class Dashboard extends CI_Controller {
 public function kategori_segmen()
 {
 	if ($this->input->post()) {
-			$rep = array("Rp ",".","_");
-
-		$replace = str_replace($rep, "", $price);
+			
 			foreach ($this->input->post() as $key => $value) {
 				$field = strip_tags(trim($key));
 		        $val = $value;
+		        $rep = array("Rp ",".","_");
 
+				$replace = str_replace($rep, "", $val);
 				$exp = explode(':', $field);
 				$id_kat = $exp[1];
 				$field = $exp[0];
 
-				print_r($value);
+				print_r($replace);
 				// if (!empty(id_kat) && !empty($field) && !empty($value)) {
 				// 	$this->db->query("UPDATE sada_kategori SET $field = '$value' WHERE id = $id_kat");
 				// 	echo "Success Updated";
