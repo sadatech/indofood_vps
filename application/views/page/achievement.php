@@ -16,6 +16,7 @@
                     <table class="table table-bordered table-striped table-condensed flip-content">
                         <thead class="flip-content">
                             <tr style="background: #548235;color: white;">
+                                <th align="center" width="20%"> Compass </th>
                                 <th align="center" width="20%"> Region </th>
                                 <th align="center">  Area (Cabang) (Dijumlah per cabang)</th>
                                 <th align="center" class="numeric"> BC </th>
@@ -36,6 +37,7 @@
                                 $cab = $this->db->get_where("sada_cabang",array('id_region'=>$reg->id_region));
                                 // echo "Jumlah".$cab->num_rows();
                                 echo "<tr>";
+                                echo "<td rowspan='".$cab->num_rows()."'>".$reg->region."</td>";
                                 echo "<td rowspan='".$cab->num_rows()."'>".$reg->region."</td>";
                                 echo "";
                                 foreach ($cab->result() as $cabang) {
