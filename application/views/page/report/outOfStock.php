@@ -82,7 +82,7 @@
                         <th> Nama Toko </th>
                         <th> Nama Ba </th>
                         <th> Tanggal </th>
-                        <th style="width: 300px;">List Out Of Stock</th>
+                        <th style="width: 200px;">List Out Of Stock</th>
                         <th>Keterangan</th>
                         <th>Day Ago</th>
                     </tr>
