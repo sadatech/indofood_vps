@@ -1437,7 +1437,7 @@ public function EditdataUser()
 
 	$dataDas['query_toko'] = $this->db->get_where('sada_toko',array('status'=>"Y"))->result();
 
-	// $dataDas['js'][]	= "assets/custom/addUser.js";
+	$dataDas['js'][]	= "assets/custom/editUser.js";
 
 
 
