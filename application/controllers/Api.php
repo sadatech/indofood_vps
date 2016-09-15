@@ -2685,7 +2685,7 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
       'date' => $value->date,
 
-      'namaProduk' => str_replace(',','<br />',$value->namaProduk.' | '.$value->tipe.' | '.$value->id_oos),
+      'namaProduk' => str_replace(',','<br />',$value->namaProduk),
 
       'dayAgo' => $this->carbon->time_elapsed_string($value->date), 
 
