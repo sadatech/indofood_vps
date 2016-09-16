@@ -87,7 +87,7 @@
                             <span class="input-group-addon">
                                 <i class="fa fa-plus-square-o"></i>
                             </span>
-                                <input id="pic" type="text" class="form-control" name="namapic[]" placeholder="Nama PIC" style="width: 90%;">
+                                <input id="pic" type="text" class="form-control" value="<?php echo $loopEditCabang->pic; ?>" name="namapic[]" placeholder="Nama PIC" style="width: 90%;">
                                 <span style="padding: 10px;"><a href="#" id="add_pic" class="btn btn-primary add_pic"><i class="glyphicon glyphicon-plus"></i></a></span>
                                 <!-- <span style="padding: 10px;"><a href="#" id="add_pic" class="btn btn-primary add_email_pic"><i class="glyphicon glyphicon-plus"></i></a></span>
  -->                        </div>
@@ -101,7 +101,7 @@
                             <span class="input-group-addon">
                                 <i class="fa fa-plus-square-o"></i>
                             </span>
-                                <input id="pic" type="text" class="form-control" name="emailpic[]" placeholder="Email PIC" style="width: 90%;">
+                                <input id="pic" type="text" class="form-control" value="<?php echo $loopEditCabang->email_pic; ?>"  name="emailpic[]" placeholder="Email PIC" style="width: 90%;">
                                 <!-- <span style="padding: 10px;"><a href="#" id="add_pic" class="btn btn-primary add_email_pic"><i class="glyphicon glyphicon-plus"></i></a></span>
  -->              </div>
                     </div>
@@ -116,7 +116,7 @@
                             <span class="input-group-addon">
                                 <i class="fa fa-plus-square-o"></i>
                             </span>
-                                <input id="pic" type="text" class="form-control" name="aspm[]" placeholder="ASPM" style="width: 90%;">
+                                <input id="pic" type="text" class="form-control" value="<?php echo $loopEditCabang->aspm; ?>" name="aspm[]" placeholder="ASPM" style="width: 90%;">
                         </div>
                     </div>
                 </div>
@@ -128,7 +128,7 @@
                             <span class="input-group-addon">
                                 <i class="fa fa-plus-square-o"></i>
                             </span>
-                                <input id="pic" type="text" class="form-control" name="emailaspm[]" placeholder="Email ASPM" style="width: 90%;">
+                                <input id="pic" type="text" class="form-control" value="<?php echo $loopEditCabang->email_aspm; ?>" name="emailaspm[]" placeholder="Email ASPM" style="width: 90%;">
                                 <!-- <span style="padding: 10px;"><a href="#" id="add_pic" class="btn btn-primary add_email_pic"><i class="glyphicon glyphicon-plus"></i></a></span>
  -->                        </div>
                     </div>

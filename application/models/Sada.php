@@ -3158,7 +3158,7 @@ public function editCabang($paramId)
 
 {
 
-  return $this->db->select("id_cabang,nama,target,pic")->from("sada_cabang")->where("id_cabang",$paramId)->get()->row();
+  return $this->db->select("id_cabang,nama,target,pic,email_pic,aspm,email_aspm")->from("sada_cabang")->where("id_cabang",$paramId)->get()->row();
 
 }
 
