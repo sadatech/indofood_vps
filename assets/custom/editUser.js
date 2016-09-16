@@ -1,6 +1,6 @@
-  $(function() {
+ $(function() {
 
-    dynamicShow();
+    // dynamicShow();
 
     $('#akses').change(function(){
         var url = window.location.href;
