@@ -233,7 +233,7 @@ $route['topAccount'] 				= 'Dashboard/reportTopAccount';
 
 	$route['cabang/add']['POST'] 			= 'Dashboard/insertDataCabang';
 
-	$route['cabang/edit']['POST'] 			= 'Dashboard/updateDataCabang';
+	$route['cabang/edit(:num)']['POST'] 			= 'Dashboard/updateDataCabang';
 
 	$route['cabang/edit/(:num)']['GET'] 	= 'Dashboard/editDataCabang';
 

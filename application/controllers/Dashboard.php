@@ -2294,26 +2294,27 @@ public function updateDataCabang()
 
 {
 
-	$cabangId = htmlentities($this->input->post("id-cabang",TRUE), ENT_QUOTES, 'utf-8');
+	// $cabangId = htmlentities($this->input->post("id-cabang",TRUE), ENT_QUOTES, 'utf-8');
 
-	$cabangName = htmlentities($this->input->post("nama-cabang",TRUE), ENT_QUOTES, 'utf-8');
+	// $cabangName = htmlentities($this->input->post("nama-cabang",TRUE), ENT_QUOTES, 'utf-8');
 
-	// $target = htmlentities($this->input->post("target",TRUE), ENT_QUOTES, 'utf-8');
+	// // $target = htmlentities($this->input->post("target",TRUE), ENT_QUOTES, 'utf-8');
 
-	$pic = htmlentities($this->input->post("pic",TRUE), ENT_QUOTES, 'utf-8');
+	// $pic = htmlentities($this->input->post("pic",TRUE), ENT_QUOTES, 'utf-8');
 
-	$field = array('nama' => $cabangName ,
-					 // 'target'=> $target,
-		'pic'=>$pic);
+	// $field = array('nama' => $cabangName ,
+	// 				 // 'target'=> $target,
+	// 	'pic'=>$pic);
 
 
 
-	$this->sada->updateCabang($cabangId,$field);
+	// $this->sada->updateCabang($cabangId,$field);
 
-	$this->session->set_flashdata('msg','Cabang '.$cabangName.' has been updated');
+	// $this->session->set_flashdata('msg','Cabang '.$cabangName.' has been updated');
 
-	redirect('Dashboard/dataCabang', 'refresh');
+	// redirect('Dashboard/dataCabang', 'refresh');	
 
+	echo "aaaaaa";
 }
 
 
