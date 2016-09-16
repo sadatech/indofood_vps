@@ -1,25 +1,22 @@
  $(function() {
 
-    // dynamicShow();
-
-    $('#akses').change(function(){
-        var url = window.location.href;
-
-        var segments = url.split( '/' );
-
-        console.log(segments[2]);
-        // dynamicShow();
-
-    });
-
-
+    dynamicShow();
 
     $('#toko').select2({
 
     });
 
     function dynamicShow() {
+        $('#akses').change(function(){
+            var url = window.location.href;
 
+            var segments = url.split( '/' );
+
+            console.log(segments[2]);
+            dynamicShow();
+
+        });
+        
         if($('#akses').val() == '1') {
 
             $('#row_status').show();
