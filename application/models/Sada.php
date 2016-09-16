@@ -2012,9 +2012,6 @@ public function editSku($paramId)
   return  $this->db->select("id_store,id_kategori,nama_produk,price")->from("sada_produk")->where("id_produk",$paramId)->get()->row();
 
 }
-
-
-
 public function editUser($paramId)
 
 {

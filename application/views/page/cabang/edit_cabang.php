@@ -51,7 +51,7 @@
                         <span class="input-group-addon">
                             <i class="fa fa-plus-square-o"></i>
                         </span>
-                        <input id="nama-cabang" type="text" class="form-control" name="nama-cabang" placeholder="Nama Cabang">
+                        <input id="nama-cabang" type="text" class="form-control" value="<?php echo $loopEditCabang->nama; ?>" name="nama-cabang" placeholder="Nama Cabang">
 
                     </div>
                 </div>
