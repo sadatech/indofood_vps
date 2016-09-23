@@ -42,22 +42,26 @@ class Api extends CI_Controller{
   public function ChangeCabang()
   {
     $param = $this->input->post("id_cab");
-    // echo $param;
-    $q = $this->db->get_where("sada_kota",array('id_cabang'=>$param));
-    foreach ($q->result() as $kota) {
-      $data[] = $kota;
+    $ids = "";
+    foreach ($param as $id) {
+        $ids .= $id;
     }
-    $this->output
+    echo $ids;
+    // $q = $this->db->get_where("sada_kota",array('id_cabang'=>$param));
+    // foreach ($q->result() as $kota) {
+    //   $data[] = $kota;
+    // }
+    // $this->output
 
-    ->set_status_header(200)
+    // ->set_status_header(200)
 
-    ->set_content_type('application/json', 'utf-8')
+    // ->set_content_type('application/json', 'utf-8')
 
-    ->set_output(json_encode($data, JSON_PRETTY_PRINT))
+    // ->set_output(json_encode($data, JSON_PRETTY_PRINT))
 
-    ->_display();
+    // ->_display();
 
-    exit;
+    // exit;
   }
 
 
