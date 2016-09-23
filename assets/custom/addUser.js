@@ -149,23 +149,23 @@
         event.preventDefault();
         var id = $(this).val();
         var base_url = window.location.origin;
-        console.log(id);
-        // $.ajax({
-        //     url: base_url+'/users/changeCabang.jsp?key=ganteng',
-        //     type: 'POST',
-        //     dataType: 'json',
-        //     data: {id_cab: id},
-        // })
-        // .done(function(msg) {
-        //     var data = "";
-        //         data += "";
-        //     for (var i = msg.length - 1; i >= 0; i--) {
-        //             data += "<option value='"+msg[i]['id_kota']+"'>"+msg[i]['nama_kota']+"</option>";
-        //     }
-        //     $("#select_kota").html(data);
-        // })
-        // .fail(function() {
-        //     console.log("error");
-        // })
+
+        $.ajax({
+            url: base_url+'/users/changeCabang.jsp?key=ganteng',
+            type: 'POST',
+            dataType: 'json',
+            data: {id_cab: id},
+        })
+        .done(function(msg) {
+            var data = "";
+                data += "";
+            for (var i = msg.length - 1; i >= 0; i--) {
+                    data += "<option value='"+msg[i]['id_kota']+"'>"+msg[i]['nama_kota']+"</option>";
+            }
+            $("#select_kota").html(data);
+        })
+        .fail(function() {
+            console.log("error");
+        })
     });
 });
