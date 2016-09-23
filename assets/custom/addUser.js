@@ -23,7 +23,7 @@
 
 
     });
-    $('#cabang').select2({
+    $('#select_cabang').select2({
 
 
 
