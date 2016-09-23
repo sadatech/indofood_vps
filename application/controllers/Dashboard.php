@@ -1324,28 +1324,28 @@ public function AdddataUser()
 
 				$id=$this->db->select('id_user')->order_by('id_user',"desc")->limit(1)->get('sada_user')->row();
 
-
+				$toko_tl = $this->input->post("toko_tl",TRUE);
 
 				if ($dataInsert['akses']==0) {
 
-					$insertTL['id_user'] = $id->id_user;
+					foreach ($toko_tl as $tl_toko) {
+						$insertTL['id_user'] = $id->id_user;
 
-					$insertTL['id_kota'] = $this->input->post("kota",TRUE);
+						$insertTL['id_toko'] = $tl_toko;
 
-					if ($this->db->insert("sada_tl_in_kota",$insertTL)) {
+						if ($this->db->insert("sada_tl_in_kota",$insertTL)) {
 
-						$this->session->set_flashdata('msg', 'User added');
+							$this->session->set_flashdata('msg', 'User added');
 
-						redirect('Dashboard/dataUser', 'refresh');
+							redirect('Dashboard/dataUser', 'refresh');
+						}
+						else{
 
-					}
+							$this->session->set_flashdata('msg', 'User not added');
 
-					else{
+							redirect('Dashboard/dataUser', 'refresh');
 
-						$this->session->set_flashdata('msg', 'User not added');
-
-						redirect('Dashboard/dataUser', 'refresh');
-
+						}
 					}
 
 				}

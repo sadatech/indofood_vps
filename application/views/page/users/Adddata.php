@@ -294,9 +294,7 @@ box-shadow:0 0 5px
 
                                                     </span>
 
-                                                    <select id="select_kota" name="kota" class="form-control">
-
-                                                        <option value="">-Pilih Kota-</option>
+                                                    <select id="select_kota" name="toko_tl[]" class="form-control" multiple style="width: 100%;>
 
                                                         <!-- <?php
 
