@@ -262,8 +262,6 @@ box-shadow:0 0 5px
 
                                                     <select id="select_cabang" name="cabang[]" multiple class="form-control" style="width: 100%;">
 
-                                                        <option value="">-Pilih Cabang-</option>
-
                                                         <?php
 
                                                             $data = $this->db->select('id_cabang,nama')->get('sada_cabang');

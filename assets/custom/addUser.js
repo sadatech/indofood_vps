@@ -20,12 +20,12 @@
 
     $('#toko').select2({
 
-
+        placeholder: "Select a Store"
 
     });
     $('#select_cabang').select2({
 
-
+        placeholder: "Select a Cabang"
 
     });
     function dynamicShow() {
