@@ -260,7 +260,7 @@ box-shadow:0 0 5px
 
                                                     </span>
 
-                                                    <select id="select_cabang" name="cabang" class="form-control">
+                                                    <select id="select_cabang[]" name="cabang" multiple class="form-control">
 
                                                         <option value="">-Pilih Cabang-</option>
 
