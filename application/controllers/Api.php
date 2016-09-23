@@ -53,8 +53,8 @@ class Api extends CI_Controller{
           LEFT JOIN sada_toko ON sada_kota.id_kota = sada_toko.id_toko
           WHERE sada_toko.id_kota
           IN (".$idz.")";
-    $zql = $this->db->query($q);
-    // echo $q;
+    // $zql = $this->db->query($q);
+    echo $q;
     // $q = $this->db->get_where("sada_kota",array('id_cabang'=>$param));
     foreach ($zql->result() as $kota) {
       $data[] = $kota;
