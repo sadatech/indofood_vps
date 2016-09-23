@@ -56,7 +56,7 @@ class Api extends CI_Controller{
     $zql = $this->db->query($q);
     // echo $q;
     // $q = $this->db->get_where("sada_kota",array('id_cabang'=>$param));
-    foreach ($q->result() as $kota) {
+    foreach ($zql->result() as $kota) {
       $data[] = $kota;
     }
     $this->output
