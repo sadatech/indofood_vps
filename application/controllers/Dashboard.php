@@ -1332,22 +1332,24 @@ public function AdddataUser()
 						$insertTL['id_user'] = $id->id_user;
 
 						$insertTL['id_toko'] = $tl_toko;
+						$this->db->insert("sada_tl_in_kota",$insertTL);
+						// if ($this->db->insert("sada_tl_in_kota",$insertTL)) {
 
-						if ($this->db->insert("sada_tl_in_kota",$insertTL)) {
+						// 	$this->session->set_flashdata('msg', 'User added');
 
-							$this->session->set_flashdata('msg', 'User added');
+						// 	redirect('Dashboard/dataUser', 'refresh');
+						// }
+						// else{
 
-							redirect('Dashboard/dataUser', 'refresh');
-						}
-						else{
+						// 	$this->session->set_flashdata('msg', 'User not added');
 
-							$this->session->set_flashdata('msg', 'User not added');
+						// 	redirect('Dashboard/dataUser', 'refresh');
 
-							redirect('Dashboard/dataUser', 'refresh');
-
-						}
+						// }
 					}
+						$this->session->set_flashdata('msg', 'User added');
 
+						redirect('Dashboard/dataUser', 'refresh');
 				}
 
 				if ($dataInsert['akses']==1) {
