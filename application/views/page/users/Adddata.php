@@ -230,7 +230,7 @@ box-shadow:0 0 5px
 
                                                     </span>
 
-                                                    <select id="toko" name="toko[]" class="form-control" multiple style="width: 100%;">
+                                                    <select id="toko" name="toko[]" multiple style="width: 100%;">
 
                                                         <?php foreach ($query_toko as $row): ?>
 
@@ -260,7 +260,7 @@ box-shadow:0 0 5px
 
                                                     </span>
 
-                                                    <select id="select_cabang" name="cabang[]" multiple class="form-control" style="width: 100%;">
+                                                    <select id="select_cabang" name="cabang[]" multiple style="width: 100%;">
 
                                                         <?php
 
