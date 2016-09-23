@@ -160,7 +160,7 @@
             var data = "";
                 data += "";
             for (var i = msg.length - 1; i >= 0; i--) {
-                    data += "<option value='"+msg[i]['id_kota']+"'>"+msg[i]['nama_kota']+"</option>";
+                    data += "<option value='"+msg[i]['id_toko']+"'>"+msg[i]['nama']+"</option>";
             }
             $("#select_kota").html(data);
         })
