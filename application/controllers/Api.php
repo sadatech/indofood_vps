@@ -44,10 +44,11 @@ class Api extends CI_Controller{
     $param = $this->input->post("id_cab");
     $ids = "";
     foreach ($param as $id) {
-        $ids[] = implode(',', $id);
+        $ids[] = $id;
     }
     // echo $ids;
-    $q = "select * from sada_kota where in id_cabang (".$ids.")";
+    $idz = implode(',', $ids);
+    $q = "select * from sada_kota where in id_cabang (".$idz.")";
     echo $q;
     // $q = $this->db->get_where("sada_kota",array('id_cabang'=>$param));
     // foreach ($q->result() as $kota) {
