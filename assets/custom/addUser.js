@@ -23,7 +23,11 @@
 
 
     });
+    $('#cabang').select2({
 
+
+
+    });
     function dynamicShow() {
 
         if($('#akses').val() == '1') {
