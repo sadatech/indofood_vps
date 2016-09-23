@@ -44,9 +44,9 @@ class Api extends CI_Controller{
     $param = $this->input->post("id_cab");
     $ids = "";
     foreach ($param as $id) {
-        $ids .= implode(',', $id);
+        $ids .= $id;
     }
-    echo $ids;
+    echo implode(',', $ids);
     // $q = $this->db->get_where("sada_kota",array('id_cabang'=>$param));
     // foreach ($q->result() as $kota) {
     //   $data[] = $kota;
