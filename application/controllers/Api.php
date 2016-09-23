@@ -51,7 +51,7 @@ class Api extends CI_Controller{
     $q = "SELECT id_toko, nama
           FROM sada_kota
           LEFT JOIN sada_toko ON sada_kota.id_kota = sada_toko.id_toko
-          WHERE id_cabang
+          WHERE sada_toko.id_kota
           IN (".$idz.")";
     $zql = $this->db->query($q);
     // echo $q;
