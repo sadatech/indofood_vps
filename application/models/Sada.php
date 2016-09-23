@@ -310,22 +310,6 @@ class Sada extends CI_Model{
   WHERE
   id_user = sada_produk_terjual.id_user
   ) AS nama_ba,
-  -- (
-  -- SELECT
-  -- sum(sada_target_user.target)
-  -- FROM
-  -- sada_target_user
-  -- LEFT JOIN sada_user ON sada_user.id_user = sada_target_user.id_user
-  -- WHERE
-  -- sada_target_user.id_user = (
-  -- SELECT DISTINCT
-  -- prt.id_user
-  -- FROM
-  -- sada_produk_terjual AS prt
-  -- WHERE
-  -- prt.id_user = sada_produk_terjual.id_user
-  -- )
-  -- ) AS target_ba_user
   (
   SELECT DISTINCT
   SUM(target_toko.target)
