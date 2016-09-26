@@ -339,11 +339,11 @@
 
                                                         <?php
 
-                                                            $data = $this->db->select('id_cabang,nama_kota,id_toko')->get('sada_toko')->where_in('id_toko');
+                                                            $data = $this->db->select('nama,id_toko')->where('id_toko',$id_toko)->get('sada_toko');
 
                                                             foreach ($data->result() as $key => $value) {
 
-                                                                echo "<option selected value='".$value->id_kota."'>".$value->nama_kota."(".$value->id_cabang.")</option>";
+                                                                echo "<option selected value='".$value->id_toko."'>".$value->nama_toko."</option>";
 
                                                             }
 
