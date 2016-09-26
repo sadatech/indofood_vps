@@ -1447,9 +1447,9 @@ public function EditdataUser()
 
 		$data = $this->sada->cabangGet($dataDas['paramId']);
 		// foreach ($data as $cab_id) {
-		// 	$dataDas['id_cabang'] = $cab_id->id_cabang;
+			$dataDas['id_cabang'] = $data;
 		// }
-		echo $data;
+		// echo $data;
 	}
 	$this->load->view('view_awal', $dataDas, FALSE);
 
