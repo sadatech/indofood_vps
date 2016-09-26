@@ -2014,8 +2014,8 @@ public function getCab($user_id)
     ) AS id_cabang
   FROM
     sada_tl_in_kota where id_user = '".$user_id."'";
-  
-    return $this->db->query($sql)->result();
+    echo $sql;
+    // return $this->db->query($sql)->result();
 }
 public function editSku($paramId)
 
