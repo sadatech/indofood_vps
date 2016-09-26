@@ -5,7 +5,17 @@
     $('#toko').select2({
 
     });
+    $('#select_cabang').select2({
 
+        placeholder: "Select a Cabang"
+
+    });
+
+    $('#select_kota').select2({
+
+        placeholder: "Select a Store"
+
+    });
     function dynamicShow() {
         $('#akses').change(function(){
             var url = window.location.href;
