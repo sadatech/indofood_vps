@@ -2013,7 +2013,7 @@ public function cabangGet($id_user)
         sada_toko.id_toko = sada_tl_in_kota.id_toko
     ) AS id_cabang
   FROM
-    sada_tl_in_kota where id_user = '".$user_id."'";
+    sada_tl_in_kota where id_user = '1'";
   
   return $this->db->query($sql)->result();
 }
