@@ -337,7 +337,7 @@
 
                                                     <select id="select_kota" name="toko_tl[]" class="form-control" multiple style="width: 100%;>
 
-                                                        <!-- <?php
+                                                        <?php
 
                                                             $data = $this->db->select('id_cabang,nama_kota')->get('sada_kota');
 

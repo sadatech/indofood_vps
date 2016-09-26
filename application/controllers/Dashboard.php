@@ -1449,7 +1449,6 @@ public function EditdataUser()
 		foreach ($data as $cab_id) {
 			$dataDas['id_cabang'][] = $cab_id->id_cabang;
 		}
-		// echo $data;
 	}
 	$this->load->view('view_awal', $dataDas, FALSE);
 
