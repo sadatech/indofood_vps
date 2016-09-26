@@ -338,14 +338,17 @@
                                                     <select id="select_kota" name="toko_tl[]" class="form-control" multiple style="width: 100%;>
 
                                                         <?php
+                                                            foreach ($tokoa->result() as $tokos) {
+                                                                    $data = $this->db->select('nama,id_toko')->where('id_toko',$tokos->id_toko)->get('sada_toko')->row();
 
-                                                            $data = $this->db->select('nama,id_toko')->where('id_toko',$tok_id)->get('sada_toko');
-
-                                                            foreach ($data->result() as $key => $value) {
-
-                                                                echo "<option selected value='".$value->id_toko."'>".$value->nama."</option>";
-
+                                                                    echo "<option selected value='".$data->id_toko."'>".$data->nama."</option>";
                                                             }
+
+//                                                             foreach ($data->result() as $key => $value) {
+
+//                                                                 echo "<option selected value='".$value->id_toko."'>".$value->nama."</option>";
+
+//                                                             }
 
                                                         ?>
 

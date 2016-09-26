@@ -1449,10 +1449,8 @@ public function EditdataUser()
 		foreach ($data as $cab_id) {
 			$dataDas['id_cabang'][] = $cab_id->id_cabang;
 		}
-		$toko = $this->db->get_where("sada_tl_in_kota",array("id_user"=>$dataDas['paramId']));
-		foreach ($toko->result() as $tokos) {
-			$dataDas['tok_id'] = explode(',', $tokos->id_toko);
-		}
+		$dataDas['tokoa'] = $this->db->get_where("sada_tl_in_kota",array("id_user"=>$dataDas['paramId']));
+		
 	}
 	$this->load->view('view_awal', $dataDas, FALSE);
 
