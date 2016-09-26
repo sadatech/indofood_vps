@@ -1445,22 +1445,12 @@ public function EditdataUser()
 
 		// $dataDas['id_toko'] = null;
 
-		$qry = $this->db->select('id_user,id_toko')->where('id_user',$dataDas['paramId'])->get('sada_tl_in_kota');
-		// $toko_id = array();
-		foreach ($qry->result() as $get_toko) {
-			echo $get_toko->id_toko;
+		$qry = $this->sada->getCab($dataDas['paramId']);
+
+		foreach ($qry as $cab_id) {
+			$dataDas['id_cabang'] = $cab_id->id_cabang;
 		}
-		// print_r($toko_id);
-		// $qry2 = $this->db->select('id_cabang,id_kota,nama_kota')->where('id_kota',$qry->id_toko)->get('sada_kota')->row();
-
-		// $dataDas['id_kotas'] = $qry->id_kota;
-
-		// $data = $this->db->select('id_cabang,nama')->where('id_cabang',$qry2->id_cabang)->get('sada_cabang')->row();
-
-		// $dataDas['id_cabang'] = $data->id_cabang;
-
 	}
-
 	$this->load->view('view_awal', $dataDas, FALSE);
 
 }
