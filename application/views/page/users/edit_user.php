@@ -343,7 +343,7 @@
 
                                                             foreach ($data->result() as $key => $value) {
 
-                                                                echo "<option value='".$value->id_kota."'>".$value->nama_kota."(".$value->id_cabang.")</option>";
+                                                                echo "<option selected value='".$value->id_kota."'>".$value->nama_kota."(".$value->id_cabang.")</option>";
 
                                                             }
 
