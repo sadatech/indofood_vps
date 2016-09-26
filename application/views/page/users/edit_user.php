@@ -339,9 +339,11 @@
 
                                                         <?php
                                                             foreach ($tokoa->result() as $tokos) {
-                                                                    $data = $this->db->select('nama,id_toko')->where('id_toko',$tokos->id_toko)->get('sada_toko')->row();
+                                                                    $data = $this->db->select('nama,id_toko')->where('id_toko',$tokos->id_toko)->get('sada_toko');
 
-                                                                    echo "<option selected value='".$data->id_toko."'>".$data->nama."</option>";
+                                                                    foreach ($data->result() as $l) {
+                                                                        echo "<option selected value='".$l->id_toko."'>".$l->nama."</option>";
+                                                                    }
                                                             }
 
 //                                                             foreach ($data->result() as $key => $value) {
