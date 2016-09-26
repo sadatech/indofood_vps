@@ -306,7 +306,7 @@ box-shadow:0 0 5px
 
                                                             }
 
-                                                        ?> -->
+                                                        ?>
 
                                                     </select>
 

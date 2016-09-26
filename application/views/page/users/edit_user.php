@@ -279,6 +279,8 @@
 
                                                 <label id="nama">Cabang</label>
 
+                                                <?php echo form_error('cabang'); ?>
+
                                                 <div class="input-group">
 
                                                     <span class="input-group-addon">
@@ -287,9 +289,7 @@
 
                                                     </span>
 
-                                                    <select id="select_cabang" name="cabang" class="form-control">
-
-                                                        <option value="">-Pilih Cabang-</option>
+                                                    <select id="select_cabang" name="cabang[]" multiple style="width: 100%;">
 
                                                         <?php
 
@@ -297,19 +297,7 @@
 
                                                             foreach ($data->result() as $key => $value) {
 
-                                                                echo "<option value='".$value->id_cabang."'";
-
-                                                                if ($loopEditUser->akses == 0) {
-
-                                                                    if ($value->id_cabang == $id_cabang) {
-
-                                                                        echo "selected";
-
-                                                                    }
-
-                                                                }
-
-                                                                echo ">".$value->nama."</option>";
+                                                                echo "<option value='".$value->id_cabang."'>".$value->nama."</option>";
 
                                                             }
 
@@ -325,6 +313,8 @@
 
                                                 <label id="nama">Kota</label>
 
+                                                <?php echo form_error('kota'); ?>
+
                                                 <div class="input-group">
 
                                                     <span class="input-group-addon">
@@ -333,29 +323,19 @@
 
                                                     </span>
 
-                                                    <select id="select_kota" name="kota" class="form-control">
-
-                                                        <option value="">-Pilih Kota-</option>
+                                                    <select id="select_kota" name="toko_tl[]" class="form-control" multiple style="width: 100%;>
 
                                                         <!-- <?php
 
-                                                            $data = $this->db->select('id_kota,id_cabang,nama_kota')->get('sada_kota');
+                                                            $data = $this->db->select('id_cabang,nama_kota')->get('sada_kota');
 
                                                             foreach ($data->result() as $key => $value) {
 
-                                                                echo "<option value='".$value->id_kota."'";
-
-                                                                if ($value->id_kota == $id_kotas) {
-
-                                                                    echo "selected";
-
-                                                                }
-
-                                                                echo ">".$value->nama_kota."(".$value->id_cabang.")</option>";
+                                                                echo "<option value='".$value->id_kota."'>".$value->nama_kota."(".$value->id_cabang.")</option>";
 
                                                             }
 
-                                                        ?> -->
+                                                        ?>
 
                                                     </select>
 
