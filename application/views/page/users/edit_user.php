@@ -297,7 +297,7 @@
 
                                                             foreach ($data->result() as $key => $value) {
 
-                                                                echo "<option value='".$value->id_cabang."'>".$value->nama."</option>";
+                                                                echo "<option selected value='".$value->id_cabang."'>".$value->nama."</option>";
 
                                                             }
 
