@@ -301,7 +301,7 @@
 
                                                                 if ($loopEditUser->akses == 0) {
 
-                                                                    if ($value->id_cabang == $id_cabang) {
+                                                                    if (in_array($value->id_cabang, $id_cabang)) {
 
                                                                         echo "selected";
 
