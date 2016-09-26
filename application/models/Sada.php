@@ -1990,7 +1990,7 @@ public function cabangGet($paramId)
 
 {
 
-  return  $this->db->select("nik,nama,akses,stay")->from("sada_user")->where("id_user",$paramId)->get()->row();
+  return  $this->db->query("select * from sada_toko")->result();
 
 }
 // public function cabangGet($paramId)
