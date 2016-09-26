@@ -2014,7 +2014,7 @@ public function cabangGet($paramId)
     ) AS id_cabang
   FROM
     sada_tl_in_kota where id_user = '".$paramId."'";
-  return  $this->db->query($sql)->result();
+  return  $sql;
 
 }
 // public function cabangGet($paramId)
