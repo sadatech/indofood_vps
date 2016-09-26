@@ -1405,18 +1405,8 @@ public function AdddataUser()
 
 		$dataDas['query_toko'] = $this->db->get_where('sada_toko',array('status'=>"Y"))->result();
 
-
-
-			// $dataDas['css'] = $this->sada->CssdataTable();
-
-			// $dataDas['js']	= $this->sada->JsdataTable();
-
-
-
 		$dataDas['js'][]	= "assets/custom/addUser.js";
-
-
-
+		
 		$this->load->view('view_awal', $dataDas, FALSE);
 
 	}
