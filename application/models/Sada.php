@@ -2015,9 +2015,8 @@ public function getCab($user_id)
   FROM
     sada_tl_in_kota where id_user = '".$user_id."'";
   
-    return $this->db->query($sql)->result();
+    return $this->db->query($sql)->row();
 }
-
 public function editSku($paramId)
 
 {
