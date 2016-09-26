@@ -1986,38 +1986,44 @@ public function addNewSku($data)
   $this->db->insert('sada_produk',$data);
 
 }
-
 public function cabangGet($paramId)
+
 {
-  $sql = "SELECT
-    (
-      SELECT
-        (
-          SELECT
-            (
-              SELECT
-                id_cabang
-              FROM
-                sada_cabang
-              WHERE
-                sada_kota.id_cabang = sada_cabang.id_cabang
-            )
-          FROM
-            sada_kota
-          WHERE
-            sada_kota.id_kota = sada_toko.id_kota
-        )
-      FROM
-        sada_toko
-      WHERE
-        sada_toko.id_toko = sada_tl_in_kota.id_toko
-    ) AS id_cabang
-  FROM
-    sada_tl_in_kota where id_user = '".$paramId."'";
-   
-   return $this->db->get("sada_toko");
+
+  return  $this->db->select("nik,nama,akses,stay")->from("sada_user")->where("id_user",$paramId)->get()->row();
 
 }
+// public function cabangGet($paramId)
+// {
+//   $sql = "SELECT
+//     (
+//       SELECT
+//         (
+//           SELECT
+//             (
+//               SELECT
+//                 id_cabang
+//               FROM
+//                 sada_cabang
+//               WHERE
+//                 sada_kota.id_cabang = sada_cabang.id_cabang
+//             )
+//           FROM
+//             sada_kota
+//           WHERE
+//             sada_kota.id_kota = sada_toko.id_kota
+//         )
+//       FROM
+//         sada_toko
+//       WHERE
+//         sada_toko.id_toko = sada_tl_in_kota.id_toko
+//     ) AS id_cabang
+//   FROM
+//     sada_tl_in_kota where id_user = '".$paramId."'";
+//    
+//    return $this->db->get("sada_toko");
+
+// }
 public function editSku($paramId)
 
 {
