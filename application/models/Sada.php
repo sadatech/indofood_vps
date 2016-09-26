@@ -1987,35 +1987,35 @@ public function addNewSku($data)
 
 }
 
-public function getCab($user_id)
+public function cabangGet($id_user)
 {
-  //   $sql = "SELECT
-  //   (
-  //     SELECT
-  //       (
-  //         SELECT
-  //           (
-  //             SELECT
-  //               id_cabang
-  //             FROM
-  //               sada_cabang
-  //             WHERE
-  //               sada_kota.id_cabang = sada_cabang.id_cabang
-  //           )
-  //         FROM
-  //           sada_kota
-  //         WHERE
-  //           sada_kota.id_kota = sada_toko.id_kota
-  //       )
-  //     FROM
-  //       sada_toko
-  //     WHERE
-  //       sada_toko.id_toko = sada_tl_in_kota.id_toko
-  //   ) AS id_cabang
-  // FROM
-  //   sada_tl_in_kota where id_user = '".$user_id."'";
-    
-    // return $this->db->query($sql)->result();
+  $sql = "SELECT
+    (
+      SELECT
+        (
+          SELECT
+            (
+              SELECT
+                id_cabang
+              FROM
+                sada_cabang
+              WHERE
+                sada_kota.id_cabang = sada_cabang.id_cabang
+            )
+          FROM
+            sada_kota
+          WHERE
+            sada_kota.id_kota = sada_toko.id_kota
+        )
+      FROM
+        sada_toko
+      WHERE
+        sada_toko.id_toko = sada_tl_in_kota.id_toko
+    ) AS id_cabang
+  FROM
+    sada_tl_in_kota where id_user = '".$user_id."'";
+  
+  return $this->db->query($sql)->result();
 }
 public function editSku($paramId)
 
