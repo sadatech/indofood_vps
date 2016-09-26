@@ -1989,8 +1989,32 @@ public function addNewSku($data)
 public function cabangGet($paramId)
 
 {
-
-  return  $this->db->query("select * from sada_toko")->result();
+    $sql = "SELECT
+    (
+      SELECT
+        (
+          SELECT
+            (
+              SELECT
+                id_cabang
+              FROM
+                sada_cabang
+              WHERE
+                sada_kota.id_cabang = sada_cabang.id_cabang
+            )
+          FROM
+            sada_kota
+          WHERE
+            sada_kota.id_kota = sada_toko.id_kota
+        )
+      FROM
+        sada_toko
+      WHERE
+        sada_toko.id_toko = sada_tl_in_kota.id_toko
+    ) AS id_cabang
+  FROM
+    sada_tl_in_kota where id_user = '".$paramId."'";
+  return  $this->db->query($sql)->result();
 
 }
 // public function cabangGet($paramId)
