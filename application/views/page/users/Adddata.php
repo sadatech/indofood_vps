@@ -282,7 +282,7 @@ box-shadow:0 0 5px
 
                                             <div id="row_kota" class="form-group">
 
-                                                <label id="nama">Kota</label>
+                                                <label id="nama">Toko</label>
 
                                                 <?php echo form_error('kota'); ?>
 
@@ -294,9 +294,9 @@ box-shadow:0 0 5px
 
                                                     </span>
 
-                                                    <select id="select_kota" name="toko_tl[]" class="form-control" multiple style="width: 100%;>
+                                                    <select disabled id="select_kota" name="toko_tl[]" class="form-control" multiple style="width: 100%;">
 
-                                                        <!-- <?php
+                                                        <?php
 
                                                             $data = $this->db->select('id_cabang,nama_kota')->get('sada_kota');
 

@@ -345,11 +345,7 @@
                                                                     }
                                                             }
 
-//                                                             foreach ($data->result() as $key => $value) {
-
-//                                                                 echo "<option selected value='".$value->id_toko."'>".$value->nama."</option>";
-
-//                                                             }
+//                                                            
 
                                                         ?>
 
