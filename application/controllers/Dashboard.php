@@ -1444,36 +1444,11 @@ public function EditdataUser()
 	elseif ($dataDas['loopEditUser']->akses == 0) {
 
 		// $dataDas['id_toko'] = null;
-		$sql = "SELECT
-    (
-      SELECT
-        (
-          SELECT
-            (
-              SELECT
-                id_cabang
-              FROM
-                sada_cabang
-              WHERE
-                sada_kota.id_cabang = sada_cabang.id_cabang
-            )
-          FROM
-            sada_kota
-          WHERE
-            sada_kota.id_kota = sada_toko.id_kota
-        )
-      FROM
-        sada_toko
-      WHERE
-        sada_toko.id_toko = sada_tl_in_kota.id_toko
-    ) AS id_cabang
-  FROM
-    sada_tl_in_kota where id_user = '".$dataDas['paramId']."'";
-    echo $sql;
-		// $data = $this->sada->cabangGet($dataDas['paramId']);
-		// foreach ($data as $cab_id) {
-			// $dataDas['id_cabang'] = $data;
-		// }
+
+		$data = $this->sada->cabangGet($dataDas['paramId']);
+		foreach ($data as $cab_id) {
+			echo $cab_id->id_cabang;
+		}
 		// echo $data;
 	}
 	$this->load->view('view_awal', $dataDas, FALSE);

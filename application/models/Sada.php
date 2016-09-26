@@ -1989,7 +1989,7 @@ public function addNewSku($data)
 public function cabangGet($paramId)
 
 {
-    $sql = "SELECT
+    $sql = "SELECT distinct
     (
       SELECT
         (
@@ -2014,7 +2014,7 @@ public function cabangGet($paramId)
     ) AS id_cabang
   FROM
     sada_tl_in_kota where id_user = '".$paramId."'";
-  return  $sql;
+  return  $this->db->query($sql)->result();
 
 }
 // public function cabangGet($paramId)
