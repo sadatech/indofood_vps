@@ -1445,7 +1445,7 @@ public function EditdataUser()
 
 		// $dataDas['id_toko'] = null;
 
-		$this->sada->getCab($dataDas['paramId']);
+		// $this->sada->getCab($dataDas['paramId']);
 
 		// foreach ($qry as $cab_id) {
 		// 	$dataDas['id_cabang'] = $cab_id->id_cabang;
