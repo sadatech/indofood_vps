@@ -339,7 +339,7 @@
 
                                                         <?php
 
-                                                            $data = $this->db->select('nama,id_toko')->where('id_toko',$id_toko)->get('sada_toko');
+                                                            $data = $this->db->select('nama,id_toko')->where('id_toko','1')->get('sada_toko');
 
                                                             foreach ($data->result() as $key => $value) {
 
