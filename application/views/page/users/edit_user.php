@@ -334,7 +334,7 @@
                                                         <i class="fa fa-plus-square-o"></i>
 
                                                     </span>
-                                                    <?php echo $tok_id; ?>
+                                                    <!-- <?php echo $tok_id; ?> -->
                                                     <select id="select_kota" name="toko_tl[]" class="form-control" multiple style="width: 100%;>
 
                                                         <?php
