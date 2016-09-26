@@ -2016,6 +2016,7 @@ public function cabangGet($paramId)
     sada_tl_in_kota where id_user = '".$paramId."'";
    
    return $this->db->query("select * from sada_toko");
+
 }
 public function editSku($paramId)
 
