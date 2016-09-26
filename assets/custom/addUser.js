@@ -167,6 +167,7 @@
                     data += "<option value='"+msg[i]['id_toko']+"'>"+msg[i]['nama']+"</option>";
             }
             $("#select_kota").html(data);
+            $("#select_kota").removeAttr("disabled");
         })
         .fail(function() {
             console.log("error");
