@@ -1451,7 +1451,7 @@ public function EditdataUser()
 		}
 		$toko = $this->db->get_where("sada_tl_in_kota",array("id_user"=>$dataDas['paramId']));
 		foreach ($toko->result() as $tokos) {
-			$dataDas['tok_id'] = $tokos->id_toko;
+			$dataDas['tok_id'][] = $tokos->id_toko;
 		}
 	}
 	$this->load->view('view_awal', $dataDas, FALSE);
