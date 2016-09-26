@@ -323,7 +323,7 @@
 
                                             <div id="row_kota" class="form-group">
 
-                                                <label id="nama">Kota</label>
+                                                <label id="nama">Toko</label>
 
                                                 <?php echo form_error('kota'); ?>
 
@@ -339,7 +339,7 @@
 
                                                         <?php
 
-                                                            $data = $this->db->select('id_cabang,nama_kota')->get('sada_kota');
+                                                            $data = $this->db->select('id_cabang,nama_kota,id_toko')->get('sada_toko')->where_in('id_toko');
 
                                                             foreach ($data->result() as $key => $value) {
 

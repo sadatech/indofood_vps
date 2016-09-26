@@ -1446,7 +1446,8 @@ public function EditdataUser()
 		// $dataDas['id_toko'] = null;
 
 		$data = $this->sada->cabangGet($dataDas['paramId']);
-		foreach ($data as $cab_id) {
+		$uniq = array_unique($data);
+		foreach ($uniq as $cab_id) {
 			$dataDas['id_cabang'][] = $cab_id->id_cabang;
 		}
 	}
