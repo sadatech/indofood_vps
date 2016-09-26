@@ -11,7 +11,11 @@
 
     });
 
-    
+    $('#select_kota').select2({
+
+        placeholder: "Select a Store"
+
+    });
     function dynamicShow() {
         $('#akses').change(function(){
             var url = window.location.href;
