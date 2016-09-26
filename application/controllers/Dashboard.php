@@ -1406,7 +1406,7 @@ public function AdddataUser()
 		$dataDas['query_toko'] = $this->db->get_where('sada_toko',array('status'=>"Y"))->result();
 
 		$dataDas['js'][]	= "assets/custom/addUser.js";
-		
+
 		$this->load->view('view_awal', $dataDas, FALSE);
 
 	}
@@ -1445,9 +1445,13 @@ public function EditdataUser()
 
 		$dataDas['id_toko'] = null;
 
-		$qry = $this->db->select('id_user,id_kota')->where('id_user',$dataDas['paramId'])->get('sada_tl_in_kota')->row();
-
-		$qry2 = $this->db->select('id_cabang,id_kota,nama_kota')->where('id_kota',$qry->id_kota)->get('sada_kota')->row();
+		$qry = $this->db->select('id_user,id_toko')->where('id_user',$dataDas['paramId'])->get('sada_tl_in_kota');
+		$toko_id = "";
+		foreach ($qry->result() as $get_toko) {
+			$toko_id .= $get_toko->id_toko;
+		}
+		echo $toko_id;
+		$qry2 = $this->db->select('id_cabang,id_kota,nama_kota')->where('id_kota',$qry->id_toko)->get('sada_kota')->row();
 
 		$dataDas['id_kotas'] = $qry->id_kota;
 
