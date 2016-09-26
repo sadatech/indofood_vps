@@ -2,22 +2,6 @@
 
     dynamicShow();
 
-    $('#row_status').hide(); 
-
-    $('#row_toko').hide(); 
-
-    $('#row_cabang').hide(); 
-
-    $('#row_kota').hide();
-
-    $('#akses').change(function(){
-
-        dynamicShow();
-
-    });
-
-
-
     $('#toko').select2({
 
         placeholder: "Select a Store"
@@ -32,6 +16,20 @@
     $('#select_kota').select2({
 
         placeholder: "Select a Store"
+
+    });
+
+    $('#row_status').hide(); 
+
+    $('#row_toko').hide(); 
+
+    $('#row_cabang').hide(); 
+
+    $('#row_kota').hide();
+
+    $('#akses').change(function(){
+
+        dynamicShow();
 
     });
 
