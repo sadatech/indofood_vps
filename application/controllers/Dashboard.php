@@ -1451,13 +1451,13 @@ public function EditdataUser()
 			$toko_id[] = $get_toko->id_toko;
 		}
 		print_r($toko_id);
-		$qry2 = $this->db->select('id_cabang,id_kota,nama_kota')->where('id_kota',$qry->id_toko)->get('sada_kota')->row();
+		// $qry2 = $this->db->select('id_cabang,id_kota,nama_kota')->where('id_kota',$qry->id_toko)->get('sada_kota')->row();
 
-		$dataDas['id_kotas'] = $qry->id_kota;
+		// $dataDas['id_kotas'] = $qry->id_kota;
 
-		$data = $this->db->select('id_cabang,nama')->where('id_cabang',$qry2->id_cabang)->get('sada_cabang')->row();
+		// $data = $this->db->select('id_cabang,nama')->where('id_cabang',$qry2->id_cabang)->get('sada_cabang')->row();
 
-		$dataDas['id_cabang'] = $data->id_cabang;
+		// $dataDas['id_cabang'] = $data->id_cabang;
 
 	}
 
