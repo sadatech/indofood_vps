@@ -1492,22 +1492,18 @@ public function UpdateEditUser()
 		if ($this->sada->updateEditUser($dataUpdate,$id_user)) {
 
 			if ($dataUpdate['akses'] == 0) {
+				// $updateTL['id_kota'] = $this->input->post("kota",TRUE);
+				$id_toko = $this->input->post("toko_tl",TRUE);
+				foreach ($id_toko as $toko_id) {
+					$updateTL['id_user'] = htmlentities($this->input->post("id_us",TRUE), ENT_QUOTES, 'utf-8');
+					$updateTL['id_toko'] = $toko_id;
+						if (count($this->db->select("id_user")->where("id_user",$updateTL['id_user'])->get("sada_tl_in_kota")->row()) == 0) {
 
-				$updateTL['id_user'] = htmlentities($this->input->post("id_us",TRUE), ENT_QUOTES, 'utf-8');
+						if ($this->db->insert("sada_tl_in_kota",$updateTL)) {
 
-				$updateTL['id_kota'] = $this->input->post("kota",TRUE);
+							if (count($this->db->select("id_user")->where("id_user",$updateTL['id_user'])->get("sada_tokoinuser")->row()) > 0) {
 
-				if (count($this->db->select("id_user")->where("id_user",$updateTL['id_user'])->get("sada_tl_in_kota")->row()) == 0) {
-
-					if ($this->db->insert("sada_tl_in_kota",$updateTL)) {
-
-						if (count($this->db->select("id_user")->where("id_user",$updateTL['id_user'])->get("sada_tokoinuser")->row()) > 0) {
-
-							if ($this->db->delete("sada_tokoinuser",array("id_user"=>htmlentities($this->input->post("id_us",TRUE), ENT_QUOTES, 'utf-8')))) {
-
-								$this->session->set_flashdata('msg', 'User Success Updated');
-
-								redirect('Dashboard/dataUser', 'refresh');
+								$this->db->delete("sada_tokoinuser",array("id_user"=>htmlentities($this->input->post("id_us",TRUE), ENT_QUOTES, 'utf-8')));
 
 							}
 
@@ -1515,20 +1511,16 @@ public function UpdateEditUser()
 
 					}
 
-				}
+					else{
 
-				else{
-
-					if ($this->sada->updateEditTlinKota($updateTL,$id_user)) {
-
-						$this->session->set_flashdata('msg', 'User Success Updated');
-
-						redirect('Dashboard/dataUser', 'refresh');
+						$this->sada->updateEditTlinKota($updateTL,$id_user);
 
 					}
-
 				}
 
+					$this->session->set_flashdata('msg', 'User Success Updated');
+
+					redirect('Dashboard/dataUser', 'refresh');
 			}
 
 			elseif ($dataUpdate['akses'] == 1) {
