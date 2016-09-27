@@ -3458,7 +3458,17 @@ public function reportPrm(){
 
   sada_user.stay AS 'stay_user',
 
-  (SELECT nama FROM sada_user WHERE id_user=tl.id_user) as 'nama_tl',
+    (
+    SELECT
+      nama
+    FROM
+      sada_user scb
+
+  LEFT JOIN sada_tl_in_kota jlo ON scb.id_user = jlo.id_user
+    WHERE
+      toko.id_toko = jlo.id_toko
+  ) AS 'nama_tl',
+
   ";
 
 
