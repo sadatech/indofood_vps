@@ -4338,6 +4338,8 @@ public function reportpromo()
 
 		$join .= " LEFT JOIN sada_tl_in_kota tl ON kota.id_kota = tl.id_kota";
 
+		$join .= " LEFT JOIN sada_tl_in_kota tl ON toko.id_toko = tl.id_toko";
+
 
 
 
