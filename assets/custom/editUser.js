@@ -18,11 +18,6 @@
     });
     function dynamicShow() {
         $('#akses').change(function(){
-            var url = window.location.href;
-
-            var segments = url.split( '/' );
-
-            console.log(segments[2]);
             dynamicShow();
 
         });

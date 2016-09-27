@@ -1282,7 +1282,7 @@ public function AdddataUser()
 
 
 
-			$dataDas['js'][]	= "assets/custom/addUser.js";
+			$dataDas['js'][]	= "assets/custom/editUser.js";
 
 
 
