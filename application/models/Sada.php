@@ -300,7 +300,7 @@ class Sada extends CI_Model{
   sada_user USER
   LEFT JOIN sada_tl_in_kota ON USER .id_user = sada_tl_in_kota.id_user
   WHERE
-  sada_tl_in_kota.id_toko = sada_toko.id_toko
+  sada_tl_in_kota.id_kota = sada_kota.id_kota
   ) AS nama_tl,
   (
   SELECT DISTINCT
