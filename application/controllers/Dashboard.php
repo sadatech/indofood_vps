@@ -1494,9 +1494,6 @@ public function UpdateEditUser()
 			if ($dataUpdate['akses'] == 0) {
 				// $updateTL['id_kota'] = $this->input->post("kota",TRUE);
 				$id_toko = $this->input->post("toko_tl",TRUE);
-				foreach ($id_toko as $toko_id) {
-					$updateTL['id_user'] = $this->input->post("id_us",TRUE);
-					$updateTL['id_toko'] = $toko_id;
 					// 	if (count($this->db->select("id_user")->where("id_user",$updateTL['id_user'])->get("sada_tl_in_kota")->row()) == 0) {
 
 					// 	if ($this->db->insert("sada_tl_in_kota",$updateTL)) {
@@ -1515,7 +1512,12 @@ public function UpdateEditUser()
 
 						// $this->sada->updateEditTlinKota($updateTL,$id_user);
 						if ($this->db->delete("sada_tl_in_kota",array("id_user"=>htmlentities($this->input->post("id_us",TRUE), ENT_QUOTES, 'utf-8')))) {
-							$this->db->insert("sada_tl_in_kota",$updateTL);
+
+							foreach ($id_toko as $toko_id) {
+								$updateTL['id_user'] = $this->input->post("id_us",TRUE);
+								$updateTL['id_toko'] = $toko_id;
+								$this->db->insert("sada_tl_in_kota",$updateTL);
+						
 						}
 
 					// }
