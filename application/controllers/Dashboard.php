@@ -1513,7 +1513,9 @@ public function UpdateEditUser()
 
 					else{
 
-						$this->sada->updateEditTlinKota($updateTL,$id_user);
+						// $this->sada->updateEditTlinKota($updateTL,$id_user);
+						echo "ada";
+
 
 					}
 				}
