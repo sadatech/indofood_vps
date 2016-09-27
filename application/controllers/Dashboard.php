@@ -4235,7 +4235,7 @@ public function reportpromo()
 
 		sada_user.stay AS 'stay_user',
 
-		(SELECT nama FROM sada_user WHERE id_user=tl.id_user) as 'nama_tl',
+		(SELECT nama FROM sada_user left join sada_tl_in_kota on id_user = sada_tl_in_kota WHERE toko.id_toko=tl.id_toko) as 'nama_tl',
 		";
 
 
@@ -4337,8 +4337,6 @@ public function reportpromo()
 		$join .= " LEFT JOIN sada_cabang cabang ON kota.id_cabang=cabang.id_cabang";
 
 		$join .= " LEFT JOIN sada_tl_in_kota tl ON kota.id_kota = tl.id_kota";
-
-		$join .= " LEFT JOIN sada_tl_in_kota tl ON toko.id_toko = tl.id_toko";
 
 
 
