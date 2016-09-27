@@ -2344,7 +2344,7 @@ public function getAllCabang()
   ->get();
 
 }
-
+#test bisa
 
 
 public function getKotaInCabang($id_cabang)
