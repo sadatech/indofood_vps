@@ -1514,8 +1514,9 @@ public function UpdateEditUser()
 					else{
 
 						// $this->sada->updateEditTlinKota($updateTL,$id_user);
-						echo "ada";
-
+						if ($this->db->delete("sada_tl_in_kota",array("id_user"=>htmlentities($this->input->post("id_us",TRUE), ENT_QUOTES, 'utf-8')))) {
+							$this->db->insert("sada_tl_in_kota",$updateTL);
+						}
 
 					}
 				}
