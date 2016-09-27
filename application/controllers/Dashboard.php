@@ -1425,6 +1425,7 @@ public function EditdataUser()
 		$qry = $this->db->select('id_user,id_toko')->where('id_user',$dataDas['paramId'])->get('sada_tokoinuser')->row();
 
 		$dataDas['id_toko'] = explode(",", $qry->id_toko);
+		$dataDas['tokoa'] = $this->db->get_where("sada_tl_in_kota",array("id_user"=>$dataDas['paramId']));
 
 	}
 
