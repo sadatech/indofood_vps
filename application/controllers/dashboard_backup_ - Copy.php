@@ -1333,6 +1333,19 @@ public function AdddataUser()
 
 						$insertTL['id_toko'] = $tl_toko;
 						$this->db->insert("sada_tl_in_kota",$insertTL);
+						// if ($this->db->insert("sada_tl_in_kota",$insertTL)) {
+
+						// 	$this->session->set_flashdata('msg', 'User added');
+
+						// 	redirect('Dashboard/dataUser', 'refresh');
+						// }
+						// else{
+
+						// 	$this->session->set_flashdata('msg', 'User not added');
+
+						// 	redirect('Dashboard/dataUser', 'refresh');
+
+						// }
 					}
 						$this->session->set_flashdata('msg', 'User added');
 
@@ -1456,8 +1469,6 @@ public function UpdateEditUser()
 		$dataUpdate["nama"] =  htmlentities($this->input->post("nama",TRUE), ENT_QUOTES, 'utf-8');
 
 		$password =  htmlentities(md5($this->input->post("password",TRUE)), ENT_QUOTES, 'utf-8');
-
-		$toko_tl = $this->input->post("toko_tl",TRUE);
 
 		if (!$this->input->post("password",TRUE) == '') {
 
