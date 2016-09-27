@@ -1521,9 +1521,9 @@ public function UpdateEditUser()
 					// }
 				}
 
-					// $this->session->set_flashdata('msg', 'User Success Updated');
+					$this->session->set_flashdata('msg', 'User Success Updated');
 
-					// redirect('Dashboard/dataUser', 'refresh');
+					redirect('Dashboard/dataUser', 'refresh');
 			}
 
 			elseif ($dataUpdate['akses'] == 1) {
