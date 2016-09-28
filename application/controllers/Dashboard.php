@@ -594,7 +594,7 @@ public function dataUser()
 
 			if ($datatable->akses == 0) {
 
-				$row[] = '<center><span class="label label-sm label-success"> TL </span><a  class="label label-sm label-danger" id="showToko" href="#page'.$datatable->id_user.'"><small>Show Toko</small></a></center>';
+				$row[] = '<center><span class="label label-sm label-success"> TL </span> <a  class="label label-sm label-danger" id="showToko" href="#page'.$datatable->id_user.'"><small>Show Toko</small></a></center>';
 
 			}elseif ($datatable->akses == 1) {
 
