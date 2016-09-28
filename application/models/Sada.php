@@ -1348,7 +1348,7 @@ function _getLoginMobile($dataLogin)
 
                     'Success' => true,
 
-                    'Info'    => 'Sukses Login Sebagai Admin',
+                    'Info'    => 'Sukses Login Sebagai Admin TL',
 
                     'Akses'   => 'admin',
 
@@ -1371,14 +1371,7 @@ function _getLoginMobile($dataLogin)
 
                     'Success' => false,
 
-                    'Info'    => 'Store Id anda tidak terdaftar di toko '.$row_toko->nama,
-
-                    'Akses'   => 'admin TL',
-
-                    'id_user'    => $row->id_user,
-
-                    'Nama'    => $row->nama
-
+                    'Info'    => 'Anda Tidak memiliki akses di toko '.$row_toko->nama
                   );
               }
 

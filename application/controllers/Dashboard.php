@@ -574,8 +574,6 @@ public function dataUser()
 
 			$row[] = $datatable->nama;
 
-
-
 			if ($datatable->stay == "Y") {
 
 				$stay = "Stay";
@@ -596,7 +594,7 @@ public function dataUser()
 
 			if ($datatable->akses == 0) {
 
-				$row[] = '<center><span class="label label-sm label-success"> TL </span></center>';
+				$row[] = '<center><span class="label label-sm label-success"> TL </span><a  class="label label-sm label-danger" id="showToko" href="#page'.$datatable->id_user.'"><small>Show Toko</small></a></center>';
 
 			}elseif ($datatable->akses == 1) {
 
@@ -1052,11 +1050,12 @@ public function getTokoo()
 
 		$id = $this->input->post("id");
 
-		$select = $this->db->select("id_toko")->where("id_user",$id)->get("sada_tokoinuser")->row();
+		$select = $this->db->select("id_toko")->where("id_user",$id)->get("sada_tokoinuser");
 
 		$exp = explode(",", $select->id_toko);
 
-		foreach ($exp as $key => $value) {
+		if ($select->num_rows()>0) { //Toko Ba in_user
+			foreach ($exp as $key => $value) {
 
 			$toko = $this->db->select("store_id,nama,id_toko")->where("id_toko",$value)->get("sada_toko");
 
@@ -1079,12 +1078,27 @@ public function getTokoo()
 				// echo $target_user;
 				$data[] = $arrayName;
 
-			}
+				}
 
+			}
+		}
+		else{
+			$tl = $this->db->get_where('sada_tl_in_kota',array("id_user"=>$id));
+
+			foreach ($tl->result() as $toko_tl) {
+				$toko = $this->db->select("store_id,nama,id_toko")->where("id_toko",$toko_tl->id_toko)->get("sada_toko");
+				foreach ($toko->result() as $key => $val_toko) {
+					$arrayName['id_user'] = $id;
+					$arrayName['store_id'] = $val_toko->store_id;
+					$arrayName['nama'] = $val_toko->nama;
+					$arrayName['id_toko'] = $val_toko->id_toko;
+
+					$data[] = $arrayName;
+				}
+			}
 		}
 
 		echo json_encode($data,JSON_PRETTY_PRINT);
-		// print_r($data);
 
 	} else {
 
