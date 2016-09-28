@@ -1052,7 +1052,7 @@ public function getTokoo()
 
 		$select = $this->db->select("id_toko")->where("id_user",$id)->get("sada_tokoinuser")->row();
 
-		if ($select > 0) { //Toko Ba in_user
+		if (count($select)>0) { //Toko Ba in_user
 			
 			$exp = explode(",", $select->id_toko);
 
