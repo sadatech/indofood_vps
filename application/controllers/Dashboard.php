@@ -550,8 +550,8 @@ public function dataUser()
 
 		$this->load->model('datatable');
 
-		// if ($this->input->post()) 
-{p
+		// if ($this->input->post()) {
+
 		$table = "sada_user";
 
 		$column = array('nik','nama','akses');
