@@ -1340,29 +1340,47 @@ function _getLoginMobile($dataLogin)
             
             elseif ($row->akses=="0") {
 
-              $response = array(
+              $cek_akses_toko = $this->db->get_where("sada_tl_in_kota",array("id_user"=>$row->id_user,
+                                                                             "id_toko"=>$row_toko->id_toko))->row();
 
-                'Success' => true,
+              if ($cek_akses_toko->num_rows()==1) {
+                  $response = array(
 
-                'Info'    => 'Sukses Login Sebagai Admin',
+                    'Success' => true,
 
-                'Akses'   => 'admin',
+                    'Info'    => 'Sukses Login Sebagai Admin',
 
-                'id_user'    => $row->id_user,
+                    'Akses'   => 'admin',
 
-                'Nama'    => $row->nama,
+                    'id_user'    => $row->id_user,
 
-                'Nik'     => $row->nik,
+                    'Nama'    => $row->nama,
 
-                'password'     => $row->password,
+                    'Nik'     => $row->nik,
 
-                'Store_id'=> $row_toko->store_id,
+                    'password'     => $row->password,
 
-                'id_toko' => $row_toko->id_toko
+                    'Store_id'=> $row_toko->store_id,
 
-                );
+                    'id_toko' => $row_toko->id_toko
 
+                  );
+              }
+              else{
+                  $response = array(
 
+                    'Success' => false,
+
+                    'Info'    => 'Store Id anda tidak terdaftar di toko '.$row_toko->nama,
+
+                    'Akses'   => 'admin TL',
+
+                    'id_user'    => $row->id_user,
+
+                    'Nama'    => $row->nama
+
+                  );
+              }
 
               $this->output
 
