@@ -1050,11 +1050,12 @@ public function getTokoo()
 
 		$id = $this->input->post("id");
 
-		$select = $this->db->select("id_toko")->where("id_user",$id)->get("sada_tokoinuser");
+		$select = $this->db->select("id_toko")->where("id_user",$id)->get("sada_tokoinuser")->row();
 
-		$exp = explode(",", $select->id_toko);
+		if ($select > 0) { //Toko Ba in_user
+			
+			$exp = explode(",", $select->id_toko);
 
-		if ($select->num_rows()>0) { //Toko Ba in_user
 			foreach ($exp as $key => $value) {
 
 			$toko = $this->db->select("store_id,nama,id_toko")->where("id_toko",$value)->get("sada_toko");
