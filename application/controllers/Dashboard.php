@@ -550,8 +550,8 @@ public function dataUser()
 
 		$this->load->model('datatable');
 
-		// if ($this->input->post()) {
-
+		// if ($this->input->post()) 
+{p
 		$table = "sada_user";
 
 		$column = array('nik','nama','akses');
@@ -1407,7 +1407,7 @@ public function AdddataUser()
 
 		$dataDas['query_toko'] = $this->db->get_where('sada_toko',array('status'=>"Y"))->result();
 
-		$dataDas['js'][]	= "assets/custom/editUser.js";
+		$dataDas['js'][]	= "assets/custom/addUser.js";
 
 		$this->load->view('view_awal', $dataDas, FALSE);
 
