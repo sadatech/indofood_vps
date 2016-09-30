@@ -345,7 +345,7 @@
                                                                         echo "<option selected value='".$l->id_toko."'>".$l->nama."</option>";
                                                                     }
 
-                                                                    $data = $this->db->select('nama,id_toko')
+                                                                    $data = $this->db->select('sada_toko.*')
                                                                     ->join("sada_kota","sada_toko.id_kota = sada_kota.id_kota")
                                                                     ->join("sada_cabang","sada_cabang.id_cabang = sada_kota.id_cabang")
                                                                     ->where_in("sada_cabang.id_cabang",$id_cabang)
