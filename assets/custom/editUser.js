@@ -10,7 +10,9 @@
         placeholder: "Select a Cabang"
 
     });
-
+    $('#yourselect').on("select2:selecting", function(e) { 
+       console.log("selected");
+    });
     $('#select_kota').select2({
 
         placeholder: "Select a Store"
