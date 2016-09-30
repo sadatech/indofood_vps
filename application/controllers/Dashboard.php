@@ -2364,8 +2364,16 @@ public function dataKota()
 
 		$row[] 		= $datatable->nama_kota;
 
-		$row[] 		= $this->db->select("nama")->where("id_cabang",$datatable->id_cabang)->row();
+		$cabang = $this->db->select("nama")->where("id_cabang",$datatable->id_cabang)->get("sada_cabang");
 
+		$string = "";
+
+		foreach ($cabang->result() as $key => $value) {
+			$string .= $value->nama;
+		}
+
+		$row[] = $string;
+		
 		if ($this->session->userdata("akses")=="3") {
 
 			$row[] = "";
