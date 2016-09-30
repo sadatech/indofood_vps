@@ -1480,9 +1480,9 @@ public function UpdateEditUser()
 			$dataUpdate['password'] = $password;
 
 		}
-		else{
-			$dataUpdate['password'] = md5("1234");	
-		}
+		// else{
+		// 	$dataUpdate['password'] = md5("1234");	
+		// }
 
 		$dataUpdate["akses"] =  htmlentities($this->input->post("akses",TRUE), ENT_QUOTES, 'utf-8');
 
