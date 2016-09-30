@@ -1010,7 +1010,25 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 
 		return $this;
 	}
+	public function group_rijal($not = '', $type = 'AND ')
+	{
+		$type = $this->_group_get_type($type);
 
+		$this->qb_where_group_started = TRUE;
+		$prefix = (count($this->qb_where) === 0 && count($this->qb_cache_where) === 0) ? $type : $type;
+		$where = array(
+			'condition' => $prefix.$not.str_repeat(' ', ++$this->qb_where_group_count).' (',
+			'escape' => FALSE
+		);
+
+		$this->qb_where[] = $where;
+		if ($this->qb_caching)
+		{
+			$this->qb_cache_where[] = $where;
+		}
+
+		return $this;
+	}
 	// --------------------------------------------------------------------
 
 	/**
