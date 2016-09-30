@@ -10,7 +10,7 @@
         placeholder: "Select a Cabang"
 
     });
-    $('#yourselect').on("select2:selecting", function(e) { 
+    $('#select_cabang').on("select2:selecting", function(e) { 
        console.log("selected");
     });
     $('#select_kota').select2({
