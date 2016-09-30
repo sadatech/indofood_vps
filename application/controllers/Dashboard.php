@@ -560,10 +560,10 @@ public function dataUser()
 
 		$q = "";
 		if ($_POST['search']['value']) {
-			$q .= "AND status = 'Y'";
+			$q .= " AND status = 'Y'";
 		}
 		else{
-			$q .= "WHERE status = 'Y'";
+			$q .= " WHERE status = 'Y'";
 		}
 
 		$list = $this->datatable->get_datatables($table.$q,$column,$odb);
