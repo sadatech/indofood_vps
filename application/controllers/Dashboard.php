@@ -558,7 +558,7 @@ public function dataUser()
 
 		$odb = array("id_user"=>"desc");
 
-		$list = $this->datatable->get_datatables($table,$column." WHERE status='Y'",$odb);
+		$list = $this->datatable->get_datatables($table." WHERE status='Y'",$column,$odb);
 
 		$data = array();
 
