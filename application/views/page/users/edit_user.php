@@ -345,7 +345,11 @@
                                                                         echo "<option selected value='".$l->id_toko."'>".$l->nama."</option>";
                                                                     }
 
-                                                                    $data = $this->db->select('nama,id_toko')->where_not_in('id_toko',$idtoko)->get('sada_toko');
+                                                                    $data = $this->db->select('nama,id_toko')
+                                                                    ->join("sada_kota","sada_toko.id_kota = sada_kota.id_kota")
+                                                                    ->join("sada_cabang","sada_cabang.id_cabang = sada_kota.id_cabang")
+                                                                    ->where_in("sada_cabang.id_cabang",$id_cabang)
+                                                                    ->where_not_in('id_toko',$idtoko)->get('sada_toko');
 
                                                                     foreach ($data->result() as $l) {
                                                                         echo "<option value='".$l->id_toko."'>".$l->nama."</option>";
