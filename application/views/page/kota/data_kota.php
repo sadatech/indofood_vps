@@ -43,6 +43,8 @@
                                                     No    
                                                 </th>
                                                 <th> Nama Kota </th>
+
+                                                <th> Nama Cabang </th>
                                                 <th> Actions </th>
                                             </tr>
                                         </thead>

@@ -2346,7 +2346,7 @@ public function dataKota()
 
 	$table 	= "sada_kota";
 
-	$column = array('id_kota','nama_kota');
+	$column = array('id_kota','nama_kota','id_cabang');
 
 	$odb 	= array("id_kota"=>"asc");
 
@@ -2363,6 +2363,8 @@ public function dataKota()
 		$row[] 		= $no++;
 
 		$row[] 		= $datatable->nama_kota;
+
+		$row[] 		= $this->db->select("nama")->where("id_cabang",$datatable->id_cabang)->row();
 
 		if ($this->session->userdata("akses")=="3") {
 
