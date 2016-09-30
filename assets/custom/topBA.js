@@ -45,8 +45,8 @@ $("#top_ba").validate({
 				});
 			});
 			topSkuArray.sort(function(a,b){
-				var keyA = parseInt(a.monthVolume),
-				keyB = parseInt(b.monthVolume);
+				var keyA = parseInt(a.monthVolume) / parseInt(a.target_ba) * 100,
+				keyB = parseInt(b.monthVolume) / parseInt(b.target_ba) * 100;
 				if(keyA < keyB ) return 1;
 				if(keyA > keyB ) return -1;
 				return 0;
@@ -137,8 +137,8 @@ $(document).ready(function() {
 					});
 				});
 				topSkuArray.sort(function(a,b){
-					var keyA = parseInt(a.monthVolume),
-					keyB = parseInt(b.monthVolume);
+					var keyA = parseInt(a.monthVolume) / parseInt(a.target_ba) * 100,
+					keyB = parseInt(b.monthVolume) / parseInt(b.target_ba) * 100;
 					if(keyA < keyB ) return 1;
 					if(keyA > keyB ) return -1;
 					return 0;
@@ -223,8 +223,8 @@ $(document).ready(function() {
 					});
 				});
 				topSkuArray.sort(function(a,b){
-					var keyA = parseInt(a.monthVolume),
-					keyB = parseInt(b.monthVolume);
+					var keyA = parseInt(a.monthVolume) / parseInt(a.target_ba) * 100,
+					keyB = parseInt(b.monthVolume) / parseInt(b.target_ba) * 100;
 					if(keyA < keyB ) return -1;
 					if(keyA > keyB ) return 1;
 					return 0;
