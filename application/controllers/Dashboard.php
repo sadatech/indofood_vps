@@ -1239,7 +1239,7 @@ public function AdddataUser()
 
 		if ($this->input->post("password",TRUE) == '') {
 
-			$dataInsert['password'] = md5("password");
+			$dataInsert['password'] = md5("1234");
 
 		}
 
@@ -1257,7 +1257,7 @@ public function AdddataUser()
 
 		$this->form_validation->set_rules('nama', 'Nama', 'required');
 
-		$this->form_validation->set_rules('password', 'password', 'required');
+		// $this->form_validation->set_rules('password', 'password', 'required');
 
 		$this->form_validation->set_rules('akses', 'Akses', 'required');
 
@@ -1479,6 +1479,9 @@ public function UpdateEditUser()
 
 			$dataUpdate['password'] = $password;
 
+		}
+		else{
+			$dataUpdate['password'] = md5("1234");	
 		}
 
 		$dataUpdate["akses"] =  htmlentities($this->input->post("akses",TRUE), ENT_QUOTES, 'utf-8');
