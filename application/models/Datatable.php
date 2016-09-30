@@ -18,6 +18,42 @@ class Datatable extends CI_Model {
 				{
 					$this->db->group_start(); 
 					$this->db->like($item, $_POST['search']['value']);
+				}
+				else
+				{
+					$this->db->or_like($item, $_POST['search']['value']);
+				}
+
+				if(count($column) - 1 == $i) 
+					$this->db->group_end(); 
+			}
+			$column[$i] = $item; 
+			$i++;
+		}
+		
+		if(isset($_POST['order'])) 
+		{
+			$this->db->order_by($column[$_POST['order']['0']['column']], $_POST['order']['0']['dir']);
+		} 
+			$order = $odb;
+			$this->db->order_by(key($order), "desc");
+	}
+
+	private function _get_datatables_query_users($table='',$column='',$odb='')
+	{
+		
+		$this->db->from($table);
+		$i = 0;
+	
+		foreach ($column as $item) 
+		{
+			if($_POST['search']['value']) 
+			{
+				
+				if($i===0) 
+				{
+					$this->db->group_start(); 
+					$this->db->like($item, $_POST['search']['value']);
 					$this->db->where("status","Y");
 				}
 				else
@@ -40,6 +76,14 @@ class Datatable extends CI_Model {
 			$this->db->order_by(key($order), "desc");
 	}
 
+	function get_datatables_users($table='',$column='',$odb='')
+	{
+		$this->_get_datatables_query_users($table,$column,$odb);
+		if($_POST['length'] != -1)
+		$this->db->limit($_POST['length'], $_POST['start']);
+		$query = $this->db->get();
+		return $query->result();
+	}
 
 	function get_datatables($table='',$column='',$odb='')
 	{
