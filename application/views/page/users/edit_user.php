@@ -344,10 +344,8 @@
                                                                     foreach ($data->result() as $l) {
                                                                         echo "<option selected value='".$l->id_toko."'>".$l->nama."</option>";
                                                                     }
-                                                                    $data_1 = $this->db->select('nama,id_toko')->where_not_in('id_toko',$tokoss)->get('sada_toko');
-                                                                    foreach ($data_1 as $key => $value) {
-                                                                       echo "<option value='".$value->id_toko."'>".$value->nama."</option>";
-                                                                    }
+                                                                    
+
                                                             }
 
 //                                                            
