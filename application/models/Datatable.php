@@ -17,7 +17,8 @@ class Datatable extends CI_Model {
 				if($i===0) 
 				{
 					$this->db->group_start(); 
-					$this->db->like($item, $_POST['search']['value'])." AND status='Y'";
+					$this->db->like($item, $_POST['search']['value']);
+					$this->db->where("status","Y");
 				}
 				else
 				{
