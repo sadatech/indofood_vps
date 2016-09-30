@@ -338,12 +338,13 @@
 
                                                         <?php
                                                             foreach ($tokoa->result() as $tokos) {
+                                                                print_r(array($tokos->id_toko));
                                                                     $data = $this->db->select('nama,id_toko')->where('id_toko',$tokos->id_toko)->get('sada_toko');
 
                                                                     foreach ($data->result() as $l) {
                                                                         echo "<option selected value='".$l->id_toko."'>".$l->nama."</option>";
                                                                     }
-                                                                    
+
 
                                                             }
 
