@@ -558,7 +558,15 @@ public function dataUser()
 
 		$odb = array("id_user"=>"desc");
 
-		$list = $this->datatable->get_datatables($table." WHERE status='Y'",$column,$odb);
+		$q = "";
+		if ($_POST['search']['value']) {
+			$q .= "AND status = 'Y'";
+		}
+		else{
+			$q .= "WHERE status = 'Y'";
+		}
+
+		$list = $this->datatable->get_datatables($table.$q,$column,$odb);
 
 		$data = array();
 
@@ -2373,7 +2381,7 @@ public function dataKota()
 		}
 
 		$row[] = $string;
-		
+
 		if ($this->session->userdata("akses")=="3") {
 
 			$row[] = "";
