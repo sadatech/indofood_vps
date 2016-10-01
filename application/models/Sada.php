@@ -1281,6 +1281,8 @@ function _getLoginMobile($dataLogin)
 
   $login['password']  = md5($dataLogin['password']);
 
+  $login['status']  = "Y";
+
   $toko['store_id']   = htmlentities($dataLogin['Store_id']);
 
 
