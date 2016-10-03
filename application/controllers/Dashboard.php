@@ -4271,21 +4271,21 @@ public function reportpromo()
 
 		sada_user.stay AS 'stay_user',
 
-		(
-			SELECT
-				nama
-			FROM
-				sada_user scb
-
-		LEFT JOIN sada_tl_in_kota jlo ON scb.id_user = jlo.id_user
-			WHERE
-				toko.id_toko = jlo.id_toko
-		) AS 'nama_tl',
+		
 
 		";
 
 
+// (
+// 			SELECT
+// 				nama
+// 			FROM
+// 				sada_user scb
 
+// 		LEFT JOIN sada_tl_in_kota jlo ON scb.id_user = jlo.id_user
+// 			WHERE
+// 				toko.id_toko = jlo.id_toko
+// 		) AS 'nama_tl',
 		$where = "";
 
 		if ($arr['startDate'] != "1970-01-01" && $arr['endDate'] != "1970-01-01") {
