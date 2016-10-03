@@ -4431,13 +4431,15 @@ public function reportpromo()
 
 			$row[] = $datatable->nama_user;
 
-			if ($datatable->nama_tl == null) {
-				$row[] = "Tidak ada TL";
-			}
-			else{
+			// if ($datatable->nama_tl == null) {
+			// 	$row[] = "Tidak ada TL";
+			// }
+			// else{
+			// 	$row[] = "Under Constrouction";
+			// 	// $row[] = $datatable->nama_tl;
+			// }
+			
 				$row[] = "Under Constrouction";
-				// $row[] = $datatable->nama_tl;
-			}
 
 			if ($datatable->tipe == "consumerPromo") {
 
