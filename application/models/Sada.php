@@ -293,15 +293,15 @@ class Sada extends CI_Model{
   WHERE
   cab.id_cabang = sada_kota.id_cabang
   ) AS nama_cabang,
-  -- (
-  -- SELECT
-  -- USER .nama
-  -- FROM
-  -- sada_user USER
-  -- LEFT JOIN sada_tl_in_kota ON USER .id_user = sada_tl_in_kota.id_user
-  -- WHERE
-  -- sada_tl_in_kota.id_toko = sada_toko.id_toko
-  -- ) AS nama_tl,
+  (
+  SELECT
+  USER .nama
+  FROM
+  sada_user USER
+  LEFT JOIN sada_tl_in_kota ON USER .id_user = sada_tl_in_kota.id_user
+  WHERE
+  sada_tl_in_kota.id_toko = sada_toko.id_toko
+  ) AS nama_tl,
   (
   SELECT DISTINCT
   USER .nama
@@ -335,10 +335,10 @@ class Sada extends CI_Model{
   $response = [
   ];
   foreach ($merged as $value) {
-    if (isset($value->nama_cabang) && isset($value->nama_ba) && isset($value->target_ba) && isset($value->price)) {
+    if (isset($value->nama_cabang) && isset($value->nama_tl) && isset($value->nama_ba) && isset($value->target_ba) && isset($value->price)) {
       $response[$value->id_user] = [
       'cabang'=>$value->nama_cabang,
-      // 'nama_tl'=>$value->nama_tl,
+      'nama_tl'=>$value->nama_tl,
       'nama_ba'=>$value->nama_ba,
       'target_ba'=>$value->target_ba,
       'price'=>'Rp '.number_format($value->price,0,",",".").',-'
