@@ -4435,7 +4435,8 @@ public function reportpromo()
 				$row[] = "Tidak ada TL";
 			}
 			else{
-				$row[] = $datatable->nama_tl;
+				$row[] = "Under Constrouction";
+				// $row[] = $datatable->nama_tl;
 			}
 
 			if ($datatable->tipe == "consumerPromo") {
