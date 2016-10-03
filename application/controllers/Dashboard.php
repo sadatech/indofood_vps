@@ -4382,7 +4382,11 @@ public function reportpromo()
 
 		$join .= " LEFT JOIN sada_cabang cabang ON kota.id_cabang=cabang.id_cabang";
 
-		$join .= " LEFT JOIN sada_tl_in_kota tl ON kota.id_kota = tl.id_kota";
+		$join .= " LEFT JOIN sada_tl_in_kota tl ON sada_promo.id_toko = tl.id_toko";
+
+		$join .= " LEFT JOIN sada_user us ON tl.id_user = tl.id_user";
+
+		// $join .= " LEFT JOIN sada_tl_in_kota tl ON kota.id_kota = tl.id_kota";
 
 
 
@@ -4395,7 +4399,7 @@ public function reportpromo()
 
 		FROM sada_promo LEFT JOIN sada_user ON sada_promo.user_id=sada_user.id_user ".$join." ".$where." ";
 
-		  // echo $select;
+		  echo $select;
 
 
 
@@ -4438,7 +4442,7 @@ public function reportpromo()
 			// 	$row[] = "Under Constrouction";
 			// 	// $row[] = $datatable->nama_tl;
 			// }
-			
+
 				$row[] = "Under Constrouction";
 
 			if ($datatable->tipe == "consumerPromo") {
