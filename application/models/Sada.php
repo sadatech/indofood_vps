@@ -282,51 +282,96 @@ class Sada extends CI_Model{
     //                             '(select user.nama from sada_user)'
     //   )
   $topBA = $this->db->query('SELECT
-    id_user,
-  -- sada_produk.price,
+  --   id_user,
+  -- -- sada_produk.price,
+  -- sdkat.price,
+  -- (
+  -- SELECT
+  -- cab.nama
+  -- FROM
+  -- sada_cabang cab
+  -- WHERE
+  -- cab.id_cabang = sada_kota.id_cabang
+  -- ) AS nama_cabang,
+  -- (
+  -- SELECT
+  -- USER .nama
+  -- FROM
+  -- sada_user USER
+  -- LEFT JOIN sada_tl_in_kota ON USER .id_user = sada_tl_in_kota.id_user
+  -- WHERE
+  -- sada_tl_in_kota.id_toko = sada_toko.id_toko
+  -- ) AS nama_tl,
+  -- (
+  -- SELECT DISTINCT
+  -- USER .nama
+  -- FROM
+  -- sada_user USER
+  -- WHERE
+  -- id_user = sada_produk_terjual.id_user
+  -- ) AS nama_ba,
+  -- (
+  -- SELECT DISTINCT
+  -- SUM(target_toko.target)
+  -- FROM
+  -- sada_toko toko
+  -- INNER JOIN sada_target target_toko ON toko.id_toko = target_toko.id_toko
+  -- WHERE
+  -- toko.id_toko = sada_produk_terjual.id_toko
+  -- ) AS target_ba
+  -- FROM
+  -- sada_produk_terjual
+  
+  -- INNER JOIN `sada_produk` ON `sada_produk_terjual`.`id_produk` = `sada_produk`.`id_produk`
+  -- INNER JOIN `sada_kategori` as sdkat ON `sada_produk`.`id_kategori` = `sdkat`.`id`
+  -- INNER JOIN sada_toko ON sada_produk_terjual.id_toko = sada_toko.id_toko
+  -- INNER JOIN sada_kota ON sada_toko.id_kota = sada_kota.id_kota
+  -- GROUP BY
+
   sdkat.price,
   (
-  SELECT
-  cab.nama
-  FROM
-  sada_cabang cab
-  WHERE
-  cab.id_cabang = sada_kota.id_cabang
+    SELECT
+      cab.nama
+    FROM
+      sada_cabang cab
+    WHERE
+      cab.id_cabang = sada_kota.id_cabang
   ) AS nama_cabang,
   (
-  SELECT
-  USER .nama
-  FROM
-  sada_user USER
-  LEFT JOIN sada_tl_in_kota ON USER .id_user = sada_tl_in_kota.id_user
-  WHERE
-  sada_tl_in_kota.id_toko = sada_toko.id_toko
-  ) AS nama_tl,
-  (
-  SELECT DISTINCT
-  USER .nama
-  FROM
-  sada_user USER
-  WHERE
-  id_user = sada_produk_terjual.id_user
+    SELECT DISTINCT
+      USER .nama
+    FROM
+      sada_user USER
+    WHERE
+      id_user = sada_produk_terjual.id_user
   ) AS nama_ba,
   (
-  SELECT DISTINCT
-  SUM(target_toko.target)
-  FROM
-  sada_toko toko
-  INNER JOIN sada_target target_toko ON toko.id_toko = target_toko.id_toko
-  WHERE
-  toko.id_toko = sada_produk_terjual.id_toko
-  ) AS target_ba
-  FROM
+    SELECT DISTINCT
+      SUM(target_toko.target)
+    FROM
+      sada_toko toko
+    INNER JOIN sada_target target_toko ON toko.id_toko = target_toko.id_toko
+    WHERE
+      toko.id_toko = sada_produk_terjual.id_toko
+  ) AS target_ba,
+  sada_tl_in_kota.id_user,
+  (
+    SELECT
+      nama
+    FROM
+      sada_user
+    WHERE
+      sada_user.id_user = sada_tl_in_kota.id_user
+  ) AS nama_tl
+FROM
   sada_produk_terjual
-  
-  INNER JOIN `sada_produk` ON `sada_produk_terjual`.`id_produk` = `sada_produk`.`id_produk`
-  INNER JOIN `sada_kategori` as sdkat ON `sada_produk`.`id_kategori` = `sdkat`.`id`
-  INNER JOIN sada_toko ON sada_produk_terjual.id_toko = sada_toko.id_toko
-  INNER JOIN sada_kota ON sada_toko.id_kota = sada_kota.id_kota
-  GROUP BY
+INNER JOIN sada_tl_in_kota ON sada_produk_terjual.id_toko = sada_tl_in_kota.id_toko -- WHERE
+--  sada_tl_in_kota.id_toko = sada_produk_terjual.id_toko
+INNER JOIN `sada_produk` ON `sada_produk_terjual`.`id_produk` = `sada_produk`.`id_produk`
+INNER JOIN `sada_kategori` AS sdkat ON `sada_produk`.`id_kategori` = `sdkat`.`id`
+INNER JOIN sada_toko ON sada_produk_terjual.id_toko = sada_toko.id_toko
+INNER JOIN sada_kota ON sada_toko.id_kota = sada_kota.id_kota
+GROUP BY
   id_user')
   ->result();
 
