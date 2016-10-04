@@ -354,7 +354,7 @@ class Sada extends CI_Model{
     //   ];
     // // }
 
-      
+      $response[$value->id_user] = $value;
 
     // // if (isset($value->monthVolume)) {
     //   // $response[$value->id_user]['monthVolume'] = $value->monthVolume;
@@ -382,7 +382,6 @@ class Sada extends CI_Model{
     //   $response[$value->id_user]['harga_pudding'] = $value->harga_pudding;
     //   $response[$value->id_user]['harga_others'] = $value->harga_others;
     // }
-    $response = var_dump($response);
   }
   return $response;
 }
