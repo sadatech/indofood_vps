@@ -172,7 +172,7 @@ class Sada extends CI_Model{
   GROUP BY
   `id_user`
   ";
-  // echo $sql_volume;
+  echo $sql_volume;
   $sql_volumeAgo = "SELECT
   `id_user`,
   SUM(qty) monthVolume,
@@ -269,7 +269,7 @@ class Sada extends CI_Model{
     // ->group_by('id_user')
     // ->get()
     // ->result();
-echo $sql_volumeAgo;
+// echo $sql_volumeAgo;
   $volumeMonthAgo = $this->db->query($sql_volumeAgo)->result();
 // $this->db->select(['id_user ', 'SUM(qty) monthAgoVolume'])
 // ->from('sada_produk_terjual')
