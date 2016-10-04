@@ -175,7 +175,7 @@ class Sada extends CI_Model{
   // echo $sql_volume;
   $sql_volumeAgo = "SELECT
   `id_user`,
-  SUM(qty) monthVolume,
+  SUM(qty) monthAgoVolume,
   -- sdkat.price, 
   (
   SELECT
