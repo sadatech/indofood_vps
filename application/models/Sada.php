@@ -361,7 +361,7 @@ class Sada extends CI_Model{
       //   }
       //   else{
       if (!$tl_nama->num_rows()>0) {
-          $response[$value->id_user]['nama_tl'] = "<span class='alert alert-warning'><strong>Tidak Mempunyai TL</strong></span>";
+          $response[$value->id_user]['nama_tl'] = "<p class='alert alert-warning'><strong>Tidak Mempunyai TL</strong></p>";
       }
       else{
         foreach ($tl_nama->result() as $n) {
