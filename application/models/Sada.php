@@ -172,7 +172,7 @@ class Sada extends CI_Model{
   GROUP BY
   `id_user`
   ";
-  echo $sql_volume;
+  // echo $sql_volume;
   $sql_volumeAgo = "SELECT
   `id_user`,
   SUM(qty) monthVolume,
