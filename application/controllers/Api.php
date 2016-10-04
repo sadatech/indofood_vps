@@ -3122,9 +3122,9 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
     // $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->get("endDate")));
 
-    $arr['startDate'] =  date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 00:00:00"));
+    $arr['startDate'] =  date('Y-m-d H:i:s', strtotime($this->input->post("startDate")));
 
-    $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 23:59:59"));
+    $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")));
 
     $select = "SELECT
   (
