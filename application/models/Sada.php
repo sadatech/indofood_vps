@@ -239,7 +239,7 @@ AND '$endDate'
 GROUP BY
   sada_produk_terjual.id_user
   ";
-  echo $sql_volume;
+  // echo $sql_volume;
   $sql_volumeAgo = "SELECT
   `id_user`,
   SUM(qty) monthVolume,
