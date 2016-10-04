@@ -344,7 +344,7 @@ class Sada extends CI_Model{
   $response = [
   ];
   foreach ($merged as $value) {
-    if (isset($value->nama_cabang) && isset($value->nama_ba) && isset($value->nama_tl) && isset($value->target_ba) && isset($value->price)) {
+    // if (isset($value->nama_cabang) && isset($value->nama_ba) && isset($value->nama_tl) && isset($value->target_ba) && isset($value->price)) {
       $response[$value->id_user] = [
       'cabang'=>$value->nama_cabang,
       'nama_tl'=>$value->nama_tl,
@@ -352,11 +352,11 @@ class Sada extends CI_Model{
       'target_ba'=>$value->target_ba,
       'price'=>'Rp '.number_format($value->price,0,",",".").',-'
       ];
-    }
+    // }
 
       
 
-    if (isset($value->monthVolume)) {
+    // if (isset($value->monthVolume)) {
       $response[$value->id_user]['monthVolume'] = $value->monthVolume;
       $response[$value->id_user]['qty_bc_prtj'] = $value->qty_bc_prtj;
       $response[$value->id_user]['qty_bti_prtj'] = $value->qty_bti_prtj;
@@ -368,8 +368,8 @@ class Sada extends CI_Model{
       $response[$value->id_user]['harga_rusk'] = $value->harga_rusk;
       $response[$value->id_user]['harga_pudding'] = $value->harga_pudding;
       $response[$value->id_user]['harga_others'] = $value->harga_others;
-    }
-    if (isset($value->monthAgoVolume)) {
+    // }
+    // if (isset($value->monthAgoVolume)) {
       $response[$value->id_user]['monthAgoVolume'] = $value->monthAgoVolume;
       $response[$value->id_user]['qty_bc_prtj'] = $value->qty_bc_prtj;
       $response[$value->id_user]['qty_bti_prtj'] = $value->qty_bti_prtj;
@@ -381,7 +381,7 @@ class Sada extends CI_Model{
       $response[$value->id_user]['harga_rusk'] = $value->harga_rusk;
       $response[$value->id_user]['harga_pudding'] = $value->harga_pudding;
       $response[$value->id_user]['harga_others'] = $value->harga_others;
-    }
+    // }
   }
   return $response;
 }
