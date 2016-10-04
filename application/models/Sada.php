@@ -349,14 +349,14 @@ class Sada extends CI_Model{
     if (isset($value->nama_ba)) {
       $response[$value->id_user] = [
       'cabang'=>$value->nama_cabang,
-      'nama_tl'=>$value->id_toko,
+      // 'nama_tl'=>$value->id_toko,
       'nama_ba'=>$value->nama_ba,
       'target_ba'=>$value->target_ba,
       'price'=>'Rp '.number_format($value->price,0,",",".").',-'
       ];
       $tl_nama = $this->db->select('(select nama from sada_user where sada_user.id_user = sada_tl_in_kota.id_user) as tl_name')->where('id_toko',$value->id_toko)->get('sada_tl_in_kota');
       foreach ($tl_nama->result() as $n) {
-        $response[$value->id_user]['nama_tl_2'] = $n->tl_name;
+        $response[$value->id_user]['nama_tl'] = $n->tl_name;
       }
     }
 
