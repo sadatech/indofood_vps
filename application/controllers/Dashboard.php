@@ -4271,7 +4271,14 @@ public function reportpromo()
 
 		sada_user.stay AS 'stay_user',
 
-		
+		(
+ 			SELECT
+ 				nama
+ 			FROM
+ 				sada_user scb
+ 			WHERE
+ 				tl.id_user = scb.id_user
+ 		) AS 'nama_tl'
 
 		";
 
@@ -4382,7 +4389,7 @@ public function reportpromo()
 
 		$join .= " LEFT JOIN sada_cabang cabang ON kota.id_cabang=cabang.id_cabang";
 
-		$join .= " LEFT JOIN sada_tl_in_kota tl ON kota.id_kota = tl.id_kota";
+		$join .= " LEFT JOIN sada_tl_in_kota tl ON toko.id_toko = tl.id_toko";
 
 
 
@@ -4431,15 +4438,15 @@ public function reportpromo()
 
 			$row[] = $datatable->nama_user;
 
-			// if ($datatable->nama_tl == null) {
-			// 	$row[] = "Tidak ada TL";
-			// }
-			// else{
-			// 	$row[] = "Under Constrouction";
-			// 	// $row[] = $datatable->nama_tl;
-			// }
-			
-				$row[] = "Under Constrouction";
+			if ($datatable->nama_tl == null) {
+				$row[] = "Tidak ada TL";
+			}
+			else{
+				// $row[] = "Under Constrouction";
+				$row[] = $datatable->nama_tl;
+			}
+
+				// $row[] = "Under Constrouction";
 
 			if ($datatable->tipe == "consumerPromo") {
 
