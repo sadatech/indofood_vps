@@ -344,10 +344,10 @@ class Sada extends CI_Model{
   $response = [
   ];
   foreach ($merged as $value) {
-    if (isset($value->nama_cabang) && isset($value->nama_ba) && isset($value->target_ba) && isset($value->price)) {
+    if (isset($value->nama_cabang) && isset($value->nama_ba) && isset($value->nama_tl) && isset($value->target_ba) && isset($value->price)) {
       $response[$value->id_user] = [
       'cabang'=>$value->nama_cabang,
-      'nama_tl'=>'under Construction',
+      'nama_tl'=>$value->nama_tl,
       'nama_ba'=>$value->nama_ba,
       'target_ba'=>$value->target_ba,
       'price'=>'Rp '.number_format($value->price,0,",",".").',-'
