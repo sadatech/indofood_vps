@@ -283,6 +283,7 @@ class Sada extends CI_Model{
     //   )
   $topBA = $this->db->query('SELECT
     sada_produk_terjual.id_user,
+    sada_toko.id_toko,
   -- sada_produk.price,
   sdkat.price,
   (
@@ -302,14 +303,14 @@ class Sada extends CI_Model{
   -- WHERE
   -- sada_tl_in_kota.id_toko = sada_toko.id_toko
   -- ) AS nama_tl,
-  (
-      SELECT
-        nama
-      FROM
-        sada_user scb
-      WHERE
-        tl.id_user = scb.id_user
-    ) AS nama_tl,
+  -- (
+  --     SELECT
+  --       nama
+  --     FROM
+  --       sada_user scb
+  --     WHERE
+  --       tl.id_user = scb.id_user
+  --   ) AS nama_tl,
 
   (
   SELECT DISTINCT
@@ -317,7 +318,7 @@ class Sada extends CI_Model{
   FROM
   sada_user USER
   WHERE
-  id_user = sada_produk_terjual.id_user
+  id_user = sada_tokoinuser_temp.id_user
   ) AS nama_ba,
   (
   SELECT DISTINCT
@@ -333,7 +334,8 @@ class Sada extends CI_Model{
   INNER JOIN `sada_produk` ON `sada_produk_terjual`.`id_produk` = `sada_produk`.`id_produk`
   INNER JOIN `sada_kategori` as sdkat ON `sada_produk`.`id_kategori` = `sdkat`.`id`
   INNER JOIN sada_toko ON sada_produk_terjual.id_toko = sada_toko.id_toko
-  INNER JOIN sada_tl_in_kota tl ON sada_toko.id_toko = tl.id_toko
+  -- INNER JOIN sada_tl_in_kota tl ON sada_toko.id_toko = tl.id_toko
+  INNER JOIN sada_tokoinuser_temp ON sada_tokoinuser_temp.id_user = sada_produk_terjual.id_user
   INNER JOIN sada_kota ON sada_toko.id_kota = sada_kota.id_kota
   GROUP BY
   sada_produk_terjual.id_user')
@@ -347,11 +349,12 @@ class Sada extends CI_Model{
     if (isset($value->nama_ba)) {
       $response[$value->id_user] = [
       'cabang'=>$value->nama_cabang,
-      'nama_tl'=>$value->nama_tl,
+      'nama_tl'=>$value->id_toko,
       'nama_ba'=>$value->nama_ba,
       'target_ba'=>$value->target_ba,
       'price'=>'Rp '.number_format($value->price,0,",",".").',-'
       ];
+      // $
     }
 
       // $response[$value->id_user] = $value;
