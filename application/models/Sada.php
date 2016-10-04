@@ -282,7 +282,7 @@ class Sada extends CI_Model{
     //                             '(select user.nama from sada_user)'
     //   )
   $topBA = $this->db->query('SELECT
-    id_user,
+    sada_produk_terjual.id_user,
   -- sada_produk.price,
   sdkat.price,
   (
@@ -336,7 +336,7 @@ class Sada extends CI_Model{
   INNER JOIN sada_tl_in_kota tl ON sada_toko.id_toko = tl.id_toko
   INNER JOIN sada_kota ON sada_toko.id_kota = sada_kota.id_kota
   GROUP BY
-  id_user')
+  sada_produk_terjual.id_user')
   ->result();
 
 
