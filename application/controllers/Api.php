@@ -1037,185 +1037,38 @@ public function CountTotalContact()
 
 
   $select = "SELECT
-  (
-    SELECT
-      sada_kategori.nama
-    FROM
-      sada_kategori
-    WHERE
-      sada_kategori.id = sada_form_contact.kategori_id
-  ) AS 'sada_kategori_label',
-  (
-    SELECT
-      sada_kategori.id
-    FROM
-      sada_kategori
-    WHERE
-      sada_kategori.id = sada_form_contact.kategori_id
-    AND sada_form_contact.user_id = sada_user.id_user
-  ) AS 'count_sampling',
-  (
-    SELECT
-      COUNT(*)
-    FROM
-      sada_form_contact AS a
-    WHERE
-      a.user_id = sada_user.id_user
-    AND a.store_id = toko.id_toko
-    AND date(a.tgl_contact) = date(
-      sada_form_contact.tgl_contact
-    )
-  ) AS 'contact_count',
-  (
-    SELECT
-      COUNT(*)
-    FROM
-      sada_form_contact AS a
-    WHERE
-      a.tipe = 'newRecruit'
-    AND a.user_id = sada_user.id_user
-    AND sada_form_contact.store_id = toko.id_toko
-    AND date(a.tgl_contact) = date(
-      sada_form_contact.tgl_contact
-    )
-  ) AS 'count_recruit',
-  (
-    SELECT
-      COUNT(*)
-    FROM
-      sada_form_contact AS a
-    WHERE
-      a.tipe = 'switching'
-    AND a.user_id = sada_user.id_user
-    AND sada_form_contact.store_id = toko.id_toko
-    AND date(a.tgl_contact) = date(
-      sada_form_contact.tgl_contact
-    )
-  ) AS 'count_switching',
-  (
-    SELECT
-      SUM(a.samplingQty)
-    FROM
-      sada_form_contact AS a
-    WHERE
-      a.kategori_id = '1'
-    AND a.user_id = sada_user.id_user
-    AND a.store_id = toko.id_toko
-    AND date(a.tgl_contact) = date(
-      sada_form_contact.tgl_contact
-    )
-  ) AS 'BC',
-  (
-    SELECT
-      SUM(a.samplingQty)
-    FROM
-      sada_form_contact AS a
-    WHERE
-      a.kategori_id = '2'
-    AND a.user_id = sada_user.id_user
-    AND a.store_id = toko.id_toko
-    AND date(a.tgl_contact) = date(
-      sada_form_contact.tgl_contact
-    )
-  ) AS 'BTI',
-  (
-    SELECT
-      SUM(a.samplingQty)
-    FROM
-      sada_form_contact AS a
-    WHERE
-      a.kategori_id = '3'
-    AND a.user_id = sada_user.id_user
-    AND a.store_id = toko.id_toko
-    AND date(a.tgl_contact) = date(
-      sada_form_contact.tgl_contact
-    )
-  ) AS 'Rusk',
-  (
-    SELECT
-      SUM(a.samplingQty)
-    FROM
-      sada_form_contact AS a
-    WHERE
-      a.kategori_id = '4'
-    AND a.user_id = sada_user.id_user
-    AND a.store_id = toko.id_toko
-    AND date(a.tgl_contact) = date(
-      sada_form_contact.tgl_contact
-    )
-  ) AS 'Pudding',
-  (
-    SELECT
-      SUM(a.samplingQty)
-    FROM
-      sada_form_contact AS a
-    WHERE
-      a.kategori_id = '5'
-    AND a.user_id = sada_user.id_user
-    AND a.store_id = toko.id_toko
-    AND date(a.tgl_contact) = date(
-      sada_form_contact.tgl_contact
-    )
-  ) AS 'Others',
-  (
-    SELECT
-      SUM(a.samplingQty)
-    FROM
-      sada_form_contact AS a
-    WHERE
-      a.beli = 'Y'
-    AND a.sampling = 'Y'
-  ) AS 'strike_sampling',
-  (
-    SELECT
-      SUM(a.samplingQty)
-    FROM
-      sada_form_contact AS a
-    WHERE
-      a.beli = 'Y'
-    AND a.sampling = 'Y'
-    AND a.kategori_id = '1'
-  ) AS 'strike_sampling_bc',
-  (
-    SELECT
-      SUM(a.samplingQty)
-    FROM
-      sada_form_contact AS a
-    WHERE
-      a.beli = 'Y'
-    AND a.sampling = 'Y'
-    AND a.kategori_id = '2'
-  ) AS 'strike_sampling_bti',
-  (
-    SELECT
-      SUM(a.samplingQty)
-    FROM
-      sada_form_contact AS a
-    WHERE
-      a.beli = 'Y'
-    AND a.sampling = 'Y'
-    AND a.kategori_id = '3'
-  ) AS 'strike_sampling_rusk',
-  (
-    SELECT
-      SUM(a.samplingQty)
-    FROM
-      sada_form_contact AS a
-    WHERE
-      a.beli = 'Y'
-    AND a.sampling = 'Y'
-    AND a.kategori_id = '4'
-  ) AS 'strike_sampling_pudding',
-  (
-    SELECT
-      SUM(a.samplingQty)
-    FROM
-      sada_form_contact AS a
-    WHERE
-      a.beli = 'Y'
-    AND a.sampling = 'Y'
-    AND a.kategori_id = '5'
-  ) AS 'strike_sampling_others',
+
+  (SELECT sada_kategori.nama FROM sada_kategori where sada_kategori.id=sada_form_contact.kategori_id) AS 'sada_kategori_label',
+
+  (SELECT sada_kategori.id FROM sada_kategori where sada_kategori.id=sada_form_contact.kategori_id AND sada_form_contact.user_id=sada_user.id_user) AS 'count_sampling',
+
+  (SELECT COUNT(*) FROM sada_form_contact AS a WHERE a.user_id=sada_user.id_user AND a.store_id=toko.id_toko AND date(a.tgl_contact)=date(sada_form_contact.tgl_contact)) AS 'contact_count',
+
+  (SELECT COUNT(*) FROM sada_form_contact AS a WHERE sada_form_contact.tipe='newRecruit' AND sada_form_contact.user_id=sada_user.id_user AND sada_form_contact.store_id=toko.id_toko AND date(a.tgl_contact)=date(sada_form_contact.tgl_contact)) AS 'count_recruit',
+
+  (SELECT COUNT(*) FROM sada_form_contact AS a WHERE sada_form_contact.tipe='switching' AND sada_form_contact.user_id=sada_user.id_user AND sada_form_contact.store_id=toko.id_toko AND date(a.tgl_contact)=date(sada_form_contact.tgl_contact)) AS 'count_switching',
+
+  (SELECT SUM(a.samplingQty) FROM sada_form_contact AS a WHERE a.kategori_id='1' AND a.user_id=sada_user.id_user AND a.store_id=toko.id_toko AND date(a.tgl_contact)=date(sada_form_contact.tgl_contact)) AS 'BC',
+
+  (SELECT SUM(a.samplingQty) FROM sada_form_contact AS a WHERE a.kategori_id='2' AND a.user_id=sada_user.id_user AND a.store_id=toko.id_toko AND date(a.tgl_contact)=date(sada_form_contact.tgl_contact)) AS 'BTI',
+
+  (SELECT SUM(a.samplingQty) FROM sada_form_contact AS a WHERE a.kategori_id='3' AND a.user_id=sada_user.id_user AND a.store_id=toko.id_toko AND date(a.tgl_contact)=date(sada_form_contact.tgl_contact)) AS 'Rusk',
+
+  (SELECT SUM(a.samplingQty) FROM sada_form_contact AS a WHERE a.kategori_id='4' AND a.user_id=sada_user.id_user AND a.store_id=toko.id_toko AND date(a.tgl_contact)=date(sada_form_contact.tgl_contact)) AS 'Pudding',
+
+  (SELECT SUM(a.samplingQty) FROM sada_form_contact AS a WHERE a.kategori_id='5' AND a.user_id=sada_user.id_user AND a.store_id=toko.id_toko AND date(a.tgl_contact)=date(sada_form_contact.tgl_contact)) AS 'Others',
+
+  (SELECT SUM(a.samplingQty) FROM sada_form_contact AS a WHERE a.beli='Y' AND sada_form_contact.sampling='Y') AS 'strike_sampling',
+
+  (SELECT SUM(a.samplingQty) FROM sada_form_contact AS a WHERE a.beli='Y' AND sada_form_contact.sampling='Y' AND a.kategori_id='1') AS 'strike_sampling_bc',
+
+  (SELECT SUM(a.samplingQty) FROM sada_form_contact AS a WHERE a.beli='Y' AND sada_form_contact.sampling='Y' AND a.kategori_id='2') AS 'strike_sampling_bti',
+
+  (SELECT SUM(a.samplingQty) FROM sada_form_contact AS a WHERE a.beli='Y' AND sada_form_contact.sampling='Y' AND a.kategori_id='3') AS 'strike_sampling_rusk',
+
+  (SELECT SUM(a.samplingQty) FROM sada_form_contact AS a WHERE a.beli='Y' AND sada_form_contact.sampling='Y' AND a.kategori_id='4') AS 'strike_sampling_pudding',
+
+  (SELECT SUM(a.samplingQty) FROM sada_form_contact AS a WHERE a.beli='Y' AND sada_form_contact.sampling='Y' AND a.kategori_id='5') AS 'strike_sampling_others',
 
   ";
 
@@ -3127,185 +2980,38 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
     $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 23:59:59"));
 
     $select = "SELECT
-  (
-    SELECT
-      sada_kategori.nama
-    FROM
-      sada_kategori
-    WHERE
-      sada_kategori.id = sada_form_contact.kategori_id
-  ) AS 'sada_kategori_label',
-  (
-    SELECT
-      sada_kategori.id
-    FROM
-      sada_kategori
-    WHERE
-      sada_kategori.id = sada_form_contact.kategori_id
-    AND sada_form_contact.user_id = sada_user.id_user
-  ) AS 'count_sampling',
-  (
-    SELECT
-      COUNT(*)
-    FROM
-      sada_form_contact AS a
-    WHERE
-      a.user_id = sada_user.id_user
-    AND a.store_id = toko.id_toko
-    AND date(a.tgl_contact) = date(
-      sada_form_contact.tgl_contact
-    )
-  ) AS 'contact_count',
-  (
-    SELECT
-      COUNT(*)
-    FROM
-      sada_form_contact AS a
-    WHERE
-      a.tipe = 'newRecruit'
-    AND a.user_id = sada_user.id_user
-    AND sada_form_contact.store_id = toko.id_toko
-    AND date(a.tgl_contact) = date(
-      sada_form_contact.tgl_contact
-    )
-  ) AS 'count_recruit',
-  (
-    SELECT
-      COUNT(*)
-    FROM
-      sada_form_contact AS a
-    WHERE
-      a.tipe = 'switching'
-    AND a.user_id = sada_user.id_user
-    AND sada_form_contact.store_id = toko.id_toko
-    AND date(a.tgl_contact) = date(
-      sada_form_contact.tgl_contact
-    )
-  ) AS 'count_switching',
-  (
-    SELECT
-      SUM(a.samplingQty)
-    FROM
-      sada_form_contact AS a
-    WHERE
-      a.kategori_id = '1'
-    AND a.user_id = sada_user.id_user
-    AND a.store_id = toko.id_toko
-    AND date(a.tgl_contact) = date(
-      sada_form_contact.tgl_contact
-    )
-  ) AS 'BC',
-  (
-    SELECT
-      SUM(a.samplingQty)
-    FROM
-      sada_form_contact AS a
-    WHERE
-      a.kategori_id = '2'
-    AND a.user_id = sada_user.id_user
-    AND a.store_id = toko.id_toko
-    AND date(a.tgl_contact) = date(
-      sada_form_contact.tgl_contact
-    )
-  ) AS 'BTI',
-  (
-    SELECT
-      SUM(a.samplingQty)
-    FROM
-      sada_form_contact AS a
-    WHERE
-      a.kategori_id = '3'
-    AND a.user_id = sada_user.id_user
-    AND a.store_id = toko.id_toko
-    AND date(a.tgl_contact) = date(
-      sada_form_contact.tgl_contact
-    )
-  ) AS 'Rusk',
-  (
-    SELECT
-      SUM(a.samplingQty)
-    FROM
-      sada_form_contact AS a
-    WHERE
-      a.kategori_id = '4'
-    AND a.user_id = sada_user.id_user
-    AND a.store_id = toko.id_toko
-    AND date(a.tgl_contact) = date(
-      sada_form_contact.tgl_contact
-    )
-  ) AS 'Pudding',
-  (
-    SELECT
-      SUM(a.samplingQty)
-    FROM
-      sada_form_contact AS a
-    WHERE
-      a.kategori_id = '5'
-    AND a.user_id = sada_user.id_user
-    AND a.store_id = toko.id_toko
-    AND date(a.tgl_contact) = date(
-      sada_form_contact.tgl_contact
-    )
-  ) AS 'Others',
-  (
-    SELECT
-      SUM(a.samplingQty)
-    FROM
-      sada_form_contact AS a
-    WHERE
-      a.beli = 'Y'
-    AND a.sampling = 'Y'
-  ) AS 'strike_sampling',
-  (
-    SELECT
-      SUM(a.samplingQty)
-    FROM
-      sada_form_contact AS a
-    WHERE
-      a.beli = 'Y'
-    AND a.sampling = 'Y'
-    AND a.kategori_id = '1'
-  ) AS 'strike_sampling_bc',
-  (
-    SELECT
-      SUM(a.samplingQty)
-    FROM
-      sada_form_contact AS a
-    WHERE
-      a.beli = 'Y'
-    AND a.sampling = 'Y'
-    AND a.kategori_id = '2'
-  ) AS 'strike_sampling_bti',
-  (
-    SELECT
-      SUM(a.samplingQty)
-    FROM
-      sada_form_contact AS a
-    WHERE
-      a.beli = 'Y'
-    AND a.sampling = 'Y'
-    AND a.kategori_id = '3'
-  ) AS 'strike_sampling_rusk',
-  (
-    SELECT
-      SUM(a.samplingQty)
-    FROM
-      sada_form_contact AS a
-    WHERE
-      a.beli = 'Y'
-    AND a.sampling = 'Y'
-    AND a.kategori_id = '4'
-  ) AS 'strike_sampling_pudding',
-  (
-    SELECT
-      SUM(a.samplingQty)
-    FROM
-      sada_form_contact AS a
-    WHERE
-      a.beli = 'Y'
-    AND a.sampling = 'Y'
-    AND a.kategori_id = '5'
-  ) AS 'strike_sampling_others',
+
+    (SELECT sada_kategori.nama FROM sada_kategori where sada_kategori.id=sada_form_contact.kategori_id) AS 'sada_kategori_label',
+
+    (SELECT sada_kategori.id FROM sada_kategori where sada_kategori.id=sada_form_contact.kategori_id AND sada_form_contact.user_id=sada_user.id_user) AS 'count_sampling',
+
+    (SELECT COUNT(*) FROM sada_form_contact AS a WHERE a.user_id=sada_user.id_user AND a.store_id=toko.id_toko AND date(a.tgl_contact)=date(sada_form_contact.tgl_contact)) AS 'contact_count',
+
+    (SELECT COUNT(*) FROM sada_form_contact AS a WHERE sada_form_contact.tipe='newRecruit' AND sada_form_contact.user_id=sada_user.id_user AND sada_form_contact.store_id=toko.id_toko AND date(a.tgl_contact)=date(sada_form_contact.tgl_contact)) AS 'count_recruit',
+
+    (SELECT COUNT(*) FROM sada_form_contact AS a WHERE sada_form_contact.tipe='switching' AND sada_form_contact.user_id=sada_user.id_user AND sada_form_contact.store_id=toko.id_toko AND date(a.tgl_contact)=date(sada_form_contact.tgl_contact)) AS 'count_switching',
+
+    (SELECT SUM(a.samplingQty) FROM sada_form_contact AS a WHERE a.kategori_id='1' AND a.user_id=sada_user.id_user AND a.store_id=toko.id_toko AND date(a.tgl_contact)=date(sada_form_contact.tgl_contact)) AS 'BC',
+
+    (SELECT SUM(a.samplingQty) FROM sada_form_contact AS a WHERE a.kategori_id='2' AND a.user_id=sada_user.id_user AND a.store_id=toko.id_toko AND date(a.tgl_contact)=date(sada_form_contact.tgl_contact)) AS 'BTI',
+
+    (SELECT SUM(a.samplingQty) FROM sada_form_contact AS a WHERE a.kategori_id='3' AND a.user_id=sada_user.id_user AND a.store_id=toko.id_toko AND date(a.tgl_contact)=date(sada_form_contact.tgl_contact)) AS 'Rusk',
+
+    (SELECT SUM(a.samplingQty) FROM sada_form_contact AS a WHERE a.kategori_id='4' AND a.user_id=sada_user.id_user AND a.store_id=toko.id_toko AND date(a.tgl_contact)=date(sada_form_contact.tgl_contact)) AS 'Pudding',
+
+    (SELECT SUM(a.samplingQty) FROM sada_form_contact AS a WHERE a.kategori_id='5' AND a.user_id=sada_user.id_user AND a.store_id=toko.id_toko AND date(a.tgl_contact)=date(sada_form_contact.tgl_contact)) AS 'Others',
+
+    (SELECT SUM(a.samplingQty) FROM sada_form_contact AS a WHERE a.beli='Y' AND sada_form_contact.sampling='Y') AS 'strike_sampling',
+
+    (SELECT SUM(a.samplingQty) FROM sada_form_contact AS a WHERE a.beli='Y' AND sada_form_contact.sampling='Y' AND a.kategori_id='1') AS 'strike_sampling_bc',
+
+    (SELECT SUM(a.samplingQty) FROM sada_form_contact AS a WHERE a.beli='Y' AND sada_form_contact.sampling='Y' AND a.kategori_id='2') AS 'strike_sampling_bti',
+
+    (SELECT SUM(a.samplingQty) FROM sada_form_contact AS a WHERE a.beli='Y' AND sada_form_contact.sampling='Y' AND a.kategori_id='3') AS 'strike_sampling_rusk',
+
+    (SELECT SUM(a.samplingQty) FROM sada_form_contact AS a WHERE a.beli='Y' AND sada_form_contact.sampling='Y' AND a.kategori_id='4') AS 'strike_sampling_pudding',
+
+    (SELECT SUM(a.samplingQty) FROM sada_form_contact AS a WHERE a.beli='Y' AND sada_form_contact.sampling='Y' AND a.kategori_id='5') AS 'strike_sampling_others',
 
     ";
 
