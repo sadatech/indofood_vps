@@ -3307,107 +3307,32 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
     AND a.kategori_id = '5'
   ) AS 'strike_sampling_others',
 
-    ";
+  ";
 
-    $select .= "toko.id_toko,
+  $select .= "toko.id_toko,
 
-    toko.store_id,
+  toko.store_id,
 
-    toko.id_kota,
+  toko.id_kota,
 
-    toko.nama AS 'nama_toko',
+  toko.nama AS 'nama_toko',
 
-    sada_user.id_user AS 'id_user',
+  sada_user.id_user AS 'id_user',
 
-    sada_user.nama AS 'nama_user',
+  sada_user.nama AS 'nama_user',
+  sada_user.nama AS 'nama_user',
 
-    sada_user.stay AS 'stay_user',";
+  sada_user.stay AS 'stay_user',";
 
-    $where = "";
+  $where = "";
 
-    if ($arr['startDate'] != "1970-01-01 07:00:00" && $arr['endDate'] != "1970-01-01 07:00:00") {
+  if ($arr['startDate'] != "1970-01-01 07:00:00" && $arr['endDate'] != "1970-01-01 07:00:00") {
 
-      $where = "WHERE sada_form_contact.tgl_contact BETWEEN '".$arr['startDate']."' and '".$arr['endDate']."'";
+    $where = "WHERE sada_form_contact.tgl_contact BETWEEN '".$arr['startDate']."' and '".$arr['endDate']."'";
 
-      if ($arr['tl'] != 0) {
+    if ($arr['tl'] != 0) {
 
-        $where .= " AND sada_user.id_user='".$arr['tl']."'";
-
-      }
-
-      else{
-
-        if ($arr['ba'] != 0) {
-
-          $where .= " AND sada_user.id_user='".$arr['ba']."'";
-
-          if ($arr['toko'] != 0) {
-
-            $where .= " AND toko.id_toko='".$arr['toko']."'";
-
-            if ($arr['cabang'] != 0) {
-
-              $where .= " AND cabang.id_cabang='".$arr['cabang']."'";
-
-              if ($arr['kota'] != 0) {
-
-                $where .= " AND kota.id_kota='".$arr['kota']."'";
-
-              }
-
-            }
-
-          }
-
-        }
-
-        else{
-
-          if ($arr['toko'] != 0) {
-
-            $where = " WHERE toko.id_toko='".$arr['toko']."'";
-
-            if ($arr['cabang'] != 0) {
-
-              $where = " AND cabang.id_cabang='".$arr['cabang']."'";
-
-              if ($arr['kota'] != 0) {
-
-                $where .= " AND kota.id_kota='".$arr['kota']."'";
-
-              }
-
-            }
-
-          }
-
-          else{
-
-            if ($arr['cabang'] != 0) {
-
-              $where = " WHERE cabang.id_cabang='".$arr['cabang']."'";
-
-              if ($arr['kota'] != 0) {
-
-                $where .= " AND kota.id_kota='".$arr['kota']."'";
-
-              }
-
-            }
-
-          }        
-
-        }
-
-      }
-
-    }
-
-    else{
-
-     if ($arr['tl'] != 0) {
-
-      $where = " WHERE sada_user.id_user='".$arr['tl']."'";
+      $where .= " AND sada_user.id_user='".$arr['tl']."'";
 
     }
 
@@ -3415,7 +3340,25 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
       if ($arr['ba'] != 0) {
 
-        $where = " WHERE sada_user.id_user='".$arr['ba']."'";
+        $where .= " AND sada_user.id_user='".$arr['ba']."'";
+
+        if ($arr['toko'] != 0) {
+
+          $where .= " AND toko.id_toko='".$arr['toko']."'";
+
+          if ($arr['cabang'] != 0) {
+
+            $where .= " AND cabang.id_cabang='".$arr['cabang']."'";
+
+            if ($arr['kota'] != 0) {
+
+              $where .= " AND kota.id_kota='".$arr['kota']."'";
+
+            }
+
+          }
+
+        }
 
       }
 
@@ -3425,53 +3368,109 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
           $where = " WHERE toko.id_toko='".$arr['toko']."'";
 
+          if ($arr['cabang'] != 0) {
+
+            $where = " AND cabang.id_cabang='".$arr['cabang']."'";
+
+            if ($arr['kota'] != 0) {
+
+              $where .= " AND kota.id_kota='".$arr['kota']."'";
+
+            }
+
+          }
+
+        }
+
+        else{
+
+          if ($arr['cabang'] != 0) {
+
+            $where = " WHERE cabang.id_cabang='".$arr['cabang']."'";
+
+            if ($arr['kota'] != 0) {
+
+              $where .= " AND kota.id_kota='".$arr['kota']."'";
+
+            }
+
+          }
+
+        }        
+
+      }
+
+    }
+
+  }
+
+  else{
+
+   if ($arr['tl'] != 0) {
+
+    $where = " WHERE sada_user.id_user='".$arr['tl']."'";
+
+  }
+
+  else{
+
+    if ($arr['ba'] != 0) {
+
+      $where = " WHERE sada_user.id_user='".$arr['ba']."'";
+
+    }
+
+    else{
+
+      if ($arr['toko'] != 0) {
+
+        $where = " WHERE toko.id_toko='".$arr['toko']."'";
+
+      }
+
+    }
+
+  }
+
+
+
+}
+
+$join = "";
+
+if ($arr['tl'] == 0) {
+
+  if ($arr['ba'] !=0) {
+
+
+
+    if ($arr['toko'] != 0) {
+
+      $where .= " AND toko.id_toko='".$arr['toko']."'";
+
+      if ($arr['cabang'] !=0) {
+
+        if ($arr['kota'] !=0) {
+
+          $where .= " AND cabang.id_cabang in (SELECT id_cabang FROM sada_kota WHERE id_cabang='".$arr['cabang']."')";
+
+        }
+
+        else{
+
+          $where .= " AND cabang.id_cabang='".$arr['cabang']."'";
+
         }
 
       }
 
     }
 
+    else{
 
+      if ($arr['cabang'] != 0) {
 
-  }
-
-  $join = "";
-
-  if ($arr['tl'] == 0) {
-
-    if ($arr['ba'] !=0) {
-
-
-
-      if ($arr['toko'] != 0) {
-
-        $where .= " AND toko.id_toko='".$arr['toko']."'";
-
-        if ($arr['cabang'] !=0) {
-
-          if ($arr['kota'] !=0) {
-
-            $where .= " AND cabang.id_cabang in (SELECT id_cabang FROM sada_kota WHERE id_cabang='".$arr['cabang']."')";
-
-          }
-
-          else{
-
-            $where .= " AND cabang.id_cabang='".$arr['cabang']."'";
-
-          }
-
-        }
-
-      }
-
-      else{
-
-        if ($arr['cabang'] != 0) {
-
-         $where .= " AND cabang.id_cabang in (SELECT id_cabang FROM sada_kota WHERE id_cabang='".$arr['cabang']."')";
-
-       }
+       $where .= " AND cabang.id_cabang in (SELECT id_cabang FROM sada_kota WHERE id_cabang='".$arr['cabang']."')";
 
      }
 
@@ -3479,7 +3478,9 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
  }
 
- else{
+}
+
+else{
 
   if ($arr['ba']==0) {
 
@@ -3553,9 +3554,9 @@ foreach ($data->result() as $key => $value) {
 
 }
 
-// $this->excel->downloadtotalcontact(count($keys),$val_cabang);
+$this->excel->downloadtotalcontact(count($keys),$val_cabang);
 
-  print_r($keys);
+  // print_r($val_cabang);
 
 }
 
