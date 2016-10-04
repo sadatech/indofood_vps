@@ -383,7 +383,7 @@ class Sada extends CI_Model{
       $response[$value->id_user]['harga_others'] = $value->harga_others;
     // }
   }
-  return $response;
+  return var_dump($response);
 }
 
 public function getTopCabang($startDate,$endDate,$startDateMonthAgo,$endDateMonthAgo)
