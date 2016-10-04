@@ -344,7 +344,7 @@ class Sada extends CI_Model{
   $response = [
   ];
   foreach ($merged as $value) {
-    if (isset($value->nama_cabang)) {
+    if (isset($value->id_user)) {
       $response[$value->id_user] = [
       'cabang'=>$value->nama_cabang,
       'nama_tl'=>$value->nama_tl,
