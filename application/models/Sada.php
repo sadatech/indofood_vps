@@ -340,7 +340,7 @@ class Sada extends CI_Model{
   ->result();
 
 
-  $merged = array_merge($topBA, $volume, $volumeMonthAgo);
+  $merged = array_merge($topBA, $volume);
   $response = [
   ];
   foreach ($merged as $value) {
