@@ -356,7 +356,7 @@ class Sada extends CI_Model{
       ];
       $tl_nama = $this->db->select('(select nama from sada_user where sada_user.id_user = sada_tl_in_kota.id_user) as tl_name')->where('id_toko',$value->id_toko)->get('sada_tl_in_kota');
       foreach ($tl_nama->result() as $n) {
-        $response[$value->id_user]['nama_tl_2'] = $tl_nama->tl_name;
+        $response[$value->id_user]['nama_tl_2'] = $n->tl_name;
       }
     }
 
