@@ -4155,7 +4155,7 @@ public function reportpromo()
 
 		SELECT
 
-		GROUP_CONCAT(prom.foto SEPARATOR '\n')
+		GROUP_CONCAT(prom.foto SEPARATOR ',')
 
 		FROM
 
@@ -4181,7 +4181,7 @@ public function reportpromo()
 
 		SELECT
 
-		GROUP_CONCAT(prom.foto SEPARATOR '\n')
+		GROUP_CONCAT(prom.foto SEPARATOR ',')
 
 		FROM
 
