@@ -1216,7 +1216,6 @@ public function CountTotalContact()
     AND sada_form_contact.sampling = 'Y'
     AND a.kategori_id = '5'
   ) AS 'strike_sampling_others',
-
   ";
 
   $select .= "toko.id_toko,
@@ -3254,7 +3253,7 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
       sada_form_contact AS a
     WHERE
       a.beli = 'Y'
-    AND sada_form_contact.sampling = 'Y'
+    AND a.sampling = 'Y'
   ) AS 'strike_sampling',
   (
     SELECT
@@ -3263,7 +3262,7 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
       sada_form_contact AS a
     WHERE
       a.beli = 'Y'
-    AND sada_form_contact.sampling = 'Y'
+    AND a.sampling = 'Y'
     AND a.kategori_id = '1'
   ) AS 'strike_sampling_bc',
   (
@@ -3273,7 +3272,7 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
       sada_form_contact AS a
     WHERE
       a.beli = 'Y'
-    AND sada_form_contact.sampling = 'Y'
+    AND a.sampling = 'Y'
     AND a.kategori_id = '2'
   ) AS 'strike_sampling_bti',
   (
@@ -3283,7 +3282,7 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
       sada_form_contact AS a
     WHERE
       a.beli = 'Y'
-    AND sada_form_contact.sampling = 'Y'
+    AND a.sampling = 'Y'
     AND a.kategori_id = '3'
   ) AS 'strike_sampling_rusk',
   (
@@ -3293,7 +3292,7 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
       sada_form_contact AS a
     WHERE
       a.beli = 'Y'
-    AND sada_form_contact.sampling = 'Y'
+    AND a.sampling = 'Y'
     AND a.kategori_id = '4'
   ) AS 'strike_sampling_pudding',
   (
@@ -3303,7 +3302,7 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
       sada_form_contact AS a
     WHERE
       a.beli = 'Y'
-    AND sada_form_contact.sampling = 'Y'
+    AND a.sampling = 'Y'
     AND a.kategori_id = '5'
   ) AS 'strike_sampling_others',
 
@@ -3326,7 +3325,8 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
   $where = "";
 
-  // if ($arr['startDate'] != "1970-01-01 07:00:00" && $arr['endDate'] != "1970-01-01 07:00:00") {
+  if ($arr['startDate'] != "1970-01-01 07:00:00" && $arr['endDate'] != "1970-01-01 07:00:00") {
+
     $where = "WHERE sada_form_contact.tgl_contact BETWEEN '".$arr['startDate']."' and '".$arr['endDate']."'";
 
     if ($arr['tl'] != 0) {
@@ -3401,7 +3401,7 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
     }
 
-  // }
+  }
 
   else{
 
