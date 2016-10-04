@@ -243,7 +243,7 @@ $(document).ready(function() {
 					data += '<td>'+ topSkuArray[i].target_ba+'</td>';
 					data += '<td>Rp '+ Number(sum.toFixed(1)).toLocaleString() +'</td>';
 					data += '<td>'+ topSkuArray[i].monthVolume+'</td>';
-					if (parseInt(topSkuArray[i].target_ba) === 0) {
+					if (parseInt(topSkuArray[i].target_ba) === 0 || parseInt(topSkuArray[i].target_ba) == null) {
 						data += '<td>Target belum ditentukan</td>';
 					}
 					else{
