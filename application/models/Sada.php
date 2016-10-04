@@ -360,11 +360,13 @@ class Sada extends CI_Model{
       //     $response[$value->id_user]['nama_tl'] = "<span class='alert alert-warning'><strong>Tidak Mempunyai TL</strong></span>";
       //   }
       //   else{
-      if ($tl_nama->num_rows()>0) {
-          $response[$value->id_user]['nama_tl'] = "ada TL";
+      if (!$tl_nama->num_rows()>0) {
+          $response[$value->id_user]['nama_tl'] = "<span class='alert alert-warning'><strong>Tidak Mempunyai TL</strong></span>";
       }
       else{
-          $response[$value->id_user]['nama_tl'] = "Tidak Ada TL";
+        foreach ($tl_nama->result() as $n) {
+          $response[$value->id_user]['nama_tl'] = $n->tl_name;
+        }
       }
       // }
     }
