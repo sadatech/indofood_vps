@@ -366,7 +366,7 @@ class Sada extends CI_Model{
       else{
           $response[$value->id_user]['nama_tl'] = "Tidak Ada TL";
       }
-      }
+      // }
     }
 
       // $response[$value->id_user] = $value;
