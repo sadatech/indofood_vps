@@ -85,92 +85,159 @@ class Sada extends CI_Model{
   {
 
     $sql_volume = "SELECT
-    `id_user`,
-    SUM(qty) monthVolume,
-  -- sdkat.price, 
+  sada_produk_terjual.id_user,
+  -- sada_produk.price,
+  sdkat.price,
   (
-  SELECT
-  SUM(qty)
-  FROM
-  sada_produk_terjual as ss
-  INNER JOIN `sada_produk` as s ON `ss`.`id_produk` = `s`.`id_produk`
-  INNER JOIN `sada_kategori` AS sdkats ON `s`.`id_kategori` = `sdkats`.`id`
-  WHERE
-  sdkats.id = 1
-  AND ss.id_user = sada_produk_terjual.id_user
+    SELECT
+      cab.nama
+    FROM
+      sada_cabang cab
+    WHERE
+      cab.id_cabang = sada_kota.id_cabang
+  ) AS nama_cabang,
+  -- (
+  -- SELECT
+  -- USER .nama
+  -- FROM
+  -- sada_user USER
+  -- LEFT JOIN sada_tl_in_kota ON USER .id_user = sada_tl_in_kota.id_user
+  -- WHERE
+  -- sada_tl_in_kota.id_toko = sada_toko.id_toko
+  -- ) AS nama_tl,
+  (
+    SELECT
+      nama
+    FROM
+      sada_user scb
+    WHERE
+      tl.id_user = scb.id_user
+  ) AS nama_tl,
+  (
+    SELECT DISTINCT
+      USER .nama
+    FROM
+      sada_user USER
+    WHERE
+      id_user = sada_produk_terjual.id_user
+  ) AS nama_ba,
+  (
+    SELECT DISTINCT
+      SUM(target_toko.target)
+    FROM
+      sada_toko toko
+    INNER JOIN sada_target target_toko ON toko.id_toko = target_toko.id_toko
+    WHERE
+      toko.id_toko = sada_produk_terjual.id_toko
+  ) AS target_ba,
+  SUM(qty) monthVolume,
+(
+    SELECT
+      SUM(qty)
+    FROM
+      sada_produk_terjual AS ss
+    INNER JOIN `sada_produk` AS s ON `ss`.`id_produk` = `s`.`id_produk`
+    INNER JOIN `sada_kategori` AS sdkats ON `s`.`id_kategori` = `sdkats`.`id`
+    WHERE
+      sdkats.id = 1
+    AND ss.id_user = sada_produk_terjual.id_user
   ) AS qty_bc_prtj,
   (
-  SELECT
-  SUM(qty)
-  FROM
-  sada_produk_terjual as ss
-  INNER JOIN `sada_produk` as s ON `ss`.`id_produk` = `s`.`id_produk`
-  INNER JOIN `sada_kategori` AS sdkats ON `s`.`id_kategori` = `sdkats`.`id`
-  WHERE
-  sdkats.id = 2
-  AND ss.id_user = sada_produk_terjual.id_user
+    SELECT
+      SUM(qty)
+    FROM
+      sada_produk_terjual AS ss
+    INNER JOIN `sada_produk` AS s ON `ss`.`id_produk` = `s`.`id_produk`
+    INNER JOIN `sada_kategori` AS sdkats ON `s`.`id_kategori` = `sdkats`.`id`
+    WHERE
+      sdkats.id = 2
+    AND ss.id_user = sada_produk_terjual.id_user
   ) AS qty_bti_prtj,
   (
-  SELECT
-  SUM(qty)
-  FROM
-  sada_produk_terjual as ss
-  INNER JOIN `sada_produk` as s ON `ss`.`id_produk` = `s`.`id_produk`
-  INNER JOIN `sada_kategori` AS sdkats ON `s`.`id_kategori` = `sdkats`.`id`
-  WHERE
-  sdkats.id = 3
-  AND ss.id_user = sada_produk_terjual.id_user
+    SELECT
+      SUM(qty)
+    FROM
+      sada_produk_terjual AS ss
+    INNER JOIN `sada_produk` AS s ON `ss`.`id_produk` = `s`.`id_produk`
+    INNER JOIN `sada_kategori` AS sdkats ON `s`.`id_kategori` = `sdkats`.`id`
+    WHERE
+      sdkats.id = 3
+    AND ss.id_user = sada_produk_terjual.id_user
   ) AS qty_rusk_prtj,
   (
-  SELECT
-  SUM(qty)
-  FROM
-  sada_produk_terjual as ss
-  INNER JOIN `sada_produk` as s ON `ss`.`id_produk` = `s`.`id_produk`
-  INNER JOIN `sada_kategori` AS sdkats ON `s`.`id_kategori` = `sdkats`.`id`
-  WHERE
-  sdkats.id = 4
-  AND ss.id_user = sada_produk_terjual.id_user
+    SELECT
+      SUM(qty)
+    FROM
+      sada_produk_terjual AS ss
+    INNER JOIN `sada_produk` AS s ON `ss`.`id_produk` = `s`.`id_produk`
+    INNER JOIN `sada_kategori` AS sdkats ON `s`.`id_kategori` = `sdkats`.`id`
+    WHERE
+      sdkats.id = 4
+    AND ss.id_user = sada_produk_terjual.id_user
   ) AS qty_pudding_prtj,
   (
-  SELECT
-  SUM(qty)
-  FROM
-  sada_produk_terjual as ss
-  INNER JOIN `sada_produk` as s ON `ss`.`id_produk` = `s`.`id_produk`
-  INNER JOIN `sada_kategori` AS sdkats ON `s`.`id_kategori` = `sdkats`.`id`
-  WHERE
-  sdkats.id = 5
-  AND ss.id_user = sada_produk_terjual.id_user
+    SELECT
+      SUM(qty)
+    FROM
+      sada_produk_terjual AS ss
+    INNER JOIN `sada_produk` AS s ON `ss`.`id_produk` = `s`.`id_produk`
+    INNER JOIN `sada_kategori` AS sdkats ON `s`.`id_kategori` = `sdkats`.`id`
+    WHERE
+      sdkats.id = 5
+    AND ss.id_user = sada_produk_terjual.id_user
   ) AS qty_others_prtj,
-
-  (SELECT price from sada_kategori where id = 1) as harga_bc,
-
-  (SELECT price from sada_kategori where id = 2) as harga_bti,
-
-  (SELECT price from sada_kategori where id = 3) as harga_rusk,
-
-  (SELECT price from sada_kategori where id = 4) as harga_pudding,
-
-  (SELECT price from sada_kategori where id = 5) as harga_others,
   (
-  SELECT DISTINCT
-  SUM(target_toko.target)
-  FROM
-  sada_toko toko
-  INNER JOIN sada_target target_toko ON toko.id_toko = target_toko.id_toko
-  WHERE
-  toko.id_toko = sada_produk_terjual.id_toko
-  ) AS target_ba
-  FROM
-  `sada_produk_terjual`
-  INNER JOIN `sada_produk` ON `sada_produk_terjual`.`id_produk` = `sada_produk`.`id_produk`
-  INNER JOIN `sada_kategori` AS sdkat ON `sada_produk`.`id_kategori` = `sdkat`.`id`
-  WHERE
+    SELECT
+      price
+    FROM
+      sada_kategori
+    WHERE
+      id = 1
+  ) AS harga_bc,
+  (
+    SELECT
+      price
+    FROM
+      sada_kategori
+    WHERE
+      id = 2
+  ) AS harga_bti,
+  (
+    SELECT
+      price
+    FROM
+      sada_kategori
+    WHERE
+      id = 3
+  ) AS harga_rusk,
+  (
+    SELECT
+      price
+    FROM
+      sada_kategori
+    WHERE
+      id = 4
+  ) AS harga_pudding,
+  (
+    SELECT
+      price
+    FROM
+      sada_kategori
+    WHERE
+      id = 5
+  ) AS harga_others
+FROM
+  sada_produk_terjual
+INNER JOIN `sada_produk` ON `sada_produk_terjual`.`id_produk` = `sada_produk`.`id_produk`
+INNER JOIN `sada_kategori` AS sdkat ON `sada_produk`.`id_kategori` = `sdkat`.`id`
+INNER JOIN sada_toko ON sada_produk_terjual.id_toko = sada_toko.id_toko
+INNER JOIN sada_tl_in_kota tl ON sada_toko.id_toko = tl.id_toko
+INNER JOIN sada_kota ON sada_toko.id_kota = sada_kota.id_kota
+WHERE
   CAST(tgl AS DATE) BETWEEN '$startDate'
-  AND '$endDate'
-  GROUP BY
-  `id_user`
+AND '$endDate'
+GROUP BY
+  sada_produk_terjual.id_user
   ";
   // echo $sql_volume;
   $sql_volumeAgo = "SELECT
