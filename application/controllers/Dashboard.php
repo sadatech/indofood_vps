@@ -4278,7 +4278,7 @@ public function reportpromo()
  				sada_user scb
  			WHERE
  				tl.id_user = scb.id_user
- 		) AS 'nama_tl'
+ 		) AS 'nama_tl',
 
 		";
 
