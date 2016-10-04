@@ -303,6 +303,15 @@ class Sada extends CI_Model{
   -- sada_tl_in_kota.id_toko = sada_toko.id_toko
   -- ) AS nama_tl,
   (
+      SELECT
+        nama
+      FROM
+        sada_user scb
+      WHERE
+        tl.id_user = scb.id_user
+    ) AS nama_tl,
+
+  (
   SELECT DISTINCT
   USER .nama
   FROM
@@ -321,10 +330,10 @@ class Sada extends CI_Model{
   ) AS target_ba
   FROM
   sada_produk_terjual
-  
   INNER JOIN `sada_produk` ON `sada_produk_terjual`.`id_produk` = `sada_produk`.`id_produk`
   INNER JOIN `sada_kategori` as sdkat ON `sada_produk`.`id_kategori` = `sdkat`.`id`
   INNER JOIN sada_toko ON sada_produk_terjual.id_toko = sada_toko.id_toko
+  INNER JOIN sada_tl_in_kota tl ON sada_toko.id_toko = tl.id_toko
   INNER JOIN sada_kota ON sada_toko.id_kota = sada_kota.id_kota
   GROUP BY
   id_user')
