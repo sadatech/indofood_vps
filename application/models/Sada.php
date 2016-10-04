@@ -355,13 +355,17 @@ class Sada extends CI_Model{
       'price'=>'Rp '.number_format($value->price,0,",",".").',-'
       ];
       $tl_nama = $this->db->select('(select nama from sada_user where sada_user.id_user = sada_tl_in_kota.id_user) as tl_name')->where('id_toko',$value->id_toko)->get('sada_tl_in_kota');
-      foreach ($tl_nama->result() as $n) {
-        if ($n->tl_name == null) {
-          $response[$value->id_user]['nama_tl'] = "<span class='alert alert-warning'><strong>Tidak Mempunyai TL</strong></span>";
-        }
-        else{
-          $response[$value->id_user]['nama_tl'] = $n->tl_name;
-        }
+      // foreach ($tl_nama->result() as $n) {
+      //   if ($n->tl_name == null) {
+      //     $response[$value->id_user]['nama_tl'] = "<span class='alert alert-warning'><strong>Tidak Mempunyai TL</strong></span>";
+      //   }
+      //   else{
+      if ($tl_nama->num_rows()>0) {
+          $response[$value->id_user]['nama_tl'] = "ada TL";
+      }
+      else{
+          $response[$value->id_user]['nama_tl'] = "Tidak Ada TL";
+      }
       }
     }
 
