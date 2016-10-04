@@ -3553,9 +3553,9 @@ foreach ($data->result() as $key => $value) {
 
 }
 
-$this->excel->downloadtotalcontact(count($keys),$val_cabang);
+// $this->excel->downloadtotalcontact(count($keys),$val_cabang);
 
-  // echo count($keys);
+  print_r($keys);
 
 }
 
