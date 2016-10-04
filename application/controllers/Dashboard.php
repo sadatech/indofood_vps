@@ -4399,7 +4399,7 @@ public function reportpromo()
 
 
 
-		// echo $select;
+		echo $select;
 
 		$table = "sada_user";
 
