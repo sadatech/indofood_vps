@@ -411,7 +411,7 @@ GROUP BY
   $response = [
   ];
   foreach ($merged as $value) {
-    if (isset($value->nama_cabang) && isset($value->nama_ba) && isset($value->nama_tl) && isset($value->target_ba) && isset($value->price)) {
+    if (isset($value->nama_cabang) && isset($value->nama_ba) && isset($value->nama_tl) && isset($value->target_ba) && isset($value->price) && isset($value->monthVolume)) {
       $response[$value->id_user] = [
       'cabang'=>$value->nama_cabang,
       'nama_tl'=>$value->nama_tl,
@@ -419,11 +419,6 @@ GROUP BY
       'target_ba'=>$value->target_ba,
       'price'=>'Rp '.number_format($value->price,0,",",".").',-'
       ];
-    }
-
-      
-
-    if (isset($value->monthVolume)) {
       $response[$value->id_user]['monthVolume'] = $value->monthVolume;
       $response[$value->id_user]['qty_bc_prtj'] = $value->qty_bc_prtj;
       $response[$value->id_user]['qty_bti_prtj'] = $value->qty_bti_prtj;
@@ -436,6 +431,22 @@ GROUP BY
       $response[$value->id_user]['harga_pudding'] = $value->harga_pudding;
       $response[$value->id_user]['harga_others'] = $value->harga_others;
     }
+
+      
+
+    // if (isset($value->monthVolume)) {
+    //   $response[$value->id_user]['monthVolume'] = $value->monthVolume;
+    //   $response[$value->id_user]['qty_bc_prtj'] = $value->qty_bc_prtj;
+    //   $response[$value->id_user]['qty_bti_prtj'] = $value->qty_bti_prtj;
+    //   $response[$value->id_user]['qty_rusk_prtj'] = $value->qty_rusk_prtj;
+    //   $response[$value->id_user]['qty_pudding_prtj'] = $value->qty_pudding_prtj;
+    //   $response[$value->id_user]['qty_others_prtj'] = $value->qty_others_prtj;
+    //   $response[$value->id_user]['harga_bc'] = $value->harga_bc;
+    //   $response[$value->id_user]['harga_bti'] = $value->harga_bti;
+    //   $response[$value->id_user]['harga_rusk'] = $value->harga_rusk;
+    //   $response[$value->id_user]['harga_pudding'] = $value->harga_pudding;
+    //   $response[$value->id_user]['harga_others'] = $value->harga_others;
+    // }
     if (isset($value->monthAgoVolume)) {
       $response[$value->id_user]['monthAgoVolume'] = $value->monthAgoVolume;
       $response[$value->id_user]['qty_bc_prtj'] = $value->qty_bc_prtj;
