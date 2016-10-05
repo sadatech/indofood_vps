@@ -3100,7 +3100,7 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
     $this->load->library('excel');
 
-    $this->excel->downloadReportOutOfStock($keys,$result);
+    $this->excel->downloadReportOutOfStock(count($keys),$result);
 
   }
 

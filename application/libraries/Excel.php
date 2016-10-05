@@ -83,7 +83,7 @@ class Excel extends PHPExcel {
 
       // ];
 
-            foreach ($value as $datatable) {
+            foreach ($val as $datatable) {
     
               $this->excel->getActiveSheet()->setCellValue('N1', 'FOTO PROMINA');
               // $this->excel->getActiveSheet()->mergeCells('M1:O1');
