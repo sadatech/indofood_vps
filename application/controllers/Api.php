@@ -3042,68 +3042,7 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
     // Pake Datatable ga pake ini
 
-  public function oosExcelReport($value='')
-
-  {
-
-    $filterTl = ($this->input->get('tl') == "0") ? "" : $this->input->get('tl');
-
-    $filterName = ($this->input->get('ba') == "0") ? "" : $this->input->get('ba');
-
-    $filterToko = (null != $this->input->get('toko') && $this->input->get('toko') !=0) ? $this->input->get('toko') : "";
-
-    $filterCabang = ($this->input->get('cabang') == "0") ? "" : $this->input->get('cabang');
-
-    $filterKota = ($this->input->get('kota') == "0") ? "" : $this->input->get('kota');
-
-    $startDate =  date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 00:00:00"));
-
-    $endDate = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 23:59:59"));
-
-    $query = $this->sada->outOfStockReport(['startDate' => $startDate , 'endDate' => $endDate, 'filterName' => $filterName,'filterToko' => $filterToko,'filterCabang' => $filterCabang,'filterKota' => $filterKota]);
-
-    // $result = [];
-
-    // $result[] = [
-
-    // 'no','cabang','kota','Customer_id','Nama Toko','Nama Ba','Tanggal','List Out of Stock'
-
-    // ];
-
-    $count = 1;
-
-    foreach ($query->result() as $key => $value) {
-
-      // $result[]=[
-
-      // 'count' => ($count++),
-
-      // 'cabang' => $value->namaCabang,
-
-      // 'kota' => $value->nama_kota,
-
-      // 'Customer_id' => $value->store_id,
-
-      // 'namaToko' => $value->namaToko,
-
-      // 'namaBa' => $value->namaBa,
-
-      // 'tanggal' => $value->date,
-
-      // 'produk' => str_replace(',',"\n",$value->namaProduk)
-
-      // ];
-        $result[] = $value;
-        $keys[] = $key;
-
-    }
-
-    $this->load->library('excel');
-
-    $this->excel->downloadReportOutOfStock(count($keys),$result);
-
-  }
-
+  
 
 
   public function dContactTotal()
@@ -3915,6 +3854,83 @@ foreach ($data->result() as $key => $value) {
 $this->excel->downloadreportpromo(count($keys),$val_cabang);
 
 }
+
+public function oosExcelReport()
+
+  {
+
+    $filterTl = ($this->input->get('tl') == "0") ? "" : $this->input->get('tl');
+
+    $filterName = ($this->input->get('ba') == "0") ? "" : $this->input->get('ba');
+
+    $filterToko = (null != $this->input->get('toko') && $this->input->get('toko') !=0) ? $this->input->get('toko') : "";
+
+    $filterCabang = ($this->input->get('cabang') == "0") ? "" : $this->input->get('cabang');
+
+    $filterKota = ($this->input->get('kota') == "0") ? "" : $this->input->get('kota');
+
+    $startDate =  date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 00:00:00"));
+
+    $endDate = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 23:59:59"));
+
+    $query = $this->sada->outOfStockReport(['startDate' => $startDate , 'endDate' => $endDate, 'filterName' => $filterName,'filterToko' => $filterToko,'filterCabang' => $filterCabang,'filterKota' => $filterKota]);
+
+    // $result = [];
+
+    // $result[] = [
+
+    // 'no','cabang','kota','Customer_id','Nama Toko','Nama Ba','Tanggal','List Out of Stock'
+
+    // ];
+
+    $count = 1;
+
+    foreach ($query->result() as $key => $value) {
+
+      $datas[] = $value;
+
+      $keys[] = $key;
+
+      $res[] = $value;
+
+    }
+    $response = [
+
+    'data' => $result
+
+    ];
+    // foreach ($query->result() as $key => $value) {
+
+    //   // $result[]=[
+
+    //   // 'count' => ($count++),
+
+    //   // 'cabang' => $value->namaCabang,
+
+    //   // 'kota' => $value->nama_kota,
+
+    //   // 'Customer_id' => $value->store_id,
+
+    //   // 'namaToko' => $value->namaToko,
+
+    //   // 'namaBa' => $value->namaBa,
+
+    //   // 'tanggal' => $value->date,
+
+    //   // 'produk' => str_replace(',',"\n",$value->namaProduk)
+
+    //   // ];
+    //     $result[] = $value;
+    //     $keys[] = $key;
+
+    // }
+
+    $this->load->library('excel');
+
+    $this->excel->downloadReportOutOfStock(count($keys),$response);
+
+  }
+
 
 public function excelReport()
 
