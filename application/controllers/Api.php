@@ -3903,8 +3903,7 @@ public function oosExcelReport()
 
     $this->load->library('excel');
 
-    // $this->excel->downloadReportOutOfStock(count($keys),$res);
-    print_r($res);
+    $this->excel->downloadReportOutOfStock(count($keys),$res);
 
   }
 
