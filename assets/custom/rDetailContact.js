@@ -20,6 +20,7 @@ $("#form_detail_contact").validate({
     var oTable = $('#contact_detail_report').DataTable({
     "processing": true,
     dom: 'Bfrtip',
+    "deferLoading": 57,
     scrollX : true,
     searching : false,
     buttons : [
