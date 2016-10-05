@@ -50,6 +50,9 @@ class Excel extends PHPExcel {
                     'color' => array('rgb' => '#000000'),
                   ),
                 ),
+                'alignment' => array(
+                  'horizontal' => PHPExcel_Style_Alignment::HORIZONTAL_CENTER,
+              ),
             )
             );
             // $this->excel->getDefaultStyle()->getAlignment()->setWrapText(true);
