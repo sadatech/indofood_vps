@@ -4434,11 +4434,12 @@ public function reportpromo()
 		          $row[] = "<p class='alert alert-warning'><strong>Tidak Mempunyai TL</strong></p>";
 		      }
 		      else{
-		        foreach ($tl_nama->result() as $n) {
-		          $row[] = $n->tl_name;
-		        }
+		      		$nam = $tl_nama->row();
+		        // foreach ($tl_nama->result() as $n) {
+		          $row[] = $nam->tl_name;
+		        // }
 		      }
-			
+
 			// if ($datatable->nama_tl == null) {
 			// 	$row[] = "Tidak ada TL";
 			// }
