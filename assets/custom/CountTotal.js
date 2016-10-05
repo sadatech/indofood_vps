@@ -20,7 +20,7 @@ $("#a").validate({
         dataType: 'json',
         beforeSend : function() {
             $("#dataContactTotal").html('<img src='+base_url+'"/assets/upload/loader1.gif" alt="Wait.." />');
-        }
+        },
         success : function(data) {
             if (data == null) {
                         datas += "<tr>";
