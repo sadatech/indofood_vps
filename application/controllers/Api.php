@@ -3887,18 +3887,27 @@ public function oosExcelReport()
 
     foreach ($query->result() as $key => $value) {
 
-      $datas[] = $value;
+      $res[]=[
 
-      $keys[] = $key;
+        'count' => ($count++),
 
-      $res[] = $value;
+        'cabang' => $value->namaCabang,
+
+        'kota' => $value->nama_kota,
+
+        'Customer_id' => $value->store_id,
+
+        'namaToko' => $value->namaToko,
+
+        'namaBa' => $value->namaBa,
+
+        'tanggal' => $value->date,
+
+        'produk' => str_replace(',',"\n",$value->namaProduk)
+
+      ];
 
     }
-    $response = [
-
-    'data' => $res
-
-    ];
     // foreach ($query->result() as $key => $value) {
 
     //   // $result[]=[
@@ -3927,7 +3936,7 @@ public function oosExcelReport()
 
     $this->load->library('excel');
 
-    $this->excel->downloadReportOutOfStock(count($keys),$response);
+    $this->excel->downloadReportOutOfStock(count($keys),$res);
 
   }
 
