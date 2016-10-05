@@ -15,7 +15,28 @@ class Excel extends PHPExcel {
            $this->excel = new PHPExcel();
            $this->excel->setActiveSheetIndex(0);
            $this->excel->getActiveSheet()->setTitle('Out Of Stock Report');
-           $this->excel->getActiveSheet()->fromArray($result);
+
+           $this->excel->getActiveSheet()->setCellValue('A1', 'CABANG');
+           
+           $this->excel->getActiveSheet()->setCellValue('B1', 'KOTA');
+           
+           $this->excel->getActiveSheet()->setCellValue('C1', 'CUSTOMER ID');
+           
+           $this->excel->getActiveSheet()->setCellValue('D1', 'NAMA TOKO');
+           
+           $this->excel->getActiveSheet()->setCellValue('E1', 'NAMA BA');
+
+           $this->excel->getActiveSheet()->setCellValue('F1', 'TANGGAL');
+
+           $this->excel->getActiveSheet()->setCellValue('G1', 'LIST OUT OF STOCK');
+
+           $this->excel->getActiveSheet()->setCellValue('H1', 'TIPE');
+
+           $this->excel->getActiveSheet()->setCellValue('I1', 'KETERANGAN');
+
+           $this->excel->getActiveSheet()->setCellValue('J1', 'DAY AGO');
+
+           // $this->excel->getActiveSheet()->fromArray($result);
            $this->excel->getActiveSheet()->getDefaultColumnDimension()->setWidth(20);
            $this->excel->getActiveSheet()->getStyle('A1:H1')->applyFromArray(
             array(
