@@ -19,9 +19,9 @@ $("#a").validate({
         data: { "ba" : fields[1].value, "toko" : fields[2].value, "cabang" : fields[3].value, "kota" : fields[4].value, "startDate" : fields[5].value, "endDate" : fields[6].value},
         dataType: 'json',
         beforeSend : function() {
-            $("#dataContactTotal").html('<img src="'+base_url+'/assets/upload/loader1.gif" alt="Wait.." />');
-        },
-        complete : function(data) {
+            $("#dataContactTotal").html("wait..");
+        }
+        success : function(data) {
             if (data == null) {
                         datas += "<tr>";
                         datas += "<td colspan='18'>Data Kosong</td>";
