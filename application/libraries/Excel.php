@@ -97,7 +97,7 @@ class Excel extends PHPExcel {
 
               $this->excel->getActiveSheet()->setCellValue("E".$no_col, $datatable->date);
 
-              $this->excel->getActiveSheet()->setCellValue("F".$no_col, str_replace(',',"\n",$datatable->namaProduk));
+              // $this->excel->getActiveSheet()->setCellValue("F".$no_col, str_replace(',',"\n",$datatable->namaProduk));
 
               // $this->excel->getActiveSheet()->setCellValue("G".$no_col, $row);
 

@@ -3062,13 +3062,13 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
     $query = $this->sada->outOfStockReport(['startDate' => $startDate , 'endDate' => $endDate, 'filterName' => $filterName,'filterToko' => $filterToko,'filterCabang' => $filterCabang,'filterKota' => $filterKota]);
 
-    $result = [];
+    // $result = [];
 
-    $result[] = [
+    // $result[] = [
 
-    'no','cabang','kota','Customer_id','Nama Toko','Nama Ba','Tanggal','List Out of Stock'
+    // 'no','cabang','kota','Customer_id','Nama Toko','Nama Ba','Tanggal','List Out of Stock'
 
-    ];
+    // ];
 
     $count = 1;
 
