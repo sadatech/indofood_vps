@@ -18,11 +18,11 @@ $("#form_detail_contact").validate({
     }
     var arr = {"ba" : fields[1].value, "toko" : fields[2].value, "cabang" : fields[3].value, "kota" : fields[4].value, "startDate" : fields[5].value, "endDate" : fields[6].value};
     var oTable = $('#contact_detail_report').DataTable({
-    "processing": true,
     dom: 'Bfrtip',
-    "language": {
-        "processing": "<img width='30' style='margin: 0 auto;display:block;' src='"+base_url+"/assets/upload/loadings.gif' alt='Wait..' />"
+    "oLanguage": {
+        "sProcessing": "<img width='30' style='margin: 0 auto;display:block;' src='"+base_url+"/assets/upload/loadings.gif' alt='Wait..' />"
     },
+    "processing": true,
     scrollX : true,
     searching : false,
     buttons : [
