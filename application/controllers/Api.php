@@ -2835,7 +2835,7 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
       'store_id' => $value->store_id,
 
-      // 'tipe' => $value->tipe,
+      'tipe' => str_replace(',','<br />',$value->tipes),
 
       'namaToko' => $value->namaToko,
 
@@ -2853,11 +2853,7 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
       $tipe = $this->db->select('tipe')->where(array('user_id'=>$value->id_user,
                                                      'store_id'=>$value->id_toko))->get('sada_out_of_stock');
-      $data = "";
-      foreach ($tipe->result() as $tipes) {
-          $result[]['tipe'] = $tipes->tipe;
-      }
-      // $result[]['tipe'] = $data;
+
     }
 
     $response = [
