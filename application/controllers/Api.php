@@ -3896,7 +3896,7 @@ public function oosExcelReport()
     }
     $response = [
 
-    'data' => $result
+    'data' => $res
 
     ];
     // foreach ($query->result() as $key => $value) {
