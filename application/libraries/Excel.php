@@ -83,37 +83,38 @@ class Excel extends PHPExcel {
 
       // ];
 
-            foreach ($val as $datatable) {
+          //   foreach ($val as $datatable) {
     
-              $this->excel->getActiveSheet()->setCellValue('N1', 'FOTO PROMINA');
-              // $this->excel->getActiveSheet()->mergeCells('M1:O1');
-              $this->excel->getActiveSheet()->setCellValue("A".$no_col, $datatable->namaCabang);
+          //     $this->excel->getActiveSheet()->setCellValue('N1', 'FOTO PROMINA');
+          //     // $this->excel->getActiveSheet()->mergeCells('M1:O1');
+          //     $this->excel->getActiveSheet()->setCellValue("A".$no_col, $datatable->namaCabang);
 
-              $this->excel->getActiveSheet()->setCellValue("B".$no_col, $datatable->nama_kota);
+          //     $this->excel->getActiveSheet()->setCellValue("B".$no_col, $datatable->nama_kota);
 
-              $this->excel->getActiveSheet()->setCellValue("C".$no_col, $datatable->store_id);
+          //     $this->excel->getActiveSheet()->setCellValue("C".$no_col, $datatable->store_id);
 
-              $this->excel->getActiveSheet()->setCellValue("D".$no_col, $datatable->namaBa);
+          //     $this->excel->getActiveSheet()->setCellValue("D".$no_col, $datatable->namaBa);
 
-              $this->excel->getActiveSheet()->setCellValue("E".$no_col, $datatable->date);
+          //     $this->excel->getActiveSheet()->setCellValue("E".$no_col, $datatable->date);
 
-              // $this->excel->getActiveSheet()->setCellValue("F".$no_col, str_replace(',',"\n",$datatable->namaProduk));
+          //     // $this->excel->getActiveSheet()->setCellValue("F".$no_col, str_replace(',',"\n",$datatable->namaProduk));
 
-              // $this->excel->getActiveSheet()->setCellValue("G".$no_col, $row);
+          //     // $this->excel->getActiveSheet()->setCellValue("G".$no_col, $row);
 
-              // $this->excel->getActiveSheet()->setCellValue("H".$no_col, $datatable->jenis);
+          //     // $this->excel->getActiveSheet()->setCellValue("H".$no_col, $datatable->jenis);
 
-              // $this->excel->getActiveSheet()->setCellValue("I".$no_col, $datatable->keteranganPromina);
+          //     // $this->excel->getActiveSheet()->setCellValue("I".$no_col, $datatable->keteranganPromina);
 
-              // $this->excel->getActiveSheet()->setCellValue("J".$no_col, $datatable->keteranganKomptetitor);
+          //     // $this->excel->getActiveSheet()->setCellValue("J".$no_col, $datatable->keteranganKomptetitor);
 
-              $no_col++;
-          }
-           $filename='Out_of_stock_report-'.date("d-M-Y:h:i:s").'.xls';
-           header('Content-Disposition: attachment;filename="'.$filename.'"');
-           header('Cache-Control: max-age=0');
-           $objWriter = PHPExcel_IOFactory::createWriter($this->excel, 'Excel5');
-           $objWriter->save('php://output');
+          //     $no_col++;
+          // }
+            print_r($val);
+           // $filename='Out_of_stock_report-'.date("d-M-Y:h:i:s").'.xls';
+           // header('Content-Disposition: attachment;filename="'.$filename.'"');
+           // header('Cache-Control: max-age=0');
+           // $objWriter = PHPExcel_IOFactory::createWriter($this->excel, 'Excel5');
+           // $objWriter->save('php://output');
         }
         public function downloadtotalcontact($data,$val)
         {
