@@ -3072,33 +3072,35 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
     $count = 1;
 
-    foreach ($query->result() as $value) {
+    foreach ($query->result() as $key => $value) {
 
-      $result[]=[
+      // $result[]=[
 
-      'count' => ($count++),
+      // 'count' => ($count++),
 
-      'cabang' => $value->namaCabang,
+      // 'cabang' => $value->namaCabang,
 
-      'kota' => $value->nama_kota,
+      // 'kota' => $value->nama_kota,
 
-      'Customer_id' => $value->store_id,
+      // 'Customer_id' => $value->store_id,
 
-      'namaToko' => $value->namaToko,
+      // 'namaToko' => $value->namaToko,
 
-      'namaBa' => $value->namaBa,
+      // 'namaBa' => $value->namaBa,
 
-      'tanggal' => $value->date,
+      // 'tanggal' => $value->date,
 
-      'produk' => str_replace(',',"\n",$value->namaProduk)
+      // 'produk' => str_replace(',',"\n",$value->namaProduk)
 
-      ];
+      // ];
+        $result[] = $value;
+        $keys[] = $key;
 
     }
 
     $this->load->library('excel');
 
-    $this->excel->downloadReportOutOfStock($result);
+    $this->excel->downloadReportOutOfStock($keys,$result);
 
   }
 
