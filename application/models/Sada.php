@@ -516,7 +516,6 @@ WHERE
   AND '$endDate'
   ORDER BY id_toko
   ";
-  echo $sql_volume;
   $volume = $this->db->query($sql_volume)->result();
   // $volume = $this->db->select(['id_toko ', 'SUM(qty) monthVolume'])
   // ->from('sada_produk_terjual')
