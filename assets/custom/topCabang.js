@@ -20,6 +20,9 @@ $("#top_cabang").validate({
 			type: 'POST',
 			dataType: 'json',
 			data: arr,
+			beforeSend : function() {
+	            $("#loading").html("<img width='30' style='margin: 0 auto;display:block;' src='"+base_url+"/assets/upload/loadings.gif' alt='Wait..' />");
+	        },
 		})
 		.done(function(data) {
 			var growth;
@@ -112,6 +115,9 @@ $(document).ready(function() {
 			type: 'POST',
 			dataType: 'json',
 			data: arr,
+			beforeSend : function() {
+	            $("#loading").html("<img width='30' style='margin: 0 auto;display:block;' src='"+base_url+"/assets/upload/loadings.gif' alt='Wait..' />");
+	        },
 		})
 		.done(function(data) {
 			var growth;
@@ -203,6 +209,9 @@ $(document).ready(function() {
 			type: 'POST',
 			dataType: 'json',
 			data: arr,
+			beforeSend : function() {
+	            $("#loading").html("<img width='30' style='margin: 0 auto;display:block;' src='"+base_url+"/assets/upload/loadings.gif' alt='Wait..' />");
+	        },
 		})
 		.done(function(data) {
 			var growth;

@@ -151,7 +151,9 @@
 
 					<tbody id='resultAccount'>
 
-
+						<tr>
+	                        <td colspan="8" id="loading"></td>
+	                    </tr>
 
 					</tbody>
 

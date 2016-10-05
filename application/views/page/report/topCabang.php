@@ -145,7 +145,9 @@
 
 					<tbody id='resultCabang'>
 
-
+						<tr>
+	                        <td colspan="9" id="loading"></td>
+	                    </tr>
 
 					</tbody>
 

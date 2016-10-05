@@ -133,7 +133,9 @@
                     </thead>
 
                     <tbody id="topSkuResult">
-
+                        <tr>
+                            <td colspan="6" id="loading"></td>
+                        </tr>
                     </tbody>
 
                 </table>
