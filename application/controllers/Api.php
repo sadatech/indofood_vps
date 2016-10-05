@@ -3865,7 +3865,7 @@ public function oosExcelReport()
 
     $filterToko = $this->input->get("toko");
 
-    $filterCabang = $this->input->get("cabang")
+    $filterCabang = $this->input->get("cabang");
 
     $filterKota = $this->input->get("kota");
 
