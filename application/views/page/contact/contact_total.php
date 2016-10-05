@@ -112,7 +112,7 @@
                 </thead>
                 <tbody id="dataContactTotal"> 
                     <tr>
-                        <td colspan="17" id="loading"></td>
+                        <td colspan="20" id="loading"></td>
                     </tr>
                 </tbody>
             </table>
