@@ -3107,19 +3107,19 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
     $this->load->library('excel');
 
-    $arr['tl'] = $this->input->post("tl");
+    $arr['tl'] = $this->input->get("tl");
 
-    $arr['ba'] = $this->input->post("ba");
+    $arr['ba'] = $this->input->get("ba");
 
-    $arr['toko'] = $this->input->post("toko");
+    $arr['toko'] = $this->input->get("toko");
 
-    $arr['cabang'] = $this->input->post("cabang");
+    $arr['cabang'] = $this->input->get("cabang");
 
-    $arr['kota'] = $this->input->post("kota");
+    $arr['kota'] = $this->input->get("kota");
 
-    $arr['startDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 00:00:00"));
+    $arr['startDate'] = date('Y-m-d H:i:s', strtotime($this->input->get("startDate")." 00:00:00"));
 
-    $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 23:59:59"));
+    $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->get("endDate")." 23:59:59"));
 
       $select = "SELECT
   (
