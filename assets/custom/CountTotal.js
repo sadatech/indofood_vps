@@ -20,7 +20,7 @@ $("#a").validate({
         dataType: 'json',
         beforeSend : function() {
             $("#dataContactTotal").html("wait..");
-        }
+        },
         success : function(data) {
             if (data == null) {
                         datas += "<tr>";
