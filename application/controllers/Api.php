@@ -2855,9 +2855,9 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
                                                      'store_id'=>$value->id_toko))->get('sada_out_of_stock');
       $data = "";
       foreach ($tipe->result() as $tipes) {
-          $data .= $tipes->tipe;
+          $result[]['tipe'] .= $tipes->tipe;
       }
-      $result[]['tipe'] = $data;
+      // $result[]['tipe'] = $data;
     }
 
     $response = [
