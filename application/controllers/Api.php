@@ -1417,40 +1417,40 @@ kota.nama_kota 'nama_kota'
 
 FROM sada_form_contact LEFT JOIN sada_user ON sada_form_contact.user_id=sada_user.id_user ".$join." ".$where."  GROUP BY date(sada_form_contact.tgl_contact),sada_form_contact.user_id,sada_form_contact.store_id";
 
-  // echo $select;
+  echo $select;
 
 $data = $this->db->query($select);
 
-foreach ($data->result() as $key => $value) {
+// foreach ($data->result() as $key => $value) {
 
-  $datas[] = $value;
+//   $datas[] = $value;
 
-    // echo $value->count_sampling;
+//     // echo $value->count_sampling;
 
-    // $sel = "SELECT COUNT(*) AS 'coun_sampling' FROM sada_form_contact WHERE kategori_id='".$value->count_sampling."' AND user_id='".$value->id_user."'";
+//     // $sel = "SELECT COUNT(*) AS 'coun_sampling' FROM sada_form_contact WHERE kategori_id='".$value->count_sampling."' AND user_id='".$value->id_user."'";
 
-    // $selects = $this->db->query("SELECT SUM(DISTINCT kategori_id) AS 'coun_sampling' FROM sada_form_contact WHERE kategori_id='".$value->count_sampling."' AND user_id='".$value->id_user."'")->row();
+//     // $selects = $this->db->query("SELECT SUM(DISTINCT kategori_id) AS 'coun_sampling' FROM sada_form_contact WHERE kategori_id='".$value->count_sampling."' AND user_id='".$value->id_user."'")->row();
 
-    // foreach ($selects->result() as $key => $valuew) {
+//     // foreach ($selects->result() as $key => $valuew) {
 
-    //     echo $valuew->coun_sampling;
+//     //     echo $valuew->coun_sampling;
 
-    // }
+//     // }
 
-    // echo $selects->coun_sampling;
+//     // echo $selects->coun_sampling;
 
-    // echo $sel;
+//     // echo $sel;
 
-}
-
-// if (count($datas) == 0) {
-//   $array = array("status"=>'falses',"content"=>"data kosong");
 // }
 
-// else{
-  $array = $datas;
-// }
-  echo json_encode($array,JSON_PRETTY_PRINT);
+// // if (count($datas) == 0) {
+// //   $array = array("status"=>'falses',"content"=>"data kosong");
+// // }
+
+// // else{
+//   $array = $datas;
+// // }
+//   echo json_encode($array,JSON_PRETTY_PRINT);
 
 }
 
@@ -3107,21 +3107,17 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
     $this->load->library('excel');
 
-    $arr['tl'] = $this->input->get("tl");
+    $arr['tl'] = $this->input->post("tl");
 
-    $arr['ba'] = $this->input->get("ba");
+    $arr['ba'] = $this->input->post("ba");
 
-    $arr['toko'] = $this->input->get("toko");
+    $arr['toko'] = $this->input->post("toko");
 
-    $arr['cabang'] = $this->input->get("cabang");
+    $arr['cabang'] = $this->input->post("cabang");
 
-    $arr['kota'] = $this->input->get("kota");
+    $arr['kota'] = $this->input->post("kota");
 
-    // $arr['startDate'] = date('Y-m-d H:i:s', strtotime($this->input->get("startDate")));
-
-    // $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->get("endDate")));
-
-    $arr['startDate'] =  date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 00:00:00"));
+    $arr['startDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 00:00:00"));
 
     $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 23:59:59"));
 
