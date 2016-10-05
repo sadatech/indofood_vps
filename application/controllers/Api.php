@@ -3906,7 +3906,7 @@ public function oosExcelReport()
         'produk' => str_replace(',',"\n",$value->namaProduk)
 
       ];
-
+      $keys[] = $key;
     }
     // foreach ($query->result() as $key => $value) {
 
