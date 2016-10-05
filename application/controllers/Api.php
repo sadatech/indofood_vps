@@ -2857,7 +2857,7 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
       foreach ($tipe->result() as $tipes) {
           $data .= $tipes->tipe;
       }
-      $result[]['tipe'] = implode(',', $data);
+      $result[]['tipe'] = $data;
     }
 
     $response = [
