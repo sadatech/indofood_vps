@@ -38,7 +38,7 @@ class Excel extends PHPExcel {
 
            // $this->excel->getActiveSheet()->fromArray($result);
            $this->excel->getActiveSheet()->getDefaultColumnDimension()->setWidth(20);
-           $this->excel->getActiveSheet()->getStyle('A1:H1')->applyFromArray(
+           $this->excel->getActiveSheet()->getStyle('A1:J1')->applyFromArray(
             array(
                 'fill' => array(
                     'type' => PHPExcel_Style_Fill::FILL_SOLID,
@@ -58,7 +58,7 @@ class Excel extends PHPExcel {
               ->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER)
               ->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
 
-           $filename='Out_of_stock_report.xls';
+           $filename='Out_of_stock_report-'.date("d-M-Y:h:i:s").'.xls';
            header('Content-Disposition: attachment;filename="'.$filename.'"');
            header('Cache-Control: max-age=0');
            $objWriter = PHPExcel_IOFactory::createWriter($this->excel, 'Excel5');
