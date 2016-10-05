@@ -178,14 +178,14 @@ $("#oos").validate({
           'processing' : true,
           // 'serverSide' : true,
           'searching' : false,
-          'dom': 'Bfrtip',
-          'buttons' : [
-            {
-              extend: 'excel',
-              text: 'Download Excel',
-              className :'btn green-soft'
-            }
-          ],
+          // 'dom': 'Bfrtip',
+          // 'buttons' : [
+          //   {
+          //     extend: 'excel',
+          //     text: 'Download Excel',
+          //     className :'btn green-soft'
+          //   }
+          // ],
           'ajax' : {
             'url' : 'api/oosReport?key=ganteng',
             'type' : 'POST',
