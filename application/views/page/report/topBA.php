@@ -152,7 +152,9 @@
 
 					<tbody id='resultBA'>
 
-
+						<tr>
+	                        <td colspan="5" id="loading"></td>
+	                    </tr>
 
 					</tbody>
 
