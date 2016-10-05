@@ -111,7 +111,9 @@
                     </tr>
                 </thead>
                 <tbody id="dataContactTotal"> 
-
+                    <tr>
+                        <td colspan="5" id="loading"></td>
+                    </tr>
                 </tbody>
             </table>
             <!-- <div class="btn-group">

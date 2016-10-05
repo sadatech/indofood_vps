@@ -19,7 +19,7 @@ $("#a").validate({
         data: { "ba" : fields[1].value, "toko" : fields[2].value, "cabang" : fields[3].value, "kota" : fields[4].value, "startDate" : fields[5].value, "endDate" : fields[6].value},
         dataType: 'json',
         beforeSend : function() {
-            $("#dataContactTotal").html("<img width='30' style='margin: 0 auto;display:block;' src='"+base_url+"/assets/upload/loadings.gif' alt='Wait..' />");
+            $("#loading").html("<img width='30' style='margin: 0 auto;display:block;' src='"+base_url+"/assets/upload/loadings.gif' alt='Wait..' />");
         },
         success : function(data) {
             if (data == null) {
