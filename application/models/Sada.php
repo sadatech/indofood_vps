@@ -359,9 +359,10 @@ class Sada extends CI_Model{
           $response[$value->id_user]['nama_tl'] = "<p class='alert alert-warning'><strong>Tidak Mempunyai TL</strong></p>";
       }
       else{
-        foreach ($tl_nama->result() as $n) {
-          $response[$value->id_user]['nama_tl'] = $n->tl_name;
-        }
+        $nam = $tl_nama->row();
+        // foreach ($tl_nama->result() as $n) {
+          $response[$value->id_user]['nama_tl'] = $nam->tl_name;
+        // }
       }
     }
 

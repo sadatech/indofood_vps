@@ -4434,7 +4434,7 @@ public function reportpromo()
 		          $row[] = "<p class='alert alert-warning'><strong>Tidak Mempunyai TL</strong></p>";
 		      }
 		      else{
-		      		$nam = $tl_nama->row();
+		      	  $nam = $tl_nama->row();
 		        // foreach ($tl_nama->result() as $n) {
 		          $row[] = $nam->tl_name;
 		        // }
