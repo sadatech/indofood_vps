@@ -18,6 +18,9 @@ $("#a").validate({
         url: base_url+"/api/CountTotalContact?key=ganteng",
         data: { "ba" : fields[1].value, "toko" : fields[2].value, "cabang" : fields[3].value, "kota" : fields[4].value, "startDate" : fields[5].value, "endDate" : fields[6].value},
         dataType: 'json',
+        beforeSend : function() {
+            $("#dataContactTotal").html('<img src='+base_url+'"/assets/upload/loader1.gif" alt="Wait.." />');
+        }
         success : function(data) {
             if (data == null) {
                         datas += "<tr>";
