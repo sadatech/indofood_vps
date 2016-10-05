@@ -3859,15 +3859,15 @@ public function oosExcelReport()
 
   {
 
-    $filterTl = $this->input->get("tl");
+    $filterTl = ($this->input->get('tl') == "0") ? "" : $this->input->get('tl');
 
-    $filterName = $this->input->get("ba");
+    $filterName = ($this->input->get('ba') == "0") ? "" : $this->input->get('ba');
 
-    $filterToko = $this->input->get("toko");
+    $filterToko = (null != $this->input->get('toko') && $this->input->get('toko') !=0) ? $this->input->get('toko') : "";
 
-    $filterCabang = $this->input->get("cabang");
+    $filterCabang = ($this->input->get('cabang') == "0") ? "" : $this->input->get('cabang');
 
-    $filterKota = $this->input->get("kota");
+    $filterKota = ($this->input->get('kota') == "0") ? "" : $this->input->get('kota');
 
     $startDate =  date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 00:00:00"));
 
