@@ -20,7 +20,9 @@ $("#form_detail_contact").validate({
     var oTable = $('#contact_detail_report').DataTable({
     "processing": true,
     dom: 'Bfrtip',
-    "deferLoading": 57,
+    "language": {
+        "processing": "<img width='30' style='margin: 0 auto;display:block;' src='"+base_url+"/assets/upload/loadings.gif' alt='Wait..' />"
+    },
     scrollX : true,
     searching : false,
     buttons : [
