@@ -2847,7 +2847,7 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
       'dayAgo' => $this->carbon->time_elapsed_string($value->date), 
 
-      'keterangan' => $value->keterangan   
+      'keterangan' => str_replace(',','<br />',$value->keterangans)   
 
       ];
 

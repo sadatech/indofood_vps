@@ -3057,7 +3057,7 @@ public function outOfStockReport($filter)
 
   $b = $filter['endDate'];
 
-  $this->db->select(['o.id id_oos','o.keterangan','GROUP_CONCAT(p.nama_produk) namaProduk','CAST(o.date  AS DATE) date','t.nama namaToko','c.nama namaCabang','k.nama_kota','t.store_id','u.nama namaBa','GROUP_CONCAT(o.tipe) tipes','t.id_toko','u.id_user'])
+  $this->db->select(['o.id id_oos','GROUP_CONCAT(o.keterangan) keterangans','GROUP_CONCAT(p.nama_produk) namaProduk','CAST(o.date  AS DATE) date','t.nama namaToko','c.nama namaCabang','k.nama_kota','t.store_id','u.nama namaBa','GROUP_CONCAT(o.tipe) tipes','t.id_toko','u.id_user'])
 
   ->from('sada_out_of_stock o')
 
