@@ -2852,11 +2852,11 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
       ];
 
       $tipe = $this->db->select('tipe')->where(array('user_id'=>$value->id_user,
-                                                     'store_id'=>$value->id_toko))->get('sada_out_of_stock')->result();
-      // foreach ($tipe->result() as $tipes) {
-          $result[]['tipe'] = implode(',', $tipe->tipe);
-      // }
-
+                                                     'store_id'=>$value->id_toko))->get('sada_out_of_stock');
+      foreach ($tipe->result() as $tipes) {
+          $tips[] = $tipes->tipe;
+      }
+      $result[]['tipe'] = implode(',', $tips);
     }
 
     $response = [
