@@ -3125,7 +3125,7 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
     $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 23:59:59"));
 
-    $select = "SELECT
+      $select = "SELECT
   (
     SELECT
       sada_kategori.nama
@@ -3253,7 +3253,7 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
       sada_form_contact AS a
     WHERE
       a.beli = 'Y'
-    AND a.sampling = 'Y'
+    AND sada_form_contact.sampling = 'Y'
   ) AS 'strike_sampling',
   (
     SELECT
@@ -3262,7 +3262,7 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
       sada_form_contact AS a
     WHERE
       a.beli = 'Y'
-    AND a.sampling = 'Y'
+    AND sada_form_contact.sampling = 'Y'
     AND a.kategori_id = '1'
   ) AS 'strike_sampling_bc',
   (
@@ -3272,7 +3272,7 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
       sada_form_contact AS a
     WHERE
       a.beli = 'Y'
-    AND a.sampling = 'Y'
+    AND sada_form_contact.sampling = 'Y'
     AND a.kategori_id = '2'
   ) AS 'strike_sampling_bti',
   (
@@ -3282,7 +3282,7 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
       sada_form_contact AS a
     WHERE
       a.beli = 'Y'
-    AND a.sampling = 'Y'
+    AND sada_form_contact.sampling = 'Y'
     AND a.kategori_id = '3'
   ) AS 'strike_sampling_rusk',
   (
@@ -3292,7 +3292,7 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
       sada_form_contact AS a
     WHERE
       a.beli = 'Y'
-    AND a.sampling = 'Y'
+    AND sada_form_contact.sampling = 'Y'
     AND a.kategori_id = '4'
   ) AS 'strike_sampling_pudding',
   (
@@ -3302,10 +3302,9 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
       sada_form_contact AS a
     WHERE
       a.beli = 'Y'
-    AND a.sampling = 'Y'
+    AND sada_form_contact.sampling = 'Y'
     AND a.kategori_id = '5'
   ) AS 'strike_sampling_others',
-
   ";
 
   $select .= "toko.id_toko,
