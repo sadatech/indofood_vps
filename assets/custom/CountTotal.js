@@ -21,7 +21,7 @@ $("#a").validate({
         beforeSend : function() {
             $("#dataContactTotal").html('<img src='+base_url+'"/assets/upload/loader1.gif" alt="Wait.." />');
         },
-        success : function(data) {
+        complete : function(data) {
             if (data == null) {
                         datas += "<tr>";
                         datas += "<td colspan='18'>Data Kosong</td>";
