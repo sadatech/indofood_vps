@@ -4271,28 +4271,19 @@ public function reportpromo()
 
 		sada_user.stay AS 'stay_user',
 
-		(
- 			SELECT
- 				nama
- 			FROM
- 				sada_user scb
- 			WHERE
- 				tl.id_user = scb.id_user
- 		) AS 'nama_tl',
-
+		
 		";
 
 
 // (
-// 			SELECT
-// 				nama
-// 			FROM
-// 				sada_user scb
+//  			SELECT
+//  				nama
+//  			FROM
+//  				sada_user scb
+//  			WHERE
+//  				tl.id_user = scb.id_user
+//  		) AS 'nama_tl',
 
-// 		LEFT JOIN sada_tl_in_kota jlo ON scb.id_user = jlo.id_user
-// 			WHERE
-// 				toko.id_toko = jlo.id_toko
-// 		) AS 'nama_tl',
 		$where = "";
 
 		if ($arr['startDate'] != "1970-01-01" && $arr['endDate'] != "1970-01-01") {
@@ -4389,7 +4380,7 @@ public function reportpromo()
 
 		$join .= " LEFT JOIN sada_cabang cabang ON kota.id_cabang=cabang.id_cabang";
 
-		$join .= " LEFT JOIN sada_tl_in_kota tl ON toko.id_toko = tl.id_toko";
+		// $join .= " LEFT JOIN sada_tl_in_kota tl ON toko.id_toko = tl.id_toko";
 
 
 
@@ -4438,13 +4429,23 @@ public function reportpromo()
 
 			$row[] = $datatable->nama_user;
 
-			if ($datatable->nama_tl == null) {
-				$row[] = "Tidak ada TL";
-			}
-			else{
-				// $row[] = "Under Constrouction";
-				$row[] = $datatable->nama_tl;
-			}
+			$tl_nama = $this->db->select('(select nama from sada_user where sada_user.id_user = sada_tl_in_kota.id_user) as tl_name')->where('id_toko',$datatable->id_toko)->get('sada_tl_in_kota');
+		      if (!$tl_nama->num_rows()>0) {
+		          $row[] = "<p class='alert alert-warning'><strong>Tidak Mempunyai TL</strong></p>";
+		      }
+		      else{
+		        foreach ($tl_nama->result() as $n) {
+		          $row[] = $n->tl_name;
+		        }
+		      }
+			
+			// if ($datatable->nama_tl == null) {
+			// 	$row[] = "Tidak ada TL";
+			// }
+			// else{
+			// 	// $row[] = "Under Constrouction";
+			// 	$row[] = $datatable->nama_tl;
+			// }
 
 				// $row[] = "Under Constrouction";
 
