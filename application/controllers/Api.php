@@ -3121,9 +3121,9 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
     // $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->get("endDate")));
 
-    $arr['startDate'] =  date('Y-m-d H:i:s', strtotime($this->input->post("startDate")));
+    $arr['startDate'] =  date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 00:00:00"));
 
-    $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")));
+    $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 23:59:59"));
 
     $select = "SELECT
   (
@@ -3507,53 +3507,53 @@ kota.nama_kota 'nama_kota'
 
 FROM sada_form_contact LEFT JOIN sada_user ON sada_form_contact.user_id=sada_user.id_user ".$join." ".$where."  GROUP BY date(sada_form_contact.tgl_contact),sada_form_contact.user_id,sada_form_contact.store_id";
 
-  // echo $select;
+  echo $select;
 
-$data = $this->db->query($select);
-
-
-
-foreach ($data->result() as $key => $value) {
-
-  $datas[] = $value;
-
-  $keys[] = $key;
-
-  $val_cabang[] = $value;
-
-    // echo count($value);
+// $data = $this->db->query($select);
 
 
 
-    // echo $value->count_sampling;
+// foreach ($data->result() as $key => $value) {
 
-    // $sel = "SELECT COUNT(*) AS 'coun_sampling' FROM sada_form_contact WHERE kategori_id='".$value->count_sampling."' AND user_id='".$value->id_user."'";
+//   $datas[] = $value;
 
-    // $selects = $this->db->query("SELECT SUM(DISTINCT kategori_id) AS 'coun_sampling' FROM sada_form_contact WHERE kategori_id='".$value->count_sampling."' AND user_id='".$value->id_user."'")->row();
+//   $keys[] = $key;
 
-    // foreach ($selects->result() as $key => $valuew) {
+//   $val_cabang[] = $value;
 
-    //     echo $valuew->coun_sampling;
+//     // echo count($value);
 
-    // }
 
-    // echo $selects->coun_sampling;
 
-    // echo $sel;
+//     // echo $value->count_sampling;
 
-    // $result[] = [
+//     // $sel = "SELECT COUNT(*) AS 'coun_sampling' FROM sada_form_contact WHERE kategori_id='".$value->count_sampling."' AND user_id='".$value->id_user."'";
 
-    //     'Cabang','Nama BA','Status (Mobile / Stay)','Customer_id','Nama Store'
+//     // $selects = $this->db->query("SELECT SUM(DISTINCT kategori_id) AS 'coun_sampling' FROM sada_form_contact WHERE kategori_id='".$value->count_sampling."' AND user_id='".$value->id_user."'")->row();
 
-    //   ];
+//     // foreach ($selects->result() as $key => $valuew) {
 
-      // $this->excel->downloadtotalcontact(10,$value->nama_cabang);
+//     //     echo $valuew->coun_sampling;
 
-    // echo $value->nama_cabang;
+//     // }
 
-}
+//     // echo $selects->coun_sampling;
 
-$this->excel->downloadtotalcontact(count($keys),$val_cabang);
+//     // echo $sel;
+
+//     // $result[] = [
+
+//     //     'Cabang','Nama BA','Status (Mobile / Stay)','Customer_id','Nama Store'
+
+//     //   ];
+
+//       // $this->excel->downloadtotalcontact(10,$value->nama_cabang);
+
+//     // echo $value->nama_cabang;
+
+// }
+
+// $this->excel->downloadtotalcontact(count($keys),$val_cabang);
 
   // print_r($val_cabang);
 
