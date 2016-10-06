@@ -3781,8 +3781,13 @@ public function reportdetailcontact()
 
 			$row[] = $value->sampling;
 
-			$row[] = $value->segmen;
-
+			if ($value->segmen == null || $value->segmen == 0 || $value->segmen == "") {
+				$row[] = "Sampling Wet/Dry kosong";
+			}
+			else{
+				$row[] = $value->segmen;
+			}
+			
 			if ($value->sada_kategori_label == null || $value->sada_kategori_label == 0 || $value->sada_kategori_label == "") {
 				$row[] = "Sampling segment kosong";
 			}
