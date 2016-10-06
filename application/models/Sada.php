@@ -402,6 +402,7 @@ public function getTopCabang($startDate,$endDate,$startDateMonthAgo,$endDateMont
 {
   $sql_volume = "SELECT
   -- `id_toko`,
+  sada_cabang.id_cabang,
   SUM(qty) monthVolume,
   (
     SELECT
@@ -520,6 +521,7 @@ WHERE
   // ->result();
   $sql_volumeAgo = "SELECT
   -- `id_toko`,
+  sada_cabang.id_cabang,
   SUM(qty) monthVolume,
   (
     SELECT
@@ -650,7 +652,7 @@ WHERE
 
   $sql = "SELECT
   sada_produk_terjual.id_toko,
-
+  sada_cabang.id_cabang,
   -- sada_produk.price,
   sdkat.price,
   (
@@ -716,7 +718,7 @@ $response = [
 
 foreach ($merged as $value) {
   if (isset($value->pic_cabang) && isset($value->target_cabang) && isset($value->jml_ba_cabang) && isset($value->jml_toko_cabang)) {
-    $response[$value->id_toko] = [
+    $response[$value->id_cabang] = [
     'pic_cabang'=>$value->pic_cabang,
     'target_cabang'=>$value->target_cabang,
     'jml_ba_cabang'=>$value->jml_ba_cabang,
@@ -728,30 +730,30 @@ foreach ($merged as $value) {
 
 
   if (isset($value->monthVolume)) {
-    $response[$value->id_toko]['monthVolume']= $value->monthVolume;
-      $response[$value->id_toko]['qty_bc_prtj'] = $value->qty_bc_prtj;
-      $response[$value->id_toko]['qty_bti_prtj'] = $value->qty_bti_prtj;
-      $response[$value->id_toko]['qty_rusk_prtj'] = $value->qty_rusk_prtj;
-      $response[$value->id_toko]['qty_pudding_prtj'] = $value->qty_pudding_prtj;
-      $response[$value->id_toko]['qty_others_prtj'] = $value->qty_others_prtj;
-      $response[$value->id_toko]['harga_bc'] = $value->harga_bc;
-      $response[$value->id_toko]['harga_bti'] = $value->harga_bti;
-      $response[$value->id_toko]['harga_rusk'] = $value->harga_rusk;
-      $response[$value->id_toko]['harga_pudding'] = $value->harga_pudding;
-      $response[$value->id_toko]['harga_others'] = $value->harga_others;
+    $response[$value->id_cabang]['monthVolume']= $value->monthVolume;
+      $response[$value->id_cabang]['qty_bc_prtj'] = $value->qty_bc_prtj;
+      $response[$value->id_cabang]['qty_bti_prtj'] = $value->qty_bti_prtj;
+      $response[$value->id_cabang]['qty_rusk_prtj'] = $value->qty_rusk_prtj;
+      $response[$value->id_cabang]['qty_pudding_prtj'] = $value->qty_pudding_prtj;
+      $response[$value->id_cabang]['qty_others_prtj'] = $value->qty_others_prtj;
+      $response[$value->id_cabang]['harga_bc'] = $value->harga_bc;
+      $response[$value->id_cabang]['harga_bti'] = $value->harga_bti;
+      $response[$value->id_cabang]['harga_rusk'] = $value->harga_rusk;
+      $response[$value->id_cabang]['harga_pudding'] = $value->harga_pudding;
+      $response[$value->id_cabang]['harga_others'] = $value->harga_others;
   }
   if (isset($value->monthAgoVolume)) {
-    $response[$value->id_toko]['monthAgoVolume']= $value->monthAgoVolume;
-      $response[$value->id_toko]['qty_bc_prtj'] = $value->qty_bc_prtj;
-      $response[$value->id_toko]['qty_bti_prtj'] = $value->qty_bti_prtj;
-      $response[$value->id_toko]['qty_rusk_prtj'] = $value->qty_rusk_prtj;
-      $response[$value->id_toko]['qty_pudding_prtj'] = $value->qty_pudding_prtj;
-      $response[$value->id_toko]['qty_others_prtj'] = $value->qty_others_prtj;
-      $response[$value->id_toko]['harga_bc'] = $value->harga_bc;
-      $response[$value->id_toko]['harga_bti'] = $value->harga_bti;
-      $response[$value->id_toko]['harga_rusk'] = $value->harga_rusk;
-      $response[$value->id_toko]['harga_pudding'] = $value->harga_pudding;
-      $response[$value->id_toko]['harga_others'] = $value->harga_others;
+    $response[$value->id_cabang]['monthAgoVolume']= $value->monthAgoVolume;
+      $response[$value->id_cabang]['qty_bc_prtj'] = $value->qty_bc_prtj;
+      $response[$value->id_cabang]['qty_bti_prtj'] = $value->qty_bti_prtj;
+      $response[$value->id_cabang]['qty_rusk_prtj'] = $value->qty_rusk_prtj;
+      $response[$value->id_cabang]['qty_pudding_prtj'] = $value->qty_pudding_prtj;
+      $response[$value->id_cabang]['qty_others_prtj'] = $value->qty_others_prtj;
+      $response[$value->id_cabang]['harga_bc'] = $value->harga_bc;
+      $response[$value->id_cabang]['harga_bti'] = $value->harga_bti;
+      $response[$value->id_cabang]['harga_rusk'] = $value->harga_rusk;
+      $response[$value->id_cabang]['harga_pudding'] = $value->harga_pudding;
+      $response[$value->id_cabang]['harga_others'] = $value->harga_others;
   }
 }
 return $response;
