@@ -3892,31 +3892,23 @@ END AS 'sada_kategori_label',
 				$row[] = "Beli";
 
 			}
-
-			if ($value->beli == "N") {
+			elseif ($value->beli == "N") {
 
 				$row[] = "Tidak Beli";
 
+			}
+			else{
+				$row[] = $value->beli;
 			}
 
 			$row[] = $value->oldProduct;
 
 			$row[] = $value->sampling;
 
-			if ($value->segmen == null || $value->segmen == 0 || $value->segmen == "") {
-				$row[] = "Sampling Wet/Dry kosong";
-			}
-			else{
-				$row[] = $value->segmen;
-			}
+			$row[] = $value->segmen;
 			
-			if ($value->sada_kategori_label == null || $value->sada_kategori_label == 0 || $value->sada_kategori_label == "") {
-				$row[] = "Sampling segment kosong";
-			}
-			else{
-				$row[] = $value->sada_kategori_label;
-			}
-
+			$row[] = $value->sada_kategori_label;
+			
 			$datsa[] = $row;
 
     // echo $value->count_sampling;
