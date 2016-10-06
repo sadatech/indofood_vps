@@ -497,24 +497,18 @@ public function getTopCabang($startDate,$endDate,$startDateMonthAgo,$endDateMont
       sada_kategori
     WHERE
       id = 5
-  ) AS harga_others,
-  (
-    SELECT DISTINCT
-      SUM(target_toko.target)
-    FROM
-      sada_toko toko
-    INNER JOIN sada_target target_toko ON toko.id_toko = target_toko.id_toko
-    WHERE
-      toko.id_toko = sada_produk_terjual.id_toko
-  ) AS target_ba
-FROM
+  ) AS harga_others
   `sada_produk_terjual`
+INNER JOIN sada_toko ON sada_produk_terjual.id_toko = sada_toko.id_toko
+INNER JOIN sada_kota ON sada_toko.id_kota = sada_kota.id_kota
+INNER JOIN sada_cabang ON sada_kota.id_cabang = sada_cabang.id_cabang
 INNER JOIN `sada_produk` ON `sada_produk_terjual`.`id_produk` = `sada_produk`.`id_produk`
-INNER JOIN `sada_kategori` AS sdkat ON `sada_produk`.`id_kategori` = `sdkat`.`id`
+INNER JOIN `sada_kategori` as sdkat ON `sada_produk`.`id_kategori` = `sdkat`.`id`
 WHERE
   CAST(tgl AS DATE) BETWEEN '$startDate'
   AND '$endDate'
-  ORDER BY id_toko
+  GROUP BY
+  sada_cabang.id_cabang
   ";
   $volume = $this->db->query($sql_volume)->result();
   // $volume = $this->db->select(['id_toko ', 'SUM(qty) monthVolume'])
@@ -632,15 +626,18 @@ WHERE
   ) AS target_ba
 FROM
   `sada_produk_terjual`
+INNER JOIN sada_toko ON sada_produk_terjual.id_toko = sada_toko.id_toko
+INNER JOIN sada_kota ON sada_toko.id_kota = sada_kota.id_kota
+INNER JOIN sada_cabang ON sada_kota.id_cabang = sada_cabang.id_cabang
 INNER JOIN `sada_produk` ON `sada_produk_terjual`.`id_produk` = `sada_produk`.`id_produk`
-INNER JOIN `sada_kategori` AS sdkat ON `sada_produk`.`id_kategori` = `sdkat`.`id`
+INNER JOIN `sada_kategori` as sdkat ON `sada_produk`.`id_kategori` = `sdkat`.`id`
 WHERE
   CAST(tgl AS DATE) BETWEEN '$startDateMonthAgo'
   AND '$endDateMonthAgo'
   GROUP BY
-  `id_toko`
+  sada_cabang.id_cabang
   ";
-  echo $sql_volume;
+  // echo $sql_volume;
   // echo $sql_volumeAgo;
   $volumeMonthAgo = $this->db->query($sql_volumeAgo)->result();
   // $volumeMonthAgo = $this->db->select(['id_toko ', 'SUM(qty) monthAgoVolume'])
@@ -708,7 +705,7 @@ INNER JOIN sada_cabang ON sada_kota.id_cabang = sada_cabang.id_cabang
 INNER JOIN `sada_produk` ON `sada_produk_terjual`.`id_produk` = `sada_produk`.`id_produk`
 INNER JOIN `sada_kategori` as sdkat ON `sada_produk`.`id_kategori` = `sdkat`.`id`
 GROUP BY
-sada_produk_terjual.id_toko
+sada_cabang.id_cabang
 ";
 $topCabang = $this->db->query($sql)->result();
 
