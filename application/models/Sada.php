@@ -499,6 +499,9 @@ public function getTopCabang($startDate,$endDate,$startDateMonthAgo,$endDateMont
       id = 5
   ) AS harga_others
   `sada_produk_terjual`
+  
+FROM
+  `sada_produk_terjual`
 INNER JOIN sada_toko ON sada_produk_terjual.id_toko = sada_toko.id_toko
 INNER JOIN sada_kota ON sada_toko.id_kota = sada_kota.id_kota
 INNER JOIN sada_cabang ON sada_kota.id_cabang = sada_cabang.id_cabang
