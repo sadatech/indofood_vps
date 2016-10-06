@@ -105,6 +105,7 @@
                     <th> Sampling </th>
                     <th> Sampling Wet/Dry </th>
                     <th> Samping Segment </th>
+                    <th> Label </th>
                 </tr>
             </thead>
             <tbody> 

@@ -413,6 +413,10 @@ public function reportTopBA()
 		$dataDas['desk'] = "App Retail";
 		$dataDas['page'] = "report/topBA";
 
+		$dataDas['css'] = $this->sada->CssdataTable();
+
+		$dataDas['js']	= $this->sada->JsdataTable();
+
 		$dataDas['js'][] = "assets/global/plugins/bootstrap/js/bootstrap.min.js";
 		$dataDas['js'][] = "assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js";
 		$dataDas['js'][] = "assets/global/plugins/jquery-validation/js/jquery.validate.min.js";
