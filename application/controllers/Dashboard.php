@@ -3518,14 +3518,14 @@ public function reportdetailcontact()
 	CASE
 	WHEN sada_form_contact.beli = 'N' THEN 'N'
 	WHEN sada_form_contact.beli = 'Y' THEN 'Y'
-	ELSE '<center><span class='label label-sm label-warning'> Kosong </span></center>'
+	ELSE 'Kosong'
 	END AS 'segmen_case',
 	sada_form_contact.oldProduct,
 	sada_form_contact.sampling,
 	CASE
 WHEN sada_form_contact.segmen = 'wet' THEN 'Wet'
 WHEN sada_form_contact.segmen = 'dry' THEN 'Dry'
-ELSE '<center><span class='label label-sm label-warning'> Kosong </span></center>'
+ELSE 'Kosong'
 END AS 'segmen_case',
  sada_form_contact.namaanak,
  CASE (
@@ -3554,7 +3554,7 @@ THEN
 		sada_kategori.id = sada_form_contact.kategori_id
 )
 ELSE
-	'<center><span class='label label-sm label-warning'> Kosong </span></center>'
+	'Kosong'
 END AS 'sada_kategori_label',
 
  (
