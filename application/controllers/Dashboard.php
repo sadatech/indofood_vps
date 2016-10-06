@@ -3783,7 +3783,12 @@ public function reportdetailcontact()
 
 			$row[] = $value->segmen;
 
-			$row[] = $value->sada_kategori_label;
+			if ($value->sada_kategori_label == null || $value->sada_kategori_label == 0 || $value->sada_kategori_label == "") {
+				$row[] = "Sampling segment kosong";
+			}
+			else{
+				$row[] = $value->sada_kategori_label;
+			}
 
 			$datsa[] = $row;
 
