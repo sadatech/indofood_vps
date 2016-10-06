@@ -3519,14 +3519,14 @@ public function reportdetailcontact()
 	WHEN sada_form_contact.beli = 'N' THEN 'N'
 	WHEN sada_form_contact.beli = 'Y' THEN 'Y'
 	ELSE 'Kosong'
-	END AS 'segmen_case',
+	END AS 'beli',
 	sada_form_contact.oldProduct,
 	sada_form_contact.sampling,
 	CASE
 WHEN sada_form_contact.segmen = 'wet' THEN 'Wet'
 WHEN sada_form_contact.segmen = 'dry' THEN 'Dry'
 ELSE 'Kosong'
-END AS 'segmen_case',
+END AS 'segmen',
  sada_form_contact.namaanak,
  CASE (
 	SELECT
