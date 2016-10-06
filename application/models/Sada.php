@@ -640,6 +640,7 @@ WHERE
   GROUP BY
   `id_toko`
   ";
+  echo $sql_volume;
   // echo $sql_volumeAgo;
   $volumeMonthAgo = $this->db->query($sql_volumeAgo)->result();
   // $volumeMonthAgo = $this->db->select(['id_toko ', 'SUM(qty) monthAgoVolume'])
