@@ -401,7 +401,7 @@ class Sada extends CI_Model{
 public function getTopCabang($startDate,$endDate,$startDateMonthAgo,$endDateMonthAgo)
 {
   $sql_volume = "SELECT
-  `id_toko`,
+  -- `id_toko`,
   SUM(qty) monthVolume,
   (
     SELECT
@@ -498,8 +498,6 @@ public function getTopCabang($startDate,$endDate,$startDateMonthAgo,$endDateMont
     WHERE
       id = 5
   ) AS harga_others
-  `sada_produk_terjual`
-  
 FROM
   `sada_produk_terjual`
 INNER JOIN sada_toko ON sada_produk_terjual.id_toko = sada_toko.id_toko
