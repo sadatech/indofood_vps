@@ -3903,7 +3903,16 @@ END AS 'sada_kategori_label',
 
 			$row[] = $value->oldProduct;
 
-			$row[] = $value->sampling;
+			if ($value->sampling == "Y") {
+
+				$row[] = "Ya";
+
+			}
+			elseif ($value->sampling == "N") {
+
+				$row[] = "Tidak";
+
+			}
 
 			$row[] = $value->segmen;
 			
