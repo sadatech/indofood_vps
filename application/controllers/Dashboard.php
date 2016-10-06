@@ -3509,29 +3509,151 @@ public function reportdetailcontact()
 
 		$this->load->model('datatable');
 
-		$select = "SELECT sada_form_contact.namaibu,sada_form_contact.tgl_contact,sada_form_contact.ttl,sada_form_contact.telp,sada_form_contact.tipe,sada_form_contact.beli,sada_form_contact.oldProduct,sada_form_contact.sampling,sada_form_contact.segmen,sada_form_contact.namaanak,
+		$select = "SELECT
+	sada_form_contact.namaibu,
+	sada_form_contact.tgl_contact,
+	sada_form_contact.ttl,
+	sada_form_contact.telp,
+	sada_form_contact.tipe,
+	CASE
+	WHEN sada_form_contact.beli = 'N' THEN 'N'
+	WHEN sada_form_contact.beli = 'Y' THEN 'Y'
+	ELSE '<center><span class='label label-sm label-warning'> Kosong </span></center>'
+	END AS 'segmen_case',
+	sada_form_contact.oldProduct,
+	sada_form_contact.sampling,
+	CASE
+WHEN sada_form_contact.segmen = 'wet' THEN 'Wet'
+WHEN sada_form_contact.segmen = 'dry' THEN 'Dry'
+ELSE '<center><span class='label label-sm label-warning'> Kosong </span></center>'
+END AS 'segmen_case',
+ sada_form_contact.namaanak,
+ CASE (
+	SELECT
+		sada_kategori.nama
+	FROM
+		sada_kategori
+	WHERE
+		sada_kategori.id = sada_form_contact.kategori_id
+)
+WHEN (
+	SELECT
+		sada_kategori.nama
+	FROM
+		sada_kategori
+	WHERE
+		sada_kategori.id = sada_form_contact.kategori_id
+) IS NULL 
+THEN
+(
+	SELECT
+		sada_kategori.nama
+	FROM
+		sada_kategori
+	WHERE
+		sada_kategori.id = sada_form_contact.kategori_id
+)
+ELSE
+	'<center><span class='label label-sm label-warning'> Kosong </span></center>'
+END AS 'sada_kategori_label',
 
-		(SELECT sada_kategori.nama FROM sada_kategori where sada_kategori.id=sada_form_contact.kategori_id) AS 'sada_kategori_label',
-
-		(SELECT sada_kategori.id FROM sada_kategori where sada_kategori.id=sada_form_contact.kategori_id AND sada_form_contact.user_id=sada_user.id_user) AS 'count_sampling',
-
-		(SELECT COUNT(*) FROM sada_form_contact WHERE sada_form_contact.user_id=sada_user.id_user AND sada_form_contact.store_id=toko.id_toko) AS 'contact_count',
-
-		(SELECT COUNT(*) FROM sada_form_contact WHERE sada_form_contact.tipe='newRecruit' AND sada_form_contact.user_id=sada_user.id_user AND sada_form_contact.store_id=toko.id_toko) AS 'count_recruit',
-
-		(SELECT COUNT(*) FROM sada_form_contact WHERE sada_form_contact.tipe='switching' AND sada_form_contact.user_id=sada_user.id_user AND sada_form_contact.store_id=toko.id_toko) AS 'count_switching',
-
-		(SELECT COUNT(*) FROM sada_form_contact WHERE sada_form_contact.kategori_id='1' AND sada_form_contact.user_id=sada_user.id_user AND sada_form_contact.store_id=toko.id_toko) AS 'BC',
-
-		(SELECT COUNT(*) FROM sada_form_contact WHERE sada_form_contact.kategori_id='2' AND sada_form_contact.user_id=sada_user.id_user AND sada_form_contact.store_id=toko.id_toko) AS 'BTI',
-
-		(SELECT COUNT(*) FROM sada_form_contact WHERE sada_form_contact.kategori_id='3' AND sada_form_contact.user_id=sada_user.id_user AND sada_form_contact.store_id=toko.id_toko) AS 'Rusk',
-
-		(SELECT COUNT(*) FROM sada_form_contact WHERE sada_form_contact.kategori_id='4' AND sada_form_contact.user_id=sada_user.id_user AND sada_form_contact.store_id=toko.id_toko) AS 'Pudding',
-
-		(SELECT COUNT(*) FROM sada_form_contact WHERE sada_form_contact.kategori_id='5' AND sada_form_contact.user_id=sada_user.id_user AND sada_form_contact.store_id=toko.id_toko) AS 'Others',
-
-		(SELECT COUNT(*) FROM sada_form_contact WHERE sada_form_contact.beli='Y' AND sada_form_contact.sampling='Y') AS 'strike_sampling',
+ (
+	SELECT
+		sada_kategori.id
+	FROM
+		sada_kategori
+	WHERE
+		sada_kategori.id = sada_form_contact.kategori_id
+	AND sada_form_contact.user_id = sada_user.id_user
+) AS 'count_sampling',
+ (
+	SELECT
+		COUNT(*)
+	FROM
+		sada_form_contact
+	WHERE
+		sada_form_contact.user_id = sada_user.id_user
+	AND sada_form_contact.store_id = toko.id_toko
+) AS 'contact_count',
+ (
+	SELECT
+		COUNT(*)
+	FROM
+		sada_form_contact
+	WHERE
+		sada_form_contact.tipe = 'newRecruit'
+	AND sada_form_contact.user_id = sada_user.id_user
+	AND sada_form_contact.store_id = toko.id_toko
+) AS 'count_recruit',
+ (
+	SELECT
+		COUNT(*)
+	FROM
+		sada_form_contact
+	WHERE
+		sada_form_contact.tipe = 'switching'
+	AND sada_form_contact.user_id = sada_user.id_user
+	AND sada_form_contact.store_id = toko.id_toko
+) AS 'count_switching',
+ (
+	SELECT
+		COUNT(*)
+	FROM
+		sada_form_contact
+	WHERE
+		sada_form_contact.kategori_id = '1'
+	AND sada_form_contact.user_id = sada_user.id_user
+	AND sada_form_contact.store_id = toko.id_toko
+) AS 'BC',
+ (
+	SELECT
+		COUNT(*)
+	FROM
+		sada_form_contact
+	WHERE
+		sada_form_contact.kategori_id = '2'
+	AND sada_form_contact.user_id = sada_user.id_user
+	AND sada_form_contact.store_id = toko.id_toko
+) AS 'BTI',
+ (
+	SELECT
+		COUNT(*)
+	FROM
+		sada_form_contact
+	WHERE
+		sada_form_contact.kategori_id = '3'
+	AND sada_form_contact.user_id = sada_user.id_user
+	AND sada_form_contact.store_id = toko.id_toko
+) AS 'Rusk',
+ (
+	SELECT
+		COUNT(*)
+	FROM
+		sada_form_contact
+	WHERE
+		sada_form_contact.kategori_id = '4'
+	AND sada_form_contact.user_id = sada_user.id_user
+	AND sada_form_contact.store_id = toko.id_toko
+) AS 'Pudding',
+ (
+	SELECT
+		COUNT(*)
+	FROM
+		sada_form_contact
+	WHERE
+		sada_form_contact.kategori_id = '5'
+	AND sada_form_contact.user_id = sada_user.id_user
+	AND sada_form_contact.store_id = toko.id_toko
+) AS 'Others',
+ (
+	SELECT
+		COUNT(*)
+	FROM
+		sada_form_contact
+	WHERE
+		sada_form_contact.beli = 'Y'
+	AND sada_form_contact.sampling = 'Y'
+) AS 'strike_sampling',
 
 		";
 
