@@ -519,7 +519,7 @@ WHERE
   // ->get()
   // ->result();
   $sql_volumeAgo = "SELECT
-  `id_toko`,
+  -- `id_toko`,
   SUM(qty) monthVolume,
   (
     SELECT
