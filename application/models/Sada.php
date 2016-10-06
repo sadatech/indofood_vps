@@ -403,7 +403,7 @@ public function getTopCabang($startDate,$endDate,$startDateMonthAgo,$endDateMont
   $sql_volume = "SELECT
   -- `id_toko`,
   sada_cabang.id_cabang,
-  sada_produk_terjual.id_toko
+  sada_produk_terjual.id_toko,
   SUM(qty) monthVolume,
   (
     SELECT
