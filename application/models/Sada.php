@@ -720,7 +720,7 @@ $response = [
 ];
 
 foreach ($merged as $value) {
-  if (isset($value->pic_cabang) && isset($value->target_cabang) && isset($value->jml_ba_cabang) && isset($value->jml_toko_cabang)) {
+  if (isset($value->pic_cabang)) {
     $response[$value->id_toko] = [
     'pic_cabang'=>$value->pic_cabang,
     'target_cabang'=>$value->target_cabang,
