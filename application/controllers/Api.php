@@ -3880,12 +3880,12 @@ public function oosExcelReport()
     $res = array();
     foreach ($query->result() as $key => $value) {
 
-      $res[]=$value;
+      $res[] .= $value;
       $keys[] = $key;
     }
 
     // $this->excel->downloadReportOutOfStock(count($keys),$res);
-    print_r($res);
+    // print_r($res);
 
   }
 
