@@ -3851,8 +3851,8 @@ foreach ($data->result() as $key => $value) {
 
 }
 
-$this->excel->downloadreportpromo(count($keys),$val_cabang);
-
+// $this->excel->downloadreportpromo(count($keys),$val_cabang);
+      print_r($val_cabang);
 }
 
 public function oosExcelReport()
