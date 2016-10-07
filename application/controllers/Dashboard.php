@@ -927,7 +927,7 @@ public function EditdataAccount()
 }
 public function DeleteAccount()
 {
-	$id = $this->uri->segment(3);
+	$id = $this->uri->segment("3");
 	if ($this->db->delete("sada_account",array("id_account"=>$id))) {
 			$this->session->set_flashdata('msg', 'Account Deleted');
 	}
