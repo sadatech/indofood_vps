@@ -178,7 +178,7 @@ $("#oos").validate({
           'processing' : true,
           // 'serverSide' : true,
           'searching' : false,
-          'dom': 'Bfrtip',
+          // 'dom': 'Bfrtip',
           // 'buttons' : [
           //   {
           //     extend: 'excel',
