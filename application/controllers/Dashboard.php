@@ -930,7 +930,7 @@ public function DeleteAccount()
 	$id = $this->uri->segment(3);
 	if ($this->db->delete("sada_account",array("id_account"=>$id))) {
 		
-		$this->db->delete("sada_account_temp",array("id_account"=>$id));
+		$this->db->delete('sada_account_temp',array("id_account"=>$id));
 		$this->session->set_flashdata('msg', 'Account Deleted');
 
 	}
