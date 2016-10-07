@@ -3877,7 +3877,7 @@ public function oosExcelReport()
     $query = $this->sada->outOfStockReport(['startDate' => $startDate , 'endDate' => $endDate, 'filterName' => $filterName,'filterToko' => $filterToko,'filterCabang' => $filterCabang,'filterKota' => $filterKota]);
 
     $count = 1;
-
+    $res = array();
     foreach ($query->result() as $key => $value) {
 
       $res[]=$value;
@@ -3885,7 +3885,7 @@ public function oosExcelReport()
     }
 
     // $this->excel->downloadReportOutOfStock(count($keys),$res);
-    print_r($res);
+    print_r($res)
 
   }
 
