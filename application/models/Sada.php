@@ -1258,7 +1258,7 @@ $response = [
 ];
 
 foreach ($merged as $value) {
-  if (isset($value->nama_account_temp) && isset($value->jml_store_account) && isset($value->target)) {
+  if (isset($value->nama_account_temp) && isset($value->jml_store_account)) {
     $response[$value->id_toko] = [
     'nama_account_temp'=>$value->nama_account_temp,
     'jml_store_account'=>$value->jml_store_account,
