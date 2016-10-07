@@ -2147,7 +2147,7 @@ public function inputOutOfStock()
                 $headers .='X-Mailer: PHP/' . phpversion();
                 $headers .= "MIME-Version: 1.0\r\n";
                 $headers .= "Content-type: text/html; charset=iso-8859-1\r\n"; 
-                $headers .= 'Cc: '.$datax->email_aspm.',Rizka.Febriana@icbp.indofood.co.id' . "\r\n";
+                $headers .= 'Cc: '.$datax->email_aspm.',rizkafebriana52@gmail.com' . "\r\n";
                 $content .= '</table>
               </div>
             </div>
@@ -3870,22 +3870,21 @@ public function oosExcelReport()
 
     $filterKota = ($this->input->get('kota') == "0") ? "" : $this->input->get('kota');
 
-    $startDate =  date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 00:00:00"));
+    $startDate =  date('Y-m-d H:i:s', strtotime($this->input->get("startDate")." 00:00:00"));
 
-    $endDate = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 23:59:59"));
+    $endDate = date('Y-m-d H:i:s', strtotime($this->input->get("endDate")." 23:59:59"));
 
     $query = $this->sada->outOfStockReport(['startDate' => $startDate , 'endDate' => $endDate, 'filterName' => $filterName,'filterToko' => $filterToko,'filterCabang' => $filterCabang,'filterKota' => $filterKota]);
 
     $count = 1;
     $res = [];
     foreach ($query->result() as $key => $value) {
-
-      // $res[] = $value;
-      // $keys[] = $key;
+      $res[] = $value;
+      $keys[] = $key;
     }
-    echo "key";
+
     // $this->excel->downloadReportOutOfStock(count($keys),$res);
-    // print_r($res);
+    print_r($res);
 
   }
 
