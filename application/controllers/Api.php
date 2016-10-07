@@ -3858,7 +3858,8 @@ $this->excel->downloadreportpromo(count($keys),$val_cabang);
 public function oosExcelReport()
 
   {
-
+    $this->load->library('excel');
+    
     $filterTl = ($this->input->get('tl') == "0") ? "" : $this->input->get('tl');
 
     $filterName = ($this->input->get('ba') == "0") ? "" : $this->input->get('ba');
@@ -3901,7 +3902,7 @@ public function oosExcelReport()
       $keys[] = $key;
     }
 
-    $this->load->library('excel');
+    
 
     $this->excel->downloadReportOutOfStock(count($keys),$res);
 
