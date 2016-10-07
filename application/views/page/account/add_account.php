@@ -93,9 +93,9 @@
 
 					<div class="form-group">
 
-					<label id="nama">Target</label>
+					<!-- <label id="nama">Target</label>
 
-					<?php echo form_error('target'); ?>   
+					<?php echo form_error('target'); ?>    -->
 
 					<!-- <div class="input-group">
 

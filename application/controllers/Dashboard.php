@@ -1020,7 +1020,7 @@ public function insertAccount()
 		
 		$this->form_validation->set_error_delimiters('<span class="error">', '</span>');
 
-		$this->form_validation->set_rules('target', 'Target', 'required');
+		// $this->form_validation->set_rules('target', 'Target', 'required');
 
 		$this->form_validation->set_rules('nama_account', 'Nama Account', 'required');
 		if ($this->form_validation->run() == FALSE)
@@ -1039,7 +1039,7 @@ public function insertAccount()
 
 					$add_temp['nama_account'] = $this->input->post("nama_account");
 
-					$add_temp['target'] = $this->input->post("target");
+					// $add_temp['target'] = $this->input->post("target");
 
 					$this->db->insert("sada_account_temp",$add_temp);
 				}
