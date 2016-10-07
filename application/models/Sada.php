@@ -80,6 +80,11 @@ class Sada extends CI_Model{
 //            return $mergedArray;
   }
 
+  public function deleteAccount($id)
+  {
+    $this->db->where("id_account",$id);
+    $this->db->delete("sada_account");
+  }
 
   public function getTopBA($startDate,$endDate,$startDateMonthAgo,$endDateMonthAgo)
   {
