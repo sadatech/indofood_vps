@@ -3851,8 +3851,8 @@ foreach ($data->result() as $key => $value) {
 
 }
 
-// $this->excel->downloadreportpromo(count($keys),$val_cabang);
-      print_r($val_cabang);
+$this->excel->downloadreportpromo(count($keys),$val_cabang);
+
 }
 
 public function oosExcelReport()
@@ -3880,12 +3880,13 @@ public function oosExcelReport()
     $res = [];
     foreach ($query->result() as $key => $value) {
 
-      $res[] = $value;
-      $keys[] = $key;
+      // $res[] = $value;
+      // $keys[] = $key;
+        echo $value->namaCabang;
     }
 
     // $this->excel->downloadReportOutOfStock(count($keys),$res);
-    print_r($res);
+    // print_r($res);
 
   }
 
