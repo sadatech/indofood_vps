@@ -925,6 +925,20 @@ public function EditdataAccount()
 		$this->load->view('view_awal', $dataDas, FALSE);
 	}
 }
+public function DeleteAccount()
+{
+	$id = $this->uri->segment(3);
+	if ($this->db->delete("sada_account",array("id_account"=>$id))) {
+		
+		$this->db->delete("sada_account_temp",array("id_account"=>$id));
+		$this->session->set_flashdata('msg', 'Account Deleted');
+
+	}
+	else{
+		$this->session->set_flashdata('msg', 'Account Not Deleted');
+	}
+	redirect('Dashboard/dataAccount', 'refresh');
+}
 public function getTokoAccount()
 {
 	if ($this->input->post()) {

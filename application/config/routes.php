@@ -178,6 +178,8 @@ $route['topAccount'] 				= 'Dashboard/reportTopAccount';
 
 	$route['account/edit']['POST'] = 'Dashboard/EditdataAccount';
 
+	$route['account/delete/(:num)']['GET'] = 'Dashboard/DeleteAccount';
+
 /*SKU*/
 
 	$route['sku'] = 'Dashboard/dataSku';
