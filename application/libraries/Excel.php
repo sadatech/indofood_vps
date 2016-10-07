@@ -84,17 +84,17 @@ class Excel extends PHPExcel {
       // ];
             foreach ($val as $datatable) {
     
-              // $this->excel->getActiveSheet()->setCellValue('N1', 'FOTO PROMINA');
-              // // $this->excel->getActiveSheet()->mergeCells('M1:O1');
-              // $this->excel->getActiveSheet()->setCellValue("A".$no_col, $datatable->cabang);
+              $this->excel->getActiveSheet()->setCellValue('N1', 'FOTO PROMINA');
+              // $this->excel->getActiveSheet()->mergeCells('M1:O1');
+              $this->excel->getActiveSheet()->setCellValue("A".$no_col, $datatable->cabang);
 
-              // $this->excel->getActiveSheet()->setCellValue("B".$no_col, $datatable->kota);
+              $this->excel->getActiveSheet()->setCellValue("B".$no_col, $datatable->kota);
 
-              // $this->excel->getActiveSheet()->setCellValue("C".$no_col, $datatable->Customer_id);
+              $this->excel->getActiveSheet()->setCellValue("C".$no_col, $datatable->Customer_id);
 
-              // $this->excel->getActiveSheet()->setCellValue("D".$no_col, $datatable->namaToko);
+              $this->excel->getActiveSheet()->setCellValue("D".$no_col, $datatable->namaToko);
 
-              // $this->excel->getActiveSheet()->setCellValue("E".$no_col, $datatable->namaBa);
+              $this->excel->getActiveSheet()->setCellValue("E".$no_col, $datatable->namaBa);
 
               // $this->excel->getActiveSheet()->setCellValue("F".$no_col, str_replace(',',"\n",$datatable->namaProduk));
 
@@ -106,15 +106,14 @@ class Excel extends PHPExcel {
 
               // $this->excel->getActiveSheet()->setCellValue("J".$no_col, $datatable->keteranganKomptetitor);
 
-              // $no_col++;
-              print_r($datatable);
+              $no_col++;
           }
             // print_r($val);
-           // $filename='Out_of_stock_report-'.date("d-M-Y:h:i:s").'.xls';
-           // header('Content-Disposition: attachment;filename="'.$filename.'"');
-           // header('Cache-Control: max-age=0');
-           // $objWriter = PHPExcel_IOFactory::createWriter($this->excel, 'Excel5');
-           // $objWriter->save('php://output');
+           $filename='Out_of_stock_report-'.date("d-M-Y:h:i:s").'.xls';
+           header('Content-Disposition: attachment;filename="'.$filename.'"');
+           header('Cache-Control: max-age=0');
+           $objWriter = PHPExcel_IOFactory::createWriter($this->excel, 'Excel5');
+           $objWriter->save('php://output');
         }
         public function downloadtotalcontact($data,$val)
         {
