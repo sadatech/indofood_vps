@@ -3879,12 +3879,29 @@ public function oosExcelReport()
     $count = 1;
     $res = [];
     foreach ($query->result() as $key => $value) {
-      $res[] = $value;
+      $res[]=[
+
+      'count' => ($count++),
+
+      'cabang' => $value->namaCabang,
+
+      'kota' => $value->nama_kota,
+
+      'Customer_id' => $value->store_id,
+
+      'namaToko' => $value->namaToko,
+
+      'namaBa' => $value->namaBa,
+
+      'tanggal' => $value->date,
+
+      'produk' => str_replace(',',"\n",$value->namaProduk)
+
+      ];
       $keys[] = $key;
     }
 
     $this->excel->downloadReportOutOfStock(count($keys),$res);
-    // print_r($res);
 
   }
 
