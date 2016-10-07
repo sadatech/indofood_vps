@@ -180,11 +180,11 @@ $("#oos").validate({
           'searching' : false,
           'dom': 'Bfrtip',
           'buttons' : [
-            {
-              extend: 'excel',
-              text: 'Download Excel',
-              className :'btn green-soft'
-            }
+            // {
+            //   extend: 'excel',
+            //   text: 'Download Excel',
+            //   className :'btn green-soft'
+            // }
           ],
           'ajax' : {
             'url' : 'api/oosReport?key=ganteng',
