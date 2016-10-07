@@ -3882,7 +3882,7 @@ public function oosExcelReport()
 
       // $res[] = $value;
       // $keys[] = $key;
-        echo $value->namaCabang;
+        echo $value->namaCabang."Kosong cbang";
     }
 
     // $this->excel->downloadReportOutOfStock(count($keys),$res);
