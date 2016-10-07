@@ -928,11 +928,10 @@ public function EditdataAccount()
 public function DeleteAccount()
 {
 	$id = $this->uri->segment(3);
-	if ($this->sada->deleteAccount($id)) {
-		$this->db->where("id_account",$id);
-		$this->db->delete("sada_account_temp");
-		$this->session->set_flashdata('msg', 'Account deleted');
-	}		
+	$this->sada->deleteAccount($id);
+	$this->db->where("id_account",$id);
+	$this->db->delete("sada_account_temp");
+	$this->session->set_flashdata('msg', 'Account deleted');
 	redirect('Dashboard/dataAccount', 'refresh');
 }
 public function getTokoAccount()
