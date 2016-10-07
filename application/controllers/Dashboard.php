@@ -865,7 +865,7 @@ public function EditdataAccount()
 		}
 		$add['id_toko'] = implode(',', $id);
 		$add['nama_account'] = $this->input->post("nama_account");
-		$add['target'] = $this->input->post("target");
+		// $add['target'] = $this->input->post("target");
 		
 		if ($this->db->update("sada_account",$add,array('id_account'=>$id_account))) {
 			if ($this->db->delete("sada_account_temp",array('id_account'=>$id_account))) {
