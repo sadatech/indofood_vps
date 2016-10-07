@@ -1016,7 +1016,7 @@ public function insertAccount()
 		}
 		$add['id_toko'] = implode(',', $id);
 		$add['nama_account'] = $this->input->post("nama_account");
-		$add['target'] = $this->input->post("target");
+		// $add['target'] = $this->input->post("target");
 		
 		$this->form_validation->set_error_delimiters('<span class="error">', '</span>');
 
