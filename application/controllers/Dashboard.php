@@ -1534,20 +1534,21 @@ public function UpdateEditUser()
 			if ($dataUpdate['akses'] == 0) {
 				$id_toko = $this->input->post("toko_tl",TRUE);
 						if (count($this->db->select("id_user")->where("id_user",$updateTL['id_user'])->get("sada_tl_in_kota")->row()) == 0) {
-							foreach ($id_toko as $toko_id) {
-									$updateTL['id_user'] = $this->input->post("id_us",TRUE);
-									$updateTL['id_toko'] = $toko_id;
+						// 	foreach ($id_toko as $toko_id) {
+						// 			$updateTL['id_user'] = $this->input->post("id_us",TRUE);
+						// 			$updateTL['id_toko'] = $toko_id;
 
-							if ($this->db->insert("sada_tl_in_kota",$updateTL)) {
+						// 	if ($this->db->insert("sada_tl_in_kota",$updateTL)) {
 
-								if (count($this->db->select("id_user")->where("id_user",$updateTL['id_user'])->get("sada_tokoinuser")->row()) > 0) {
+						// 		if (count($this->db->select("id_user")->where("id_user",$updateTL['id_user'])->get("sada_tokoinuser")->row()) > 0) {
 
-									$this->db->delete("sada_tokoinuser",array("id_user"=>htmlentities($this->input->post("id_us",TRUE), ENT_QUOTES, 'utf-8')));
+						// 			$this->db->delete("sada_tokoinuser",array("id_user"=>htmlentities($this->input->post("id_us",TRUE), ENT_QUOTES, 'utf-8')));
 
-								}
+						// 		}
 
-							}
-						}
+						// 	}
+						// }
+							echo "Tidak Ada TL";
 					}
 
 					else{
