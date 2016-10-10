@@ -39,7 +39,7 @@ class Excel extends PHPExcel {
 
            // $this->excel->getActiveSheet()->fromArray($result);
            $this->excel->getActiveSheet()->getDefaultColumnDimension()->setWidth(20);
-           $this->excel->getActiveSheet()->getStyle('A1:J1')->applyFromArray(
+           $this->excel->getActiveSheet()->getStyle('A1:I1')->applyFromArray(
             array(
                 'fill' => array(
                     'type' => PHPExcel_Style_Fill::FILL_SOLID,
