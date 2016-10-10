@@ -35,7 +35,7 @@ class Excel extends PHPExcel {
 
            $this->excel->getActiveSheet()->setCellValue('I1', 'KETERANGAN');
 
-           $this->excel->getActiveSheet()->setCellValue('J1', 'TIME ELAPSED');
+           // $this->excel->getActiveSheet()->setCellValue('J1', 'TIME ELAPSED');
 
            // $this->excel->getActiveSheet()->fromArray($result);
            $this->excel->getActiveSheet()->getDefaultColumnDimension()->setWidth(20);
@@ -64,26 +64,26 @@ class Excel extends PHPExcel {
             
             $no_col = 2;
             foreach ($val as $datatable) {
-              echo $datatable[]['dayAgo'];
-              // $this->excel->getActiveSheet()->setCellValue('N1', 'Data OOS');
-              // // $this->excel->getActiveSheet()->mergeCells('M1:O1');
-              // $this->excel->getActiveSheet()->setCellValue("A".$no_col, $datatable->namaCabang);
+              // echo $datatable[]['dayAgo'];
+              $this->excel->getActiveSheet()->setCellValue('N1', 'Data OOS');
+              // $this->excel->getActiveSheet()->mergeCells('M1:O1');
+              $this->excel->getActiveSheet()->setCellValue("A".$no_col, $datatable->namaCabang);
 
-              // $this->excel->getActiveSheet()->setCellValue("B".$no_col, $datatable->nama_kota);
+              $this->excel->getActiveSheet()->setCellValue("B".$no_col, $datatable->nama_kota);
 
-              // $this->excel->getActiveSheet()->setCellValue("C".$no_col, $datatable->store_id);
+              $this->excel->getActiveSheet()->setCellValue("C".$no_col, $datatable->store_id);
 
-              // $this->excel->getActiveSheet()->setCellValue("D".$no_col, $datatable->namaToko);
+              $this->excel->getActiveSheet()->setCellValue("D".$no_col, $datatable->namaToko);
 
-              // $this->excel->getActiveSheet()->setCellValue("E".$no_col, $datatable->namaBa);
+              $this->excel->getActiveSheet()->setCellValue("E".$no_col, $datatable->namaBa);
 
-              // $this->excel->getActiveSheet()->setCellValue("F".$no_col, $datatable->date);
+              $this->excel->getActiveSheet()->setCellValue("F".$no_col, $datatable->date);
 
-              // $this->excel->getActiveSheet()->setCellValue("G".$no_col, str_replace(',',"\n",$datatable->namaProduk)); 
+              $this->excel->getActiveSheet()->setCellValue("G".$no_col, str_replace(',',"\n",$datatable->namaProduk)); 
             
-              // $this->excel->getActiveSheet()->setCellValue("H".$no_col, str_replace(',',"\n",$datatable->tipes));
+              $this->excel->getActiveSheet()->setCellValue("H".$no_col, str_replace(',',"\n",$datatable->tipes));
 
-              // $this->excel->getActiveSheet()->setCellValue("I".$no_col, str_replace(',',"\n",$datatable->keterangans));
+              $this->excel->getActiveSheet()->setCellValue("I".$no_col, str_replace(',',"\n",$datatable->keterangans));
 
               // // $this->excel->getActiveSheet()->setCellValue("J".$no_col, $datatable->dayAgo);
 
