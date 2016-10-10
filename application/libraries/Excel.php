@@ -82,34 +82,60 @@ class Excel extends PHPExcel {
       // 'produk' => str_replace(',',"\n",$value->namaProduk)
 
       // ];
-          //   foreach ($val as $datatable) {
-          //       print_r($datatable);
-          //     $this->excel->getActiveSheet()->setCellValue('N1', 'Data OOS');
-          //     // $this->excel->getActiveSheet()->mergeCells('M1:O1');
-          //     $this->excel->getActiveSheet()->setCellValue("A".$no_col, $datatable->cabang);
+            foreach ($val as $datatable) {
+                print_r($datatable);
+              $this->excel->getActiveSheet()->setCellValue('N1', 'Data OOS');
+              // $this->excel->getActiveSheet()->mergeCells('M1:O1');
+              $this->excel->getActiveSheet()->setCellValue("A".$no_col, $datatable->namaCabang);
 
-          //     $this->excel->getActiveSheet()->setCellValue("B".$no_col, $datatable->kota);
+              $this->excel->getActiveSheet()->setCellValue("B".$no_col, $datatable->nama_kota);
 
-          //     $this->excel->getActiveSheet()->setCellValue("C".$no_col, $datatable->Customer_id);
+              $this->excel->getActiveSheet()->setCellValue("C".$no_col, $datatable->store_id);
 
-          //     $this->excel->getActiveSheet()->setCellValue("D".$no_col, $datatable->namaToko);
+              $this->excel->getActiveSheet()->setCellValue("D".$no_col, $datatable->namaToko);
 
-          //     $this->excel->getActiveSheet()->setCellValue("E".$no_col, $datatable->namaBa);
+              $this->excel->getActiveSheet()->setCellValue("E".$no_col, $datatable->namaBa);
 
-          //     $this->excel->getActiveSheet()->setCellValue("F".$no_col, str_replace(',',"\n",$datatable->namaProduk)); 
-          //     // echo $datatable->cabang;
+              $this->excel->getActiveSheet()->setCellValue("F".$no_col, str_replace(',',"\n",$datatable->namaProduk)); 
+              // echo $datatable->cabang;
 
-          //     $this->excel->getActiveSheet()->setCellValue("G".$no_col, $row);
+              // $this->excel->getActiveSheet()->setCellValue("G".$no_col, $row);
 
-          //     $this->excel->getActiveSheet()->setCellValue("H".$no_col, $datatable->jenis);
+              // $this->excel->getActiveSheet()->setCellValue("H".$no_col, $datatable->jenis);
 
-          //     $this->excel->getActiveSheet()->setCellValue("I".$no_col, $datatable->keteranganPromina);
+              // $this->excel->getActiveSheet()->setCellValue("I".$no_col, $datatable->keteranganPromina);
 
-          //     $this->excel->getActiveSheet()->setCellValue("J".$no_col, $datatable->keteranganKomptetitor);
+              // $this->excel->getActiveSheet()->setCellValue("J".$no_col, $datatable->keteranganKomptetitor);
 
-          //     $no_col++;
-          // }
-            print_r($keys);
+              $no_col++;
+
+      //         $result[] =[
+
+      // 'idOOS' => $value->id_oos,
+
+      // 'namaCabang' => $value->namaCabang,
+
+      // 'nama_kota' => $value->nama_kota,
+
+      // 'store_id' => $value->store_id,
+
+      // 'tipe' => str_replace(',','<br />',$value->tipes),
+
+      // 'namaToko' => $value->namaToko,
+
+      // 'namaBa' => $value->namaBa,
+
+      // 'date' => $value->date,
+
+      // 'namaProduk' => str_replace(',','<br />',$value->namaProduk),
+
+      // 'dayAgo' => $this->carbon->time_elapsed_string($value->date), 
+
+      // 'keterangan' => str_replace(',','<br />',$value->keterangans)   
+
+      // ];
+
+          }
            // $filename='Out_of_stock_report-'.date("d-M-Y:h:i:s").'.xls';
            // header('Content-Disposition: attachment;filename="'.$filename.'"');
            // header('Cache-Control: max-age=0');
