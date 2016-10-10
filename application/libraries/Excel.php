@@ -81,7 +81,7 @@ class Excel extends PHPExcel {
 
       // 'produk' => str_replace(',',"\n",$value->namaProduk)
 
-      ];
+      // ];
             foreach ($val as $datatable) {
     
           //     $this->excel->getActiveSheet()->setCellValue('N1', 'FOTO PROMINA');
