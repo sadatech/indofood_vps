@@ -3888,7 +3888,8 @@ public function oosExcelReport()
     }
 
     // $this->excel->downloadReportOutOfStock(count($keys),$res);
-    print_r($res);
+    // print_r($res);
+    echo json_encode($res);
 
   }
 
