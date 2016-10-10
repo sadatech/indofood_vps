@@ -1532,7 +1532,6 @@ public function UpdateEditUser()
 		if ($this->sada->updateEditUser($dataUpdate,$id_user)) {
 
 			if ($dataUpdate['akses'] == 0) {
-				// $updateTL['id_kota'] = $this->input->post("kota",TRUE);
 				$id_toko = $this->input->post("toko_tl",TRUE);
 						if (count($this->db->select("id_user")->where("id_user",$updateTL['id_user'])->get("sada_tl_in_kota")->row()) == 0) {
 							foreach ($id_toko as $toko_id) {
@@ -1548,23 +1547,23 @@ public function UpdateEditUser()
 								}
 
 							}
-							
-							}
+						}
 					}
 
 					else{
 
 						// $this->sada->updateEditTlinKota($updateTL,$id_user);
-						if ($this->db->delete("sada_tl_in_kota",array("id_user"=>htmlentities($this->input->post("id_us",TRUE), ENT_QUOTES, 'utf-8')))) {
+					// 	if ($this->db->delete("sada_tl_in_kota",array("id_user"=>htmlentities($this->input->post("id_us",TRUE), ENT_QUOTES, 'utf-8')))) {
 
-							foreach ($id_toko as $toko_id) {
-								$updateTL['id_user'] = $this->input->post("id_us",TRUE);
-								$updateTL['id_toko'] = $toko_id;
-								$this->db->insert("sada_tl_in_kota",$updateTL);
+					// 		foreach ($id_toko as $toko_id) {
+					// 			$updateTL['id_user'] = $this->input->post("id_us",TRUE);
+					// 			$updateTL['id_toko'] = $toko_id;
+					// 			$this->db->insert("sada_tl_in_kota",$updateTL);
 						
-						}
+					// 	}
 
-					}
+					// }
+						echo "Ada TL";
 				}
 
 					$this->session->set_flashdata('msg', 'User Success Updated');
