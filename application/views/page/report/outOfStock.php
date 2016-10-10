@@ -84,7 +84,7 @@
                         <th style="width: 200px;">List Out Of Stock</th>
                         <th> Tipe </th>
                         <th>Keterangan</th>
-                        <th>Day Ago</th>
+                        <th>Time Elapsed</th>
                     </tr>
                 </thead>
                 <tbody id="hasilFilter">

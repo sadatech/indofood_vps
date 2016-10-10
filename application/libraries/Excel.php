@@ -64,7 +64,6 @@ class Excel extends PHPExcel {
             
             $no_col = 2;
             foreach ($val as $datatable) {
-                echo $this->carbonz->carbon->time_elapsed_string($datatable->date);
               $this->excel->getActiveSheet()->setCellValue('N1', 'Data OOS');
               // $this->excel->getActiveSheet()->mergeCells('M1:O1');
               $this->excel->getActiveSheet()->setCellValue("A".$no_col, $datatable->namaCabang);
