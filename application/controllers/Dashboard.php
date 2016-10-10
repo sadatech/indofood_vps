@@ -1561,6 +1561,8 @@ public function UpdateEditUser()
 								$this->db->insert("sada_tl_in_kota",$updateTL);
 						
 						}
+
+					}
 				}
 
 					// $this->session->set_flashdata('msg', 'User Success Updated');
