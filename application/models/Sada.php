@@ -1419,8 +1419,8 @@ function _getLoginMobile($dataLogin)
             }
             
             elseif ($row->akses=="1") {
-              if( $this->db->get_where('sada_tokoinuser_temp',['id_user' => $user_id, 'id_toko' => $toko_id])->num_rows() == 0){
-             $response = array(
+              if( $this->db->get_where('sada_tokoinuser_temps',['id_user' => $user_id, 'id_toko' => $toko_id])->num_rows() == 0){
+              $response = array(
                'Success' => false,
                'Info' => 'Anda tidak memiliki akses pada store id '.$toko['store_id']);
              }
