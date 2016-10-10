@@ -1533,7 +1533,7 @@ public function UpdateEditUser()
 
 			if ($dataUpdate['akses'] == 0) {
 				$id_toko = $this->input->post("toko_tl",TRUE);
-						if (count($this->db->select("id_user")->where("id_user",$updateTL['id_user'])->get("sada_tl_in_kota")->row()) == 0) {
+						if ($this->db->select("id_user")->where("id_user",$updateTL['id_user'])->get("sada_tl_in_kota")->num_rows() == 0) {
 						// 	foreach ($id_toko as $toko_id) {
 						// 			$updateTL['id_user'] = $this->input->post("id_us",TRUE);
 						// 			$updateTL['id_toko'] = $toko_id;
