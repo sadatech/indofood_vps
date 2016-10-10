@@ -81,8 +81,8 @@ class Excel extends PHPExcel {
 
       // 'produk' => str_replace(',',"\n",$value->namaProduk)
 
-      // ];
-          //   foreach ($val as $datatable) {
+      ];
+            foreach ($val as $datatable) {
     
           //     $this->excel->getActiveSheet()->setCellValue('N1', 'FOTO PROMINA');
           //     // $this->excel->getActiveSheet()->mergeCells('M1:O1');
@@ -96,7 +96,8 @@ class Excel extends PHPExcel {
 
           //     // $this->excel->getActiveSheet()->setCellValue("E".$no_col, $datatable->namaBa);
 
-          //     // $this->excel->getActiveSheet()->setCellValue("F".$no_col, str_replace(',',"\n",$datatable->namaProduk));
+          //     // $this->excel->getActiveSheet()->setCellValue("F".$no_col, str_replace(',',"\n",$datatable->namaProduk)); 
+              echo $datatable->cabang;
 
           //     // $this->excel->getActiveSheet()->setCellValue("G".$no_col, $row);
 
@@ -106,9 +107,9 @@ class Excel extends PHPExcel {
 
           //     // $this->excel->getActiveSheet()->setCellValue("J".$no_col, $datatable->keteranganKomptetitor);
 
-          //     $no_col++;
-          // }
-            print_r($val);
+              $no_col++;
+          }
+            // print_r($val);
            // $filename='Out_of_stock_report-'.date("d-M-Y:h:i:s").'.xls';
            // header('Content-Disposition: attachment;filename="'.$filename.'"');
            // header('Cache-Control: max-age=0');
