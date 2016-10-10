@@ -1563,7 +1563,7 @@ public function UpdateEditUser()
 					// 	}
 
 					// }
-						echo $id_tokos;
+						print_r($id_tokos);
 				}
 
 					// $this->session->set_flashdata('msg', 'User Success Updated');
