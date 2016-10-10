@@ -10,7 +10,7 @@ class Excel extends PHPExcel {
         parent::__construct();
         PHPExcel_Cell::setValueBinder( new PHPExcel_Cell_AdvancedValueBinder() );
     }
-    public function downloadReportOutOfStock($data,$val,$keys)
+    public function downloadReportOutOfStock($data,$val)
         {
            $this->excel = new PHPExcel();
            $this->excel->setActiveSheetIndex(0);
