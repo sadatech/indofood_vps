@@ -1417,20 +1417,15 @@ function _getLoginMobile($dataLogin)
               exit;
 
             }
-            elseif( $this->db->get_where('sada_tokoinuser_temp',['id_user' => $user_id, 'id_toko' => $toko_id])->num_rows() == 0){
+            
+            elseif ($row->akses=="1") {
+              if( $this->db->get_where('sada_tokoinuser_temp',['id_user' => $user_id, 'id_toko' => $toko_id])->num_rows() == 0){
              $response = array(
                'Success' => false,
                'Info' => 'Anda tidak memiliki akses pada store id '.$toko['store_id']);
-             $this->output
-               ->set_status_header(201)
-               ->set_content_type('application/json', 'utf-8')
-               ->set_output(json_encode($response, JSON_PRETTY_PRINT))
-               ->_display();
-               exit;
              }
-            elseif ($row->akses=="1") {
-
-              $response = array(
+              else{
+                $response = array(
 
                 'Success' => true,
 
@@ -1450,6 +1445,7 @@ function _getLoginMobile($dataLogin)
 
                 );
 
+              }
 
 
               $this->output
