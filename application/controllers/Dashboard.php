@@ -1551,16 +1551,17 @@ public function UpdateEditUser()
 					}
 
 					else{
-
+						$id_tokos = $this->input->post("toko_tl",TRUE);
 						// $this->sada->updateEditTlinKota($updateTL,$id_user);
-						if ($this->db->delete("sada_tl_in_kota",array("id_user"=>htmlentities($this->input->post("id_us",TRUE), ENT_QUOTES, 'utf-8')))) {
-							foreach ($id_toko as $toko_id) {
-								// $updateTL['id_user'] = $this->input->post("id_us",TRUE);
-								// $updateTL['id_toko'] = $toko_id;
-								// $this->db->insert("sada_tl_in_kota",$updateTL);
-								echo $toko_id;
+						// if ($this->db->delete("sada_tl_in_kota",array("id_user"=>htmlentities($this->input->post("id_us",TRUE), ENT_QUOTES, 'utf-8')))) {
+						// 	foreach ($id_tokos as $toko_id) {
+						// 		// $updateTL['id_user'] = $this->input->post("id_us",TRUE);
+						// 		// $updateTL['id_toko'] = $toko_id;
+						// 		// $this->db->insert("sada_tl_in_kota",$updateTL);
+						// 		echo $toko_id;
 						
-						}
+						// }
+						echo $id_tokos;
 
 					}
 				}
