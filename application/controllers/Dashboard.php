@@ -1556,7 +1556,8 @@ public function UpdateEditUser()
 						foreach ($id_tokos as $toko_id) {
 								$updateTLs['id_user'] = $this->input->post("id_us",TRUE);
 								$updateTLs['id_toko'] = $toko_id;
-								$this->db->insert("sada_tl_in_kota",$updateTLs);
+								// $this->db->insert("sada_tl_in_kota",$updateTLs);
+								print_r($updateTLs);
 								// echo $toko_id;
 						
 						}
