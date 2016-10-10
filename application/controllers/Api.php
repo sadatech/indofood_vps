@@ -3858,6 +3858,7 @@ $this->excel->downloadreportpromo(count($keys),$val_cabang);
 public function oosExcelReport()
 
   {
+    $this->load->library("Carbon");
     $this->load->library('excel');
     
     $filterTl = ($this->input->get('tl') == "0") ? "" : $this->input->get('tl');
@@ -3879,7 +3880,9 @@ public function oosExcelReport()
     $count = 1;
     $res = [];
     foreach ($query->result() as $key => $value) {
-      $res[]=$value;
+      $val['dayAgo'] = $this->carbon->time_elapsed_string($value->date);
+      $val[]=$value;
+      $res[] = $val;
       $keys[] = $key;
     }
 
