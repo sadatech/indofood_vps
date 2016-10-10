@@ -13,7 +13,7 @@ class Excel extends PHPExcel {
     public function downloadReportOutOfStock($data,$val)
         {
            $this->excel = new PHPExcel();
-           
+
            $this->excel->setActiveSheetIndex(0);
            $this->excel->getActiveSheet()->setTitle('Out Of Stock Report');
 
@@ -35,7 +35,7 @@ class Excel extends PHPExcel {
 
            $this->excel->getActiveSheet()->setCellValue('I1', 'KETERANGAN');
 
-           $this->excel->getActiveSheet()->setCellValue('J1', 'DAY AGO');
+           $this->excel->getActiveSheet()->setCellValue('J1', 'TIME ELAPSED');
 
            // $this->excel->getActiveSheet()->fromArray($result);
            $this->excel->getActiveSheet()->getDefaultColumnDimension()->setWidth(20);
