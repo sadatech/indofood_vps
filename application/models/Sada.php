@@ -1318,7 +1318,7 @@ function _getLoginMobile($dataLogin)
 
   $query_toko = $this->db->get_where("sada_toko",$toko);
 
-    if ($query_toko->num_rows()==1) { //CEK TOKO ADA APA ENGGAK
+    if ($query_toko->num_rows()>0) { //CEK TOKO ADA APA ENGGAK
 
       $row_toko = $query_toko->row();
 
