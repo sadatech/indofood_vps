@@ -12,6 +12,7 @@ class Excel extends PHPExcel {
     }
     public function downloadReportOutOfStock($data,$val)
         {
+          $this->load->library("Carbon");
            $this->excel = new PHPExcel();
            $this->excel->setActiveSheetIndex(0);
            $this->excel->getActiveSheet()->setTitle('Out Of Stock Report');
@@ -62,78 +63,31 @@ class Excel extends PHPExcel {
               ->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
             
             $no_col = 2;
-
-            // $result[]=[
-
-      // 'count' => ($count++),
-
-      // 'cabang' => $value->namaCabang,
-
-      // 'kota' => $value->nama_kota,
-
-      // 'Customer_id' => $value->store_id,
-
-      // 'namaToko' => $value->namaToko,
-
-      // 'namaBa' => $value->namaBa,
-
-      // 'tanggal' => $value->date,
-
-      // 'produk' => str_replace(',',"\n",$value->namaProduk)
-
-      // ];
             foreach ($val as $datatable) {
-                // print_r($datatable);
-              $this->excel->getActiveSheet()->setCellValue('N1', 'Data OOS');
-              // $this->excel->getActiveSheet()->mergeCells('M1:O1');
-              $this->excel->getActiveSheet()->setCellValue("A".$no_col, $datatable->namaCabang);
+                echo $this->carbon->time_elapsed_string($datatable->date);
+              // $this->excel->getActiveSheet()->setCellValue('N1', 'Data OOS');
+              // // $this->excel->getActiveSheet()->mergeCells('M1:O1');
+              // $this->excel->getActiveSheet()->setCellValue("A".$no_col, $datatable->namaCabang);
 
-              $this->excel->getActiveSheet()->setCellValue("B".$no_col, $datatable->nama_kota);
+              // $this->excel->getActiveSheet()->setCellValue("B".$no_col, $datatable->nama_kota);
 
-              $this->excel->getActiveSheet()->setCellValue("C".$no_col, $datatable->store_id);
+              // $this->excel->getActiveSheet()->setCellValue("C".$no_col, $datatable->store_id);
 
-              $this->excel->getActiveSheet()->setCellValue("D".$no_col, $datatable->namaToko);
+              // $this->excel->getActiveSheet()->setCellValue("D".$no_col, $datatable->namaToko);
 
-              $this->excel->getActiveSheet()->setCellValue("E".$no_col, $datatable->namaBa);
+              // $this->excel->getActiveSheet()->setCellValue("E".$no_col, $datatable->namaBa);
 
-              $this->excel->getActiveSheet()->setCellValue("F".$no_col, $datatable->date);
+              // $this->excel->getActiveSheet()->setCellValue("F".$no_col, $datatable->date);
 
-              $this->excel->getActiveSheet()->setCellValue("G".$no_col, str_replace(',',"\n",$datatable->namaProduk)); 
+              // $this->excel->getActiveSheet()->setCellValue("G".$no_col, str_replace(',',"\n",$datatable->namaProduk)); 
             
-              $this->excel->getActiveSheet()->setCellValue("H".$no_col, str_replace(',',"\n",$datatable->tipes));
+              // $this->excel->getActiveSheet()->setCellValue("H".$no_col, str_replace(',',"\n",$datatable->tipes));
 
-              $this->excel->getActiveSheet()->setCellValue("I".$no_col, str_replace(',',"\n",$datatable->keterangans));
+              // $this->excel->getActiveSheet()->setCellValue("I".$no_col, str_replace(',',"\n",$datatable->keterangans));
 
-              // $this->excel->getActiveSheet()->setCellValue("J".$no_col, $datatable->keteranganKomptetitor);
+              // // $this->excel->getActiveSheet()->setCellValue("J".$no_col, $datatable->keteranganKomptetitor);
 
-              $no_col++;
-
-      //         $result[] =[
-
-      // 'idOOS' => $value->id_oos,
-
-      // 'namaCabang' => $value->namaCabang,
-
-      // 'nama_kota' => $value->nama_kota,
-
-      // 'store_id' => $value->store_id,
-
-      // 'tipe' => str_replace(',','<br />',$value->tipes),
-
-      // 'namaToko' => $value->namaToko,
-
-      // 'namaBa' => $value->namaBa,
-
-      // 'date' => $value->date,
-
-      // 'namaProduk' => str_replace(',','<br />',$value->namaProduk),
-
-      // 'dayAgo' => $this->carbon->time_elapsed_string($value->date), 
-
-      // 'keterangan' => str_replace(',','<br />',$value->keterangans)   
-
-      // ];
-
+              // $no_col++;
           }
            $filename='Out_of_stock_report-'.date("d-M-Y:h:i:s").'.xls';
            header('Content-Disposition: attachment;filename="'.$filename.'"');

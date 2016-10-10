@@ -3880,13 +3880,12 @@ public function oosExcelReport()
     $count = 1;
     $res = [];
     foreach ($query->result() as $key => $value) {
-      $res['dayAgo'] = $this->carbon->time_elapsed_string($value->date);
       $res[]=$value;
       $keys[] = $key;
     }
 
-    // $this->excel->downloadReportOutOfStock(count($keys),$res);
-    print_r($res);
+    $this->excel->downloadReportOutOfStock(count($keys),$res);
+    // print_r($res);
 
   }
 
