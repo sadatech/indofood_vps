@@ -1554,9 +1554,9 @@ public function UpdateEditUser()
 						$id_tokos = $this->input->post("toko_tl",TRUE);
 						$this->db->delete("sada_tl_in_kota",array("id_user"=>htmlentities($this->input->post("id_us",TRUE), ENT_QUOTES, 'utf-8')));
 						foreach ($id_tokos as $toko_id) {
-								$updateTL['id_user'] = $this->input->post("id_us",TRUE);
-								$updateTL['id_toko'] = $toko_id;
-								$this->db->insert("sada_tl_in_kota",$updateTL);
+								$updateTLs['id_user'] = $this->input->post("id_us",TRUE);
+								$updateTLs['id_toko'] = $toko_id;
+								$this->db->insert("sada_tl_in_kota",$updateTLs);
 								// echo $toko_id;
 						
 						}
