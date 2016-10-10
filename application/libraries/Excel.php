@@ -8,11 +8,11 @@ class Excel extends PHPExcel {
   private $excel;
     public function __construct() {
         parent::__construct();
+        $this->load->library("Carbon");
         PHPExcel_Cell::setValueBinder( new PHPExcel_Cell_AdvancedValueBinder() );
     }
     public function downloadReportOutOfStock($data,$val)
         {
-          $this->load->library("Carbon");
            $this->excel = new PHPExcel();
            $this->excel->setActiveSheetIndex(0);
            $this->excel->getActiveSheet()->setTitle('Out Of Stock Report');
