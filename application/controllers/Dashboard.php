@@ -1562,7 +1562,7 @@ public function UpdateEditUser()
 								// echo $toko_id;
 						
 						}
-						print_r($id_tokos);
+						// print_r($id_tokos);
 				}
 					redirect('Dashboard/dataUser', 'refresh');
 			}
