@@ -1369,7 +1369,7 @@ function _getLoginMobile($dataLogin)
             
             elseif ($row->akses=="0") {
 
-              $cek_akses_toko = $this->db->get_where("sada_tl_in_kota",array("id_user"=>$row->id_user,
+              $cek_akses_toko = $this->db->distinct()->get_where("sada_tl_in_kota",array("id_user"=>$row->id_user,
                                                                              "id_toko"=>$row_toko->id_toko));
 
               if ($cek_akses_toko->num_rows()>0) {
