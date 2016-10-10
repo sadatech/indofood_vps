@@ -82,7 +82,7 @@ class Excel extends PHPExcel {
       // 'produk' => str_replace(',',"\n",$value->namaProduk)
 
       // ];
-            foreach ($val as $key => $datatable) {
+            foreach ($val as $datatable) {
                 // print_r($datatable);
           //     $this->excel->getActiveSheet()->setCellValue('N1', 'FOTO PROMINA');
           //     // $this->excel->getActiveSheet()->mergeCells('M1:O1');
@@ -97,7 +97,7 @@ class Excel extends PHPExcel {
           //     // $this->excel->getActiveSheet()->setCellValue("E".$no_col, $datatable->namaBa);
 
           //     // $this->excel->getActiveSheet()->setCellValue("F".$no_col, str_replace(',',"\n",$datatable->namaProduk)); 
-              echo $key;
+              echo $datatable;
 
           //     // $this->excel->getActiveSheet()->setCellValue("G".$no_col, $row);
 
