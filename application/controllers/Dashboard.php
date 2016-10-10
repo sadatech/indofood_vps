@@ -413,6 +413,10 @@ public function reportTopBA()
 		$dataDas['desk'] = "App Retail";
 		$dataDas['page'] = "report/topBA";
 
+		$dataDas['css'] = $this->sada->CssdataTable();
+
+		$dataDas['js']	= $this->sada->JsdataTable();
+
 		$dataDas['js'][] = "assets/global/plugins/bootstrap/js/bootstrap.min.js";
 		$dataDas['js'][] = "assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js";
 		$dataDas['js'][] = "assets/global/plugins/jquery-validation/js/jquery.validate.min.js";
@@ -558,7 +562,15 @@ public function dataUser()
 
 		$odb = array("id_user"=>"desc");
 
-		$list = $this->datatable->get_datatables($table,$column,$odb);
+		$q = "";
+		if ($_POST['search']['value']) {
+			$q .= "";
+		}
+		else{
+			$q .= " WHERE status = 'Y'";
+		}
+
+		$list = $this->datatable->get_datatables_users($table.$q,$column,$odb);
 
 		$data = array();
 
@@ -573,8 +585,6 @@ public function dataUser()
 			$row[] = $datatable->nik;
 
 			$row[] = $datatable->nama;
-
-
 
 			if ($datatable->stay == "Y") {
 
@@ -596,7 +606,7 @@ public function dataUser()
 
 			if ($datatable->akses == 0) {
 
-				$row[] = '<center><span class="label label-sm label-success"> TL </span></center>';
+				$row[] = '<center><span class="label label-sm label-success"> TL </span>&nbsp;<a  class="label label-sm label-danger" id="showToko" href="#page'.$datatable->id_user.'"><small>Show Toko</small></a></center>';
 
 			}elseif ($datatable->akses == 1) {
 
@@ -855,7 +865,7 @@ public function EditdataAccount()
 		}
 		$add['id_toko'] = implode(',', $id);
 		$add['nama_account'] = $this->input->post("nama_account");
-		$add['target'] = $this->input->post("target");
+		// $add['target'] = $this->input->post("target");
 		
 		if ($this->db->update("sada_account",$add,array('id_account'=>$id_account))) {
 			if ($this->db->delete("sada_account_temp",array('id_account'=>$id_account))) {
@@ -914,6 +924,15 @@ public function EditdataAccount()
 
 		$this->load->view('view_awal', $dataDas, FALSE);
 	}
+}
+public function DeleteAccount()
+{
+	$id = $this->uri->segment(3);
+	$this->sada->deleteAccount($id);
+	$this->db->where("id_account",$id);
+	$this->db->delete("sada_account_temp");
+	$this->session->set_flashdata('msg', 'Account deleted');
+	redirect('Dashboard/dataAccount', 'refresh');
 }
 public function getTokoAccount()
 {
@@ -1006,11 +1025,11 @@ public function insertAccount()
 		}
 		$add['id_toko'] = implode(',', $id);
 		$add['nama_account'] = $this->input->post("nama_account");
-		$add['target'] = $this->input->post("target");
+		// $add['target'] = $this->input->post("target");
 		
 		$this->form_validation->set_error_delimiters('<span class="error">', '</span>');
 
-		$this->form_validation->set_rules('target', 'Target', 'required');
+		// $this->form_validation->set_rules('target', 'Target', 'required');
 
 		$this->form_validation->set_rules('nama_account', 'Nama Account', 'required');
 		if ($this->form_validation->run() == FALSE)
@@ -1029,7 +1048,7 @@ public function insertAccount()
 
 					$add_temp['nama_account'] = $this->input->post("nama_account");
 
-					$add_temp['target'] = $this->input->post("target");
+					// $add_temp['target'] = $this->input->post("target");
 
 					$this->db->insert("sada_account_temp",$add_temp);
 				}
@@ -1054,9 +1073,11 @@ public function getTokoo()
 
 		$select = $this->db->select("id_toko")->where("id_user",$id)->get("sada_tokoinuser")->row();
 
-		$exp = explode(",", $select->id_toko);
+		if (count($select)>0) { //Toko Ba in_user
+			
+			$exp = explode(",", $select->id_toko);
 
-		foreach ($exp as $key => $value) {
+			foreach ($exp as $key => $value) {
 
 			$toko = $this->db->select("store_id,nama,id_toko")->where("id_toko",$value)->get("sada_toko");
 
@@ -1079,12 +1100,27 @@ public function getTokoo()
 				// echo $target_user;
 				$data[] = $arrayName;
 
-			}
+				}
 
+			}
+		}
+		else{
+			$tl = $this->db->get_where('sada_tl_in_kota',array("id_user"=>$id));
+
+			foreach ($tl->result() as $toko_tl) {
+				$toko = $this->db->select("store_id,nama,id_toko")->where("id_toko",$toko_tl->id_toko)->get("sada_toko");
+				foreach ($toko->result() as $key => $val_toko) {
+					$arrayName['id_user'] = $id;
+					$arrayName['store_id'] = $val_toko->store_id;
+					$arrayName['nama'] = $val_toko->nama;
+					$arrayName['id_toko'] = $val_toko->id_toko;
+
+					$data[] = $arrayName;
+				}
+			}
 		}
 
 		echo json_encode($data,JSON_PRETTY_PRINT);
-		// print_r($data);
 
 	} else {
 
@@ -1224,7 +1260,7 @@ public function AdddataUser()
 
 		if ($this->input->post("password",TRUE) == '') {
 
-			$dataInsert['password'] = md5("password");
+			$dataInsert['password'] = md5("1234");
 
 		}
 
@@ -1242,7 +1278,7 @@ public function AdddataUser()
 
 		$this->form_validation->set_rules('nama', 'Nama', 'required');
 
-		$this->form_validation->set_rules('password', 'password', 'required');
+		// $this->form_validation->set_rules('password', 'password', 'required');
 
 		$this->form_validation->set_rules('akses', 'Akses', 'required');
 
@@ -1333,19 +1369,6 @@ public function AdddataUser()
 
 						$insertTL['id_toko'] = $tl_toko;
 						$this->db->insert("sada_tl_in_kota",$insertTL);
-						// if ($this->db->insert("sada_tl_in_kota",$insertTL)) {
-
-						// 	$this->session->set_flashdata('msg', 'User added');
-
-						// 	redirect('Dashboard/dataUser', 'refresh');
-						// }
-						// else{
-
-						// 	$this->session->set_flashdata('msg', 'User not added');
-
-						// 	redirect('Dashboard/dataUser', 'refresh');
-
-						// }
 					}
 						$this->session->set_flashdata('msg', 'User added');
 
@@ -1405,17 +1428,7 @@ public function AdddataUser()
 
 		$dataDas['query_toko'] = $this->db->get_where('sada_toko',array('status'=>"Y"))->result();
 
-
-
-			// $dataDas['css'] = $this->sada->CssdataTable();
-
-			// $dataDas['js']	= $this->sada->JsdataTable();
-
-
-
 		$dataDas['js'][]	= "assets/custom/addUser.js";
-
-
 
 		$this->load->view('view_awal', $dataDas, FALSE);
 
@@ -1448,25 +1461,21 @@ public function EditdataUser()
 		$qry = $this->db->select('id_user,id_toko')->where('id_user',$dataDas['paramId'])->get('sada_tokoinuser')->row();
 
 		$dataDas['id_toko'] = explode(",", $qry->id_toko);
+		$dataDas['tokoa'] = $this->db->get_where("sada_tl_in_kota",array("id_user"=>$dataDas['paramId']));
 
 	}
 
 	elseif ($dataDas['loopEditUser']->akses == 0) {
 
-		$dataDas['id_toko'] = null;
+		// $dataDas['id_toko'] = null;
 
-		$qry = $this->db->select('id_user,id_kota')->where('id_user',$dataDas['paramId'])->get('sada_tl_in_kota')->row();
-
-		$qry2 = $this->db->select('id_cabang,id_kota,nama_kota')->where('id_kota',$qry->id_kota)->get('sada_kota')->row();
-
-		$dataDas['id_kotas'] = $qry->id_kota;
-
-		$data = $this->db->select('id_cabang,nama')->where('id_cabang',$qry2->id_cabang)->get('sada_cabang')->row();
-
-		$dataDas['id_cabang'] = $data->id_cabang;
-
+		$data = $this->sada->cabangGet($dataDas['paramId']);
+		foreach ($data as $cab_id) {
+			$dataDas['id_cabang'][] = $cab_id->id_cabang;
+		}
+		$dataDas['tokoa'] = $this->db->get_where("sada_tl_in_kota",array("id_user"=>$dataDas['paramId']));
+		
 	}
-
 	$this->load->view('view_awal', $dataDas, FALSE);
 
 }
@@ -1485,11 +1494,16 @@ public function UpdateEditUser()
 
 		$password =  htmlentities(md5($this->input->post("password",TRUE)), ENT_QUOTES, 'utf-8');
 
+		$toko_tl = $this->input->post("toko_tl",TRUE);
+
 		if (!$this->input->post("password",TRUE) == '') {
 
 			$dataUpdate['password'] = $password;
 
 		}
+		// else{
+		// 	$dataUpdate['password'] = md5("1234");	
+		// }
 
 		$dataUpdate["akses"] =  htmlentities($this->input->post("akses",TRUE), ENT_QUOTES, 'utf-8');
 
@@ -1518,43 +1532,44 @@ public function UpdateEditUser()
 		if ($this->sada->updateEditUser($dataUpdate,$id_user)) {
 
 			if ($dataUpdate['akses'] == 0) {
+				// $updateTL['id_kota'] = $this->input->post("kota",TRUE);
+				$id_toko = $this->input->post("toko_tl",TRUE);
+						if (count($this->db->select("id_user")->where("id_user",$updateTL['id_user'])->get("sada_tl_in_kota")->row()) == 0) {
+							foreach ($id_toko as $toko_id) {
+									$updateTL['id_user'] = $this->input->post("id_us",TRUE);
+									$updateTL['id_toko'] = $toko_id;
 
-				$updateTL['id_user'] = htmlentities($this->input->post("id_us",TRUE), ENT_QUOTES, 'utf-8');
+							if ($this->db->insert("sada_tl_in_kota",$updateTL)) {
 
-				$updateTL['id_kota'] = $this->input->post("kota",TRUE);
+								if (count($this->db->select("id_user")->where("id_user",$updateTL['id_user'])->get("sada_tokoinuser")->row()) > 0) {
 
-				if (count($this->db->select("id_user")->where("id_user",$updateTL['id_user'])->get("sada_tl_in_kota")->row()) == 0) {
+									$this->db->delete("sada_tokoinuser",array("id_user"=>htmlentities($this->input->post("id_us",TRUE), ENT_QUOTES, 'utf-8')));
 
-					if ($this->db->insert("sada_tl_in_kota",$updateTL)) {
+								}
 
-						if (count($this->db->select("id_user")->where("id_user",$updateTL['id_user'])->get("sada_tokoinuser")->row()) > 0) {
-
-							if ($this->db->delete("sada_tokoinuser",array("id_user"=>htmlentities($this->input->post("id_us",TRUE), ENT_QUOTES, 'utf-8')))) {
-
-								$this->session->set_flashdata('msg', 'User Success Updated');
-
-								redirect('Dashboard/dataUser', 'refresh');
 							}
+							
+							}
+					}
 
+					else{
+
+						// $this->sada->updateEditTlinKota($updateTL,$id_user);
+						if ($this->db->delete("sada_tl_in_kota",array("id_user"=>htmlentities($this->input->post("id_us",TRUE), ENT_QUOTES, 'utf-8')))) {
+
+							foreach ($id_toko as $toko_id) {
+								$updateTL['id_user'] = $this->input->post("id_us",TRUE);
+								$updateTL['id_toko'] = $toko_id;
+								$this->db->insert("sada_tl_in_kota",$updateTL);
+						
 						}
 
 					}
-
 				}
 
-				else{
+					$this->session->set_flashdata('msg', 'User Success Updated');
 
-					// if ($this->sada->updateEditTlinKota($updateTL,$id_user)) {
-
-					// 	$this->session->set_flashdata('msg', 'User Success Updated');
-
-					// 	redirect('Dashboard/dataUser', 'refresh');
-
-					// }
-					echo "Ada Tl di sada_tl_in_kota";
-
-				}
-
+					redirect('Dashboard/dataUser', 'refresh');
 			}
 
 			elseif ($dataUpdate['akses'] == 1) {
@@ -2352,7 +2367,7 @@ public function dataKota()
 
 	$table 	= "sada_kota";
 
-	$column = array('id_kota','nama_kota');
+	$column = array('id_kota','nama_kota','id_cabang');
 
 	$odb 	= array("id_kota"=>"asc");
 
@@ -2369,6 +2384,16 @@ public function dataKota()
 		$row[] 		= $no++;
 
 		$row[] 		= $datatable->nama_kota;
+
+		$cabang = $this->db->select("nama")->where("id_cabang",$datatable->id_cabang)->get("sada_cabang");
+
+		$string = "";
+
+		foreach ($cabang->result() as $key => $value) {
+			$string .= $value->nama;
+		}
+
+		$row[] = $string;
 
 		if ($this->session->userdata("akses")=="3") {
 
@@ -3493,29 +3518,151 @@ public function reportdetailcontact()
 
 		$this->load->model('datatable');
 
-		$select = "SELECT sada_form_contact.namaibu,sada_form_contact.tgl_contact,sada_form_contact.ttl,sada_form_contact.telp,sada_form_contact.tipe,sada_form_contact.beli,sada_form_contact.oldProduct,sada_form_contact.sampling,sada_form_contact.segmen,sada_form_contact.namaanak,
+		$select = "SELECT
+	sada_form_contact.namaibu,
+	sada_form_contact.tgl_contact,
+	sada_form_contact.ttl,
+	sada_form_contact.telp,
+	sada_form_contact.tipe,
+	CASE
+	WHEN sada_form_contact.beli = 'N' THEN 'N'
+	WHEN sada_form_contact.beli = 'Y' THEN 'Y'
+	ELSE 'Kosong'
+	END AS 'beli',
+	sada_form_contact.oldProduct,
+	sada_form_contact.sampling,
+	CASE
+WHEN sada_form_contact.segmen = 'wet' THEN 'Wet'
+WHEN sada_form_contact.segmen = 'dry' THEN 'Dry'
+ELSE 'Kosong'
+END AS 'segmen',
+ sada_form_contact.namaanak,
+ CASE (
+	SELECT
+		sada_kategori.nama
+	FROM
+		sada_kategori
+	WHERE
+		sada_kategori.id = sada_form_contact.kategori_id
+)
+WHEN (
+	SELECT
+		sada_kategori.nama
+	FROM
+		sada_kategori
+	WHERE
+		sada_kategori.id = sada_form_contact.kategori_id
+) IS NULL 
+THEN
+(
+	SELECT
+		sada_kategori.nama
+	FROM
+		sada_kategori
+	WHERE
+		sada_kategori.id = sada_form_contact.kategori_id
+)
+ELSE
+	'Kosong'
+END AS 'sada_kategori_label',
 
-		(SELECT sada_kategori.nama FROM sada_kategori where sada_kategori.id=sada_form_contact.kategori_id) AS 'sada_kategori_label',
-
-		(SELECT sada_kategori.id FROM sada_kategori where sada_kategori.id=sada_form_contact.kategori_id AND sada_form_contact.user_id=sada_user.id_user) AS 'count_sampling',
-
-		(SELECT COUNT(*) FROM sada_form_contact WHERE sada_form_contact.user_id=sada_user.id_user AND sada_form_contact.store_id=toko.id_toko) AS 'contact_count',
-
-		(SELECT COUNT(*) FROM sada_form_contact WHERE sada_form_contact.tipe='newRecruit' AND sada_form_contact.user_id=sada_user.id_user AND sada_form_contact.store_id=toko.id_toko) AS 'count_recruit',
-
-		(SELECT COUNT(*) FROM sada_form_contact WHERE sada_form_contact.tipe='switching' AND sada_form_contact.user_id=sada_user.id_user AND sada_form_contact.store_id=toko.id_toko) AS 'count_switching',
-
-		(SELECT COUNT(*) FROM sada_form_contact WHERE sada_form_contact.kategori_id='1' AND sada_form_contact.user_id=sada_user.id_user AND sada_form_contact.store_id=toko.id_toko) AS 'BC',
-
-		(SELECT COUNT(*) FROM sada_form_contact WHERE sada_form_contact.kategori_id='2' AND sada_form_contact.user_id=sada_user.id_user AND sada_form_contact.store_id=toko.id_toko) AS 'BTI',
-
-		(SELECT COUNT(*) FROM sada_form_contact WHERE sada_form_contact.kategori_id='3' AND sada_form_contact.user_id=sada_user.id_user AND sada_form_contact.store_id=toko.id_toko) AS 'Rusk',
-
-		(SELECT COUNT(*) FROM sada_form_contact WHERE sada_form_contact.kategori_id='4' AND sada_form_contact.user_id=sada_user.id_user AND sada_form_contact.store_id=toko.id_toko) AS 'Pudding',
-
-		(SELECT COUNT(*) FROM sada_form_contact WHERE sada_form_contact.kategori_id='5' AND sada_form_contact.user_id=sada_user.id_user AND sada_form_contact.store_id=toko.id_toko) AS 'Others',
-
-		(SELECT COUNT(*) FROM sada_form_contact WHERE sada_form_contact.beli='Y' AND sada_form_contact.sampling='Y') AS 'strike_sampling',
+ (
+	SELECT
+		sada_kategori.id
+	FROM
+		sada_kategori
+	WHERE
+		sada_kategori.id = sada_form_contact.kategori_id
+	AND sada_form_contact.user_id = sada_user.id_user
+) AS 'count_sampling',
+ (
+	SELECT
+		COUNT(*)
+	FROM
+		sada_form_contact
+	WHERE
+		sada_form_contact.user_id = sada_user.id_user
+	AND sada_form_contact.store_id = toko.id_toko
+) AS 'contact_count',
+ (
+	SELECT
+		COUNT(*)
+	FROM
+		sada_form_contact
+	WHERE
+		sada_form_contact.tipe = 'newRecruit'
+	AND sada_form_contact.user_id = sada_user.id_user
+	AND sada_form_contact.store_id = toko.id_toko
+) AS 'count_recruit',
+ (
+	SELECT
+		COUNT(*)
+	FROM
+		sada_form_contact
+	WHERE
+		sada_form_contact.tipe = 'switching'
+	AND sada_form_contact.user_id = sada_user.id_user
+	AND sada_form_contact.store_id = toko.id_toko
+) AS 'count_switching',
+ (
+	SELECT
+		COUNT(*)
+	FROM
+		sada_form_contact
+	WHERE
+		sada_form_contact.kategori_id = '1'
+	AND sada_form_contact.user_id = sada_user.id_user
+	AND sada_form_contact.store_id = toko.id_toko
+) AS 'BC',
+ (
+	SELECT
+		COUNT(*)
+	FROM
+		sada_form_contact
+	WHERE
+		sada_form_contact.kategori_id = '2'
+	AND sada_form_contact.user_id = sada_user.id_user
+	AND sada_form_contact.store_id = toko.id_toko
+) AS 'BTI',
+ (
+	SELECT
+		COUNT(*)
+	FROM
+		sada_form_contact
+	WHERE
+		sada_form_contact.kategori_id = '3'
+	AND sada_form_contact.user_id = sada_user.id_user
+	AND sada_form_contact.store_id = toko.id_toko
+) AS 'Rusk',
+ (
+	SELECT
+		COUNT(*)
+	FROM
+		sada_form_contact
+	WHERE
+		sada_form_contact.kategori_id = '4'
+	AND sada_form_contact.user_id = sada_user.id_user
+	AND sada_form_contact.store_id = toko.id_toko
+) AS 'Pudding',
+ (
+	SELECT
+		COUNT(*)
+	FROM
+		sada_form_contact
+	WHERE
+		sada_form_contact.kategori_id = '5'
+	AND sada_form_contact.user_id = sada_user.id_user
+	AND sada_form_contact.store_id = toko.id_toko
+) AS 'Others',
+ (
+	SELECT
+		COUNT(*)
+	FROM
+		sada_form_contact
+	WHERE
+		sada_form_contact.beli = 'Y'
+	AND sada_form_contact.sampling = 'Y'
+) AS 'strike_sampling',
 
 		";
 
@@ -3754,21 +3901,32 @@ public function reportdetailcontact()
 				$row[] = "Beli";
 
 			}
-
-			if ($value->beli == "N") {
+			elseif ($value->beli == "N") {
 
 				$row[] = "Tidak Beli";
 
 			}
+			else{
+				$row[] = $value->beli;
+			}
 
 			$row[] = $value->oldProduct;
 
-			$row[] = $value->sampling;
+			if ($value->sampling == "Y") {
+
+				$row[] = "Ya";
+
+			}
+			elseif ($value->sampling == "N") {
+
+				$row[] = "Tidak";
+
+			}
 
 			$row[] = $value->segmen;
-
+			
 			$row[] = $value->sada_kategori_label;
-
+			
 			$datsa[] = $row;
 
     // echo $value->count_sampling;
@@ -4143,7 +4301,7 @@ public function reportpromo()
 
 		SELECT
 
-		GROUP_CONCAT(prom.foto SEPARATOR '\n')
+		GROUP_CONCAT(prom.foto SEPARATOR ',')
 
 		FROM
 
@@ -4169,7 +4327,7 @@ public function reportpromo()
 
 		SELECT
 
-		GROUP_CONCAT(prom.foto SEPARATOR '\n')
+		GROUP_CONCAT(prom.foto SEPARATOR ',')
 
 		FROM
 
@@ -4259,10 +4417,18 @@ public function reportpromo()
 
 		sada_user.stay AS 'stay_user',
 
-		(SELECT nama FROM sada_user WHERE id_user=tl.id_user) as 'nama_tl',
+		
 		";
 
 
+// (
+//  			SELECT
+//  				nama
+//  			FROM
+//  				sada_user scb
+//  			WHERE
+//  				tl.id_user = scb.id_user
+//  		) AS 'nama_tl',
 
 		$where = "";
 
@@ -4360,7 +4526,7 @@ public function reportpromo()
 
 		$join .= " LEFT JOIN sada_cabang cabang ON kota.id_cabang=cabang.id_cabang";
 
-		$join .= " LEFT JOIN sada_tl_in_kota tl ON kota.id_kota = tl.id_kota";
+		// $join .= " LEFT JOIN sada_tl_in_kota tl ON toko.id_toko = tl.id_toko";
 
 
 
@@ -4409,12 +4575,26 @@ public function reportpromo()
 
 			$row[] = $datatable->nama_user;
 
-			if ($datatable->nama_tl == null) {
-				$row[] = "Tidak ada TL";
-			}
-			else{
-				$row[] = $datatable->nama_tl;
-			}
+			$tl_nama = $this->db->select('(select nama from sada_user where sada_user.id_user = sada_tl_in_kota.id_user) as tl_name')->where('id_toko',$datatable->id_toko)->get('sada_tl_in_kota');
+		      if (!$tl_nama->num_rows()>0) {
+		          $row[] = "<p class='alert alert-warning'><strong>Tidak Mempunyai TL</strong></p>";
+		      }
+		      else{
+		      	  $nam = $tl_nama->row();
+		        // foreach ($tl_nama->result() as $n) {
+		          $row[] = $nam->tl_name;
+		        // }
+		      }
+
+			// if ($datatable->nama_tl == null) {
+			// 	$row[] = "Tidak ada TL";
+			// }
+			// else{
+			// 	// $row[] = "Under Constrouction";
+			// 	$row[] = $datatable->nama_tl;
+			// }
+
+				// $row[] = "Under Constrouction";
 
 			if ($datatable->tipe == "consumerPromo") {
 
