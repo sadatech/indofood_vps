@@ -7,6 +7,7 @@ require_once APPPATH.'/third_party/PHPExcel/Cell/AdvancedValueBinder.php';
 
 class Excel extends PHPExcel {
   private $excel;
+  private $carbonz;
     public function __construct() {
         parent::__construct();
         PHPExcel_Cell::setValueBinder( new PHPExcel_Cell_AdvancedValueBinder() );
@@ -14,6 +15,8 @@ class Excel extends PHPExcel {
     public function downloadReportOutOfStock($data,$val)
         {
            $this->excel = new PHPExcel();
+
+           $this->carbonz = new Carbon();
            $this->excel->setActiveSheetIndex(0);
            $this->excel->getActiveSheet()->setTitle('Out Of Stock Report');
 
@@ -64,7 +67,7 @@ class Excel extends PHPExcel {
             
             $no_col = 2;
             foreach ($val as $datatable) {
-                echo $this->carbon->time_elapsed_string($datatable->date);
+                echo $this->carbonz->carbon->time_elapsed_string($datatable->date);
               // $this->excel->getActiveSheet()->setCellValue('N1', 'Data OOS');
               // // $this->excel->getActiveSheet()->mergeCells('M1:O1');
               // $this->excel->getActiveSheet()->setCellValue("A".$no_col, $datatable->namaCabang);
