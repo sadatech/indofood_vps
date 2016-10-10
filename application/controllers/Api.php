@@ -3880,9 +3880,8 @@ public function oosExcelReport()
     $count = 1;
     $res = [];
     foreach ($query->result() as $key => $value) {
-      $val['dayAgo'] = $this->carbon->time_elapsed_string($value->date);
-      $val[]=$value;
-      $res[] = $val;
+      $res['dayAgo'] = $this->carbon->time_elapsed_string($value->date);
+      $res[]=$value;
       $keys[] = $key;
     }
 
