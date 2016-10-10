@@ -136,11 +136,11 @@ class Excel extends PHPExcel {
       // ];
 
           }
-           // $filename='Out_of_stock_report-'.date("d-M-Y:h:i:s").'.xls';
-           // header('Content-Disposition: attachment;filename="'.$filename.'"');
-           // header('Cache-Control: max-age=0');
-           // $objWriter = PHPExcel_IOFactory::createWriter($this->excel, 'Excel5');
-           // $objWriter->save('php://output');
+           $filename='Out_of_stock_report-'.date("d-M-Y:h:i:s").'.xls';
+           header('Content-Disposition: attachment;filename="'.$filename.'"');
+           header('Cache-Control: max-age=0');
+           $objWriter = PHPExcel_IOFactory::createWriter($this->excel, 'Excel5');
+           $objWriter->save('php://output');
         }
         public function downloadtotalcontact($data,$val)
         {
