@@ -3886,7 +3886,8 @@ public function oosExcelReport()
       $keys[] = $key;
     }
 
-    $this->excel->downloadReportOutOfStock(count($keys),$res);
+    // $this->excel->downloadReportOutOfStock(count($keys),$res);
+    print_r($res);
 
   }
 
