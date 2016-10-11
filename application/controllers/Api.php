@@ -3881,10 +3881,10 @@ public function oosExcelReport()
     $count = 1;
     $res = [];
     foreach ($query->result() as $key => $value) {
-      $add['dayAgo'] = $this->carbon->time_elapsed_string($value->date);
-      $add_two[] = $value;
+      $add = array("dayAgo"=>$this->carbon->time_elapsed_string($value->date));
+      $add_two = array($value);
 
-      $res = array_merge($add,$add_two);
+      $res[] = array_merge($add,$add_two);
       // $add['dayAgo'] = $this->carbon->time_elapsed_string($value->date);
       // array_push($res, $add);
       $keys[] = $key;
