@@ -3881,13 +3881,17 @@ public function oosExcelReport()
     $count = 1;
     $res = [];
     foreach ($query->result() as $key => $value) {
-      $res[]=$value;
+      $add['dayAgo'] = $this->carbon->time_elapsed_string($value->date);
+      $add_two[] = $value;
+
+      $res = array_merge($add,$add_two);
       // $add['dayAgo'] = $this->carbon->time_elapsed_string($value->date);
       // array_push($res, $add);
       $keys[] = $key;
     }
 
-    $this->excel->downloadReportOutOfStock(count($keys),$res);
+    // $this->excel->downloadReportOutOfStock(count($keys),$res);
+    echo json_encode($res);
     // print_r($res);
 
   }
