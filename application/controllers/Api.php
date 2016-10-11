@@ -3876,22 +3876,21 @@ public function oosExcelReport()
 
     $endDate = date('Y-m-d H:i:s', strtotime($this->input->get("endDate")." 23:59:59"));
 
-    $query = $this->sada->outOfStockReport(['startDate' => $startDate , 'endDate' => $endDate, 'filterName' => $filterName,'filterToko' => $filterToko,'filterCabang' => $filterCabang,'filterKota' => $filterKota]);
+    $query = $this->sada->outOfStockReport(['startDate' => $startDate , 'endDate' => $endDate, 'filterName' => $filterName,'filterToko' => $filterToko,'filterCabang' => $filterCabang,'filterKota' => $filterKota])->result();
 
     $count = 1;
     $res = [];
-    foreach ($query->result() as $key => $value) {
-      $add['dayAgo'] = $this->carbon->time_elapsed_string($value->date);
-      $add[$key] = $value;
 
-      $res[] = $add;
-      
-      $keys[] = $key;
-    }
+    // foreach ($query->result() as $key => $value) {
+    //   $add[$key]['dayAgo'] = $this->carbon->time_elapsed_string($value->date);
+    //   $res[] = $value;
+
+    //   $keys[] = $key;
+    // }
 
     // $this->excel->downloadReportOutOfStock(count($keys),$res);
     // echo json_encode($res);
-    print_r($res);
+    print_r($query);
 
   }
 
