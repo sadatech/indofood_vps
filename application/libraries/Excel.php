@@ -64,10 +64,7 @@ class Excel extends PHPExcel {
             
             $no_col = 2;
             foreach ($val as $datatable) {
-              // echo $datatable[]['dayAgo'];
-              foreach ($datatable[]['dayAgo'] as $agoDay) {
-                  echo $agoDay;
-              }
+              echo $datatable[]['dayAgo'];
               $this->excel->getActiveSheet()->setCellValue('N1', 'Data OOS');
               // $this->excel->getActiveSheet()->mergeCells('M1:O1');
               // $this->excel->getActiveSheet()->setCellValue("A".$no_col, $datatable->namaCabang);
@@ -92,11 +89,11 @@ class Excel extends PHPExcel {
 
               $no_col++;
           }
-           // $filename='Out_of_stock_report-'.date("d-M-Y:h:i:s").'.xls';
-           // header('Content-Disposition: attachment;filename="'.$filename.'"');
-           // header('Cache-Control: max-age=0');
-           // $objWriter = PHPExcel_IOFactory::createWriter($this->excel, 'Excel5');
-           // $objWriter->save('php://output');
+           $filename='Out_of_stock_report-'.date("d-M-Y:h:i:s").'.xls';
+           header('Content-Disposition: attachment;filename="'.$filename.'"');
+           header('Cache-Control: max-age=0');
+           $objWriter = PHPExcel_IOFactory::createWriter($this->excel, 'Excel5');
+           $objWriter->save('php://output');
         }
         public function downloadtotalcontact($data,$val)
         {
