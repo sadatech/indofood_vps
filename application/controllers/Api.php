@@ -3890,7 +3890,7 @@ public function oosExcelReport()
 
     // $this->excel->downloadReportOutOfStock(count($keys),$res);
     // echo json_encode($res);
-    print_r($query['date']);
+    print_r($query);
 
   }
 
