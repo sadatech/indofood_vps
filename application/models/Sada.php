@@ -2775,7 +2775,7 @@ public function skuCount($filter,$kategori,$tipe){
 
  if($filter['user_id'] != ''){
 
-  $this->db->where('pt.id_user',$filter['user_id']);
+  $this->db->where('pts.id_user',$filter['user_id']);
 
 }
 
