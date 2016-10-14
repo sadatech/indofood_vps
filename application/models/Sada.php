@@ -3125,27 +3125,27 @@ public function achievementSamplingReport()
 
     '(select count(distinct store_id) from sada_form_contact where kategori_id = 2) storeBTI',
 
-    '(select sum(samplingQty) from sada_form_contact where kategori_id = 2)  samplingBTI',
+    '(select sum(distinct samplingQty) from sada_form_contact where kategori_id = 2)  samplingBTI',
 
-    "(select sum(samplingQty) from sada_form_contact where kategori_id = 2 and beli= 'Y')  strikeSamplingBTI",
+    "(select sum(distinct samplingQty) from sada_form_contact where kategori_id = 2 and beli= 'Y')  strikeSamplingBTI",
 
     '(select count(distinct store_id) from sada_form_contact where kategori_id = 3) storeRusk',
 
-    '(select sum(samplingQty) from sada_form_contact where kategori_id = 3)  samplingRusk',
+    '(select sum(distinct samplingQty) from sada_form_contact where kategori_id = 3)  samplingRusk',
 
-    "(select sum(samplingQty) from sada_form_contact where kategori_id = 3 and beli= 'Y')  strikeSamplingRusk",
+    "(select sum(distinct samplingQty) from sada_form_contact where kategori_id = 3 and beli= 'Y')  strikeSamplingRusk",
 
     '(select count(distinct store_id) from sada_form_contact where kategori_id = 4) storePudding',
 
-    '(select sum(samplingQty) from sada_form_contact where kategori_id = 4)  samplingPudding',
+    '(select sum(distinct samplingQty) from sada_form_contact where kategori_id = 4)  samplingPudding',
 
-    "(select sum(samplingQty) from sada_form_contact where kategori_id = 4 and beli= 'Y')  strikeSamplingPudding",
+    "(select sum(distinct samplingQty) from sada_form_contact where kategori_id = 4 and beli= 'Y')  strikeSamplingPudding",
 
     '(select count(distinct store_id) from sada_form_contact where kategori_id = 5) storeOthers',
 
-    '(select sum(samplingQty) from sada_form_contact where kategori_id = 5)  samplingOthers',
+    '(select sum(distinct samplingQty) from sada_form_contact where kategori_id = 5)  samplingOthers',
 
-    "(select sum(samplingQty) from sada_form_contact where kategori_id = 5 and beli= 'Y')  strikeSamplingOthers",
+    "(select sum(distinct samplingQty) from sada_form_contact where kategori_id = 5 and beli= 'Y')  strikeSamplingOthers",
 
     '(select count(id_toko) from sada_toko ) totalToko'
 
