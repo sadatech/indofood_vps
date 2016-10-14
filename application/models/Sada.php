@@ -3137,19 +3137,19 @@ public function achievementSamplingReport()
 
     "(select sum(samplingQty) from sada_form_contact where kategori_id = 2 and beli= 'Y')  strikeSamplingBTI",
 
-    '(select count(store_id) from sada_form_contact where kategori_id = 3) storeRusk',
+    '(select count(distinct store_id) from sada_form_contact where kategori_id = 3) storeRusk',
 
     '(select sum(samplingQty) from sada_form_contact where kategori_id = 3)  samplingRusk',
 
     "(select sum(samplingQty) from sada_form_contact where kategori_id = 3 and beli= 'Y')  strikeSamplingRusk",
 
-    '(select count(store_id) from sada_form_contact where kategori_id = 4) storePudding',
+    '(select count(distinct store_id) from sada_form_contact where kategori_id = 4) storePudding',
 
     '(select sum(samplingQty) from sada_form_contact where kategori_id = 4)  samplingPudding',
 
     "(select sum(samplingQty) from sada_form_contact where kategori_id = 4 and beli= 'Y')  strikeSamplingPudding",
 
-    '(select count(store_id) from sada_form_contact where kategori_id = 5) storeOthers',
+    '(select count(distinct store_id) from sada_form_contact where kategori_id = 5) storeOthers',
 
     '(select sum(samplingQty) from sada_form_contact where kategori_id = 5)  samplingOthers',
 
