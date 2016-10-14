@@ -2707,20 +2707,30 @@ public function skuDetails($tanggal,$tipe,$produkId)
 
 {
 
-  return $this->db->select_sum('distinct pt.qty')
+  // return $this->db->select_sum('distinct pt.qty')
 
-  ->from('sada_produk_terjual pt')
+  // ->from('sada_produk_terjual pt')
 
-  ->join('sada_produk p','pts.id_produk = p.id_produk','inner')
+  // ->join('sada_produk p','pts.id_produk = p.id_produk','inner')
 
-  ->where('DATE(pt.tgl)',$tanggal)
+  // ->where('DATE(pt.tgl)',$tanggal)
 
-  ->where('pt.tipe',$tipe)
+  // ->where('pt.tipe',$tipe)
 
-  ->where('p.id_produk',$produkId)
+  // ->where('p.id_produk',$produkId)
 
-  ->get();
+  // ->get();
 
+  $q = "SELECT
+        SUM(DISTINCT `pt`.`qty`) AS `qty`
+      FROM
+        `sada_produk_terjual` `pt`
+      INNER JOIN `sada_produk` `p` ON `pt`.`id_produk` = `p`.`id_produk`
+      WHERE
+        DATE(pt.tgl) = '".$tanggal."'
+      AND `pt`.`tipe` = '".$tipe."'
+      AND `p`.`id_produk` = '".$produkId."'";
+  return $this->db->query($q);
 }
 
 public function editTarget($id)
@@ -2754,32 +2764,47 @@ public function addTokoTarget($id)
 }
 
 public function skuCount($filter,$kategori,$tipe){
+ $q = "SELECT
+  SUM(DISTINCT `pt`.`qty`) AS `qty`,
+  `pt`.`tipe`,
+  `k`.`nama` `namaKategori`,
+  `pt`.`tgl`
+FROM
+  `sada_produk_terjual` `pt`
+JOIN `sada_produk` `p` ON `p`.`id_produk` = `pt`.`id_produk`
+JOIN `sada_kategori` `k` ON `k`.`id` = `p`.`id_kategori`
+WHERE
+  `k`.`nama` = '".$kategori."'
+AND `pt`.`tipe` = '".$tipe."'
+AND `pt`.`id_toko` = '".$filter['toko_id']."'
+AND DATE(pt.tgl) = '".filter['tanggal']."'
+AND `pt`.`id_user` = '".$filter['user_id']."'";
 
- $this->db->select_sum($this->db->distinct('pt.qty'))
+//  $this->db->select_sum('pt.qty')
 
- ->select(['pt.tipe','k.nama namaKategori','pt.tgl'])
+//  ->select(['pt.tipe','k.nama namaKategori','pt.tgl'])
 
- ->from('sada_produk_terjual pt')
+//  ->from('sada_produk_terjual pt')
 
- ->join('sada_produk p ', 'p.id_produk = pt.id_produk')
+//  ->join('sada_produk p ', 'p.id_produk = pt.id_produk')
 
- ->join('sada_kategori k','k.id = p.id_kategori')
+//  ->join('sada_kategori k','k.id = p.id_kategori')
 
- ->where('k.nama',$kategori)
+//  ->where('k.nama',$kategori)
 
- ->where('pt.tipe',$tipe)
+//  ->where('pt.tipe',$tipe)
 
- ->where('pt.id_toko',$filter['toko_id'])
+//  ->where('pt.id_toko',$filter['toko_id'])
 
- ->where('DATE(pt.tgl)',$filter['tanggal']);
+//  ->where('DATE(pt.tgl)',$filter['tanggal']);
 
- if($filter['user_id'] != ''){
+//  if($filter['user_id'] != ''){
 
-  $this->db->where('pt.id_user',$filter['user_id']);
+//   $this->db->where('pt.id_user',$filter['user_id']);
 
-}
+// }
 
-return $this->db->get();
+return $this->db->query($q);
 
 }
 
