@@ -2587,7 +2587,7 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
       ];
 
-      $queryCountBc = $this->sada->skuCount($count_filtered,'BC','box');
+      $queryCountBc = $this->sada->skuCount($countFilter,'BC','box');
 
       $queryCountBti = $this->sada->skuCount($countFilter,'BTI','box');
 
