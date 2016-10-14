@@ -2755,7 +2755,7 @@ public function addTokoTarget($id)
 
 public function skuCount($filter,$kategori,$tipe){
 
- $this->db->select_sum('distinct pt.qty')
+ $this->db->select_sum($this->db->distinct('pt.qty'))
 
  ->select(['pt.tipe','k.nama namaKategori','pt.tgl'])
 
