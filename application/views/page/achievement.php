@@ -503,7 +503,7 @@ echo "</tr>";
                         <div class="list-icon-container done">
                             <i class="icon-check"></i>
                         </div>
-                        <div class="list-datetime"> <?php echo $sampling->storeBC ?> / <?php echo $sampling->totalToko ?> </div>
+                        <div class="list-datetime"> <?php echo $sampling->storeBc ?> / <?php echo $sampling->totalToko ?> </div>
                         <div class="list-item-content">
                             <h3 class="uppercase">
                                 <a href="javascript:;">Store</a>
