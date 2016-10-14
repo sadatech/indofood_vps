@@ -3131,7 +3131,7 @@ public function achievementSamplingReport()
 
     "(select sum(samplingQty) from sada_form_contact where kategori_id = 1 and beli= 'Y')  strikeSamplingBc",
 
-    '(select count(store_id) from sada_form_contact where kategori_id = 2) storeBTI',
+    '(select count(distinct store_id) from sada_form_contact where kategori_id = 2) storeBTI',
 
     '(select sum(samplingQty) from sada_form_contact where kategori_id = 2)  samplingBTI',
 
