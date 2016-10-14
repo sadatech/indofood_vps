@@ -3119,7 +3119,7 @@ public function achievementSamplingReport()
 
   return $this->db->select(['(select count(distinct store_id) from sada_form_contact where kategori_id = 1) storeBc',
 
-    '(select sum(distint samplingQty) from sada_form_contact where kategori_id = 2) samplingBc',
+    '(select sum(distinct samplingQty) from sada_form_contact where kategori_id = 2) samplingBc',
 
     "(select sum(distinct samplingQty) from sada_form_contact where kategori_id = 1 and beli= 'Y')  strikeSamplingBc",
 
