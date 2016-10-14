@@ -3119,7 +3119,15 @@ public function achievementSamplingReport()
 
   return $this->db->select(['(select count(store_id) from sada_form_contact where kategori_id = 1) storeBc',
 
-    '(select sum(samplingQty) from sada_form_contact os where kategori_id = 1)  samplingBc',
+    '(
+    SELECT
+      sum(samplingQty)
+    FROM
+      sada_form_contact os
+    WHERE
+      kategori_id = 1
+    AND (SELECT id_toko FROM sada_toko where id_toko = os.store_id) = sada_form_contact.store_id
+  ) samplingBc',
 
     "(select sum(samplingQty) from sada_form_contact where kategori_id = 1 and beli= 'Y')  strikeSamplingBc",
 
