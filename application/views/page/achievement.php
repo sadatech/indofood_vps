@@ -487,7 +487,7 @@ echo "</tr>";
     <div class="portlet-title">
         <div class="caption">
             <i class=" icon-layers font-green"></i>
-            <span class="caption-subject font-green bold uppercase">Sampling BTI </span>
+            <span class="caption-subject font-green bold uppercase">Sampling BC </span>
         </div>
     </div>
     <div class="portlet-body">
@@ -503,7 +503,7 @@ echo "</tr>";
                         <div class="list-icon-container done">
                             <i class="icon-check"></i>
                         </div>
-                        <div class="list-datetime"> <?php echo $sampling->storeBTI ?> / <?php echo $sampling->totalToko ?> </div>
+                        <div class="list-datetime"> <?php echo $sampling->storeBC ?> / <?php echo $sampling->totalToko ?> </div>
                         <div class="list-item-content">
                             <h3 class="uppercase">
                                 <a href="javascript:;">Store</a>
