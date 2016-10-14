@@ -3133,7 +3133,7 @@ public function achievementSamplingReport()
 
     '(select sum(distinct samplingQty) from sada_form_contact where kategori_id = 3)  samplingRusk',
 
-    "(select sum(distinct samplingQty) from sada_form_contact where kategori_id = 3 and beli= 'Y')  strikeSamplingRusk",
+    "(select sum(distinct samplingQty) from sada_form_contact where kategori_id = 3 and beli= 'N')  strikeSamplingRusk",
 
     '(select count(distinct store_id) from sada_form_contact where kategori_id = 4) storePudding',
 
