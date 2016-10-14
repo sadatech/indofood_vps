@@ -2777,7 +2777,7 @@ WHERE
   `k`.`nama` = '".$kategori."'
 AND `pt`.`tipe` = '".$tipe."'
 AND `pt`.`id_toko` = '".$filter['toko_id']."'
-AND DATE(pt.tgl) = '".filter['tanggal']."'
+AND DATE(pt.tgl) = '".$filter['tanggal']."'
 AND `pt`.`id_user` = '".$filter['user_id']."'";
 
 //  $this->db->select_sum('pt.qty')
