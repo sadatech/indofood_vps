@@ -3117,7 +3117,7 @@ public function achievementSamplingReport()
 
 {
 
-  return $this->db->select(['(select count(store_id) from sada_form_contact where kategori_id = 1) storeBc',
+  return $this->db->select(['(select count(distinct store_id) from sada_form_contact where kategori_id = 1) storeBc',
 
     '(
     SELECT
