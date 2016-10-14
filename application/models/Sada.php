@@ -2707,7 +2707,7 @@ public function skuDetails($tanggal,$tipe,$produkId)
 
 {
 
-  return $this->db->select_sum('pt.qty')
+  return $this->db->distinct()->select_sum('pt.qty')
 
   ->from('sada_produk_terjual pt')
 
@@ -2755,7 +2755,7 @@ public function addTokoTarget($id)
 
 public function skuCount($filter,$kategori,$tipe){
 
- $this->db->select_sum('pt.qty')
+ $this->db->distinct()->select_sum('pt.qty')
 
  ->select(['pt.tipe','k.nama namaKategori','pt.tgl'])
 
