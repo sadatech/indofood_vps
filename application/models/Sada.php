@@ -2711,7 +2711,7 @@ public function skuDetails($tanggal,$tipe,$produkId)
 
   ->from('sada_produk_terjual pt')
 
-  ->join('sada_produk p','pt.id_produk = p.id_produk','inner')
+  ->join('sada_produk p','pts.id_produk = p.id_produk','inner')
 
   ->where('DATE(pt.tgl)',$tanggal)
 
@@ -2775,7 +2775,7 @@ public function skuCount($filter,$kategori,$tipe){
 
  if($filter['user_id'] != ''){
 
-  $this->db->where('pts.id_user',$filter['user_id']);
+  $this->db->where('pt.id_user',$filter['user_id']);
 
 }
 
