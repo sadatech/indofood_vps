@@ -514,7 +514,7 @@ echo "</tr>";
                         <div class="list-icon-container done">
                             <i class="icon-check"></i>
                         </div>
-                        <div class="list-datetime"> <?php echo ($sampling->samplingBTI == null ) ? 0 : $sampling->samplingBTI  ?> </div>
+                        <div class="list-datetime"> <?php echo ($sampling->samplingBc == null ) ? 0 : $sampling->samplingBc  ?> </div>
                         <div class="list-item-content">
                             <h3 class="uppercase">
                                 <a href="javascript:;">Sampling</a>
@@ -525,7 +525,7 @@ echo "</tr>";
                         <div class="list-icon-container done">
                             <i class="icon-check"></i>
                         </div>
-                        <div class="list-datetime"> <?php echo ( $sampling->strikeSamplingBTI == 0 )  ? 0 : $sampling->strikeSamplingBTI  ?> </div>
+                        <div class="list-datetime"> <?php echo ( $sampling->strikeSamplingBc == 0 )  ? 0 : $sampling->strikeSamplingBc  ?> </div>
                         <div class="list-item-content">
                             <h3 class="uppercase">
                                 <a href="javascript:;">Strike Sampling</a>
