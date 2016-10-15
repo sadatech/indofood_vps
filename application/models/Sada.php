@@ -2802,7 +2802,7 @@ public function skuCount($filter,$kategori,$tipe){
 
   $this->db->where('pt.id_user',$filter['user_id']);
 
-// }
+}
 
 return $this->db->get();
 
