@@ -2707,7 +2707,7 @@ public function skuDetails($tanggal,$tipe,$produkId)
 
 {
 
-  return $this->db->select_sum('distinct pt.qty')
+  return $this->db->select_sum('pt.qty')
 
   ->from('sada_produk_terjual pt')
 
