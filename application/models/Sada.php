@@ -2703,7 +2703,7 @@ public function CountAchievement($id_cabang)
 
 }
 
-public function skuDetails($tanggal,$tipe,$produkId,$_user_id,$_toko_id,$kategori)
+public function skuDetails($tanggal,$tipe,$produkId,$_user_id,$_toko_id)
 
 {
 
@@ -2712,10 +2712,6 @@ public function skuDetails($tanggal,$tipe,$produkId,$_user_id,$_toko_id,$kategor
   ->from('sada_produk_terjual pt')
 
   ->join('sada_produk p','pt.id_produk = p.id_produk','inner')
-
-  ->join('sada_kategori k','k.id = p.id_kategori')
-
-  ->where('k.nama',$kategori)
 
   ->where('DATE(pt.tgl)',$tanggal)
 
