@@ -2703,15 +2703,19 @@ public function CountAchievement($id_cabang)
 
 }
 
-public function skuDetails($tanggal,$tipe,$produkId)
+public function skuDetails($tanggal,$tipe,$produkId,$_user_id,$_toko_id,$kategori)
 
 {
 
-  return $this->db->select_sum('pt.qty')
+  $this->db->select_sum('pt.qty')
 
   ->from('sada_produk_terjual pt')
 
   ->join('sada_produk p','pt.id_produk = p.id_produk','inner')
+
+  ->join('sada_kategori k','k.id = p.id_kategori')
+
+  ->where('k.nama',$kategori)
 
   ->where('DATE(pt.tgl)',$tanggal)
 
@@ -2719,7 +2723,15 @@ public function skuDetails($tanggal,$tipe,$produkId)
 
   ->where('p.id_produk',$produkId)
 
-  ->get();
+  ->where('pt.id_toko',$_toko_id);
+
+   if($filter['user_id'] != ''){
+
+    $this->db->where('pt.id_user',$_user_id);
+
+  }
+
+  return $this->db->get();
 
   // $q = "SELECT
   //       SUM(DISTINCT `pt`.`qty`) AS `qty`

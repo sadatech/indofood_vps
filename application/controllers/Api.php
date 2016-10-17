@@ -2759,7 +2759,7 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
         foreach ($produk->result() as $countDetails) {
 
-          $produkDetails = $this->sada->skuDetails($countFilter['tanggal'],'box',$countDetails->id_produk);
+          $produkDetails = $this->sada->skuDetails($countFilter['tanggal'],'box',$countDetails->id_produk,$countFilter['user_id'],$countFilter['toko_id'],$countDetails->kategoriNama);
 
           array_push($result[$arrayCount],($produkDetails->row()->qty == null ) ? 0: $produkDetails->row()->qty );
 
