@@ -2765,7 +2765,7 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
           if($countDetails->kategoriNama == 'BC' || $countDetails->kategoriNama == 'BTI'){
 
-            $produkSachet = $this->sada->skuDetails($countFilter['tanggal'],'sachet',$countDetails->id_produk);
+            $produkSachet = $this->sada->skuDetails($countFilter['tanggal'],'sachet',$countDetails->id_produk,$countFilter['user_id'],$countFilter['toko_id']);
 
             array_push($result[$arrayCount],($produkSachet->row()->qty == null ) ? 0: $produkSachet->row()->qty );
 
