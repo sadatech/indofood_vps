@@ -2230,7 +2230,7 @@ public function getEmail($id_toko)
 
     ->select(['cabang.email_pic','cabang.nama','cabang.pic','cabang.aspm','cabang.email_aspm'])
 
-    ->join('sada_kota kota','kota.id_kota = sada_toko.id_kota','inner')
+    ->join('sada_kota kota','kotas.id_kota = sada_toko.id_kota','inner')
     ->join('sada_cabang cabang','kota.id_cabang = cabang.id_cabang','inner')
     ->get_where('sada_toko',array('id_toko'=>$id_toko));
 
