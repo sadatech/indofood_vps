@@ -2721,7 +2721,7 @@ public function skuDetails($tanggal,$tipe,$produkId,$_user_id,$_toko_id)
 
   ->where('pt.id_toko',$_toko_id);
 
-   if($filter['user_id'] != ''){
+   if($_user_id['user_id'] != ''){
 
     $this->db->where('pt.id_user',$_user_id);
 
