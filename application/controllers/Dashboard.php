@@ -4182,8 +4182,6 @@ public function reporttotalcontact()
 
 		$dataDas['js'][]	= "assets/pages/scripts/components-date-time-pickers.min.js";
 
-		$dataDas['js'][]	= "https://code.jquery.com/jquery-1.10.2.js";
-
 		$dataDas['js'][] ="assets/custom/select2Filter.js";
 
 		$dataDas['js'][] ="assets/custom/CountTotal.js";

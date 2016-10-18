@@ -33,7 +33,7 @@
                         </div>
                         <div class="form-group">
                           <div class="col-md-12">
-
+                            <!-- <select id="tl" name="tl"  class=" form-control select2"  data-width="18%"></select> -->
                             <select id="ba" name="ba" class="  form-control select2" data-width="18%"></select>
                             <select id="toko" name="toko"  class=" form-control select2"  data-width="18%"></select>
                             <select id="cabang" name="cabang"  class="select2 form-control"  data-width="18%"></select>
@@ -76,31 +76,46 @@
 
                 </div>
             </div>
-            <table class="table table-striped table-bordered table-hover table-checkable order-column" id="dataContactTotal">
-            <thead>
-                <tr>
-                    <th> No. </th>
-                    <th> Cabang </th>
-                    <th> Kota </th>
-                    <th> Tanggal </th>
-                    <th> Nama BA </th>
-                    <th> Nama Toko </th>
-                    <th> Nama Orang Tua </th>
-                    <th> Nama Anak </th>
-                    <th> No telp </th>
-                    <th> Tgl Lahir Anak </th>
-                    <th> Status </th>
-                    <th> Beli/Tidak </th>
-                    <th> Merk Sebelumnya </th>
-                    <th> Sampling </th>
-                    <th> Sampling Wet/Dry </th>
-                    <th> Samping Segment </th>
-                </tr>
-            </thead>
-            <tbody> 
+            <table style="overflow-x: scroll;" class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1" border="1">
+                <thead>
+                    <tr align='center'>
+                        <th rowspan="2" width='100'>Cabang</th>
+                        <th rowspan="2">Nama BA</th>
+                        <!-- <th rowspan="2">Nama TL</th> -->
+                        <th rowspan="2">Status ( Mobile / Stay )</th>
+                        <th rowspan="2">Costumer Id</th>
+                        <th rowspan="2">Nama Store</th>
+                        <th colspan="3">Contact</th>
+                        <th colspan="5">Sampling</th>
+                        <th colspan="5">Strike Sampling</th>
+                    </tr>
+                    <tr id="sampling">
+                        <td>Contact</td>
+                        <td>Switching</td>
+                        <td>New Recruit</td>
 
-            </tbody>
-        </table>
+                        <td>BC</td>
+                        <td>BTI</td>
+                        <td>Rusk </td>
+                        <td>Pudding</td>
+                        <td>Others</td>
+                        
+                        <td>BC</td>
+                        <td>BTI</td>
+                        <td>Rusk </td>
+                        <td>Pudding</td>
+                        <td>Others</td>
+                    </tr>
+                    <tr>
+                        
+                    </tr>
+                </thead>
+                <tbody id="dataContactTotal"> 
+                    <tr>
+                        <td colspan="20" id="loading"></td>
+                    </tr>
+                </tbody>
+            </table>
             <!-- <div class="btn-group">
                 <a href="#" class="btn sbold green" id="excelCDetail">Download Excel</a>
             </div> -->
