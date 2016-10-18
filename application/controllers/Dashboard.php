@@ -4178,7 +4178,7 @@ public function reporttotalcontact()
 
 	$dataDas['js'][] ="assets/custom/select2Filter.js";
 
-	// $dataDas['js'][] ="assets/custom/CountTotal.js";
+	$dataDas['js'][] ="assets/custom/CountTotal.js";
 
 	$this->load->view('view_awal', $dataDas, FALSE);
 
