@@ -51,5 +51,6 @@ $("#a").validate({
             });
         }
     });
+        $("#exceltotalcontact").attr('href',url);
     }
 });
