@@ -4173,9 +4173,7 @@ public function reporttotalcontact()
 		sada_form_contact.tgl_contact BETWEEN '".$arr['startDate']."'
 		AND '".$arr['endDate']."'";
 
-		if($arr['ba'] != ""){
-			$q .= " AND sada_form_contact.user_id = '".$arr['ba']."'";
-		}
+		$q .= ($arr['ba'] != "") ? " AND sada_form_contact.user_id = '".$arr['ba']."'" : "";
 
 		$q .="GROUP BY
 		date(
