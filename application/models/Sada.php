@@ -2029,8 +2029,9 @@ public function contactTotal($arr = array(),$limit_excel)
     sada_form_contact.tgl_contact
     ),
     sada_form_contact.user_id,
-    sada_form_contact.store_id";
-    if ($limit_excel == "") $q .=" limit 10";
+    sada_form_contact.store_id
+
+    LIMIT 10";
     return $this->db->query($q);
 }
 
