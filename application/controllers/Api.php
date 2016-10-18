@@ -3463,7 +3463,7 @@ kota.nama_kota 'nama_kota'
 
 FROM sada_form_contact LEFT JOIN sada_user ON sada_form_contact.user_id=sada_user.id_user ".$join." ".$where."  GROUP BY date(sada_form_contact.tgl_contact),sada_form_contact.user_id,sada_form_contact.store_id";
 
-  // echo $select;
+  /// echo $select;
 
 $data = $this->db->query($select);
 
