@@ -3082,7 +3082,7 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
     $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->get("endDate")." 23:59:59"));
 
-    $data = $this->sada->contactTotal($arr,$limit_excel="");
+    $data = $this->sada->contactTotal($arr,$limit_excel="ada");
     
     $datas = array();
     $no = 1;
