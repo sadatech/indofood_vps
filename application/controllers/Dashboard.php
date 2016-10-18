@@ -4186,7 +4186,7 @@ public function reporttotalcontact()
 		LIMIT 10
 		";
 		echo $q;
-		$this->db->query($q);
+		// $this->db->query($q);
 	}
 	else{
 		$dataDas['title'] 	= "Total Contact";
