@@ -88,7 +88,6 @@
                         <th>Contact</th>
                         <th>Sampling</th>
                         <th>Strike Sampling</th>
-                    </tr>
                     <!-- <tr id="sampling">
                         <td>Contact</td>
                         <td>Switching</td>
