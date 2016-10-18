@@ -4176,6 +4176,8 @@ public function reporttotalcontact()
 		$q .= ($arr['ba'] != "") ? " AND sada_form_contact.user_id = '".$arr['ba']."'" : "";
 
 		$q .= ($arr['toko'] != "") ? " AND sada_form_contact.store_id = '".$arr['toko']."'" : "";
+		
+		$q .= ($arr['cabang'] != "") ? " AND (select (select id_cabang from sada_cabang where sada_cabang.id_cabang = sada_kota.id_cabang) from sada_kota where id_kota = sada_toko.id_toko) = '".$arr['cabang']."'" : "";
 
 		$q .="GROUP BY
 		date(
