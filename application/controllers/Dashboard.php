@@ -4237,472 +4237,472 @@ public function reportpromo()
 
 	if ($this->input->post()) {
 
-		$this->load->model('datatable');
+// 		$this->load->model('datatable');
 
-		// if ($this->input->post()) {
+// 		// if ($this->input->post()) {
 
 
 
-		$arr['tl'] = $this->input->post("tl");
+// 		$arr['tl'] = $this->input->post("tl");
 
-		$arr['ba'] = $this->input->post("ba");
+// 		$arr['ba'] = $this->input->post("ba");
 
-		$arr['toko'] = $this->input->post("toko");
+// 		$arr['toko'] = $this->input->post("toko");
 
-		$arr['cabang'] = $this->input->post("cabang");
+// 		$arr['cabang'] = $this->input->post("cabang");
 
-		$arr['kota'] = $this->input->post("kota");
+// 		$arr['kota'] = $this->input->post("kota");
 
-		$arr['startDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 00:00:00"));
+// 		$arr['startDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 00:00:00"));
 
-		$arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 23:59:59"));
+// 		$arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 23:59:59"));
 
 
 
-		$select = "SELECT DISTINCT sada_promo.tipe,sada_promo.jenis,sada_promo.selesaiTanggal,CAST(sada_promo.timestamp AS DATE) timestamp,
-		(
+// 		$select = "SELECT DISTINCT sada_promo.tipe,sada_promo.jenis,sada_promo.selesaiTanggal,CAST(sada_promo.timestamp AS DATE) timestamp,
+// 		(
 
-		SELECT
+// 		SELECT
 
-		GROUP_CONCAT(prom.awalTanggal SEPARATOR '\n')
+// 		GROUP_CONCAT(prom.awalTanggal SEPARATOR '\n')
 
-		FROM
+// 		FROM
 
-		sada_promo AS prom
+// 		sada_promo AS prom
 
-		WHERE
+// 		WHERE
 
-		prom.tipe = sada_promo.tipe
+// 		prom.tipe = sada_promo.tipe
 
-		AND prom.jenis = sada_promo.jenis
+// 		AND prom.jenis = sada_promo.jenis
 
-		AND prom.user_id = sada_user.id_user
+// 		AND prom.user_id = sada_user.id_user
 
-		AND prom.store_id = toko.id_toko
+// 		AND prom.store_id = toko.id_toko
 
-		AND date(prom.timestamp) = date(sada_promo.timestamp)
+// 		AND date(prom.timestamp) = date(sada_promo.timestamp)
 
-		) AS 'awalTanggal',
-		(
+// 		) AS 'awalTanggal',
+// 		(
 
-		SELECT
+// 		SELECT
 
-		GROUP_CONCAT(prom.selesaiTanggal SEPARATOR '\n')
+// 		GROUP_CONCAT(prom.selesaiTanggal SEPARATOR '\n')
 
-		FROM
+// 		FROM
 
-		sada_promo AS prom
+// 		sada_promo AS prom
 
-		WHERE
+// 		WHERE
 
-		prom.tipe = sada_promo.tipe
+// 		prom.tipe = sada_promo.tipe
 
-		AND prom.jenis = sada_promo.jenis
+// 		AND prom.jenis = sada_promo.jenis
 
-		AND prom.user_id = sada_user.id_user
+// 		AND prom.user_id = sada_user.id_user
 
-		AND prom.store_id = toko.id_toko
+// 		AND prom.store_id = toko.id_toko
 
-		AND date(prom.timestamp) = date(sada_promo.timestamp)
+// 		AND date(prom.timestamp) = date(sada_promo.timestamp)
 
-		) AS 'selesaiTanggal',
+// 		) AS 'selesaiTanggal',
 
-		(
+// 		(
 
-		SELECT
+// 		SELECT
 
-		GROUP_CONCAT(prom.merk SEPARATOR '\n')
+// 		GROUP_CONCAT(prom.merk SEPARATOR '\n')
 
-		FROM
+// 		FROM
 
-		sada_promo AS prom
+// 		sada_promo AS prom
 
-		WHERE
+// 		WHERE
 
-		prom.tipe = sada_promo.tipe
+// 		prom.tipe = sada_promo.tipe
 
-		AND prom.jenis = sada_promo.jenis
+// 		AND prom.jenis = sada_promo.jenis
 
-		AND prom.user_id = sada_user.id_user
+// 		AND prom.user_id = sada_user.id_user
 
-		AND prom.store_id = toko.id_toko
+// 		AND prom.store_id = toko.id_toko
 
-		AND date(prom.timestamp) = date(sada_promo.timestamp)
+// 		AND date(prom.timestamp) = date(sada_promo.timestamp)
 
-		) AS 'merk',
+// 		) AS 'merk',
 
-		(
+// 		(
 
-		SELECT
+// 		SELECT
 
-		GROUP_CONCAT(prom.foto SEPARATOR ',')
+// 		GROUP_CONCAT(prom.foto SEPARATOR ',')
 
-		FROM
+// 		FROM
 
-		sada_promo AS prom
+// 		sada_promo AS prom
 
-		WHERE
+// 		WHERE
 
-		prom.merk LIKE '%romina%'
+// 		prom.merk LIKE '%romina%'
 
-		AND prom.tipe = sada_promo.tipe
+// 		AND prom.tipe = sada_promo.tipe
 
-		AND prom.jenis = sada_promo.jenis
+// 		AND prom.jenis = sada_promo.jenis
 
-		AND prom.user_id = sada_user.id_user
+// 		AND prom.user_id = sada_user.id_user
 
-		AND prom.store_id = toko.id_toko
+// 		AND prom.store_id = toko.id_toko
 
-		AND date(prom.timestamp) = date(sada_promo.timestamp)
+// 		AND date(prom.timestamp) = date(sada_promo.timestamp)
 
-		) AS 'promina_foto',
+// 		) AS 'promina_foto',
 
-		(
+// 		(
 
-		SELECT
+// 		SELECT
 
-		GROUP_CONCAT(prom.foto SEPARATOR ',')
+// 		GROUP_CONCAT(prom.foto SEPARATOR ',')
 
-		FROM
+// 		FROM
 
-		sada_promo AS prom
+// 		sada_promo AS prom
 
-		WHERE
+// 		WHERE
 
-		prom.merk NOT LIKE '%romina%'
+// 		prom.merk NOT LIKE '%romina%'
 
-		AND prom.tipe = sada_promo.tipe
+// 		AND prom.tipe = sada_promo.tipe
 
-		AND prom.jenis = sada_promo.jenis
+// 		AND prom.jenis = sada_promo.jenis
 
-		AND prom.user_id = sada_user.id_user
+// 		AND prom.user_id = sada_user.id_user
 
-		AND prom.store_id = toko.id_toko
+// 		AND prom.store_id = toko.id_toko
 
-		AND date(prom.timestamp) = date(sada_promo.timestamp)
+// 		AND date(prom.timestamp) = date(sada_promo.timestamp)
 
-		) AS 'kompetitor_foto',
+// 		) AS 'kompetitor_foto',
 
-		(
+// 		(
 
-		SELECT
+// 		SELECT
 
-		GROUP_CONCAT(prom.keterangan SEPARATOR '\n')
+// 		GROUP_CONCAT(prom.keterangan SEPARATOR '\n')
 
-		FROM
+// 		FROM
 
-		sada_promo AS prom
+// 		sada_promo AS prom
 
-		WHERE
+// 		WHERE
 
-		prom.merk  LIKE '%romina%'
+// 		prom.merk  LIKE '%romina%'
 
-		AND prom.tipe = sada_promo.tipe
+// 		AND prom.tipe = sada_promo.tipe
 
-		AND prom.jenis = sada_promo.jenis
+// 		AND prom.jenis = sada_promo.jenis
 
-		AND prom.user_id = sada_user.id_user
+// 		AND prom.user_id = sada_user.id_user
 
-		AND prom.store_id = toko.id_toko
+// 		AND prom.store_id = toko.id_toko
 
-		AND date(prom.timestamp) = date(sada_promo.timestamp)
+// 		AND date(prom.timestamp) = date(sada_promo.timestamp)
 
-		) AS 'keteranganPromina',
+// 		) AS 'keteranganPromina',
 
-		(
+// 		(
 
-		SELECT
+// 		SELECT
 
-		GROUP_CONCAT(prom.keterangan SEPARATOR '\n')
+// 		GROUP_CONCAT(prom.keterangan SEPARATOR '\n')
 
-		FROM
+// 		FROM
 
-		sada_promo AS prom
+// 		sada_promo AS prom
 
-		WHERE
+// 		WHERE
 
-		prom.merk NOT LIKE '%romina%'
+// 		prom.merk NOT LIKE '%romina%'
 
-		AND prom.tipe = sada_promo.tipe
+// 		AND prom.tipe = sada_promo.tipe
 
-		AND prom.jenis = sada_promo.jenis
+// 		AND prom.jenis = sada_promo.jenis
 
-		AND prom.user_id = sada_user.id_user
+// 		AND prom.user_id = sada_user.id_user
 
-		AND prom.store_id = toko.id_toko
+// 		AND prom.store_id = toko.id_toko
 
-		AND date(prom.timestamp) = date(sada_promo.timestamp)
+// 		AND date(prom.timestamp) = date(sada_promo.timestamp)
 
-		) AS 'keteranganKomptetitor',
+// 		) AS 'keteranganKomptetitor',
 
-		";
+// 		";
 
-		$select .= "toko.id_toko,
+// 		$select .= "toko.id_toko,
 
-		toko.store_id,
+// 		toko.store_id,
 
-		toko.id_kota,
+// 		toko.id_kota,
 
-		toko.nama AS 'nama_toko',
+// 		toko.nama AS 'nama_toko',
 
-		sada_user.id_user AS 'id_user',
+// 		sada_user.id_user AS 'id_user',
 
-		sada_user.nama AS 'nama_user',
+// 		sada_user.nama AS 'nama_user',
 
-		sada_user.stay AS 'stay_user',
+// 		sada_user.stay AS 'stay_user',
 
 		
-		";
+// 		";
 
 
-// (
-//  			SELECT
-//  				nama
-//  			FROM
-//  				sada_user scb
-//  			WHERE
-//  				tl.id_user = scb.id_user
-//  		) AS 'nama_tl',
+// // (
+// //  			SELECT
+// //  				nama
+// //  			FROM
+// //  				sada_user scb
+// //  			WHERE
+// //  				tl.id_user = scb.id_user
+// //  		) AS 'nama_tl',
 
-		$where = "";
+// 		$where = "";
 
-		if ($arr['startDate'] != "1970-01-01" && $arr['endDate'] != "1970-01-01") {
+// 		if ($arr['startDate'] != "1970-01-01" && $arr['endDate'] != "1970-01-01") {
 
-			$where = "WHERE CAST(sada_promo.timestamp AS DATE) BETWEEN '".$arr['startDate']."' and '".$arr['endDate']."'";
+// 			$where = "WHERE CAST(sada_promo.timestamp AS DATE) BETWEEN '".$arr['startDate']."' and '".$arr['endDate']."'";
 
-			if ($arr['tl'] != 0) {
+// 			if ($arr['tl'] != 0) {
 
-				$where .= " AND sada_user.id_user='".$arr['tl']."'";
+// 				$where .= " AND sada_user.id_user='".$arr['tl']."'";
 
-			}
+// 			}
 
-			if ($arr['ba'] != 0) {
+// 			if ($arr['ba'] != 0) {
 
-				$where .= " AND sada_user.id_user='".$arr['ba']."'";
+// 				$where .= " AND sada_user.id_user='".$arr['ba']."'";
 
-			}
+// 			}
 
-		}
+// 		}
 
-		else{
+// 		else{
 
-			if ($arr['tl'] != 0) {
+// 			if ($arr['tl'] != 0) {
 
-				$where = " WHERE sada_user.id_user='".$arr['tl']."'";
+// 				$where = " WHERE sada_user.id_user='".$arr['tl']."'";
 
-			}
+// 			}
 
-			if ($arr['ba'] != 0) {
+// 			if ($arr['ba'] != 0) {
 
-				$where = " WHERE sada_user.id_user='".$arr['ba']."'";
+// 				$where = " WHERE sada_user.id_user='".$arr['ba']."'";
 
-			}
+// 			}
 
-		}
+// 		}
 
-		$join = "";
+// 		$join = "";
 
-		if ($arr['tl'] == 0) {
+// 		if ($arr['tl'] == 0) {
 
-			if ($arr['ba'] !=0) {
+// 			if ($arr['ba'] !=0) {
 
-				if ($arr['toko'] != 0) {
+// 				if ($arr['toko'] != 0) {
 
-					$where .= " AND toko.id_toko='".$arr['toko']."'";
+// 					$where .= " AND toko.id_toko='".$arr['toko']."'";
 
-					if ($arr['cabang'] !=0) {
+// 					if ($arr['cabang'] !=0) {
 
-						if ($arr['kota'] !=0) {
+// 						if ($arr['kota'] !=0) {
 
-							$where .= " AND cabang.id_cabang in (SELECT id_cabang FROM sada_kota WHERE id_cabang='".$arr['cabang']."')";
+// 							$where .= " AND cabang.id_cabang in (SELECT id_cabang FROM sada_kota WHERE id_cabang='".$arr['cabang']."')";
 
-						}
+// 						}
 
-						else{
+// 						else{
 
-							$where .= " AND cabang.id_cabang='".$arr['cabang']."'";
+// 							$where .= " AND cabang.id_cabang='".$arr['cabang']."'";
 
-						}
+// 						}
 
-					}
+// 					}
 
-				}
+// 				}
 
-				else{
+// 				else{
 
-					if ($arr['cabang'] != 0) {
+// 					if ($arr['cabang'] != 0) {
 
-						$where .= " AND cabang.id_cabang in (SELECT id_cabang FROM sada_kota WHERE id_cabang='".$arr['cabang']."')";
+// 						$where .= " AND cabang.id_cabang in (SELECT id_cabang FROM sada_kota WHERE id_cabang='".$arr['cabang']."')";
 
-					}
+// 					}
 
-				}
+// 				}
 
-			}
+// 			}
 
-		}
+// 		}
 
-		else{
+// 		else{
 
-			if ($arr['ba']==0) {
+// 			if ($arr['ba']==0) {
 
-				$select .= "";
+// 				$select .= "";
 
-			}
+// 			}
 
-		}
+// 		}
 
 
 
-		$join .= " LEFT JOIN sada_toko toko ON sada_promo.store_id=toko.id_toko";
+// 		$join .= " LEFT JOIN sada_toko toko ON sada_promo.store_id=toko.id_toko";
 
-		$join .= " LEFT JOIN sada_kota kota ON toko.id_kota=kota.id_kota";
+// 		$join .= " LEFT JOIN sada_kota kota ON toko.id_kota=kota.id_kota";
 
-		$join .= " LEFT JOIN sada_cabang cabang ON kota.id_cabang=cabang.id_cabang";
+// 		$join .= " LEFT JOIN sada_cabang cabang ON kota.id_cabang=cabang.id_cabang";
 
-		// $join .= " LEFT JOIN sada_tl_in_kota tl ON toko.id_toko = tl.id_toko";
+// 		// $join .= " LEFT JOIN sada_tl_in_kota tl ON toko.id_toko = tl.id_toko";
 
 
 
 
-		$select .= "
+// 		$select .= "
 
-		cabang.nama AS 'nama_cabang',
+// 		cabang.nama AS 'nama_cabang',
 
-		kota.nama_kota 'nama_kota'
+// 		kota.nama_kota 'nama_kota'
 
-		FROM sada_promo LEFT JOIN sada_user ON sada_promo.user_id=sada_user.id_user ".$join." ".$where." ";
+// 		FROM sada_promo LEFT JOIN sada_user ON sada_promo.user_id=sada_user.id_user ".$join." ".$where." ";
 
-		  // echo $select;
+// 		  // echo $select;
 
 
 
-		// echo $select;
+// 		// echo $select;
 
-		$table = "sada_user";
+// 		$table = "sada_user";
 
-		$column = array('nik','nama','akses');
+// 		$column = array('nik','nama','akses');
 
-		$odb = array("id_user"=>"desc");
+// 		$odb = array("id_user"=>"desc");
 
-		$datas = $this->db->query($select);
-			// echo $select;
-		$data = array();
+// 		$datas = $this->db->query($select);
+// 			// echo $select;
+// 		$data = array();
 
-		$no = 1;
+// 		$no = 1;
 
-			// $no = $_POST['start'];
+// 			// $no = $_POST['start'];
 
-		foreach ($datas->result() as $datatable) {
+// 		foreach ($datas->result() as $datatable) {
 
-			$row = array();
+// 			$row = array();
 
-			$row[] = $no++;
+// 			$row[] = $no++;
 
-			$row[] = $datatable->nama_cabang;
+// 			$row[] = $datatable->nama_cabang;
 
-			$row[] = $datatable->nama_kota;
+// 			$row[] = $datatable->nama_kota;
 
-			$row[] = $datatable->store_id;
+// 			$row[] = $datatable->store_id;
 
-			$row[] = $datatable->nama_toko;
+// 			$row[] = $datatable->nama_toko;
 
-			$row[] = $datatable->nama_user;
+// 			$row[] = $datatable->nama_user;
 
-			$tl_nama = $this->db->select('(select nama from sada_user where sada_user.id_user = sada_tl_in_kota.id_user) as tl_name')->where('id_toko',$datatable->id_toko)->get('sada_tl_in_kota');
-			if (!$tl_nama->num_rows()>0) {
-				$row[] = "<p class='alert alert-warning'><strong>Tidak Mempunyai TL</strong></p>";
-			}
-			else{
-				$nam = $tl_nama->row();
-		        // foreach ($tl_nama->result() as $n) {
-				$row[] = $nam->tl_name;
-		        // }
-			}
+// 			$tl_nama = $this->db->select('(select nama from sada_user where sada_user.id_user = sada_tl_in_kota.id_user) as tl_name')->where('id_toko',$datatable->id_toko)->get('sada_tl_in_kota');
+// 			if (!$tl_nama->num_rows()>0) {
+// 				$row[] = "<p class='alert alert-warning'><strong>Tidak Mempunyai TL</strong></p>";
+// 			}
+// 			else{
+// 				$nam = $tl_nama->row();
+// 		        // foreach ($tl_nama->result() as $n) {
+// 				$row[] = $nam->tl_name;
+// 		        // }
+// 			}
 
-			// if ($datatable->nama_tl == null) {
-			// 	$row[] = "Tidak ada TL";
-			// }
-			// else{
-			// 	// $row[] = "Under Constrouction";
-			// 	$row[] = $datatable->nama_tl;
-			// }
+// 			// if ($datatable->nama_tl == null) {
+// 			// 	$row[] = "Tidak ada TL";
+// 			// }
+// 			// else{
+// 			// 	// $row[] = "Under Constrouction";
+// 			// 	$row[] = $datatable->nama_tl;
+// 			// }
 
-				// $row[] = "Under Constrouction";
+// 				// $row[] = "Under Constrouction";
 
-			if ($datatable->tipe == "consumerPromo") {
+// 			if ($datatable->tipe == "consumerPromo") {
 
-				$row[] = "Consumer Promo";
+// 				$row[] = "Consumer Promo";
 
-			}
+// 			}
 
-			if ($datatable->tipe == "secondaryDisplay") {
+// 			if ($datatable->tipe == "secondaryDisplay") {
 
-				$row[] = "Secondary Display";
+// 				$row[] = "Secondary Display";
 
-			}
+// 			}
 
-			if ($datatable->tipe == "activation") {
+// 			if ($datatable->tipe == "activation") {
 
-				$row[] = "Activation";
+// 				$row[] = "Activation";
 
-			}
+// 			}
 
-			$row[] = $datatable->jenis;
+// 			$row[] = $datatable->jenis;
 
-			$row[] = $datatable->keteranganPromina;
+// 			$row[] = $datatable->keteranganPromina;
 
-			$row[] = $datatable->keteranganKomptetitor;
+// 			$row[] = $datatable->keteranganKomptetitor;
 
-			$row[] = $datatable->awalTanggal;
+// 			$row[] = $datatable->awalTanggal;
 
-			$row[] = $datatable->selesaiTanggal;
+// 			$row[] = $datatable->selesaiTanggal;
 
-			$row[] = $datatable->merk;
+// 			$row[] = $datatable->merk;
 
-			$row[] = $datatable->timestamp;
+// 			$row[] = $datatable->timestamp;
 
-			$foto_promina = explode(',', $datatable->promina_foto);
+// 			$foto_promina = explode(',', $datatable->promina_foto);
 
-			$promina_foto = "";
-			foreach ($foto_promina as $key => $value) {
+// 			$promina_foto = "";
+// 			foreach ($foto_promina as $key => $value) {
 
-					// echo $value;
-				$value = trim($value);
-				if ($value == null) {
-					$promina_foto .= "Foto Belum Ada";
-				}
-				else {
-					$promina_foto .= "<img src='".base_url('')."assets/upload/".$value."' class='img-thumbnail'>";
-				}
+// 					// echo $value;
+// 				$value = trim($value);
+// 				if ($value == null) {
+// 					$promina_foto .= "Foto Belum Ada";
+// 				}
+// 				else {
+// 					$promina_foto .= "<img src='".base_url('')."assets/upload/".$value."' class='img-thumbnail'>";
+// 				}
 
-			}
+// 			}
 
-			$row[] = $promina_foto;
+// 			$row[] = $promina_foto;
 
-			$foto_kompetitor = explode(',', $datatable->kompetitor_foto);
+// 			$foto_kompetitor = explode(',', $datatable->kompetitor_foto);
 
-			$kompetitor_foto = "";
-			foreach ($foto_kompetitor as $key => $values) {
+// 			$kompetitor_foto = "";
+// 			foreach ($foto_kompetitor as $key => $values) {
 
-					// echo $value;
+// 					// echo $value;
 
-				if ($values == null) {
-					$kompetitor_foto .= "Foto Belum Ada";
-				}
-				else {
-					$kompetitor_foto .= "<img src='".base_url('')."assets/upload/".$values."' class='img-thumbnail'>";
-				}
+// 				if ($values == null) {
+// 					$kompetitor_foto .= "Foto Belum Ada";
+// 				}
+// 				else {
+// 					$kompetitor_foto .= "<img src='".base_url('')."assets/upload/".$values."' class='img-thumbnail'>";
+// 				}
 
-			}
+// 			}
 
-			$row[] = $kompetitor_foto;
+// 			$row[] = $kompetitor_foto;
 
-				// $row[] = $datatable->nama;
+// 				// $row[] = $datatable->nama;
 
-				// $row[] = $datatable->nama;
+// 				// $row[] = $datatable->nama;
 
-				// $row[] = $datatable->nama;
+// 				// $row[] = $datatable->nama;
 
 
 
@@ -4710,25 +4710,25 @@ public function reportpromo()
 
 
 
-			$data[] = $row;
+// 			$data[] = $row;
 
-		}
+// 		}
 
 
 
-		$output = array(
+// 		$output = array(
 
-							// "draw" => $_POST['draw'],
+// 							// "draw" => $_POST['draw'],
 
-							// "recordsTotal" => $this->datatable->count_all($table,$column,$odb),
+// 							// "recordsTotal" => $this->datatable->count_all($table,$column,$odb),
 
-							// "recordsFiltered" => $this->datatable->count_filtered($table,$column,$odb),
+// 							// "recordsFiltered" => $this->datatable->count_filtered($table,$column,$odb),
 
-			"data" => $data,
+// 			"data" => $data,
 
-			);
+// 			);
 
-		echo json_encode($output);
+		echo json_encode("aa");
 
 	}
 
