@@ -4173,7 +4173,7 @@ public function reporttotalcontact()
 		sada_form_contact.tgl_contact BETWEEN '".$arr['startDate']."'
 		AND '".$arr['endDate']."'";
 
-		$q .= ($arr['ba'] == "") ? "" : "AND sada_form_contact.user_id = '".$arr['ba']."' ";
+		// $q .= ($arr['ba'] == "") ? "" : "AND sada_form_contact.user_id = '".$arr['ba']."' ";
 
 
 		$q .="GROUP BY
@@ -4185,7 +4185,7 @@ public function reporttotalcontact()
 
 		LIMIT 10
 		";
-		// echo $q;
+		echo $q;
 		$this->db->query($q);
 	}
 	else{
