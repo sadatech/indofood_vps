@@ -2033,7 +2033,7 @@ public function contactTotal($arr = array())
 
     LIMIT 10
     ";
-    return $this->db->query($q)->result();
+    return $q;
 }
 
 /* End Query Promo */
