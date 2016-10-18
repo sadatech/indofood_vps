@@ -4158,9 +4158,31 @@ public function reporttotalcontact()
 
 			$row[] = $total_contact->nama_store;
 			
-			$row[] = $total_contact->nama_store;
+			$row[] = $total_contact->contact_count;
 
-			$row[] = $total_contact->nama_store;
+			$row[] = $total_contact->switching;
+
+			$row[] = $total_contact->newRecruit;
+
+			$row[] = $total_contact->sampling_bc;
+
+			$row[] = $total_contact->sampling_bti;
+
+			$row[] = $total_contact->sampling_rusk;
+
+			$row[] = $total_contact->sampling_pudding;
+
+			$row[] = $total_contact->sampling_others;
+
+			$row[] = $total_contact->strike_bc;
+
+			$row[] = $total_contact->strike_bti;
+			
+			$row[] = $total_contact->strike_rusk;
+
+			$row[] = $total_contact->strike_pudding;
+
+			$row[] = $total_contact->strike_others;
 
 			$datas[] = $row;
 		}
