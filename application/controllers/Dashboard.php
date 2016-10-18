@@ -4171,9 +4171,9 @@ public function reporttotalcontact()
 		JOIN `sada_kota` ON sada_toko.id_kota = sada_kota.id_kota
 		WHERE
 		sada_form_contact.tgl_contact BETWEEN '".$arr['startDate']."'
-		AND '".$arr['endDate']."' ";
+		AND '".$arr['endDate']."'";
 
-		$q .= ($arr['ba'] == "") ? "" : "AND sada_form_contact.user_id = '".$arr['ba']."' ";
+		$q .= ($arr['ba'] == "") ? "" : "AND sada_form_contact.user_id = '".$arr['ba']."'";
 
 		$q .="GROUP BY
 		date(
