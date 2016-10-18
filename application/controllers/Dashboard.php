@@ -4142,7 +4142,7 @@ public function reporttotalcontact()
 
 		$arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 23:59:59"));
 
-		print_r($this->input->post());
+		print_r($arr);
 	}
 	else{
 		$dataDas['title'] 	= "Total Contact";
