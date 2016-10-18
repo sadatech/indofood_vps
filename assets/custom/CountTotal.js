@@ -27,11 +27,11 @@ $("#a").validate({
     scrollX : true,
     searching : false,
     buttons : [
-           {
-             extend: 'excel',
-             text: 'Download Excel',
-             className :'btn green-soft'
-           }
+           // {
+           //   extend: 'excel',
+           //   text: 'Download Excel',
+           //   className :'btn green-soft'
+           // }
          ],
     // "serverSide": true,
     "ajax": {

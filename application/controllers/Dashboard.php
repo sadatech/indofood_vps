@@ -4147,6 +4147,7 @@ public function reporttotalcontact()
 		$datas = array();
 		$no = 1;
 		foreach ($data as $total_contact) {
+			$row = array();
 			$row[] = $total_contact->nama_cabang;
 
 			$row[] = $total_contact->nama_ba;
@@ -4154,7 +4155,7 @@ public function reporttotalcontact()
 			$row[] = $total_contact->stay;
 
 			$row[] = $total_contact->customer_id;
-			
+
 			$row[] = $total_contact->nama_store;
 
 			$datas[] = $row;
