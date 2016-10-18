@@ -310,7 +310,7 @@ $route['topAccount'] 				= 'Dashboard/reportTopAccount';
 	$route['getTokoTarget'] = 'Dashboard/getTargetToko';
 
 
-	$route['CountTotalContact'] = 'Dashboard/contacttotal';
+	$route['CountTotalContact'] = 'Api/contacttotal';
 
 
 /*END WEB*/
