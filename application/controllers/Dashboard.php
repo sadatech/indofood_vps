@@ -4124,15 +4124,19 @@ public function reporttotalcontact()
 
 {
 
-	$dataDas['title'] 	= "Total Contact";
+	if ($this->input->post()) {
 
-	$dataDas['desk'] 	= "";
+	}
+	else{
+		$dataDas['title'] 	= "Total Contact";
 
-	$dataDas['page'] 	= "contact/contact_total";
+		$dataDas['desk'] 	= "";
 
-	$dataDas['css'] = $this->sada->CssdataTable();
+		$dataDas['page'] 	= "contact/contact_total";
 
-	$dataDas['js']	= $this->sada->JsdataTable();
+		$dataDas['css'] = $this->sada->CssdataTable();
+
+		$dataDas['js']	= $this->sada->JsdataTable();
 
 
 
@@ -4185,6 +4189,7 @@ public function reporttotalcontact()
 		$dataDas['js'][] ="assets/custom/CountTotal.js";
 
 	$this->load->view('view_awal', $dataDas, FALSE);
+	}
 
 }
 
