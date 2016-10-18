@@ -130,6 +130,23 @@
                         <th colspan="5">Sampling</th>
                         <th colspan="5">Strike Sampling</th>
                     </tr>
+                    <tr>
+                        <td>Contact</td>
+                        <td>Switching</td>
+                        <td>New Recruit</td>
+
+                        <td>BC</td>
+                        <td>BTI</td>
+                        <td>Rusk </td>
+                        <td>Pudding</td>
+                        <td>Others</td>
+                        
+                        <td>BC</td>
+                        <td>BTI</td>
+                        <td>Rusk </td>
+                        <td>Pudding</td>
+                        <td>Others</td>
+                    </tr>
                    <!--  <tr id="sampling">
                         <td>Contact</td>
                         <td>Switching</td>
