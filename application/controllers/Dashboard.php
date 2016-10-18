@@ -4130,9 +4130,9 @@ public function reporttotalcontact()
 
 	$dataDas['page'] 	= "contact/contact_total";
 
-	// $dataDas['css'] = $this->sada->CssdataTable();
+	$dataDas['css'] = $this->sada->CssdataTable();
 
-	// $dataDas['js']	= $this->sada->JsdataTable();
+	$dataDas['js']	= $this->sada->JsdataTable();
 
 	$dataDas['js'][]  = "assets/global/plugins/jquery-validation/js/jquery.validate.min.js";
 
@@ -4178,7 +4178,7 @@ public function reporttotalcontact()
 
 	$dataDas['js'][] ="assets/custom/select2Filter.js";
 
-	$dataDas['js'][] ="assets/custom/CountTotal.js";
+	// $dataDas['js'][] ="assets/custom/CountTotal.js";
 
 	$this->load->view('view_awal', $dataDas, FALSE);
 
