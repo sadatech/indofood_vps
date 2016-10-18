@@ -4142,7 +4142,7 @@ public function reporttotalcontact()
 
 		$arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 23:59:59"));
 
-		$data = $this->sada->contactTotal($arr,$limit_excel="ada");
+		$data = $this->sada->contactTotal($arr,$limit_excel="");
 		
 		$datas = array();
 		$no = 1;
