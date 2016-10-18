@@ -79,17 +79,17 @@
             <table class="table table-striped table-bordered table-hover table-checkable order-column" id="dataContactTotal">
             <thead>
                 <tr align='center'>
-                        <th rowspan="2" width='100'>Cabang</th>
-                        <th rowspan="2">Nama BA</th>
-                        <!-- <th rowspan="2">Nama TL</th> -->
-                        <th rowspan="2">Status ( Mobile / Stay )</th>
-                        <th rowspan="2">Costumer Id</th>
-                        <th rowspan="2">Nama Store</th>
-                        <th colspan="3">Contact</th>
-                        <th colspan="5">Sampling</th>
-                        <th colspan="5">Strike Sampling</th>
+                        <th>Cabang</th>
+                        <th>Nama BA</th>
+                        <!-- <th >Nama TL</th> -->
+                        <th >Status ( Mobile / Stay )</th>
+                        <th >Costumer Id</th>
+                        <th >Nama Store</th>
+                        <th>Contact</th>
+                        <th>Sampling</th>
+                        <th>Strike Sampling</th>
                     </tr>
-                    <tr id="sampling">
+                    <!-- <tr id="sampling">
                         <td>Contact</td>
                         <td>Switching</td>
                         <td>New Recruit</td>
@@ -107,7 +107,7 @@
                         <td>Others</td>
                     </tr>
                     <tr>
-                </tr>
+                </tr> -->
             </thead>
             <tbody> 
 
