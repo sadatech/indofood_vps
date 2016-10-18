@@ -1983,7 +1983,7 @@ public function insertPromo($data)
 
 }
 
-public function contactTotal($arr = array())
+public function contactTotal($arr = array(),$limit_excel)
 {
   $q = "SELECT DISTINCT
     (
@@ -2029,8 +2029,9 @@ public function contactTotal($arr = array())
     sada_form_contact.tgl_contact
     ),
     sada_form_contact.user_id,
-    sada_form_contact.store_id
+    sada_form_contact.store_id
     ";
+    $q .= ($limit_excel == "") ? " LIMIT 10" : "";
     return $this->db->query($q);
 }
 
