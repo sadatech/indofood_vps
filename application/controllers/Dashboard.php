@@ -4128,71 +4128,72 @@ public function reporttotalcontact()
 		$this->load->model('datatable');
 
 
-		$arr['tl'] = ($this->input->post("tl") == 0) ? "" : $this->input->post("tl");
+		// $arr['tl'] = ($this->input->post("tl") == 0) ? "" : $this->input->post("tl");
 
-		$arr['ba'] = ($this->input->post("ba") == 0) ? "" : $this->input->post("ba");
+		// $arr['ba'] = ($this->input->post("ba") == 0) ? "" : $this->input->post("ba");
 
-		$arr['toko'] = ($this->input->post("toko") == 0) ? "" : $this->input->post("toko");
+		// $arr['toko'] = ($this->input->post("toko") == 0) ? "" : $this->input->post("toko");
 
-		$arr['cabang'] = ($this->input->post("cabang") == 0) ? "" : $this->input->post("cabang");
+		// $arr['cabang'] = ($this->input->post("cabang") == 0) ? "" : $this->input->post("cabang");
 
-		$arr['kota'] = ($this->input->post("kota") == 0) ? "" : $this->input->post("kota");
+		// $arr['kota'] = ($this->input->post("kota") == 0) ? "" : $this->input->post("kota");
 
-		$arr['startDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 00:00:00"));
+		// $arr['startDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 00:00:00"));
 
-		$arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 23:59:59"));
+		// $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 23:59:59"));
 
-		$data = $this->sada->contactTotal($arr);
+		// $data = $this->sada->contactTotal($arr);
 		
-		$datas = array();
-		$no = 1;
-		foreach ($data->result() as $total_contact) {
-			$row = array();
-			$row[] = $total_contact->nama_cabang;
+		// $datas = array();
+		// $no = 1;
+		// foreach ($data->result() as $total_contact) {
+		// 	$row = array();
+		// 	$row[] = $total_contact->nama_cabang;
 
-			$row[] = $total_contact->nama_ba;
+		// 	$row[] = $total_contact->nama_ba;
 
-			$row[] = $total_contact->stay;
+		// 	$row[] = $total_contact->stay;
 
-			$row[] = $total_contact->customer_id;
+		// 	$row[] = $total_contact->customer_id;
 
-			$row[] = $total_contact->nama_store;
+		// 	$row[] = $total_contact->nama_store;
 			
-			$row[] = $total_contact->contact_count;
+		// 	$row[] = $total_contact->contact_count;
 
-			$row[] = $total_contact->switching;
+		// 	$row[] = $total_contact->switching;
 
-			$row[] = $total_contact->newRecruit;
+		// 	$row[] = $total_contact->newRecruit;
 
-			$row[] = $total_contact->sampling_bc;
+		// 	$row[] = $total_contact->sampling_bc;
 
-			$row[] = $total_contact->sampling_bti;
+		// 	$row[] = $total_contact->sampling_bti;
 
-			$row[] = $total_contact->sampling_rusk;
+		// 	$row[] = $total_contact->sampling_rusk;
 
-			$row[] = $total_contact->sampling_pudding;
+		// 	$row[] = $total_contact->sampling_pudding;
 
-			$row[] = $total_contact->sampling_others;
+		// 	$row[] = $total_contact->sampling_others;
 
-			$row[] = $total_contact->strike_bc;
+		// 	$row[] = $total_contact->strike_bc;
 
-			$row[] = $total_contact->strike_bti;
+		// 	$row[] = $total_contact->strike_bti;
 			
-			$row[] = $total_contact->strike_rusk;
+		// 	$row[] = $total_contact->strike_rusk;
 
-			$row[] = $total_contact->strike_pudding;
+		// 	$row[] = $total_contact->strike_pudding;
 
-			$row[] = $total_contact->strike_others;
+		// 	$row[] = $total_contact->strike_others;
 
-			$datas[] = $row;
-		}
-		$output = array(
+		// 	$datas[] = $row;
+		// }
+		// $output = array(
 
-			"data" => $datas,
+		// 	"data" => $datas,
 
-			);
+		// 	);
 
-		echo json_encode($output);
+		// echo json_encode($output);
+		print_r($this->input->post());
 	}
 	else{
 		$dataDas['title'] 	= "Total Contact";
