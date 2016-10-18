@@ -106,8 +106,7 @@
                         <td>Pudding</td>
                         <td>Others</td>
                     </tr>
-                    <tr>
-                        
+                    <tr>
                 </tr>
             </thead>
             <tbody> 
