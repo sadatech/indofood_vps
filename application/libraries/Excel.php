@@ -240,79 +240,80 @@ class Excel extends PHPExcel {
           $jml = $no_col+$data;
           
           foreach ($val as $ks) {
+
               $this->excel->getActiveSheet()->setCellValue($cabang_column.$no_col, $ks->nama_cabang);
-              $this->excel->getActiveSheet()->setCellValue("B".$no_col, $ks->nama_user);
-              if ($ks->stay_user=="Y") {
+              $this->excel->getActiveSheet()->setCellValue("B".$no_col, $ks->nama_ba);
+              if ($ks->stay=="Y") {
                 $this->excel->getActiveSheet()->setCellValue("C".$no_col, "Stay");
               }
-              if($ks->stay_user=="N"){
+              if($ks->stay=="N"){
                 $this->excel->getActiveSheet()->setCellValue("C".$no_col, "Mobile");
               }
-              $this->excel->getActiveSheet()->setCellValue("D".$no_col, $ks->store_id);
-              $this->excel->getActiveSheet()->setCellValue("E".$no_col, $ks->nama_toko);
+              $this->excel->getActiveSheet()->setCellValue("D".$no_col, $ks->customer_id);
+              $this->excel->getActiveSheet()->setCellValue("E".$no_col, $ks->nama_store);
               $this->excel->getActiveSheet()->setCellValue("F".$no_col, $ks->contact_count);
-              $this->excel->getActiveSheet()->setCellValue("G".$no_col, $ks->count_switching);
-              $this->excel->getActiveSheet()->setCellValue("H".$no_col, $ks->count_recruit);
+              $this->excel->getActiveSheet()->setCellValue("G".$no_col, $ks->switching);
+              $this->excel->getActiveSheet()->setCellValue("H".$no_col, $ks->newRecruit);
 
-              if ($ks->BC==null) {
+              if ($ks->sampling_bc==null) {
                 $this->excel->getActiveSheet()->setCellValue("I".$no_col, "0");
               }
               else{
-                $this->excel->getActiveSheet()->setCellValue("I".$no_col, $ks->BC);  
+                $this->excel->getActiveSheet()->setCellValue("I".$no_col, $ks->sampling_bc);  
               }
-              if ($ks->BTI==null) {
+              if ($ks->sampling_bti==null) {
                 $this->excel->getActiveSheet()->setCellValue("J".$no_col, "0");
               }
               else{
-                $this->excel->getActiveSheet()->setCellValue("J".$no_col, $ks->BTI);  
+                $this->excel->getActiveSheet()->setCellValue("J".$no_col, $ks->sampling_bti);  
               }
-              if ($ks->Rusk==null) {
+              if ($ks->sampling_rusk==null) {
                 $this->excel->getActiveSheet()->setCellValue("K".$no_col, "0");
               }
               else{
-                $this->excel->getActiveSheet()->setCellValue("K".$no_col, $ks->Rusk);  
+                $this->excel->getActiveSheet()->setCellValue("K".$no_col, $ks->sampling_rusk);  
               }
-              if ($ks->Pudding==null) {
+              if ($ks->sampling_pudding==null) {
                 $this->excel->getActiveSheet()->setCellValue("L".$no_col, "0");
               }
               else{
-                $this->excel->getActiveSheet()->setCellValue("L".$no_col, $ks->Pudding);  
+                $this->excel->getActiveSheet()->setCellValue("L".$no_col, $ks->sampling_pudding);  
               }
-              if ($ks->Others==null) {
+              if ($ks->sampling_others==null) {
                 $this->excel->getActiveSheet()->setCellValue("M".$no_col, "0");
               }
               else{
-                $this->excel->getActiveSheet()->setCellValue("M".$no_col, $ks->Others);  
+                $this->excel->getActiveSheet()->setCellValue("M".$no_col, $ks->sampling_others);  
               }
-              if ($ks->strike_sampling_bc==null) {
+              if ($ks->strike_bc==null) {
                 $this->excel->getActiveSheet()->setCellValue("N".$no_col, "0");
               }
               else{
-                $this->excel->getActiveSheet()->setCellValue("N".$no_col, $ks->strike_sampling_bc);  
+                $this->excel->getActiveSheet()->setCellValue("N".$no_col, $ks->strike_bc);  
               }
-              if ($ks->strike_sampling_bti==null) {
+              if ($ks->strike_bti==null) {
                 $this->excel->getActiveSheet()->setCellValue("O".$no_col, "0");
               }
               else{
-                $this->excel->getActiveSheet()->setCellValue("O".$no_col, $ks->strike_sampling_bti);  
+                $this->excel->getActiveSheet()->setCellValue("O".$no_col, $ks->strike_bti);  
               }
-              if ($ks->strike_sampling_rusk==null) {
+              if ($ks->strike_rusk==null) {
                 $this->excel->getActiveSheet()->setCellValue("P".$no_col, "0");
               }
               else{
-                $this->excel->getActiveSheet()->setCellValue("P".$no_col, $ks->strike_sampling_rusk);  
+                $this->excel->getActiveSheet()->setCellValue("P".$no_col, $ks->strike_rusk);  
               }
-              if ($ks->strike_sampling_pudding==null) {
+              if ($ks->strike_pudding==null) {
                 $this->excel->getActiveSheet()->setCellValue("Q".$no_col, "0");
               }
               else{
-                $this->excel->getActiveSheet()->setCellValue("Q".$no_col, $ks->strike_sampling_pudding);  
+                $this->excel->getActiveSheet()->setCellValue("Q".$no_col, $ks->strike_pudding);  
               }
-              if ($ks->strike_sampling_others==null) {
+              if ($ks->strike_others==null) {
                 $this->excel->getActiveSheet()->setCellValue("R".$no_col, "0");
               }
               else{
-                $this->excel->getActiveSheet()->setCellValue("R".$no_col, $ks->strike_sampling_others);  
+                $this->excel->getActiveSheet()->setCellValue("R".$no_col, $ks->strike_others);  
               }
               
             // echo $ks->nama_kota;

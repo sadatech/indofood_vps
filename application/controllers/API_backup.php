@@ -3068,24 +3068,404 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
     $this->load->library('excel');
 
-    $arr['tl'] = ($this->input->get("tl") == 0) ? "" : $this->input->get("tl");
+    $arr['tl'] = $this->input->get("tl");
 
-    $arr['ba'] = ($this->input->get("ba") == 0) ? "" : $this->input->get("ba");
+    $arr['ba'] = $this->input->get("ba");
 
-    $arr['toko'] = ($this->input->get("toko") == 0) ? "" : $this->input->get("toko");
+    $arr['toko'] = $this->input->get("toko");
 
-    $arr['cabang'] = ($this->input->get("cabang") == 0) ? "" : $this->input->get("cabang");
+    $arr['cabang'] = $this->input->get("cabang");
 
-    $arr['kota'] = ($this->input->get("kota") == 0) ? "" : $this->input->get("kota");
+    $arr['kota'] = $this->input->get("kota");
 
     $arr['startDate'] = date('Y-m-d H:i:s', strtotime($this->input->get("startDate")." 00:00:00"));
 
     $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->get("endDate")." 23:59:59"));
 
-    $data = $this->sada->contactTotal($arr,$limit_excel="");
-    
-    $datas = array();
-    $no = 1;
+      $select = "SELECT
+  (
+    SELECT
+      sada_kategori.nama
+    FROM
+      sada_kategori
+    WHERE
+      sada_kategori.id = sada_form_contact.kategori_id
+  ) AS 'sada_kategori_label',
+  (
+    SELECT
+      sada_kategori.id
+    FROM
+      sada_kategori
+    WHERE
+      sada_kategori.id = sada_form_contact.kategori_id
+    AND sada_form_contact.user_id = sada_user.id_user
+  ) AS 'count_sampling',
+  (
+    SELECT
+      COUNT(*)
+    FROM
+      sada_form_contact AS a
+    WHERE
+      a.user_id = sada_user.id_user
+    AND a.store_id = toko.id_toko
+    AND date(a.tgl_contact) = date(
+      sada_form_contact.tgl_contact
+    )
+  ) AS 'contact_count',
+  (
+    SELECT
+      COUNT(*)
+    FROM
+      sada_form_contact AS a
+    WHERE
+      a.tipe = 'newRecruit'
+    AND a.user_id = sada_user.id_user
+    AND sada_form_contact.store_id = toko.id_toko
+    AND date(a.tgl_contact) = date(
+      sada_form_contact.tgl_contact
+    )
+  ) AS 'count_recruit',
+  (
+    SELECT
+      COUNT(*)
+    FROM
+      sada_form_contact AS a
+    WHERE
+      a.tipe = 'switching'
+    AND a.user_id = sada_user.id_user
+    AND sada_form_contact.store_id = toko.id_toko
+    AND date(a.tgl_contact) = date(
+      sada_form_contact.tgl_contact
+    )
+  ) AS 'count_switching',
+  (
+    SELECT
+      SUM(a.samplingQty)
+    FROM
+      sada_form_contact AS a
+    WHERE
+      a.kategori_id = '1'
+    AND a.user_id = sada_user.id_user
+    AND a.store_id = toko.id_toko
+    AND date(a.tgl_contact) = date(
+      sada_form_contact.tgl_contact
+    )
+  ) AS 'BC',
+  (
+    SELECT
+      SUM(a.samplingQty)
+    FROM
+      sada_form_contact AS a
+    WHERE
+      a.kategori_id = '2'
+    AND a.user_id = sada_user.id_user
+    AND a.store_id = toko.id_toko
+    AND date(a.tgl_contact) = date(
+      sada_form_contact.tgl_contact
+    )
+  ) AS 'BTI',
+  (
+    SELECT
+      SUM(a.samplingQty)
+    FROM
+      sada_form_contact AS a
+    WHERE
+      a.kategori_id = '3'
+    AND a.user_id = sada_user.id_user
+    AND a.store_id = toko.id_toko
+    AND date(a.tgl_contact) = date(
+      sada_form_contact.tgl_contact
+    )
+  ) AS 'Rusk',
+  (
+    SELECT
+      SUM(a.samplingQty)
+    FROM
+      sada_form_contact AS a
+    WHERE
+      a.kategori_id = '4'
+    AND a.user_id = sada_user.id_user
+    AND a.store_id = toko.id_toko
+    AND date(a.tgl_contact) = date(
+      sada_form_contact.tgl_contact
+    )
+  ) AS 'Pudding',
+  (
+    SELECT
+      SUM(a.samplingQty)
+    FROM
+      sada_form_contact AS a
+    WHERE
+      a.kategori_id = '5'
+    AND a.user_id = sada_user.id_user
+    AND a.store_id = toko.id_toko
+    AND date(a.tgl_contact) = date(
+      sada_form_contact.tgl_contact
+    )
+  ) AS 'Others',
+  (
+    SELECT
+      SUM(a.samplingQty)
+    FROM
+      sada_form_contact AS a
+    WHERE
+      a.beli = 'Y'
+    AND sada_form_contact.sampling = 'Y'
+  ) AS 'strike_sampling',
+  (
+    SELECT
+      SUM(a.samplingQty)
+    FROM
+      sada_form_contact AS a
+    WHERE
+      a.beli = 'Y'
+    AND sada_form_contact.sampling = 'Y'
+    AND a.kategori_id = '1'
+  ) AS 'strike_sampling_bc',
+  (
+    SELECT
+      SUM(a.samplingQty)
+    FROM
+      sada_form_contact AS a
+    WHERE
+      a.beli = 'Y'
+    AND sada_form_contact.sampling = 'Y'
+    AND a.kategori_id = '2'
+  ) AS 'strike_sampling_bti',
+  (
+    SELECT
+      SUM(a.samplingQty)
+    FROM
+      sada_form_contact AS a
+    WHERE
+      a.beli = 'Y'
+    AND sada_form_contact.sampling = 'Y'
+    AND a.kategori_id = '3'
+  ) AS 'strike_sampling_rusk',
+  (
+    SELECT
+      SUM(a.samplingQty)
+    FROM
+      sada_form_contact AS a
+    WHERE
+      a.beli = 'Y'
+    AND sada_form_contact.sampling = 'Y'
+    AND a.kategori_id = '4'
+  ) AS 'strike_sampling_pudding',
+  (
+    SELECT
+      SUM(a.samplingQty)
+    FROM
+      sada_form_contact AS a
+    WHERE
+      a.beli = 'Y'
+    AND sada_form_contact.sampling = 'Y'
+    AND a.kategori_id = '5'
+  ) AS 'strike_sampling_others',
+  ";
+
+  $select .= "toko.id_toko,
+
+  toko.store_id,
+
+  toko.id_kota,
+
+  toko.nama AS 'nama_toko',
+
+  sada_user.id_user AS 'id_user',
+
+  sada_user.nama AS 'nama_user',
+  sada_user.nama AS 'nama_user',
+
+  sada_user.stay AS 'stay_user',";
+
+  $where = "";
+
+  if ($arr['startDate'] != "1970-01-01 07:00:00" && $arr['endDate'] != "1970-01-01 07:00:00") {
+
+    $where = "WHERE sada_form_contact.tgl_contact BETWEEN '".$arr['startDate']."' and '".$arr['endDate']."'";
+
+    if ($arr['tl'] != 0) {
+
+      $where .= " AND sada_user.id_user='".$arr['tl']."'";
+
+    }
+
+    else{
+
+      if ($arr['ba'] != 0) {
+
+        $where .= " AND sada_user.id_user='".$arr['ba']."'";
+
+        if ($arr['toko'] != 0) {
+
+          $where .= " AND toko.id_toko='".$arr['toko']."'";
+
+          if ($arr['cabang'] != 0) {
+
+            $where .= " AND cabang.id_cabang='".$arr['cabang']."'";
+
+            if ($arr['kota'] != 0) {
+
+              $where .= " AND kota.id_kota='".$arr['kota']."'";
+
+            }
+
+          }
+
+        }
+
+      }
+
+      else{
+
+        if ($arr['toko'] != 0) {
+
+          $where = " WHERE toko.id_toko='".$arr['toko']."'";
+
+          if ($arr['cabang'] != 0) {
+
+            $where = " AND cabang.id_cabang='".$arr['cabang']."'";
+
+            if ($arr['kota'] != 0) {
+
+              $where .= " AND kota.id_kota='".$arr['kota']."'";
+
+            }
+
+          }
+
+        }
+
+        else{
+
+          if ($arr['cabang'] != 0) {
+
+            $where = " WHERE cabang.id_cabang='".$arr['cabang']."'";
+
+            if ($arr['kota'] != 0) {
+
+              $where .= " AND kota.id_kota='".$arr['kota']."'";
+
+            }
+
+          }
+
+        }        
+
+      }
+
+    }
+
+  }
+
+  else{
+
+   if ($arr['tl'] != 0) {
+
+    $where = " WHERE sada_user.id_user='".$arr['tl']."'";
+
+  }
+
+  else{
+
+    if ($arr['ba'] != 0) {
+
+      $where = " WHERE sada_user.id_user='".$arr['ba']."'";
+
+    }
+
+    else{
+
+      if ($arr['toko'] != 0) {
+
+        $where = " WHERE toko.id_toko='".$arr['toko']."'";
+
+      }
+
+    }
+
+  }
+
+
+
+}
+
+$join = "";
+
+if ($arr['tl'] == 0) {
+
+  if ($arr['ba'] !=0) {
+
+
+
+    if ($arr['toko'] != 0) {
+
+      $where .= " AND toko.id_toko='".$arr['toko']."'";
+
+      if ($arr['cabang'] !=0) {
+
+        if ($arr['kota'] !=0) {
+
+          $where .= " AND cabang.id_cabang in (SELECT id_cabang FROM sada_kota WHERE id_cabang='".$arr['cabang']."')";
+
+        }
+
+        else{
+
+          $where .= " AND cabang.id_cabang='".$arr['cabang']."'";
+
+        }
+
+      }
+
+    }
+
+    else{
+
+      if ($arr['cabang'] != 0) {
+
+       $where .= " AND cabang.id_cabang in (SELECT id_cabang FROM sada_kota WHERE id_cabang='".$arr['cabang']."')";
+
+     }
+
+   }
+
+ }
+
+}
+
+else{
+
+  if ($arr['ba']==0) {
+
+    $select .= "                                                                               ";
+
+  }
+
+}
+
+
+
+$join .= " LEFT JOIN sada_toko toko ON sada_form_contact.store_id=toko.id_toko";
+
+$join .= " LEFT JOIN sada_kota kota ON toko.id_kota=kota.id_kota";
+
+$join .= " LEFT JOIN sada_cabang cabang ON kota.id_cabang=cabang.id_cabang";
+
+
+
+$select .= "
+
+cabang.nama AS 'nama_cabang',
+
+kota.nama_kota 'nama_kota'
+
+FROM sada_form_contact LEFT JOIN sada_user ON sada_form_contact.user_id=sada_user.id_user ".$join." ".$where."  GROUP BY date(sada_form_contact.tgl_contact),sada_form_contact.user_id,sada_form_contact.store_id";
+
+  /// echo $select;
+
+$data = $this->db->query($select);
 
 
 
