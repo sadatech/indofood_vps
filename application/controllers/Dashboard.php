@@ -4142,9 +4142,22 @@ public function reporttotalcontact()
 
 		$arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 23:59:59"));
 
-		$this->sada->contactTotal($arr);
-		// echo $q;
-		// $this->db->query($q);
+		$data = $this->sada->contactTotal($arr);
+		
+		$row = array();
+		$no = 1;
+		foreach ($data as $total_contact) {
+			$row[] = $total_contact->nama_cabang;
+
+			$datas[] = $row;
+		}
+		$output = array(
+
+			"data" => $datas,
+
+			);
+
+		echo json_encode($output);
 	}
 	else{
 		$dataDas['title'] 	= "Total Contact";
