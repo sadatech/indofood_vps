@@ -2030,8 +2030,6 @@ public function contactTotal($arr = array())
     ),
     sada_form_contact.user_id,
     sada_form_contact.store_id
-
-    LIMIT 10
     ";
     return $this->db->query($q);
 }
