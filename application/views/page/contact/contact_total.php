@@ -33,7 +33,7 @@
                         </div>
                         <div class="form-group">
                           <div class="col-md-12">
-                            <!-- <select id="tl" name="tl"  class=" form-control select2"  data-width="18%"></select> -->
+                          
                             <select id="ba" name="ba" class="  form-control select2" data-width="18%"></select>
                             <select id="toko" name="toko"  class=" form-control select2"  data-width="18%"></select>
                             <select id="cabang" name="cabang"  class="select2 form-control"  data-width="18%"></select>

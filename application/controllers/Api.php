@@ -1454,7 +1454,24 @@ FROM sada_form_contact LEFT JOIN sada_user ON sada_form_contact.user_id=sada_use
 
 }
 
+public function contacttotal()
+{
+  $arr['tl'] = $this->input->post("tl");
 
+  $arr['ba'] = $this->input->post("ba");
+
+  $arr['toko'] = $this->input->post("toko");
+
+  $arr['cabang'] = $this->input->post("cabang");
+
+  $arr['kota'] = $this->input->post("kota");
+
+  $arr['startDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 00:00:00"));
+
+  $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 23:59:59"));
+
+  print_r($this->input->post());
+}
 
 public function InputJualProduk()
 
