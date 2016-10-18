@@ -1983,6 +1983,59 @@ public function insertPromo($data)
 
 }
 
+public function contactTotal($arr = array())
+{
+  $q = "SELECT DISTINCT
+    (
+      SELECT nama FROM sada_cabang WHERE sada_cabang.id_cabang = sada_kota.id_cabang
+    ) AS nama_cabang,
+
+    (select nama from sada_user where sada_user.id_user = sada_form_contact.user_id) as nama_ba,
+    (select stay from sada_user where sada_user.id_user = sada_form_contact.user_id) as stay,
+    sada_toko.store_id as customer_id,
+    nama AS nama_store,
+    (select COUNT(distinct id) from sada_form_contact sub_contact where sada_form_contact.user_id = sub_contact.user_id and DATE(sub_contact.tgl_contact) = DATE(sada_form_contact.tgl_contact)) contact_count,
+    (select count(id) from sada_form_contact sub_contact where sub_contact.tipe = 'switching' and sada_form_contact.user_id = sub_contact.user_id and DATE(sub_contact.tgl_contact) = DATE(sada_form_contact.tgl_contact)) switching,
+    (select count(id) from sada_form_contact sub_contact where sub_contact.tipe = 'newRecruit' and sada_form_contact.user_id = sub_contact.user_id and DATE(sub_contact.tgl_contact) = DATE(sada_form_contact.tgl_contact)) newRecruit,
+    (select SUM(sub_contact.samplingQty) from sada_form_contact sub_contact where sub_contact.kategori_id = 1 AND date(sub_contact.tgl_contact) = date(sada_form_contact.tgl_contact) AND sada_form_contact.user_id = sub_contact.user_id AND sub_contact.store_id = sada_toko.id_toko) as sampling_bc,
+    (select SUM(sub_contact.samplingQty) from sada_form_contact sub_contact where sub_contact.kategori_id = 2 AND date(sub_contact.tgl_contact) = date(sada_form_contact.tgl_contact) AND sada_form_contact.user_id = sub_contact.user_id AND sub_contact.store_id = sada_toko.id_toko) as sampling_bti,
+    (select SUM(sub_contact.samplingQty) from sada_form_contact sub_contact where sub_contact.kategori_id = 3 AND date(sub_contact.tgl_contact) = date(sada_form_contact.tgl_contact) AND sada_form_contact.user_id = sub_contact.user_id AND sub_contact.store_id = sada_toko.id_toko) as sampling_rusk,
+    (select SUM(sub_contact.samplingQty) from sada_form_contact sub_contact where sub_contact.kategori_id = 4 AND date(sub_contact.tgl_contact) = date(sada_form_contact.tgl_contact) AND sada_form_contact.user_id = sub_contact.user_id AND sub_contact.store_id = sada_toko.id_toko) as sampling_rusk,
+    (select SUM(sub_contact.samplingQty) from sada_form_contact sub_contact where sub_contact.kategori_id = 5 AND date(sub_contact.tgl_contact) = date(sada_form_contact.tgl_contact) AND sada_form_contact.user_id = sub_contact.user_id AND sub_contact.store_id = sada_toko.id_toko) as sampling_others,
+    (select SUM(sub_contact.samplingQty) from sada_form_contact sub_contact where sub_contact.kategori_id = 1 AND date(sub_contact.tgl_contact) = date(sada_form_contact.tgl_contact) AND sada_form_contact.user_id = sub_contact.user_id AND sub_contact.store_id = sada_toko.id_toko AND sub_contact.sampling = 'Y' and sub_contact.beli = 'Y') as strike_bc,
+    (select SUM(sub_contact.samplingQty) from sada_form_contact sub_contact where sub_contact.kategori_id = 2 AND date(sub_contact.tgl_contact) = date(sada_form_contact.tgl_contact) AND sada_form_contact.user_id = sub_contact.user_id AND sub_contact.store_id = sada_toko.id_toko AND sub_contact.sampling = 'Y' and sub_contact.beli = 'Y') as strike_bti,
+    (select SUM(sub_contact.samplingQty) from sada_form_contact sub_contact where sub_contact.kategori_id = 3 AND date(sub_contact.tgl_contact) = date(sada_form_contact.tgl_contact) AND sada_form_contact.user_id = sub_contact.user_id AND sub_contact.store_id = sada_toko.id_toko AND sub_contact.sampling = 'Y' and sub_contact.beli = 'Y') as strike_rusk,
+    (select SUM(sub_contact.samplingQty) from sada_form_contact sub_contact where sub_contact.kategori_id = 4 AND date(sub_contact.tgl_contact) = date(sada_form_contact.tgl_contact) AND sada_form_contact.user_id = sub_contact.user_id AND sub_contact.store_id = sada_toko.id_toko AND sub_contact.sampling = 'Y' and sub_contact.beli = 'Y') as strike_pudding,
+    (select SUM(sub_contact.samplingQty) from sada_form_contact sub_contact where sub_contact.kategori_id = 5 AND date(sub_contact.tgl_contact) = date(sada_form_contact.tgl_contact) AND sada_form_contact.user_id = sub_contact.user_id AND sub_contact.store_id = sada_toko.id_toko AND sub_contact.sampling = 'Y' and sub_contact.beli = 'Y') as strike_others,
+    tgl_contact
+    FROM
+    `sada_form_contact`
+    JOIN `sada_toko` ON sada_toko.id_toko = sada_form_contact.store_id
+    JOIN `sada_kota` ON sada_toko.id_kota = sada_kota.id_kota
+    WHERE
+    sada_form_contact.tgl_contact BETWEEN '".$arr['startDate']."'
+    AND '".$arr['endDate']."'";
+
+    $q .= ($arr['ba'] != "") ? " AND sada_form_contact.user_id = '".$arr['ba']."'" : "";
+
+    $q .= ($arr['toko'] != "") ? " AND sada_form_contact.store_id = '".$arr['toko']."'" : "";
+    
+    $q .= ($arr['cabang'] != "") ? " AND sada_kota.id_cabang = '".$arr['cabang']."'" : "";
+
+    $q .= ($arr['kota'] != "") ? " AND sada_kota.id_kota = '".$arr['kota']."'" : "";
+
+    $q .="GROUP BY
+    date(
+    sada_form_contact.tgl_contact
+    ),
+    sada_form_contact.user_id,
+    sada_form_contact.store_id
+
+    LIMIT 10
+    ";
+    return $q;
+}
+
 /* End Query Promo */
 
 
