@@ -4134,51 +4134,55 @@ public function reporttotalcontact()
 
 	$dataDas['js']	= $this->sada->JsdataTable();
 
-	$dataDas['js'][]  = "assets/global/plugins/jquery-validation/js/jquery.validate.min.js";
+
+
+		$dataDas['js'][]  = "assets/global/plugins/jquery-validation/js/jquery.validate.min.js";
 
 
 
-	$dataDas['js'][]  = "assets/global/scripts/app.min.js";
+		$dataDas['js'][]  = "assets/global/scripts/app.min.js";
 
-	$dataDas['js'][]  = "assets/pages/scripts/form-validation.min.js";
+		$dataDas['js'][]  = "assets/pages/scripts/form-validation.min.js";
 
-	$dataDas['css'][]  	= "assets/global/plugins/bootstrap-select/css/bootstrap-select.min.css";
 
-	$dataDas['css'][]  	= "assets/global/plugins/select2/css/select2-bootstrap.min.css";
 
-	$dataDas['css'][]	= "assets/global/plugins/select2/css/select2.min.css";
+		$dataDas['css'][]  	= "assets/global/plugins/bootstrap-select/css/bootstrap-select.min.css";
 
-	$dataDas['css'][]	= "assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css";
+		$dataDas['css'][]  	= "assets/global/plugins/select2/css/select2-bootstrap.min.css";
 
-	$dataDas['css'][]	= "assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css";
+		$dataDas['css'][]	= "assets/global/plugins/select2/css/select2.min.css";
 
-	$dataDas['css'][]	= "assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css";
+		$dataDas['css'][]	= "assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css";
 
-	$dataDas['js'][]	= "assets/global/plugins/bootstrap-select/js/bootstrap-select.min.js";
+		$dataDas['css'][]	= "assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css";
 
-	$dataDas['js'][]	= "assets/pages/scripts/components-bootstrap-select.min.js";
+		$dataDas['css'][]	= "assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css";
 
-	$dataDas['js'][]	= "assets/custom/tagSelection.js";
+		$dataDas['js'][]	= "assets/global/plugins/bootstrap-select/js/bootstrap-select.min.js";
 
-	$dataDas['js'][]	= "assets/custom/tagDate.js";
+		$dataDas['js'][]	= "assets/pages/scripts/components-bootstrap-select.min.js";
 
-	$dataDas['js'][]	= "assets/pages/scripts/components-select2.min.js";
+		$dataDas['js'][]	= "assets/custom/tagSelection.js";
 
-	$dataDas['js'][]	= "assets/global/plugins/select2/js/select2.full.min.js";
+		$dataDas['js'][]	= "assets/custom/tagDate.js";
 
-	$dataDas['js'][]	= "assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js";
+		$dataDas['js'][]	= "assets/pages/scripts/components-select2.min.js";
 
-	$dataDas['js'][]	= "assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js";
+		$dataDas['js'][]	= "assets/global/plugins/select2/js/select2.full.min.js";
 
-	$dataDas['js'][]	= "assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js";
+		$dataDas['js'][]	= "assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js";
 
-	$dataDas['js'][]	= "assets/pages/scripts/components-date-time-pickers.min.js";
+		$dataDas['js'][]	= "assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js";
 
-	$dataDas['js'][]	= "https://code.jquery.com/jquery-1.10.2.js";
+		$dataDas['js'][]	= "assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js";
 
-	$dataDas['js'][] ="assets/custom/select2Filter.js";
+		$dataDas['js'][]	= "assets/pages/scripts/components-date-time-pickers.min.js";
 
-	$dataDas['js'][] ="assets/custom/CountTotal.js";
+		$dataDas['js'][]	= "https://code.jquery.com/jquery-1.10.2.js";
+
+		$dataDas['js'][] ="assets/custom/select2Filter.js";
+
+		$dataDas['js'][] ="assets/custom/CountTotal.js";
 
 	$this->load->view('view_awal', $dataDas, FALSE);
 
