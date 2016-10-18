@@ -110,7 +110,7 @@
 
             <div class="btn-group" style="float: right;">
 
-                <a href="#" class="btn sbold green" id="exceltotalcontact">Download Excel</a>
+                <a href="#" target="__blank" class="btn sbold green" id="exceltotalcontact">Download Excel</a>
 
             </div>
 
