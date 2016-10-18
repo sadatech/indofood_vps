@@ -4144,10 +4144,10 @@ public function reporttotalcontact()
 
 		$data = $this->sada->contactTotal($arr);
 		
-		$row = array();
+		$datas = array();
 		$no = 1;
 		foreach ($data as $total_contact) {
-			$row[] = $total_contact->nama_cabang;
+			$row[] = $total_contact->nama_cabang;
 
 			$datas[] = $row;
 		}
