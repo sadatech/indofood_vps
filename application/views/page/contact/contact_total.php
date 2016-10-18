@@ -77,41 +77,32 @@
                 </div>
             </div>
             <table class="table table-striped table-bordered table-hover table-checkable order-column" id="dataContactTotal">
-            <thead>
-                <tr align='center'>
-                        <th>Cabang</th>
-                        <th>Nama BA</th>
-                        <!-- <th >Nama TL</th> -->
-                        <th >Status ( Mobile / Stay )</th>
-                        <th >Costumer Id</th>
-                        <th >Nama Store</th>
-                        <th>Contact</th>
-                        <th>Sampling</th>
-                        <th>Strike Sampling</th>
-                    <!-- <tr id="sampling">
-                        <td>Contact</td>
-                        <td>Switching</td>
-                        <td>New Recruit</td>
 
-                        <td>BC</td>
-                        <td>BTI</td>
-                        <td>Rusk </td>
-                        <td>Pudding</td>
-                        <td>Others</td>
-                        
-                        <td>BC</td>
-                        <td>BTI</td>
-                        <td>Rusk </td>
-                        <td>Pudding</td>
-                        <td>Others</td>
-                    </tr>
-                    <tr>
-                </tr> -->
-            </thead>
-            <tbody> 
+        <thead>
 
-            </tbody>
-        </table>
+            <tr>
+
+                <th>Cabang</th>
+                <th>Nama BA</th>
+                <!-- <th >Nama TL</th> -->
+                <th >Status ( Mobile / Stay )</th>
+                <th >Costumer Id</th>
+                <th >Nama Store</th>
+                <th>Contact</th>
+                <th>Sampling</th>
+                <th>Strike Sampling</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+
+
+        </tbody>
+
+    </table>
             <!-- <div class="btn-group">
                 <a href="#" class="btn sbold green" id="excelCDetail">Download Excel</a>
             </div> -->
