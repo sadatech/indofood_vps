@@ -4125,39 +4125,39 @@ public function reporttotalcontact()
 {
 
 	if ($this->input->post()) {
-		// $this->load->model('datatable');
+		$this->load->model('datatable');
 
 
-		// $arr['tl'] = ($this->input->post("tl") == 0) ? "" : $this->input->post("tl");
+		$arr['tl'] = ($this->input->post("tl") == 0) ? "" : $this->input->post("tl");
 
-		// $arr['ba'] = ($this->input->post("ba") == 0) ? "" : $this->input->post("ba");
+		$arr['ba'] = ($this->input->post("ba") == 0) ? "" : $this->input->post("ba");
 
-		// $arr['toko'] = ($this->input->post("toko") == 0) ? "" : $this->input->post("toko");
+		$arr['toko'] = ($this->input->post("toko") == 0) ? "" : $this->input->post("toko");
 
-		// $arr['cabang'] = ($this->input->post("cabang") == 0) ? "" : $this->input->post("cabang");
+		$arr['cabang'] = ($this->input->post("cabang") == 0) ? "" : $this->input->post("cabang");
 
-		// $arr['kota'] = ($this->input->post("kota") == 0) ? "" : $this->input->post("kota");
+		$arr['kota'] = ($this->input->post("kota") == 0) ? "" : $this->input->post("kota");
 
-		// $arr['startDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 00:00:00"));
+		$arr['startDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 00:00:00"));
 
-		// $arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 23:59:59"));
+		$arr['endDate'] = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 23:59:59"));
 
-		// $data = $this->sada->contactTotal($arr);
+		$data = $this->sada->contactTotal($arr);
 		
-		// $datas = array();
-		// $no = 1;
-		// foreach ($data as $total_contact) {
-		// 	$row[] = $total_contact->nama_cabang;
+		$datas = array();
+		$no = 1;
+		foreach ($data as $total_contact) {
+			$row[] = $total_contact->nama_cabang;
 
-		// 	$datas[] = $row;
-		// }
-		// $output = array(
+			$datas[] = $row;
+		}
+		$output = array(
 
-		// 	"data" => $datas,
+			"data" => $datas,
 
-		// 	);
+			);
 
-		echo json_encode("a");
+		echo json_encode($output);
 	}
 	else{
 		$dataDas['title'] 	= "Total Contact";
