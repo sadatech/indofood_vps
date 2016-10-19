@@ -2032,7 +2032,7 @@ public function contactTotal($arr = array(),$limit_excel)
     sada_form_contact.store_id";
     echo $q;
     // $q .= ($limit_excel=="") ? " LIMIT 10" : "";
-    // return $this->db->query($q);
+    return $this->db->query($q);
 }
 
 /* End Query Promo */
