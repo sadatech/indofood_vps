@@ -4157,6 +4157,8 @@ public function reporttotalcontact()
 			$row[] = $total_contact->customer_id;
 
 			$row[] = $total_contact->nama_store;
+
+			$row[] = $total_contact->tgl_contact;
 			
 			$row[] = $total_contact->contact_count;
 

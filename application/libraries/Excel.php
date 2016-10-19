@@ -132,6 +132,10 @@ class Excel extends PHPExcel {
            $this->excel->getActiveSheet()->setCellValue('P2', 'RUSK');
            $this->excel->getActiveSheet()->setCellValue('Q2', 'Pudding');
            $this->excel->getActiveSheet()->setCellValue('R2', 'Others');
+
+           $this->excel->getActiveSheet()->setCellValue('S1', 'TANGGAL CONTACT');
+           $this->excel->getActiveSheet()->mergeCells('S1:S2');
+
            $this->excel->getActiveSheet()->getStyle('F2:H2')->applyFromArray(
             array(
                 'fill' => array(
@@ -313,8 +317,11 @@ class Excel extends PHPExcel {
                 $this->excel->getActiveSheet()->setCellValue("R".$no_col, "0");
               }
               else{
-                $this->excel->getActiveSheet()->setCellValue("R".$no_col, $ks->strike_others);  
+                $this->excel->getActiveSheet()->setCellValue("R".$no_col, $ks->strike_others);
+
+                  
               }
+              $this->excel->getActiveSheet()->setCellValue("S".$no_col, $ks->tgl_contact);
               
             // echo $ks->nama_kota;
               $no_col++;

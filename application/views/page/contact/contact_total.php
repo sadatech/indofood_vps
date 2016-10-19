@@ -123,9 +123,10 @@
                         <th rowspan="2" width='100'>Cabang</th>
                         <th rowspan="2">Nama BA</th>
                         <!-- <th rowspan="2">Nama TL</th> -->
-                        <th rowspan="2">Status ( Mobile / Stay )</th>
+                        <th rowspan="2">Status</th>
                         <th rowspan="2">Costumer Id</th>
                         <th rowspan="2">Nama Store</th>
+                        <th rowspan="2">Tanggal Contact</th>
                         <th colspan="3">Contact</th>
                         <th colspan="5">Sampling</th>
                         <th colspan="5">Strike Sampling</th>
