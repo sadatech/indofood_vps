@@ -33,7 +33,7 @@ $("#a").validate({
            //   className :'btn green-soft'
            // }
          ],
-    "serverSide": true,
+    "serverSide": false,
     "ajax": {
         "url": base_url+"/CountTotalContact.jsp",
         "type": "POST",
