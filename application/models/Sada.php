@@ -1994,11 +1994,11 @@ public function contactTotal($arr = array(),$limit_excel)
     (select stay from sada_user where sada_user.id_user = sada_form_contact.user_id) as stay,
     sada_toko.store_id as customer_id,
     nama AS nama_store,
-    (select count(*) from sada_form_contact sub_contact where sub_contact.user_id = sada_form_contact.user_id and sada_form_contact.store_id = sub_contact.store_id and sub_contact.tipe = 'newRecruit' and sub_contact.tgl_contact BETWEEN '".$arr['startDate']."' AND '".$arr['endDate']."') newRecruit,
+    (select count(*) from sada_form_contact sub_contact where sub_contact.user_id = sada_form_contact.user_id and sada_form_contact.store_id = sub_contact.store_id and sub_contact.tipe = 'newRecruit' AND DATE(sub_contact.tgl_contact) = DATE(sada_form_contact.tgl_contact)) newRecruit,
 
-(select count(*) from sada_form_contact sub_contact where sub_contact.user_id = sada_form_contact.user_id and sada_form_contact.store_id = sub_contact.store_id and sub_contact.tipe = 'switching' and sub_contact.tgl_contact BETWEEN '".$arr['startDate']."' AND '".$arr['endDate']."') switching,
+(select count(*) from sada_form_contact sub_contact where sub_contact.user_id = sada_form_contact.user_id and sada_form_contact.store_id = sub_contact.store_id and sub_contact.tipe = 'switching' AND DATE(sub_contact.tgl_contact) = DATE(sada_form_contact.tgl_contact)) switching,
 
-(select count(*) from sada_form_contact sub_contact where sub_contact.user_id = sada_form_contact.user_id and sada_form_contact.store_id = sub_contact.store_id and sub_contact.tgl_contact BETWEEN '".$arr['startDate']."' AND '".$arr['endDate']."') contact_count,
+(select count(*) from sada_form_contact sub_contact where sub_contact.user_id = sada_form_contact.user_id and sada_form_contact.store_id = sub_contact.store_id AND DATE(sub_contact.tgl_contact) = DATE(sada_form_contact.tgl_contact)) contact_count,
 
     (select SUM(sub_contact.samplingQty) from sada_form_contact sub_contact where sub_contact.kategori_id = 1 AND date(sub_contact.tgl_contact) = date(sada_form_contact.tgl_contact) AND sada_form_contact.user_id = sub_contact.user_id AND sub_contact.store_id = sada_toko.id_toko) as sampling_bc,
     (select SUM(sub_contact.samplingQty) from sada_form_contact sub_contact where sub_contact.kategori_id = 2 AND date(sub_contact.tgl_contact) = date(sada_form_contact.tgl_contact) AND sada_form_contact.user_id = sub_contact.user_id AND sub_contact.store_id = sada_toko.id_toko) as sampling_bti,
