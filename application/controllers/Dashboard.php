@@ -4158,7 +4158,7 @@ public function reporttotalcontact()
 
 			$row[] = $total_contact->nama_store;
 
-			$row[] = $total_contact->tgl_contact;
+			$row[] = date('d-m-Y',strtotime($total_contact->tgl_contact));
 			
 			$row[] = $total_contact->contact_count;
 

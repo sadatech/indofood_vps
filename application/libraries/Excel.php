@@ -321,7 +321,7 @@ class Excel extends PHPExcel {
 
                   
               }
-              $this->excel->getActiveSheet()->setCellValue("S".$no_col, $ks->tgl_contact);
+              $this->excel->getActiveSheet()->setCellValue("S".$no_col, date('d-m-Y',strtotime($ks->tgl_contact));
               
             // echo $ks->nama_kota;
               $no_col++;
