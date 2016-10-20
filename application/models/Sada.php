@@ -917,103 +917,58 @@ GROUP BY
   SUM(qty) monthVolume,
   (
     SELECT
-      SUM(sd.qty)
+      SUM(sd_pt.qty)
     FROM
-      `sada_produk_terjual` sd
-    INNER JOIN sada_produk spk ON sd.id_produk = spk.id_produk
-    INNER JOIN sada_kategori kat ON kat.id = spk.id_kategori
+      sada_produk_terjual sd_pt
+    
     WHERE
-      sd.id_toko IN (
-        SELECT DISTINCT
-          sada_account_tempo.id_toko
-        FROM
-          sada_produk_terjual
-        INNER JOIN sada_toko ON sada_produk_terjual.id_toko = sada_toko.id_toko
-        INNER JOIN sada_account_temp sada_account_tempo ON sada_account_tempo.id_toko = sada_toko.id_toko
-        WHERE
-          sada_account_tempo.id_account = sada_account_temp.id_account
-      )
-    AND kat.id = '1'
+      (select (select id from sada_kategori where sada_kategori.id = sd_pr.id_kategori) from sada_produk sd_pr where sd_pr.id_produk = sd_pt.id_produk) = 1
+    AND
+      sd_pt.id_toko in (select distinct sd_ac.id_toko from sada_account_temp sd_ac where sd_ac.id_account = sada_account_temp.id_account)
   ) AS qty_bc_prtj,
-  (
+(
     SELECT
-      SUM(sd.qty)
+      SUM(sd_pt.qty)
     FROM
-      `sada_produk_terjual` sd
-    INNER JOIN sada_produk spk ON sd.id_produk = spk.id_produk
-    INNER JOIN sada_kategori kat ON kat.id = spk.id_kategori
+      sada_produk_terjual sd_pt
+    
     WHERE
-      sd.id_toko IN (
-        SELECT DISTINCT
-          sada_account_tempo.id_toko
-        FROM
-          sada_produk_terjual
-        INNER JOIN sada_toko ON sada_produk_terjual.id_toko = sada_toko.id_toko
-        INNER JOIN sada_account_temp sada_account_tempo ON sada_account_tempo.id_toko = sada_toko.id_toko
-        WHERE
-          sada_account_tempo.id_account = sada_account_temp.id_account
-      )
-    AND kat.id = '2'
+      (select (select id from sada_kategori where sada_kategori.id = sd_pr.id_kategori) from sada_produk sd_pr where sd_pr.id_produk = sd_pt.id_produk) = 2
+    AND
+      sd_pt.id_toko in (select distinct sd_ac.id_toko from sada_account_temp sd_ac where sd_ac.id_account = sada_account_temp.id_account)
   ) AS qty_bti_prtj,
-  (
+(
     SELECT
-      SUM(sd.qty)
+      SUM(sd_pt.qty)
     FROM
-      `sada_produk_terjual` sd
-    INNER JOIN sada_produk spk ON sd.id_produk = spk.id_produk
-    INNER JOIN sada_kategori kat ON kat.id = spk.id_kategori
+      sada_produk_terjual sd_pt
+    
     WHERE
-      sd.id_toko IN (
-        SELECT DISTINCT
-          sada_account_tempo.id_toko
-        FROM
-          sada_produk_terjual
-        INNER JOIN sada_toko ON sada_produk_terjual.id_toko = sada_toko.id_toko
-        INNER JOIN sada_account_temp sada_account_tempo ON sada_account_tempo.id_toko = sada_toko.id_toko
-        WHERE
-          sada_account_tempo.id_account = sada_account_temp.id_account
-      )
-    AND kat.id = '3'
+      (select (select id from sada_kategori where sada_kategori.id = sd_pr.id_kategori) from sada_produk sd_pr where sd_pr.id_produk = sd_pt.id_produk) = 3
+    AND
+      sd_pt.id_toko in (select distinct sd_ac.id_toko from sada_account_temp sd_ac where sd_ac.id_account = sada_account_temp.id_account)
   ) AS qty_rusk_prtj,
-  (
+(
     SELECT
-      SUM(sd.qty)
+      SUM(sd_pt.qty)
     FROM
-      `sada_produk_terjual` sd
-    INNER JOIN sada_produk spk ON sd.id_produk = spk.id_produk
-    INNER JOIN sada_kategori kat ON kat.id = spk.id_kategori
+      sada_produk_terjual sd_pt
+    
     WHERE
-      sd.id_toko IN (
-        SELECT DISTINCT
-          sada_account_tempo.id_toko
-        FROM
-          sada_produk_terjual
-        INNER JOIN sada_toko ON sada_produk_terjual.id_toko = sada_toko.id_toko
-        INNER JOIN sada_account_temp sada_account_tempo ON sada_account_tempo.id_toko = sada_toko.id_toko
-        WHERE
-          sada_account_tempo.id_account = sada_account_temp.id_account
-      )
-    AND kat.id = '4'
+      (select (select id from sada_kategori where sada_kategori.id = sd_pr.id_kategori) from sada_produk sd_pr where sd_pr.id_produk = sd_pt.id_produk) = 4
+    AND
+      sd_pt.id_toko in (select distinct sd_ac.id_toko from sada_account_temp sd_ac where sd_ac.id_account = sada_account_temp.id_account)
   ) AS qty_pudding_prtj,
-  (
+(
     SELECT
-      SUM(sd.qty)
+      SUM(sd_pt.qty)
     FROM
-      `sada_produk_terjual` sd
-    INNER JOIN sada_produk spk ON sd.id_produk = spk.id_produk
-    INNER JOIN sada_kategori kat ON kat.id = spk.id_kategori
+      sada_produk_terjual sd_pt
+    
     WHERE
-      sd.id_toko IN (
-        SELECT DISTINCT
-          sada_account_tempo.id_toko
-        FROM
-          sada_produk_terjual
-        INNER JOIN sada_toko ON sada_produk_terjual.id_toko = sada_toko.id_toko
-        INNER JOIN sada_account_temp sada_account_tempo ON sada_account_tempo.id_toko = sada_toko.id_toko
-        WHERE
-          sada_account_tempo.id_account = sada_account_temp.id_account
-      )
-    AND kat.id = '5'
+      (select (select id from sada_kategori where sada_kategori.id = sd_pr.id_kategori) from sada_produk sd_pr where sd_pr.id_produk = sd_pt.id_produk) = 5
+    AND
+      sd_pt.id_toko in (select distinct sd_ac.id_toko from sada_account_temp sd_ac where sd_ac.id_account = sada_account_temp.id_account)
   ) AS qty_others_prtj,
   (
     SELECT
