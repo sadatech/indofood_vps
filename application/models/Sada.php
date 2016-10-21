@@ -2676,7 +2676,7 @@ public function skuDetails($tanggal,$tipe,$produkId,$_user_id,$_toko_id)
 
   ->from('sada_produk_terjual pt')
 
-  ->join('sada_produk p','pts.id_produk = p.id_produk','inner')
+  ->join('sada_produk p','pt.id_produk = p.id_produk','inner')
 
   ->where('DATE(pt.tgl)',$tanggal)
 
