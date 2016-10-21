@@ -2759,7 +2759,7 @@ public function skuCount($filter,$kategori,$tipe){
 
  ->from('sada_produk_terjual pt')
 
- ->join('sada_produk p ', 'p.id_produk = pts.id_produk')
+ ->join('sada_produk p ', 'p.id_produk = pt.id_produk')
 
  ->join('sada_kategori k','k.id = p.id_kategori')
 
