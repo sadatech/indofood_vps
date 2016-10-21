@@ -2668,6 +2668,51 @@ public function CountAchievement($id_cabang)
 
 }
 
+public function skuCount($filter,$kategori,$tipe){
+//  $q = "SELECT
+//   SUM(DISTINCT `pt`.`qty`) AS `qty`,
+//   `pt`.`tipe`,
+//   `k`.`nama` `namaKategori`,
+//   `pt`.`tgl`
+// FROM
+//   `sada_produk_terjual` `pt`
+// JOIN `sada_produk` `p` ON `p`.`id_produk` = `pt`.`id_produk`
+// JOIN `sada_kategori` `k` ON `k`.`id` = `p`.`id_kategori`
+// WHERE
+//   `k`.`nama` = '".$kategori."'
+// AND `pt`.`tipe` = '".$tipe."'
+// AND `pt`.`id_toko` = '".$filter['toko_id']."'
+// AND DATE(pt.tgl) = '".$filter['tanggal']."'
+// AND `pt`.`id_user` = '".$filter['user_id']."'";
+
+ $this->db->select_sum('pt.qty')
+
+ ->select(['pt.tipe','k.nama namaKategori','pt.tgl'])
+
+ ->from('sada_produk_terjual pt')
+
+ ->join('sada_produk p ', 'p.id_produk = pt.id_produk')
+
+ ->join('sada_kategori k','k.id = p.id_kategori')
+
+ ->where('k.nama',$kategori)
+
+ ->where('pt.tipe',$tipe)
+
+ ->where('pt.id_toko',$filter['toko_id'])
+
+ ->where('DATE(pt.tgl)',$filter['tanggal']);
+
+ if($filter['user_id'] != ''){
+
+  $this->db->where('pt.id_user',$filter['user_id']);
+
+}
+
+return $this->db->get();
+
+}
+
 public function skuDetails($tanggal,$tipe,$produkId,$_user_id,$_toko_id)
 
 {
@@ -2736,50 +2781,7 @@ public function addTokoTarget($id)
 
 }
 
-public function skuCount($filter,$kategori,$tipe){
-//  $q = "SELECT
-//   SUM(DISTINCT `pt`.`qty`) AS `qty`,
-//   `pt`.`tipe`,
-//   `k`.`nama` `namaKategori`,
-//   `pt`.`tgl`
-// FROM
-//   `sada_produk_terjual` `pt`
-// JOIN `sada_produk` `p` ON `p`.`id_produk` = `pt`.`id_produk`
-// JOIN `sada_kategori` `k` ON `k`.`id` = `p`.`id_kategori`
-// WHERE
-//   `k`.`nama` = '".$kategori."'
-// AND `pt`.`tipe` = '".$tipe."'
-// AND `pt`.`id_toko` = '".$filter['toko_id']."'
-// AND DATE(pt.tgl) = '".$filter['tanggal']."'
-// AND `pt`.`id_user` = '".$filter['user_id']."'";
 
- $this->db->select_sum('pt.qty')
-
- ->select(['pt.tipe','k.nama namaKategori','pt.tgl'])
-
- ->from('sada_produk_terjual pt')
-
- ->join('sada_produk p ', 'p.id_produk = pt.id_produk')
-
- ->join('sada_kategori k','k.id = p.id_kategori')
-
- ->where('k.nama',$kategori)
-
- ->where('pt.tipe',$tipe)
-
- ->where('pt.id_toko',$filter['toko_id'])
-
- ->where('DATE(pt.tgl)',$filter['tanggal']);
-
- if($filter['user_id'] != ''){
-
-  $this->db->where('pt.id_user',$filter['user_id']);
-
-}
-
-return $this->db->get();
-
-}
 
 
 
