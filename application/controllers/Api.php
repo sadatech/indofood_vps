@@ -1595,15 +1595,15 @@ public function InputJualProduk()
 
        $this->output
 
-       ->set_status_header(200)
+      ->set_status_header(200)
 
-       ->set_content_type('application/json', 'utf-8')
+      ->set_content_type('application/json', 'utf-8')
 
-       ->set_output(json_encode($response, JSON_PRETTY_PRINT))
+      ->set_output(json_encode($response, JSON_PRETTY_PRINT))
 
-       ->_display();
+      ->_display();
 
-       exit;
+      exit();
     }
     else{
 
@@ -1620,10 +1620,10 @@ public function InputJualProduk()
 
               'status' => true,
 
-               'produk_id' => $inputJual['id_produk']
-              , 'toko_id' => $inputJual['id_toko']
-              , 'tipe' => $inputJual['tipe']
-              , 'qty' => $inputJual['qty'],
+              'produk_id' => $inputJual['id_produk'],
+              'toko_id' => $inputJual['id_toko'],
+              'tipe' => $inputJual['tipe'],
+              'qty' => $inputJual['qty'],
 
               'content' => "Dia BA");
             }
@@ -1631,25 +1631,10 @@ public function InputJualProduk()
           else{
             $response = array(
 
-            'status' => true,
+            'status' => false,
 
             'content' => "Bukan BA");
           }
-
-          
-
-          $this->output
-
-          ->set_status_header(200)
-
-          ->set_content_type('application/json', 'utf-8')
-
-          ->set_output(json_encode($response, JSON_PRETTY_PRINT))
-
-          ->_display();
-
-        exit;
-
         }
         else{
           $response = array(
@@ -1657,19 +1642,19 @@ public function InputJualProduk()
           'status' => false,
 
           'content' => "Id User Kosong");
-
-          $this->output
-
-          ->set_status_header(200)
-
-          ->set_content_type('application/json', 'utf-8')
-
-          ->set_output(json_encode($response, JSON_PRETTY_PRINT))
-
-          ->_display();
-
-        exit;
         }
+
+        $this->output
+
+        ->set_status_header(200)
+
+        ->set_content_type('application/json', 'utf-8')
+
+        ->set_output(json_encode($response, JSON_PRETTY_PRINT))
+
+        ->_display();
+
+        exit();
 
     }
 }
