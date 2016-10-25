@@ -1620,10 +1620,7 @@ public function InputJualProduk()
 
               'status' => true,
 
-              'produk_id' => $inputJual['id_produk'],
-              'toko_id' => $inputJual['id_toko'],
-              'tipe' => $inputJual['tipe'],
-              'qty' => $inputJual['qty'],
+              'data' => print_r($inputJual)
 
               'content' => "Dia BA");
             }
