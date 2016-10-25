@@ -1616,16 +1616,17 @@ public function InputJualProduk()
             $dataJson = json_decode($inputJSON, TRUE);
 
             foreach ($dataJson as $inputJual) {
-              echo $inputJual['id_produk'];
-              echo $inputJual['id_toko'];
-              echo $inputJual['tipe'];
-              echo $inputJual['qty'];
+              $response = array(
+
+              'status' => true,
+
+               'produk_id' => $inputJual['id_produk']
+              , 'toko_id' => $inputJual['id_toko']
+              , 'tipe' => $inputJual['tipe']
+              , 'qty' => $inputJual['qty'],
+
+              'content' => "Dia BA");
             }
-            $response = array(
-
-            'status' => true,
-
-            'content' => "Dia BA");
           }
           else{
             $response = array(
