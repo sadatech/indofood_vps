@@ -19,6 +19,7 @@ function fetchTopSkuData() {
               monthVolume : value.monthVolume,
               monthAgoVolume : value.monthAgoVolume
           });
+           console.log(value.price);
        });
         topSkuArray.sort(function(a,b){
             var keyA = parseInt(a.monthVolume),
@@ -45,8 +46,6 @@ function fetchTopSkuData() {
             }
             data += '</tr>';
             no++;
-
-            console.log(topSkuArray[i].price);
         }
         $('#topSkuResult').html(data);
     });
