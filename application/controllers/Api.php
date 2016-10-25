@@ -1473,7 +1473,7 @@ public function contacttotal()
   print_r($this->input->post());
 }
 
-public function InputJualProduks()
+public function InputJualProduk()
 
 {
 
@@ -1584,7 +1584,7 @@ public function InputJualProduks()
 }
 
 
-public function InputJualProduk()
+public function InputJualProduks()
 {
     if (count($this->input->get()) == 0) {
         $response = array(
