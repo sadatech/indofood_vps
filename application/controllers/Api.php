@@ -1609,11 +1609,23 @@ public function InputJualProduk()
 
         if ($this->input->get('id_user')) {
           
-          $response = array(
+          $baAkses = $this->sada->getUserStatus($this->input->get('id_user'));
+          if ($baAkses == 1) {
+            $response = array(
 
-          'status' => false,
+            'status' => true,
 
-          'content' => "Ada ID user");
+            'content' => "Dia BA");
+          }
+          else{
+            $response = array(
+
+            'status' => true,
+
+            'content' => "Bukan BA");
+          }
+
+          
 
           $this->output
 
