@@ -1624,9 +1624,7 @@ public function InputJualProduks()
 
                   'status' => true,
 
-                  'data' => print_r($inputJual),
-
-                  'content' => "Sucess Insert");
+                  'content' => "Data success inserted");
                 }
               }
               else{
