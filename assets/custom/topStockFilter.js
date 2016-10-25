@@ -15,10 +15,9 @@ function fetchTopSkuData() {
               idProduk : value.idProduk,
               namaProduk : value.namaProduk,
               segmen : value.segmen,
-              price : (value.price == 0) ? 'Rp. 0,-' : value.price,
-              prices : (value.prices == 0) ? 'Rp. 0,-' : value.prices,
-              monthVolume : (value.monthVolume == null) ? '0' : value.monthVolume,
-              monthAgoVolume :(value.monthAgoVolume == null) ? '0' : value.monthAgoVolume
+              price : value.price,
+              monthVolume : value.monthVolume,
+              monthAgoVolume : value.monthAgoVolume
           });
        });
         topSkuArray.sort(function(a,b){
@@ -66,10 +65,10 @@ $(document).ready(function() {
                       idProduk : value.idProduk,
                       namaProduk : value.namaProduk,
                       segmen : value.segmen,
-                      price : (value.price == 0) ? 'Rp. 0,-' : value.price,
-                      prices : (value.prices == 0) ? 'Rp. 0,-' : value.prices,
-                      monthVolume : (value.monthVolume == null) ? '0' : value.monthVolume,
-                      monthAgoVolume :(value.monthAgoVolume == null) ? '0' : value.monthAgoVolume
+                      price : value.price,
+                      prices : value.prices,
+                      monthVolume : value.monthVolume,
+                      monthAgoVolume : value.monthAgoVolume
                   });
                });
                 topSkuArray.sort(function(a,b){
@@ -113,10 +112,10 @@ $(document).ready(function() {
                       idProduk : value.idProduk,
                       namaProduk : value.namaProduk,
                       segmen : value.segmen,
-                      price : (value.price == 0) ? 'Rp. 0,-' : value.price,
-                      prices : (value.prices == 0) ? 'Rp. 0,-' : value.prices,
-                      monthVolume : (value.monthVolume == null) ? '0' : value.monthVolume,
-                      monthAgoVolume :(value.monthAgoVolume == null) ? '0' : value.monthAgoVolume
+                      price : value.price,
+                      prices : value.prices,
+                      monthVolume : value.monthVolume,
+                      monthAgoVolume : value.monthAgoVolume
               });
              });
                 topSkuArray.sort(function(a,b){
