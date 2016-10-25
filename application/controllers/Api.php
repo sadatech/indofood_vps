@@ -1473,7 +1473,7 @@ public function contacttotal()
   print_r($this->input->post());
 }
 
-public function InputJualProduk()
+public function InputJualProduks()
 
 {
 
@@ -1583,6 +1583,73 @@ public function InputJualProduk()
 
 }
 
+
+public function InputJualProduk()
+{
+    if ($this->input->get() == null) {
+        $response = array(
+
+        'status' => false,
+
+        'content' => "apaan yang lu insert?");
+
+       $this->output
+
+       ->set_status_header(200)
+
+       ->set_content_type('application/json', 'utf-8')
+
+       ->set_output(json_encode($response, JSON_PRETTY_PRINT))
+
+       ->_display();
+
+       exit;
+    }
+    else{
+
+        if ($this->input->get('id_user')) {
+          
+          $response = array(
+
+          'status' => false,
+
+          'content' => "Ada ID user");
+
+          $this->output
+
+          ->set_status_header(200)
+
+          ->set_content_type('application/json', 'utf-8')
+
+          ->set_output(json_encode($response, JSON_PRETTY_PRINT))
+
+          ->_display();
+
+        exit;
+
+        }
+        else{
+          $response = array(
+
+          'status' => false,
+
+          'content' => "apaan yang lu insert? id user nya belom ada");
+
+          $this->output
+
+          ->set_status_header(200)
+
+          ->set_content_type('application/json', 'utf-8')
+
+          ->set_output(json_encode($response, JSON_PRETTY_PRINT))
+
+          ->_display();
+
+        exit;
+        }
+
+    }
+}
 
 
 public function InputJualProdukOOO()
