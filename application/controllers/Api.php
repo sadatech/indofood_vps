@@ -1586,7 +1586,7 @@ public function InputJualProduks()
 
 public function InputJualProduk()
 {
-    if ($this->input->get() == null) {
+    if (count($this->input->get()) == 0) {
         $response = array(
 
         'status' => false,
@@ -1611,6 +1611,16 @@ public function InputJualProduk()
           
           $baAkses = $this->sada->getUserStatus($this->input->get('id_user'));
           if ($baAkses == 1) {
+            $inputJSON = file_get_contents('php://input');
+
+            $dataJson = json_decode($inputJSON, TRUE);
+
+            foreach ($dataJson as $inputJual) {
+              echo $inputJual['id_produk'];
+              echo $inputJual['id_toko'];
+              echo $inputJual['tipe'];
+              echo $inputJual['qty'];
+            }
             $response = array(
 
             'status' => true,
