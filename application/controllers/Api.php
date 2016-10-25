@@ -1616,14 +1616,27 @@ public function InputJualProduk()
             $dataJson = json_decode($inputJSON, TRUE);
 
             foreach ($dataJson as $inputJual) {
-              $response = array(
 
-              'status' => true,
+              $input = $this->sada->inputjualmodel(['id_produk' => $inputJual['id_produk'], 'id_user' => $this->input->get('id_user'),'id_toko' => $this->input->get('id_toko'), 'tipe' => $inputJual['tipe'], 'qty'=> $inputJual['qty']]);
 
-              'data' => print_r($inputJual),
+              if ($input) {
+                $response = array(
 
-              'content' => "Dia BA");
-            }
+                  'status' => true,
+
+                  'data' => print_r($inputJual),
+
+                  'content' => "Sucess Insert");
+                }
+              }
+              else{
+                $response = array(
+
+                  'status' => false,
+
+                  'content' => "Error");
+                }
+              }
           }
           else{
             $response = array(

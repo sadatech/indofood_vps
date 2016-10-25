@@ -1962,7 +1962,12 @@ public function inputOutOfStock($data)
 
 }
 
+public function inputjualmodel($data)
+{
+  $this->db->insert('sada_produk_terjual',$data);
 
+  return ($this->db->affected_rows() == 1);
+}
 
 
 
