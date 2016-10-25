@@ -1620,7 +1620,7 @@ public function InputJualProduk()
 
               'status' => true,
 
-              'data' => print_r($inputJual)
+              'data' => print_r($inputJual),
 
               'content' => "Dia BA");
             }
