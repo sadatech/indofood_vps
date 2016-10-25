@@ -1586,12 +1586,24 @@ public function InputJualProduks()
 
 public function InputJualProduk()
 {
-    if (count($this->input->get()) == 0) {
+    if ($this->input->get() == null) {
         $response = array(
 
         'status' => false,
 
         'content' => "apaan yang lu insert?");
+
+       $this->output
+
+       ->set_status_header(200)
+
+       ->set_content_type('application/json', 'utf-8')
+
+       ->set_output(json_encode($response, JSON_PRETTY_PRINT))
+
+       ->_display();
+
+       exit;
     }
     else{
 
@@ -1603,17 +1615,7 @@ public function InputJualProduk()
 
           'content' => "Ada ID user");
 
-        }
-        else{
-          $response = array(
-
-          'status' => false,
-
-          'content' => "Id User Kosong");
-        }
-
-    }
-    $this->output
+          $this->output
 
           ->set_status_header(200)
 
@@ -1622,6 +1624,31 @@ public function InputJualProduk()
           ->set_output(json_encode($response, JSON_PRETTY_PRINT))
 
           ->_display();
+
+        exit;
+
+        }
+        else{
+          $response = array(
+
+          'status' => false,
+
+          'content' => "Id User Kosong");
+
+          $this->output
+
+          ->set_status_header(200)
+
+          ->set_content_type('application/json', 'utf-8')
+
+          ->set_output(json_encode($response, JSON_PRETTY_PRINT))
+
+          ->_display();
+
+        exit;
+        }
+
+    }
 }
 
 
