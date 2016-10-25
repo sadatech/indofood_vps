@@ -45,6 +45,8 @@ function fetchTopSkuData() {
             }
             data += '</tr>';
             no++;
+
+            console.log(topSkuArray[i].price);
         }
         $('#topSkuResult').html(data);
     });
