@@ -676,15 +676,23 @@ WHERE
   -- WHERE
   -- cab.id_cabang = sada_kota.id_cabang
   -- ) AS target_cabang,
-  (
-  SELECT DISTINCT
-  SUM(target_toko.target)
-  FROM
-  sada_toko toko
-  INNER JOIN sada_target target_toko ON toko.id_toko = target_toko.id_toko
-  WHERE
-  toko.id_toko = sada_produk_terjual.id_toko
-  ) AS target_cabang,
+  -- (
+  -- SELECT DISTINCT
+  -- SUM(target_toko.target)
+  -- FROM
+  -- sada_toko toko
+  -- INNER JOIN sada_target target_toko ON toko.id_toko = target_toko.id_toko
+  -- WHERE
+  -- toko.id_toko = sada_produk_terjual.id_toko
+  -- ) AS target_cabang,
+  (SELECT SUM( target ) 
+FROM  `sada_target` 
+WHERE (
+
+SELECT id_kota
+FROM sada_toko
+WHERE sada_toko.id_toko = sada_target.id_toko
+) = (select id_kota from sada_toko a where a.id_toko = sada_produk_terjual.id_toko)) target_cabang,
   (SELECT
   COUNT(DISTINCT user_temp.id_user)
   FROM
