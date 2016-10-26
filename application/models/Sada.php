@@ -1152,15 +1152,15 @@ GROUP BY
   --   WHERE
   --     sada_account_temp.id_toko = sada_produk_terjual.id_toko
   -- ) AS target
-  (
-  SELECT DISTINCT
-  SUM(target_toko.target)
-  FROM
-  sada_toko toko
-  INNER JOIN sada_target target_toko ON toko.id_toko = target_toko.id_toko
-  WHERE
-  toko.id_toko = sada_produk_terjual.id_toko
-  ) AS target
+  -- (
+  -- SELECT DISTINCT
+  -- SUM(target_toko.target)
+  -- FROM
+  -- sada_toko toko
+  -- INNER JOIN sada_target target_toko ON toko.id_toko = target_toko.id_toko
+  -- WHERE
+  -- toko.id_toko = sada_produk_terjual.id_toko
+  -- ) AS target
   FROM
   sada_produk_terjual
 -- INNER JOIN sada_produk ON sada_produk_terjual.id_produk = sada_produk.id_produk
@@ -1337,7 +1337,7 @@ function _getLoginMobile($dataLogin)
             }
             
             elseif ($row->akses=="1") {
-              if( $this->db->get_where('sada_tokoinuser_temp',['id_user' => $user_id, 'id_toko' => $toko_id])->num_rows() == 0){
+              if( $this->db->get_where('sada_tokoinuser_temp',['id_user' => $user_id, 'id_tokos' => $toko_id])->num_rows() == 0){
               $response = array(
                'Success' => false,
                'Info' => 'Anda tidak memiliki akses pada store id '.$toko['store_id']);
