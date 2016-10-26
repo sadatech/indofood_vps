@@ -2134,7 +2134,7 @@ public function dataCabang()
 
 		else{
 
-			$row[] 		= '<div class="btn-group" >
+			$row[] 		= '
 
 			<button  class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> Actions
 
@@ -2156,9 +2156,7 @@ public function dataCabang()
 
 				</li>
 
-			</ul>
-
-		</div>';
+			</ul>';
 
 	}
 
