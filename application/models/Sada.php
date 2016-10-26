@@ -1161,11 +1161,24 @@ GROUP BY
   -- WHERE
   -- toko.id_toko = sada_produk_terjual.id_toko
   -- ) AS target
+(select sum(s.target) FROM sada_target s where (select id_account from sada_account_temp where sada_account_temp.id_toko = s.id_toko) = sada_account_temp.id_account) as target
   FROM
   sada_produk_terjual
--- INNER JOIN sada_produk ON sada_produk_terjual.id_produk = sada_produk.id_produk
+
 INNER JOIN `sada_produk` ON `sada_produk_terjual`.`id_produk` = `sada_produk`.`id_produk`
 INNER JOIN `sada_kategori` as sdkat ON `sada_produk`.`id_kategori` = `sdkat`.`id`
+
+JOIN sada_target ON sada_target.id_toko = sada_produk_terjual.id_toko
+JOIN sada_account_temp ON sada_target.id_toko = sada_account_temp.id_toko
+WHERE
+  (
+    SELECT
+      id_account
+    FROM
+      sada_account_temp
+    WHERE
+      sada_produk_terjual.id_toko = sada_account_temp.id_toko
+  ) IS NOT NULL
 ORDER BY
 id_toko
 ";
