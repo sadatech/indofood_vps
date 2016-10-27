@@ -41,6 +41,9 @@ $(document).ready(function() {
             "url": base_url+"/users.jsp",
             "type": "POST"
         },
+        "search": {
+            "caseInsensitive": false
+        },
         "initComplete": function() {
             var $searchInput = $('div.dataTables_filter input');
 
