@@ -35,6 +35,7 @@ $("#top_cabang").validate({
 
 				topSkuArray.push({
 					pic_cabang : value.pic_cabang,
+					nama_cabang : value.nama_cabang,
 					target_cabang : value.target_cabang,
 					jml_ba_cabang : value.jml_ba_cabang,
 					price : value.price,
@@ -65,6 +66,7 @@ $("#top_cabang").validate({
 				data += '<tr class="odd gradeX">';
 				data += '<td>' + no +'</td>';
 				data += '<td>'+ topSkuArray[i].pic_cabang+'</td>';
+				data += '<td>'+ topSkuArray[i].nama_cabang+'</td>';
 				data += '<td>'+ topSkuArray[i].target_cabang+'</td>';
 				
 				data += '<td>Rp '+ Number(sum.toFixed(1)).toLocaleString() +'</td>';
@@ -130,6 +132,7 @@ $(document).ready(function() {
 
 				topSkuArray.push({
 					pic_cabang : value.pic_cabang,
+					nama_cabang : value.nama_cabang,
 					target_cabang : value.target_cabang,
 					jml_ba_cabang : value.jml_ba_cabang,
 					jml_toko_cabang : value.jml_toko_cabang,
@@ -160,6 +163,7 @@ $(document).ready(function() {
 				data += '<tr class="odd gradeX">';
 				data += '<td>' + no +'</td>';
 				data += '<td>'+ topSkuArray[i].pic_cabang+'</td>';
+				data += '<td>'+ topSkuArray[i].nama_cabang+'</td>';
 				data += '<td>'+ topSkuArray[i].target_cabang+'</td>';
 				
 
@@ -224,6 +228,7 @@ $(document).ready(function() {
 
 				topSkuArray.push({
 					pic_cabang : value.pic_cabang,
+					nama_cabang : value.nama_cabang,
 					target_cabang : value.target_cabang,
 					jml_ba_cabang : value.jml_ba_cabang,
 					price : value.price,
@@ -254,6 +259,7 @@ $(document).ready(function() {
 				data += '<tr class="odd gradeX">';
 				data += '<td>' + no +'</td>';
 				data += '<td>'+ topSkuArray[i].pic_cabang+'</td>';
+				data += '<td>'+ topSkuArray[i].nama_cabang+'</td>';
 				data += '<td>'+ topSkuArray[i].target_cabang+'</td>';
 				data += '<td>Rp '+ Number(sum.toFixed(1)).toLocaleString() +'</td>';
 				data += '<td>'+ topSkuArray[i].monthVolume+'</td>';

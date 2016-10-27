@@ -131,6 +131,7 @@
 
 							<th> No</th>
                             <th> PIC Cabang</th>
+                            <th> Nama Cabang</th>
                             <th> Target </th>
                             <th> Value</th>
                             <th> Volume</th>

@@ -669,6 +669,14 @@ WHERE
   WHERE
   cab.id_cabang = sada_kota.id_cabang
   ) AS pic_cabang,
+  (
+    SELECT
+    cab.nama
+    FROM
+    sada_cabang cab
+    WHERE
+    cab.id_cabang = sada_kota.id_cabang
+  ) AS nama_cabang,
   -- (
   -- SELECT
   -- cab.target
@@ -737,6 +745,7 @@ foreach ($merged as $value) {
     'target_cabang'=>$value->target_cabang,
     'jml_ba_cabang'=>$value->jml_ba_cabang,
     'jml_toko_cabang'=>$value->jml_toko_cabang,
+    'nama_cabang'=>$value->nama_cabang,
     'price'=>'Rp '.number_format($value->price,0,",",".").',-'
     ];
   }
