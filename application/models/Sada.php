@@ -27,7 +27,7 @@ class Sada extends CI_Model{
     $endDate = $filter['endDate'];
     $startDateMonthAgo = $filter['startDateMonthAgo'];
     $endDateMonthAgo = $filter['endDateMonthAgo'];
-    $volume = $this->db->select(['id_produk ', '(select sum(sdp_trjl.qty) from sada_produk_terjual sdp_trjl where sada_produk_terjual.id_produk = sdp_trjl.id_produk) monthVolume','(select sd_kat.price from sada_produk p inner join sada_kategori sd_kat on p.id_kategori = sd_kat.id where p.id_produk = sada_produk_terjual.id_produk) price'])
+    $volume = $this->db->select(['id_produk ', '(select sums(sdp_trjl.qty) from sada_produk_terjual sdp_trjl where sada_produk_terjual.id_produk = sdp_trjl.id_produk) monthVolume','(select sd_kat.price from sada_produk p inner join sada_kategori sd_kat on p.id_kategori = sd_kat.id where p.id_produk = sada_produk_terjual.id_produk) price'])
     ->from('sada_produk_terjual')
     ->where("CAST(tgl AS DATE) BETWEEN '$startDate' AND '$endDate'")
     ->group_by('id_produk')
