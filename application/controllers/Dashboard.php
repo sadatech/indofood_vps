@@ -586,64 +586,62 @@ public function dataUser()
 
 			$row[] = $datatable->nama;
 
-			$row[] = '';
+			if ($datatable->stay == "Y") {
 
-			// if ($datatable->stay == "Y") {
+				$stay = "Stay";
 
-			// 	$stay = "Stay";
+				$x="";
 
-			// 	$x="";
+			} elseif ($datatable->stay == "N") {
 
-			// } elseif ($datatable->stay == "N") {
+				$stay = "Mobile";
 
-			// 	$stay = "Mobile";
+			}else {
 
-			// }else {
+				$stay = "??";
 
-			// 	$stay = "??";
+				$x="";
 
-			// 	$x="";
+			}
 
-			// }
+			if ($datatable->akses == 0) {
 
-			// if ($datatable->akses == 0) {
+				$row[] = '<center><span class="label label-sm label-success"> TL </span>&nbsp;<a  class="label label-sm label-danger" id="showToko" href="#page'.$datatable->id_user.'"><small>Show Toko</small></a></center>';
 
-			// 	$row[] = '<center><span class="label label-sm label-success"> TL </span>&nbsp;<a  class="label label-sm label-danger" id="showToko" href="#page'.$datatable->id_user.'"><small>Show Toko</small></a></center>';
+			}elseif ($datatable->akses == 1) {
 
-			// }elseif ($datatable->akses == 1) {
+				$row[] = '<center><span class="label label-sm label-info"> SPG ( '. $stay.' )</span> <a  class="label label-sm label-danger" id="showToko" href="#page'.$datatable->id_user.'"><small>Show Toko</small></a></center>';
 
-			// 	$row[] = '<center><span class="label label-sm label-info"> SPG ( '. $stay.' )</span> <a  class="label label-sm label-danger" id="showToko" href="#page'.$datatable->id_user.'"><small>Show Toko</small></a></center>';
+			}
 
-			// }
+			elseif ($datatable->akses == 2) {
 
-			// elseif ($datatable->akses == 2) {
+				$row[] = '<center><span class="label label-sm label-primary"> Admin </span></center>';
 
-			// 	$row[] = '<center><span class="label label-sm label-primary"> Admin </span></center>';
+			}
 
-			// }
+			elseif ($datatable->akses == 3) {
 
-			// elseif ($datatable->akses == 3) {
+				$row[] = '<center><span class="label label-sm label-danger"> Indofood</span></center>';
 
-			// 	$row[] = '<center><span class="label label-sm label-danger"> Indofood</span></center>';
+			}
+			else{
 
-			// }
-			// else{
+				$row[] = '<center><span class="label label-sm label-danger"> KAS</span></center>';
 
-			// 	$row[] = '<center><span class="label label-sm label-danger"> KAS</span></center>';
-
-			// }
+			}
 
 
 
 
 
-			// if ($this->session->userdata("akses")=="3") {
+			if ($this->session->userdata("akses")=="3") {
 
-			// 	$row[] = '';
+				$row[] = '';
 
-			// }
+			}
 
-			// else{
+			else{
 
 				$row[] = '<div class="btn-group" >
 
@@ -673,7 +671,7 @@ public function dataUser()
 
 
 
-		// }
+		}
 
 		$data[] = $row;
 
