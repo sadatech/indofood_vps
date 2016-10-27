@@ -643,7 +643,7 @@ public function dataUser()
 
 			// }
 
-			else{
+			// else{
 
 				$row[] = '<div class="btn-group" >
 
@@ -673,7 +673,7 @@ public function dataUser()
 
 
 
-		}
+		// }
 
 		$data[] = $row;
 
