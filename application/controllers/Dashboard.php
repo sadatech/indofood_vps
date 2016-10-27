@@ -570,7 +570,7 @@ public function dataUser()
 			$q .= " WHERE status = 'Y'";
 		}
 
-		$list = $this->datatable->get_datatables_users($table.$q,$column,$odb);
+		$list = $this->datatable->get_datatables($table,$column,$odb);
 
 		$data = array();
 
