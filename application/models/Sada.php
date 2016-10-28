@@ -2723,7 +2723,7 @@ public function skuCount($filter,$kategori,$tipe){
 
  $this->db->select_sum('pt.qty')
 
- ->select(['pt.tipe','k.nama namaKategori','pt.tgl'])
+ ->select(['pt.tipeW','k.nama namaKategori','pt.tgl'])
 
  ->from('sada_produk_terjual pt')
 
