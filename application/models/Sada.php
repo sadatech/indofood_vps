@@ -2755,7 +2755,7 @@ public function skuDetails($tanggal,$tipe,$produkId,$_user_id,$_toko_id)
 
   $this->db->select_sum('pt.qty')
 
-  ->from('sada_produk_terjual pt')
+  ->from('sada_produks_terjual pt')
 
   ->join('sada_produk p','pt.id_produk = p.id_produk','inner')
 
