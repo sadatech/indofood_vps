@@ -90,7 +90,6 @@
                                                 <th> No. </th>
                                                 <th> Tipe Target </th>
                                                 <th> Target </th>
-                                                <th> Actions </th>
                                             </tr>
                                         </thead>
                                         <tbody id="dataShowTarget">
