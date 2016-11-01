@@ -82,7 +82,9 @@ function loadPage(url)  //the function that loads pages via AJAX
             }
         }
     });
-    $("td[contenteditable=true]").blur(function(){
+}
+
+$("td[contenteditable=true]").blur(function(){
         var id_kat = $(this).attr("id");
         var value = $(this).text();
 
@@ -95,5 +97,3 @@ function loadPage(url)  //the function that loads pages via AJAX
             }
         });
     });  
-}
-
