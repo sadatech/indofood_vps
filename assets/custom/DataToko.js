@@ -84,3 +84,6 @@ function loadPage(url)  //the function that loads pages via AJAX
     });
 
 }
+$(document).ready(function() {
+   $("#settarget")..attr('contenteditable', 'true'); 
+});
