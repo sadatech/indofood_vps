@@ -189,6 +189,10 @@ class Dashboard extends CI_Controller {
 
 	}
 }
+public function updatetargetToko()
+{
+	echo "tes";
+}
 public function kategori_segmen()
 {
 	if ($this->input->post()) {

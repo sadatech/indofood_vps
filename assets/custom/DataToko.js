@@ -82,5 +82,18 @@ function loadPage(url)  //the function that loads pages via AJAX
             }
         }
     });
-
 }
+
+$("td[contenteditable=true]").blur(function(){
+        var id_kat = $(this).attr("id");
+        var value = $(this).text();
+
+        $.post(base_url+'/updatetarget' , id_kat + "=" + value, function(data){
+            if(data != '')
+            {
+                message_status.show();
+                message_status.text(data);
+                setTimeout(function(){message_status.hide()},3000);
+            }
+        });
+    });  

@@ -312,6 +312,8 @@ $route['topAccount'] 				= 'Dashboard/reportTopAccount';
 
 	$route['CountTotalContact'] = 'Dashboard/reporttotalcontact';
 
+	$route['updatetarget'] = 'Dashboard/updatetarget';
+
 
 /*END WEB*/
 
