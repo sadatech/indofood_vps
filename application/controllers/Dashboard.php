@@ -194,8 +194,13 @@ public function updatetargetToko()
 	$id_target = $this->input->post("id_target");
 	$target = $this->input->post("target");
 
-	echo $id_target;
-	echo $target;
+	$zql = $this->db->query("UPDATE sada_target SET target = '$target' where id_target = $id_target");
+	if ($zql) {
+		echo "Berhasil Edit";
+	}
+	else{
+		echo "gagal";
+	}
 }
 public function kategori_segmen()
 {
