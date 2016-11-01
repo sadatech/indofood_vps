@@ -74,7 +74,7 @@
                             </div>
                         </div>
                         <div class="col-md-12" id="pageContent">
-                                    <table class="table table-striped table-bordered table-hover table-checkable order-column">
+                                    <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1">
                                         <thead>
                                             <tr>
                                                 <th> No. </th>
@@ -84,7 +84,11 @@
                                             </tr>
                                         </thead>
                                         <tbody id="dataShowTarget">
-                                            <!-- <tr></tr> -->
+                                            <tr>
+                                                <td contenteditable="true">tes edit</td>
+                                                <td contenteditable="true">tes edit</td>
+                                                <td contenteditable="true">tes edit</td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
