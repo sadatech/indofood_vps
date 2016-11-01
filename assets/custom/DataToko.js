@@ -32,8 +32,8 @@ $(document).ready(function() {
     checkURL(); //check if the URL has a reference to a page and load it
 
     $('#showTarget').click(function (e){    //traverse through all our navigation links..
-        console.log('campret');
-            // checkURL(this.hash);    //.. and assign them a new onclick event, using their own hash as a parameter (#page1 for example)
+
+            checkURL(this.hash);    //.. and assign them a new onclick event, using their own hash as a parameter (#page1 for example)
 
     });
 
