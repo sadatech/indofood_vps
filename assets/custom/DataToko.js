@@ -55,32 +55,32 @@ function checkURL(hash)
     }
 }
 
-// function loadPage(url)  //the function that loads pages via AJAX
-// {
-//     var base_url = window.location.origin;
-//     url=url.replace('#page','');    //strip the #page part of the hash and leave only the page number
+function loadPage(url)  //the function that loads pages via AJAX
+{
+    var base_url = window.location.origin;
+    url=url.replace('#page','');    //strip the #page part of the hash and leave only the page number
 
-//     $('#loading').css('visibility','visible');  //show the rotating gif animation
+    $('#loading').css('visibility','visible');  //show the rotating gif animation
 
-//     $.ajax({    //create an ajax request to load_page.php
-//         type: "POST",
-//         // url: "http://localhost.co.id/getKota",
-//         url: base_url+"/getTokoTarget",
-//         data: 'id='+url,  //with the page number as a parameter
-//         dataType: "json",   //expect html to be returned
-//         success: function(msg){
-//             if(parseInt(msg)!=0)    //if no errors
-//             {
-//                 var data = "";
-//                 data += "";
-//                 for (var i = msg.length - 1; i >= 0; i--) {
-//                     data += "<tr><td>No</td>";
-//                     data += "<td contenteditable='true'>"+msg[i]['nama']+"</td>";
-//                     data += "<td contenteditable='true'>"+msg[i]['target']+"</td><td><a class='btn btn-xs blue' href='"+base_url+"/toko/editTarget/"+msg[i]['id_target']+"'>Update Target</a></td></tr>";
-//                 }
-//                 $("#dataShowTarget").html(data);
-//             }
-//         }
-//     });
+    $.ajax({    //create an ajax request to load_page.php
+        type: "POST",
+        // url: "http://localhost.co.id/getKota",
+        url: base_url+"/getTokoTarget",
+        data: 'id='+url,  //with the page number as a parameter
+        dataType: "json",   //expect html to be returned
+        success: function(msg){
+            if(parseInt(msg)!=0)    //if no errors
+            {
+                var data = "";
+                data += "";
+                for (var i = msg.length - 1; i >= 0; i--) {
+                    data += "<tr><td>No</td>";
+                    data += "<td>"+msg[i]['nama']+"</td>";
+                    data += "<td>"+msg[i]['target']+"</td><td><a class='btn btn-xs blue' href='"+base_url+"/toko/editTarget/"+msg[i]['id_target']+"'>Update Target</a></td></tr>";
+                }
+                $("#dataShowTarget").html(data);
+            }
+        }
+    });
 
-// }
+}
