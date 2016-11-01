@@ -90,6 +90,6 @@ function updatetargettoko(target,id_target) {
       type: "POST",
       url: base_url+"/updatetarget",
       data: target +"="+ id_target,
-      dataType: json
+      dataType: 'json'
     });       
 }
