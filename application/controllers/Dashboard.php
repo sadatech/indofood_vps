@@ -191,7 +191,11 @@ class Dashboard extends CI_Controller {
 }
 public function updatetargetToko()
 {
-	echo print_r($this->input->post());
+	$id_target = $this->input->post("id_target");
+	$target = $this->input->post("target");
+
+	echo $id_target;
+	echo $target;
 }
 public function kategori_segmen()
 {

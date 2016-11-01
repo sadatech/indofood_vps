@@ -89,7 +89,7 @@ function updatetargettoko(target,id_target) {
     $.ajax({
       type: "POST",
       url: base_url+"/updatetarget",
-      data: target +"="+ id_target,
+      data: {"target":target,"id_target":id_target},
       dataType: 'json'
     });       
 }
