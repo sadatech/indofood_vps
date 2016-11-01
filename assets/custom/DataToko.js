@@ -85,12 +85,11 @@ function loadPage(url)  //the function that loads pages via AJAX
 }
 
 function updatetargettoko(target,id_target) {
-    $.post(base_url+'/updatetarget' , id_target + "=" + target, function(data){
-        if(data != '')
-        {
-            message_status.show();
-            message_status.text(data);
-            setTimeout(function(){message_status.hide()},3000);
-        }
+    var base_url = window.location.origin;
+    $.ajax({
+      type: "POST",
+      url: base_url+"/updatetarget",
+      data: target +"="+ id_target,
+      dataType: json
     });       
 }
