@@ -2800,7 +2800,7 @@ public function dataToko()
 
 	$this->db->order_by("status","desc");
 
-	$dataDas['js'][]	= "assets/custom/DataToko.js";
+	// $dataDas['js'][]	= "assets/custom/DataToko.js";
 
 	$dataDas['query'] = $this->db->get('sada_toko');
 
