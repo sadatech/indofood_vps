@@ -76,7 +76,7 @@ function loadPage(url)  //the function that loads pages via AJAX
                 for (var i = msg.length - 1; i >= 0; i--) {
                     data += "<tr><td>No</td>";
                     data += "<td>"+msg[i]['nama']+"</td>";
-                    data += "<td id='settarget:"+msg[i]['id_target']+"' onblur='updatetargettoko()' contenteditable='true'>"+msg[i]['target']+"</td><td><a class='btn btn-xs blue' href='"+base_url+"/toko/editTarget/"+msg[i]['id_target']+"'>Update Target</a></td></tr>";
+                    data += "<td id='settarget:"+msg[i]['id_target']+"' onblur='updatetargettoko("+msg[i]['id_target']+")' contenteditable='true'>"+msg[i]['target']+"</td><td><a class='btn btn-xs blue' href='"+base_url+"/toko/editTarget/"+msg[i]['id_target']+"'>Update Target</a></td></tr>";
                 }
                 $("#dataShowTarget").html(data);
             }
@@ -84,6 +84,7 @@ function loadPage(url)  //the function that loads pages via AJAX
     });
 }
 
-function updatetargettoko() {
-    console.log("update");    
+function updatetargettoko(id_target) {
+    console.log($(this).text());    
+    console.log(id_target);    
 }//kampret
