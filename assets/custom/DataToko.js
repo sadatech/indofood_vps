@@ -85,6 +85,12 @@ function loadPage(url)  //the function that loads pages via AJAX
 }
 
 function updatetargettoko(target,id_target) {
-    // console.log(target);    
-    console.log(id_target);    
-}//kampret
+    $.post(base_url+'/updatetarget' , id_target + "=" + target, function(data){
+        if(data != '')
+        {
+            message_status.show();
+            message_status.text(data);
+            setTimeout(function(){message_status.hide()},3000);
+        }
+    });       
+}
