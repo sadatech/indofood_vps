@@ -75,8 +75,8 @@ function loadPage(url)  //the function that loads pages via AJAX
                 data += "";
                 for (var i = msg.length - 1; i >= 0; i--) {
                     data += "<tr><td>No</td>";
-                    data += "<td>"+msg[i]['nama']+"</td>";
-                    data += "<td>"+msg[i]['target']+"</td><td><a class='btn btn-xs blue' href='"+base_url+"/toko/editTarget/"+msg[i]['id_target']+"'>Update Target</a></td></tr>";
+                    data += "<td contenteditable='true'>"+msg[i]['nama']+"</td>";
+                    data += "<td contenteditable='true'>"+msg[i]['target']+"</td><td><a class='btn btn-xs blue' href='"+base_url+"/toko/editTarget/"+msg[i]['id_target']+"'>Update Target</a></td></tr>";
                 }
                 $("#dataShowTarget").html(data);
             }
