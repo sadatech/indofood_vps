@@ -76,7 +76,7 @@ function loadPage(url)  //the function that loads pages via AJAX
                 for (var i = msg.length - 1; i >= 0; i--) {
                     data += "<tr><td>No</td>";
                     data += "<td>"+msg[i]['nama']+"</td>";
-                    data += "<td id='settarget:"+msg[i]['id_target']+"' contenteditable='true'>"+msg[i]['target']+"</td><td><a class='btn btn-xs blue' href='"+base_url+"/toko/editTarget/"+msg[i]['id_target']+"'>Update Target</a></td></tr>";
+                    data += "<td id='settarget:"+msg[i]['id_target']+"' onblur='updatetargettoko' contenteditable='true'>"+msg[i]['target']+"</td><td><a class='btn btn-xs blue' href='"+base_url+"/toko/editTarget/"+msg[i]['id_target']+"'>Update Target</a></td></tr>";
                 }
                 $("#dataShowTarget").html(data);
             }
@@ -84,16 +84,6 @@ function loadPage(url)  //the function that loads pages via AJAX
     });
 }
 
-$("td[contenteditable=true]").blur(function(){
-        var id_kat = $(this).attr("id");
-        var value = $(this).text();
-
-        $.post(base_url+'/updatetarget' , id_kat + "=" + value, function(data){
-            if(data != '')
-            {
-                message_status.show();
-                message_status.text(data);
-                setTimeout(function(){message_status.hide()},3000);
-            }
-        });
-    });  
+function updatetargettoko() {
+    console.log("update");    
+}
