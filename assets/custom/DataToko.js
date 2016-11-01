@@ -93,6 +93,8 @@ function updatetargettoko(target,id_target) {
       dataType: 'json',
       success:function(data) {
         console.log(data.status);
+        $("#status").text(data.status);
+        $("#status").show();
       }
     });       
 }
