@@ -84,7 +84,11 @@
                                             </tr>
                                         </thead>
                                         <tbody id="dataShowTarget">
-                                            <!-- <tr></tr> -->
+                                            <tr>
+                                                <td contenteditable="true">tes edit</td>
+                                                <td contenteditable="true">tes edit</td>
+                                                <td contenteditable="true">tes edit</td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
