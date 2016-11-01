@@ -29,58 +29,58 @@ $(document).ready(function() {
 
 
 
-//     checkURL(); //check if the URL has a reference to a page and load it
+    checkURL(); //check if the URL has a reference to a page and load it
 
-//     $('#showTarget').click(function (e){    //traverse through all our navigation links..
-//         console.log('campret');
-//             // checkURL(this.hash);    //.. and assign them a new onclick event, using their own hash as a parameter (#page1 for example)
+    $('#showTarget').click(function (e){    //traverse through all our navigation links..
+        console.log('campret');
+            // checkURL(this.hash);    //.. and assign them a new onclick event, using their own hash as a parameter (#page1 for example)
 
-//     });
+    });
 
-//     setInterval("checkURL()",250);  //check for a change in the URL every 250 ms to detect if the history buttons have been used
+    setInterval("checkURL()",250);  //check for a change in the URL every 250 ms to detect if the history buttons have been used
 
-// });
+});
 
 
-// var lasturl=""; //here we store the current URL hash
+var lasturl=""; //here we store the current URL hash
 
-// function checkURL(hash)
-// {
-//     if(!hash) hash=window.location.hash;    //if no parameter is provided, use the hash value from the current address
+function checkURL(hash)
+{
+    if(!hash) hash=window.location.hash;    //if no parameter is provided, use the hash value from the current address
 
-//     if(hash != lasturl) // if the hash value has changed
-//     {
-//         lasturl=hash;   //update the current hash
-//         loadPage(hash); // and load the new page
-//     }
-// }
+    if(hash != lasturl) // if the hash value has changed
+    {
+        lasturl=hash;   //update the current hash
+        loadPage(hash); // and load the new page
+    }
+}
 
-// function loadPage(url)  //the function that loads pages via AJAX
-// {
-//     var base_url = window.location.origin;
-//     url=url.replace('#page','');    //strip the #page part of the hash and leave only the page number
+function loadPage(url)  //the function that loads pages via AJAX
+{
+    var base_url = window.location.origin;
+    url=url.replace('#page','');    //strip the #page part of the hash and leave only the page number
 
-//     $('#loading').css('visibility','visible');  //show the rotating gif animation
+    $('#loading').css('visibility','visible');  //show the rotating gif animation
 
-//     $.ajax({    //create an ajax request to load_page.php
-//         type: "POST",
-//         // url: "http://localhost.co.id/getKota",
-//         url: base_url+"/getTokoTarget",
-//         data: 'id='+url,  //with the page number as a parameter
-//         dataType: "json",   //expect html to be returned
-//         success: function(msg){
-//             if(parseInt(msg)!=0)    //if no errors
-//             {
-//                 var data = "";
-//                 data += "";
-//                 for (var i = msg.length - 1; i >= 0; i--) {
-//                     data += "<tr><td>No</td>";
-//                     data += "<td>"+msg[i]['nama']+"</td>";
-//                     data += "<td>"+msg[i]['target']+"</td><td><a class='btn btn-xs blue' href='"+base_url+"/toko/editTarget/"+msg[i]['id_target']+"'>Update Target</a></td></tr>";
-//                 }
-//                 $("#dataShowTarget").html(data);
-//             }
-//         }
-//     });
+    $.ajax({    //create an ajax request to load_page.php
+        type: "POST",
+        // url: "http://localhost.co.id/getKota",
+        url: base_url+"/getTokoTarget",
+        data: 'id='+url,  //with the page number as a parameter
+        dataType: "json",   //expect html to be returned
+        success: function(msg){
+            if(parseInt(msg)!=0)    //if no errors
+            {
+                var data = "";
+                data += "";
+                for (var i = msg.length - 1; i >= 0; i--) {
+                    data += "<tr><td>No</td>";
+                    data += "<td>"+msg[i]['nama']+"</td>";
+                    data += "<td>"+msg[i]['target']+"</td><td><a class='btn btn-xs blue' href='"+base_url+"/toko/editTarget/"+msg[i]['id_target']+"'>Update Target</a></td></tr>";
+                }
+                $("#dataShowTarget").html(data);
+            }
+        }
+    });
 
-// }
+}
