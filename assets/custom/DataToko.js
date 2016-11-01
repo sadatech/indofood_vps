@@ -73,17 +73,17 @@ function loadPage(url)  //the function that loads pages via AJAX
             {
                 var data = "";
                 data += "";
-                for (var i = msg.length - 1; i >= 0; i--) {
-                    data += "<tr><td>No</td>";
-                    data += "<td contenteditable='true'>"+msg[i]['nama']+"</td>";
-                    data += "<td id='settarget' contenteditable='true'>"+msg[i]['target']+"</td><td><a class='btn btn-xs blue' href='"+base_url+"/toko/editTarget/"+msg[i]['id_target']+"'>Update Targets</a></td></tr>";
-                }
-                $("#dataShowTarget").html(data);
+                // for (var i = msg.length - 1; i >= 0; i--) {
+                //     data += "<tr><td>No</td>";
+                //     data += "<td contenteditable='true'>"+msg[i]['nama']+"</td>";
+                //     data += "<td id='settarget' contenteditable='true'>"+msg[i]['target']+"</td><td><a class='btn btn-xs blue' href='"+base_url+"/toko/editTarget/"+msg[i]['id_target']+"'>Update Targets</a></td></tr>";
+                // }
+                // $("#dataShowTarget").html(data);
             }
         }
     });
 
 }
-$(document).ready(function() {
-   $("#settarget").attr('contenteditable', 'true'); 
-});
+// $(document).ready(function() {
+//    $("#settarget").attr('contenteditable', 'true'); 
+// });
