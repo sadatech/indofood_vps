@@ -196,11 +196,13 @@ public function updatetargetToko()
 
 	$zql = $this->db->query("UPDATE sada_target SET target = '$target' where id_target = $id_target");
 	if ($zql) {
-		echo "Berhasil Edit";
+		$data = array('status' =>'Berhasil Update' , 'code'=>1);
 	}
 	else{
-		echo "gagal";
+	
+		$data = array('status' =>'Gagal Update' , 'code'=>0);
 	}
+	echo json_encode($data);
 }
 public function kategori_segmen()
 {
