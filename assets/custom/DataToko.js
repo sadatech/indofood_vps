@@ -86,4 +86,4 @@ function loadPage(url)  //the function that loads pages via AJAX
 
 function updatetargettoko() {
     console.log("update");    
-}
+}//kampret
