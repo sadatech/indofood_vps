@@ -158,7 +158,7 @@ class Sada extends CI_Model{
 
   (SELECT price from sada_kategori where id = 4) as harga_pudding,
 
-  (SELECT price from sada_kategori where id = 5) as harga_others,
+  (SELECT price from sada_kategori where id = 5) as harga_others
   -- (
   --   SELECT DISTINCT
   --   SUM(target_toko.target)
