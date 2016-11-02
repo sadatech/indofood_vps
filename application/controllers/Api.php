@@ -2854,23 +2854,23 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
 
 
-        $produk = $this->sada->getProdukAndCategory();
+        // $produk = $this->sada->getProdukAndCategory();
 
-        foreach ($produk->result() as $countDetails) {
+        // foreach ($produk->result() as $countDetails) {
 
-          $produkDetails = $this->sada->skuDetails($countFilter['tanggal'],'box',$countDetails->id_produk,$countFilter['user_id'],$countFilter['toko_id']);
+        //   $produkDetails = $this->sada->skuDetails($countFilter['tanggal'],'box',$countDetails->id_produk,$countFilter['user_id'],$countFilter['toko_id']);
 
-          array_push($result[$arrayCount],($produkDetails->row()->qty == null ) ? 0: $produkDetails->row()->qty );
+        //   array_push($result[$arrayCount],($produkDetails->row()->qty == null ) ? 0: $produkDetails->row()->qty );
 
-          if($countDetails->kategoriNama == 'BC' || $countDetails->kategoriNama == 'BTI'){
+        //   if($countDetails->kategoriNama == 'BC' || $countDetails->kategoriNama == 'BTI'){
 
-            $produkSachet = $this->sada->skuDetails($countFilter['tanggal'],'sachet',$countDetails->id_produk,$countFilter['user_id'],$countFilter['toko_id']);
+        //     $produkSachet = $this->sada->skuDetails($countFilter['tanggal'],'sachet',$countDetails->id_produk,$countFilter['user_id'],$countFilter['toko_id']);
 
-            array_push($result[$arrayCount],($produkSachet->row()->qty == null ) ? 0: $produkSachet->row()->qty );
+        //     array_push($result[$arrayCount],($produkSachet->row()->qty == null ) ? 0: $produkSachet->row()->qty );
 
-          }
+        //   }
 
-        }
+        // }
 
       }
 
