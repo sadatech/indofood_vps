@@ -168,7 +168,6 @@ class Sada extends CI_Model{
   --   WHERE
   --   toko.id_toko = sada_produk_terjual.id_toko
   -- ) AS target_ba
-  (select sum(s.target) FROM sada_target s where (select id_user from sada_tokoinuser_temp where sada_tokoinuser_temp.id_toko = s.id_toko and sada_tokoinuser_temp.id_user = sada_produk_terjual.id_user) = sada_produk_terjual.id_user) as target_ba
   FROM
   `sada_produk_terjual`
   INNER JOIN `sada_produk` ON `sada_produk_terjual`.`id_produk` = `sada_produk`.`id_produk`
@@ -248,7 +247,7 @@ class Sada extends CI_Model{
 
   (SELECT price from sada_kategori where id = 4) as harga_pudding,
 
-  (SELECT price from sada_kategori where id = 5) as harga_others
+  (SELECT price from sada_kategori where id = 5) as harga_others,
   -- (
   -- SELECT DISTINCT
   -- SUM(target_toko.target)
@@ -258,6 +257,7 @@ class Sada extends CI_Model{
   -- WHERE
   -- toko.id_toko = sada_produk_terjual.id_toko
   -- ) AS target_ba
+(select sum(s.target) FROM sada_target s where (select id_user from sada_tokoinuser_temp where sada_tokoinuser_temp.id_toko = s.id_toko and sada_tokoinuser_temp.id_user = sada_produk_terjual.id_user) = sada_produk_terjual.id_user) as target_ba
   FROM
   `sada_produk_terjual`
   INNER JOIN `sada_produk` ON `sada_produk_terjual`.`id_produk` = `sada_produk`.`id_produk`
