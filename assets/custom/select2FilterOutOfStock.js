@@ -177,6 +177,7 @@ $("#oos").validate({
         $('#outOfStockTable').DataTable({
           'processing' : true,
           // 'serverSide' : true,
+          'scrollX' : true,
           'searching' : false,
           'dom': 'Bfrtip',
           'buttons' : [
