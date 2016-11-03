@@ -204,9 +204,6 @@ $("#oos").validate({
             { 'data' : 'tipe'},
             { 'data' : 'keterangan'},
             { 'data' : 'dayAgo'},
-            { 'data' : 'dayAgo'},
-            { 'data' : 'dayAgo'},
-            { 'data' : 'dayAgo'},
           ]
         });
 

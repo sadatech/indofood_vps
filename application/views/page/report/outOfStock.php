@@ -85,9 +85,6 @@
                         <th> Tipe </th>
                         <th>Keterangan</th>
                         <th>Time Elapsed</th>
-                        <th>Time Elapsed</th>
-                        <th>Time Elapsed</th>
-                        <th>Time Elapsed</th>
                     </tr>
                 </thead>
                 <tbody id="hasilFilter">
