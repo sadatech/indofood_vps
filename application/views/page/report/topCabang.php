@@ -1,5 +1,5 @@
 <style type="text/css">
-
+.search-table-outter {overflow-x:scroll;}
 </style>
 
 <div class="row">
@@ -123,6 +123,8 @@
 					</div>
 
 				</div>
+
+                <div class="search-table-outter wrapper">
 				<table class="table table-striped table-bordered table-hover table-checkable order-column" id="dataReportPromo">
 
 					<thead>
@@ -153,7 +155,7 @@
 					</tbody>
 
 				</table>
-
+			</div>
 
 			</div>
 		</div>
