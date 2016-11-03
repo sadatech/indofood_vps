@@ -18,7 +18,7 @@
                             <tr style="background: #548235;color: white;">
                                 <th align="center" width="20%"> Compass </th>
                                 <th align="center" width="20%"> Region </th>
-                                <th align="center">  Area (Cabang) (Dijumlah per cabang)</th>
+                                <th align="center">  Cabang</th>
                                 <th align="center" class="numeric"> BC </th>
                                 <th align="center" class="numeric"> BTI </th>
                                 <th align="center" class="numeric"> RUSK </th>
