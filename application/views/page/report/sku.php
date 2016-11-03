@@ -33,13 +33,24 @@
         <div class="form-group">
           <form class="" id="form_sku" action="#" method="post">
           <div class="col-md-8">
-                <!-- <select id="tl" name="tl"  class=" form-control select2"  data-width="18%"></select> -->
+                <!-- <select id="tl" name="tl"  class=" form-control select2" ></select> -->
             <div class="col-md-3">
-                <select id="ba" name="ba" class="  form-control select2" data-width="18%"></select>
-                <select id="toko" name="toko"  class=" form-control select2"  data-width="18%"></select>
-                <select id="cabang" name="cabang"  class="select2 form-control"  data-width="18%"></select>
-                <select id="kota" name="kota"  class="select2 form-control"  data-width="18%"></select>
-                <select id="sku_kat" name="sku_kat"  class="select2 form-control"  data-width="18%"></select>
+                <select id="ba" name="ba" class="  form-control select2"></select>
+            </div>
+            <div class="col-md-3">
+                <select id="toko" name="toko"  class=" form-control select2" ></select>
+            </div>
+            <div class="col-md-3">
+                
+                <select id="cabang" name="cabang"  class="select2 form-control" ></select>
+                
+            </div>
+            <div class="col-md-3">
+                <select id="kota" name="kota"  class="select2 form-control" ></select>
+                
+            </div>
+            <div class="col-md-3">
+                <select id="sku_kat" name="sku_kat" class="select2 form-control" ></select>
             </div>
        </div>
             <div class="col-md-8" style="margin-top:15px;margin-left:-15px">
