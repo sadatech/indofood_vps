@@ -53,7 +53,7 @@
                 <select id="sku_kat" name="sku_kat"  class="select2 form-control" ></select>
             </div>
        </div>
-            <div class="col-md-8">
+            <div class="col-md-8" style="margin-top:15px;margin-left:-15px">
               <div class="col-md-3">
                 <input id="startDate"type="text" class="bs-select form-control input-small date-picker" name="startDate" placeholder="Start Date" data-width="13%">
 
@@ -61,7 +61,7 @@
               <div class="col-md-3" style="padding:10px;">
                 <input id="endDate" type="text" class="bs-select form-control input-small date-picker" name="endDate" placeholder="End Date" data-width="13%">
               </div>
-                <div class="col-md-3" style="padding:10px;">
+                <div class="col-md-2" style="padding:10px;">
                     <button type="submit" class="btn sbold green">Filter</button>
                 </div>
             </div>
