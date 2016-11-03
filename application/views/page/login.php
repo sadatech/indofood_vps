@@ -47,7 +47,7 @@
             <div class="row bs-reset">
                 <div class="col-md-6 col-xs-6 bs-reset">
                     <div class="login-bg" style="background-image:url(<?php echo base_url()?>/assets/pages/img/login/bg1.jpg)">
-                        <img class="login-logo" width="500" src="<?php echo base_url()?>/assets/pages/img/login/logo.png" /> 
+                        <img class="login-logo" style='width:50%;' src="<?php echo base_url()?>/assets/pages/img/login/logo.png" /> 
                     </div>
                 </div>
                 <div class="col-md-6 login-container bs-reset">
