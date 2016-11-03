@@ -32,7 +32,7 @@
                     </div>
         <div class="form-group">
           <form class="" id="form_sku" action="#" method="post">
-          <div class="col-md-12">
+          <div class="col-md-8">
                 <!-- <select id="tl" name="tl"  class=" form-control select2" ></select> -->
             <div class="col-md-3">
                 <select id="ba" name="ba" class="  form-control select2"></select>
