@@ -45,9 +45,10 @@
         <!-- BEGIN : LOGIN PAGE 5-1 -->
         <div class="user-login-5" style="margin-top: 50px;">
             <div class="row bs-reset">
-                <div class="col-md-6 bs-reset">
+                <div class="col-md-6 col-xs-6 bs-reset">
                     <div class="login-bg" style="background-image:url(<?php echo base_url()?>/assets/pages/img/login/bg1.jpg)">
-                        <img class="login-logo" width="500" src="<?php echo base_url()?>/assets/pages/img/login/logo.png" /> </div>
+                        <img class="login-logo" width="500" src="<?php echo base_url()?>/assets/pages/img/login/logo.png" /> 
+                    </div>
                 </div>
                 <div class="col-md-6 login-container bs-reset">
                     <div class="login-content">
