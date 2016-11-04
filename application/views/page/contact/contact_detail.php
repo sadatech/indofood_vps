@@ -40,20 +40,27 @@
 
                             <div class="col-md-12">
                                 <!-- <select id="tl" name="tl"  class=" form-control select2"  data-width="18%"></select> -->
-                                <select id="ba" name="ba" class="  form-control select2" data-width="18%"></select>
-                                <select id="toko" name="toko"  class=" form-control select2"  data-width="18%"></select>
-                                <select id="cabang" name="cabang"  class="select2 form-control"  data-width="18%"></select>
-                                <select id="kota" name="kota"  class="select2 form-control"  data-width="18%"></select>
+                                <div class="col-md-3" style="padding:10px;">
+                                    <select id="ba" name="ba" class="  form-control select2" data-width="18%"></select>
+                                </div>
+                                <div class="col-md-3" style="padding:10px;">    
+                                    <select id="toko" name="toko"  class=" form-control select2"  data-width="18%"></select>
+                                </div>
+                                <div class="col-md-3" style="padding:10px;">
+                                    <select id="cabang" name="cabang"  class="select2 form-control"  data-width="18%"></select>
+                                </div>
+                                <div class="col-md-3" style="padding:10px;">
+                                    <select id="kota" name="kota"  class="select2 form-control"  data-width="18%"></select>
+                                </div>
                             </div>
                             <div class="col-md-8" style="margin-top:15px;margin-left:-15px">
-                              <div class="col-md-3">
+                              <div class="col-md-3" style="padding-bottom:10px;">
                                 <input type="text" class="bs-select form-control input-small date-picker" name="startDate" placeholder="Start Date" data-width="13%">
-
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3" style="padding-bottom:10px;">
                                 <input type="text" class="bs-select form-control input-small date-picker" name="endDate" placeholder="End Date" data-width="13%">
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-2" style="padding-bottom:10px;">
                               <button type="submit" class="btn sbold green">Filter</button>
                           </div>
                       </div>
