@@ -29,9 +29,9 @@
                         <span class="caption-subject bold uppercase"> Data <?php echo $title; ?></span>
 
                     </div>
-                <!-- <div class="form-group">
+                <div class="form-group">
                   <form class="" id="oos" action="#" method="post">
-                      <div class="col-md-12">
+                      <!-- <div class="col-md-12">
                         <select id="ba" name="ba" class="  form-control select2" data-width="18%"></select>
                         <select id="toko" name="toko"  class=" form-control select2"  data-width="18%"></select>
                         <select id="cabang" name="cabang"  class="select2 form-control"  data-width="18%"></select>
@@ -48,9 +48,8 @@
                     <div class="col-md-2">
                       <button id="filter"  type="submit"name="filter" class="btn sbold green" type="button">Filter</button>
                   </div>
-              </div>
-          </div> -->
-          <div class="form-group">
+              </div> -->
+              <div class="form-group">
                     <div class="col-md-12">
                                 <!-- <select id="tl" name="tl"  class=" form-control select2"></select> -->
                             <div class="col-md-3" style="padding:10px;">
@@ -78,6 +77,7 @@
                           </div>
                       </div>
                   </div>
+          </div>
       </form>
   </div>
 </div>
