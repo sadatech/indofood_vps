@@ -325,6 +325,7 @@ switch (ENVIRONMENT)
 			DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
 		);
 	}
+	//wa
 	else
 	{
 		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
