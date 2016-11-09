@@ -2714,7 +2714,7 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
             //  ($arrayCount+=1),
 
-        $value->namaCabang,
+        $value->nama_cabang,
 
         $value->nama_kota,
 
@@ -2761,7 +2761,7 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
             //  ($arrayCount+=1),
 
-        $value->namaCabang,
+        $value->nama_cabang,
 
         $value->nama_kota,
 
@@ -2785,7 +2785,7 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
             //  ($arrayCount+=1),
 
-        $value->namaCabang,
+        $value->nama_cabang,
 
         $value->nama_kota,
 
@@ -2825,7 +2825,7 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
               //  ($arrayCount+=1),
 
-        $value->namaCabang,
+        $value->nama_cabang,
 
         $value->nama_kota,
 
