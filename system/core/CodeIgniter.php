@@ -126,10 +126,7 @@ if ( ! is_php('5.4'))
 	}
 }
 
-if (function_exists("set_time_limit") == TRUE AND @ini_get("safe_mode") == 0)
-{
-    @set_time_limit(300);
-}
+
 /*
  * ------------------------------------------------------
  *  Define a custom error handler so we can log PHP errors
