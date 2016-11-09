@@ -2413,12 +2413,167 @@ public function getCabangInKota($id_toko)
 }
 
 
+public function skuReportHeader($filter)
+{
+  $a = $filter['startTime'];
 
+  $b = $filter['endTime'];
+
+  $user = ($filter['baName'] == '') ? '' : ' AND sada_produk_terjual.id_user = "'.$filter['baName'].'"';
+  $toko = ($filter['tokoFilter'] == '') ? '' : ' AND sada_produk_terjual.id_toko = "'.$filter['tokoFilter'].'"';
+  $cabang = ($filter['cabangFilter'] == '') ? '' : ' AND k.id_cabang = "'.$filter['cabangFilter'].'"';
+  $kota = ($filter['kotaFilter'] == '') ? '' : ' AND k.id_kota = "'.$filter['kotaFilter'].'"';
+
+  $sql = "SELECT DISTINCT
+  -- sdkat.price, 
+sada_produk_terjual.id_user,
+sada_produk_terjual.id_toko,
+(select (select nama from sada_cabang where sada_cabang.id_cabang = sada_kota.id_cabang) from sada_kota where t.id_kota = sada_kota.id_kota) as nama_cabang
+,
+(select nama_kota from sada_kota where t.id_kota = sada_kota.id_kota) as nama_kota,
+
+(select (select id_cabang from sada_cabang where sada_cabang.id_cabang = sada_kota.id_cabang) from sada_kota where t.id_kota = sada_kota.id_kota) as id_cabang
+,
+(select id_kota from sada_kota where t.id_kota = sada_kota.id_kota) as id_kota
+,
+(select status from sada_user where sada_user.id_user = sada_produk_terjual.id_user) as stay_mobile
+,
+(select nama from sada_user where sada_user.id_user = sada_produk_terjual.id_user) as namaBa
+,
+sada_produk_terjual.id_user
+,
+t.nama as namaToko,
+t.store_id,
+DATE(sada_produk_terjual.tgl) as tgl,
+  (
+  SELECT
+  SUM(qty)
+  FROM
+  sada_produk_terjual as ss
+  INNER JOIN `sada_produk` as s ON `ss`.`id_produk` = `s`.`id_produk`
+  INNER JOIN `sada_kategori` AS sdkats ON `s`.`id_kategori` = `sdkats`.`id`
+  WHERE
+  sdkats.id = 1
+  AND ss.id_user = sada_produk_terjual.id_user
+  AND ss.id_toko = sada_produk_terjual.id_toko
+  AND ss.tipe = 'box'
+  AND DATE(ss.tgl) = DATE(sada_produk_terjual.tgl)
+  ) AS akumulasi_box_bc,
+  (
+  SELECT
+  SUM(qty)
+  FROM
+  sada_produk_terjual as ss
+  INNER JOIN `sada_produk` as s ON `ss`.`id_produk` = `s`.`id_produk`
+  INNER JOIN `sada_kategori` AS sdkats ON `s`.`id_kategori` = `sdkats`.`id`
+  WHERE
+  sdkats.id = 2
+  AND ss.id_user = sada_produk_terjual.id_user
+  AND ss.id_toko = sada_produk_terjual.id_toko
+  AND ss.tipe = 'box'
+  AND DATE(ss.tgl) = DATE(sada_produk_terjual.tgl)
+  ) AS akumulasi_box_bti,
+  (
+  SELECT
+  SUM(qty)
+  FROM
+  sada_produk_terjual as ss
+  INNER JOIN `sada_produk` as s ON `ss`.`id_produk` = `s`.`id_produk`
+  INNER JOIN `sada_kategori` AS sdkats ON `s`.`id_kategori` = `sdkats`.`id`
+  WHERE
+  sdkats.id = 3
+  AND ss.id_user = sada_produk_terjual.id_user
+  AND ss.id_toko = sada_produk_terjual.id_toko
+  AND ss.tipe = 'box'
+  AND DATE(ss.tgl) = DATE(sada_produk_terjual.tgl)
+  ) AS akumulasi_box_rusk,
+  (
+  SELECT
+  SUM(qty)
+  FROM
+  sada_produk_terjual as ss
+  INNER JOIN `sada_produk` as s ON `ss`.`id_produk` = `s`.`id_produk`
+  INNER JOIN `sada_kategori` AS sdkats ON `s`.`id_kategori` = `sdkats`.`id`
+  WHERE
+  sdkats.id = 4
+  AND ss.id_user = sada_produk_terjual.id_user
+  AND ss.id_toko = sada_produk_terjual.id_toko
+  AND ss.tipe = 'box'
+  AND DATE(ss.tgl) = DATE(sada_produk_terjual.tgl)
+  ) AS akumulasi_box_pudding,
+  (
+  SELECT
+  SUM(qty)
+  FROM
+  sada_produk_terjual as ss
+  INNER JOIN `sada_produk` as s ON `ss`.`id_produk` = `s`.`id_produk`
+  INNER JOIN `sada_kategori` AS sdkats ON `s`.`id_kategori` = `sdkats`.`id`
+  WHERE
+  sdkats.id = 5
+  AND ss.id_user = sada_produk_terjual.id_user
+  AND ss.id_toko = sada_produk_terjual.id_toko
+  AND ss.tipe = 'box'
+  AND DATE(ss.tgl) = DATE(sada_produk_terjual.tgl)
+  ) AS akumulasi_box_others,
+  (
+  SELECT
+  SUM(qty)
+  FROM
+  sada_produk_terjual as ss
+  INNER JOIN `sada_produk` as s ON `ss`.`id_produk` = `s`.`id_produk`
+  INNER JOIN `sada_kategori` AS sdkats ON `s`.`id_kategori` = `sdkats`.`id`
+  WHERE
+  sdkats.id = 1
+  AND ss.id_user = sada_produk_terjual.id_user
+  AND ss.id_toko = sada_produk_terjual.id_toko
+  AND ss.tipe = 'sachet'
+  AND DATE(ss.tgl) = DATE(sada_produk_terjual.tgl)
+  ) AS akumulasi_sachet_bc,
+  (
+  SELECT
+  SUM(qty)
+  FROM
+  sada_produk_terjual as ss
+  INNER JOIN `sada_produk` as s ON `ss`.`id_produk` = `s`.`id_produk`
+  INNER JOIN `sada_kategori` AS sdkats ON `s`.`id_kategori` = `sdkats`.`id`
+  WHERE
+  sdkats.id = 2
+  AND ss.id_user = sada_produk_terjual.id_user
+  AND ss.id_toko = sada_produk_terjual.id_toko
+  AND ss.tipe = 'sachet'
+  AND DATE(ss.tgl) = DATE(sada_produk_terjual.tgl)
+  ) AS akumulasi_sachet_bti
+ FROM
+  `sada_produk_terjual`
+  INNER JOIN `sada_produk` ON `sada_produk_terjual`.`id_produk` = `sada_produk`.`id_produk`
+  INNER JOIN `sada_kategori` AS sdkat ON `sada_produk`.`id_kategori` = `sdkat`.`id`
+  
+  INNER JOIN `sada_toko` `t` ON `sada_produk_terjual`.`id_toko` = `t`.`id_toko`
+  INNER JOIN `sada_kota` `k` ON `k`.`id_kota` = `t`.`id_kota`
+  WHERE
+  CAST(tgl AS DATE) BETWEEN '$a'
+AND '$b'
+$user
+$toko
+$cabang
+$kota
+GROUP BY
+sada_produk_terjual.`id_toko`,
+`id_user`,
+`sada_produk_terjual`.`id_produk`,
+CAST(sada_produk_terjual.tgl AS DATE)
+ORDER BY
+id_user";
+
+  $ql = $this->db->query($sql);
+
+return $ql;
+}
 
 
 // SKU Report
 
-public function skuReportHeader($filter)
+public function skuReportHeadersss($filter)
 
 {
 

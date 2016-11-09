@@ -2728,15 +2728,20 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
         $value->tgl,
 
-        ($queryCountBc->row()->qty == null ) ? 0:$queryCountBc->row()->qty ,
+        $value->akumulasi_box_bc,
+        $value->akumulasi_box_bti,
+        $value->akumulasi_box_rusk,
+        $value->akumulasi_box_pudding,
+        $value->akumulasi_box_others,
+        // ($queryCountBc->row()->qty == null ) ? 0:$queryCountBc->row()->qty ,
 
-        ($queryCountBti->row()->qty == null )? 0: $queryCountBti->row()->qty,
+        // ($queryCountBti->row()->qty == null )? 0: $queryCountBti->row()->qty,
 
-        ($queryCountRusk->row()->qty == null) ? 0: $queryCountRusk->row()->qty,
+        // ($queryCountRusk->row()->qty == null) ? 0: $queryCountRusk->row()->qty,
 
-        ($queryCountPudding->row()->qty == null) ? 0: $queryCountPudding->row()->qty,
+        // ($queryCountPudding->row()->qty == null) ? 0: $queryCountPudding->row()->qty,
 
-        ($queryCountOthers->row()->qty == null) ? 0: $queryCountOthers->row()->qty,
+        // ($queryCountOthers->row()->qty == null) ? 0: $queryCountOthers->row()->qty,
 
             //  ($queryCountBcsSachet->row()->qty == null) ? 0: $queryCountBcsSachet->row()->qty,
 
@@ -2770,10 +2775,8 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
         $value->tgl,
 
-        ($queryCountBcsSachet->row()->qty == null) ? 0: $queryCountBcsSachet->row()->qty,
-
-        ($queryCountBtiSachet->row()->qty == null) ? 0: $queryCountBtiSachet->row()->qty
-
+        $value->akumulasi_sachet_bc,
+        $value->akumulasi_sachet_bti,
         ];
 
       }else if($filterHasilReport == '3'){
@@ -2836,19 +2839,26 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
         $value->tgl,
 
-        ($queryCountBc->row()->qty == null ) ? 0:$queryCountBc->row()->qty ,
+        $value->akumulasi_box_bc,
+        $value->akumulasi_box_bti,
+        $value->akumulasi_box_rusk,
+        $value->akumulasi_box_pudding,
+        $value->akumulasi_box_others,
+        $value->akumulasi_sachet_bc,
+        $value->akumulasi_sachet_bti,
+        // ($queryCountBc->row()->qty == null ) ? 0:$queryCountBc->row()->qty ,
 
-        ($queryCountBti->row()->qty == null )? 0: $queryCountBti->row()->qty,
+        // ($queryCountBti->row()->qty == null )? 0: $queryCountBti->row()->qty,
 
-        ($queryCountRusk->row()->qty == null) ? 0: $queryCountRusk->row()->qty,
+        // ($queryCountRusk->row()->qty == null) ? 0: $queryCountRusk->row()->qty,
 
-        ($queryCountPudding->row()->qty == null) ? 0: $queryCountPudding->row()->qty,
+        // ($queryCountPudding->row()->qty == null) ? 0: $queryCountPudding->row()->qty,
 
-        ($queryCountOthers->row()->qty == null) ? 0: $queryCountOthers->row()->qty,
+        // ($queryCountOthers->row()->qty == null) ? 0: $queryCountOthers->row()->qty,
 
-        ($queryCountBcsSachet->row()->qty == null) ? 0: $queryCountBcsSachet->row()->qty,
+        // ($queryCountBcsSachet->row()->qty == null) ? 0: $queryCountBcsSachet->row()->qty,
 
-        ($queryCountBtiSachet->row()->qty == null) ? 0: $queryCountBtiSachet->row()->qty
+        // ($queryCountBtiSachet->row()->qty == null) ? 0: $queryCountBtiSachet->row()->qty
 
         ];
 
