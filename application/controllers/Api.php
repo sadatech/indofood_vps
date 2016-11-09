@@ -1610,7 +1610,7 @@ public function InputJualProduks()
         if ($this->input->get('id_user')) {
           
           $baAkses = $this->sada->getUserStatus($this->input->get('id_user'));
-          if ($baAkses == "1") {
+          if ($baAkses == 1) {
             $inputJSON = file_get_contents('php://input');
 
             $dataJson = json_decode($inputJSON, TRUE);
