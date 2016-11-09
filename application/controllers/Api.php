@@ -2630,7 +2630,6 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
   {
 
       // Post filter
-    echo $this->db->error();
 
     $filterTl = ($this->input->post('tl') == "0") ? "" : $this->input->post('tl');
 
