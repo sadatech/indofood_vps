@@ -3735,7 +3735,7 @@ public function excelReport()
 
     'no' => ($count+=1),
 
-    'namaCabang' => $value->namaCabang,
+    'namaCabang' => $value->nama_cabang,
 
     'nama_kota' => $value->nama_kota,
 
@@ -3749,25 +3749,35 @@ public function excelReport()
 
     'tgl' => $value->tgl,
 
-    'qtyBc' => ($queryCountBc->row()->qty == null ) ? "0" :$queryCountBc->row()->qty ,
+    'qtyBc' => $value->akumulasi_box_bc,
+    'qtyBti' => $value->akumulasi_box_bti,
+    'qtyRusk' => $value->akumulasi_box_rusk,
+    'qtyPudding' => $value->akumulasi_box_pudding,
+    'qtyOthers' => $value->akumulasi_box_others,
+    'qtyBcSachet' => $value->akumulasi_sachet_bc,
+    'qtyBtiSachet' => $value->akumulasi_sachet_bti,
+    'qtyRuskSachet' => '0',
+    'qtyPuddingSachet' => '0',
+    'qtyOthersSachet' => '0'
+    // 'qtyBc' => ($queryCountBc->row()->qty == null ) ? "0" :$queryCountBc->row()->qty ,
 
-    'qtyBti' => ($queryCountBti->row()->qty == null )? "0" : $queryCountBti->row()->qty,
+    // 'qtyBti' => ($queryCountBti->row()->qty == null )? "0" : $queryCountBti->row()->qty,
 
-    'qtyRusk' => ($queryCountRusk->row()->qty == null) ? "0" : $queryCountRusk->row()->qty,
+    // 'qtyRusk' => ($queryCountRusk->row()->qty == null) ? "0" : $queryCountRusk->row()->qty,
 
-    'qtyPudding' => ($queryCountPudding->row()->qty == null) ? "0" : $queryCountPudding->row()->qty,
+    // 'qtyPudding' => ($queryCountPudding->row()->qty == null) ? "0" : $queryCountPudding->row()->qty,
 
-    'qtyOthers' => ($queryCountOthers->row()->qty == null) ? "0" : $queryCountOthers->row()->qty,
+    // 'qtyOthers' => ($queryCountOthers->row()->qty == null) ? "0" : $queryCountOthers->row()->qty,
 
-    'qtyBcSachet' => ($queryCountBcsSachet->row()->qty == null) ? "0" : $queryCountBcsSachet->row()->qty,
+    // 'qtyBcSachet' => ($queryCountBcsSachet->row()->qty == null) ? "0" : $queryCountBcsSachet->row()->qty,
 
-    'qtyBtiSachet' => ($queryCountBtiSachet->row()->qty == null) ? "0" : $queryCountBtiSachet->row()->qty,
+    // 'qtyBtiSachet' => ($queryCountBtiSachet->row()->qty == null) ? "0" : $queryCountBtiSachet->row()->qty,
 
-    'qtyRuskSachet' => ($queryCountRuskSachet->row()->qty == null) ? "0" : $queryCountRuskSachet->row()->qty,
+    // 'qtyRuskSachet' => ($queryCountRuskSachet->row()->qty == null) ? "0" : $queryCountRuskSachet->row()->qty,
 
-    'qtyPuddingSachet' => ($queryCountPuddingSachet->row()->qty == null) ? "0" : $queryCountPuddingSachet->row()->qty,
+    // 'qtyPuddingSachet' => ($queryCountPuddingSachet->row()->qty == null) ? "0" : $queryCountPuddingSachet->row()->qty,
 
-    'qtyOthersSachet' => ($queryCountOthersSachet->row()->qty == null) ? "0":$queryCountOthersSachet->row()->qty
+    // 'qtyOthersSachet' => ($queryCountOthersSachet->row()->qty == null) ? "0":$queryCountOthersSachet->row()->qtyOthers
 
     ];
 
