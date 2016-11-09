@@ -2,7 +2,8 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-
+ini_set('max_execution_time', 0); 
+ini_set('memory_limit','2048M');
 
 class Api extends CI_Controller{
 
@@ -2630,7 +2631,10 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
   {
 
       // Post filter
+    ini_set('max_execution_time', 0); 
+    ini_set('memory_limit','2048M');
 
+    echo $this->db->db_debug;
     $filterTl = ($this->input->post('tl') == "0") ? "" : $this->input->post('tl');
 
     $filterName = ($this->input->post('ba') == "0") ? "" : $this->input->post('ba');
