@@ -220,7 +220,7 @@ $( document ).ready(function() {
             }
           ],
           ajax : {
-            'url' : '/api/filterReport?key=ganteng',
+            'url' : '/indofood/api/filterReport?key=ganteng',
             'type' : 'POST',
             'data' : filter
           }
