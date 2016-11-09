@@ -1868,7 +1868,7 @@ public function getUserStatus($id)
 
   ->get();
 
-  return $query->first_row();
+  return $query->row();
 
 }
 
