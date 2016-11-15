@@ -4519,7 +4519,7 @@ public function reportpromo()
 
 if ($arr['startDate'] != "1970-01-01 07:00:00" && $arr['endDate'] != "1970-01-01 07:00:00") {
 
-	$where = "WHERE sada_form_contact.tgl_contact BETWEEN '".$arr['startDate']."' AND '".$arr['endDate']."'";
+	$where = "WHERE CAST(sada_promo.timestamp AS DATE) BETWEEN '".$arr['startDate']."' AND '".$arr['endDate']."'";
 
 	if ($arr['tl'] != 0) {
 
