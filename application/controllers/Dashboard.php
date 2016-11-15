@@ -4498,7 +4498,7 @@ public function reportpromo()
 
 		sada_user.id_user AS 'id_user',
 
-		sada_user.nama AS 'namas_user',
+		sada_user.nama AS 'nama_user',
 
 		sada_user.stay AS 'stay_user',
 
@@ -4706,7 +4706,7 @@ else{
 
 
 
-		// echo $select;
+		echo $select;
 
 		$table = "sada_user";
 
