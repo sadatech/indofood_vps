@@ -4517,7 +4517,7 @@ public function reportpromo()
 
 		$where = "";
 
-if ($arr['startDate'] != "1970-01-01 07:00:00" && $arr['endDate'] != "1970-01-01 07:00:00") {
+if ($arr['startDate'] != "1970-01-01" && $arr['endDate'] != "1970-01-01") {
 
 	$where = "WHERE CAST(sada_promo.timestamp AS DATE) BETWEEN '".$arr['startDate']."' AND '".$arr['endDate']."'";
 
