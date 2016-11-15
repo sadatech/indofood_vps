@@ -4718,7 +4718,7 @@ public function reportpromo()
 
 		// }
 
-		// $join = "";
+		$join = "";
 
 		// if ($arr['tl'] == 0) {
 
