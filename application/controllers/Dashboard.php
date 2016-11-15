@@ -4515,173 +4515,173 @@ public function reportpromo()
 //  				tl.id_user = scb.id_user
 //  		) AS 'nama_tl',
 
-		$where = "";
+// 		$where = "";
 
-if ($arr['startDate'] != "1970-01-01" && $arr['endDate'] != "1970-01-01") {
+// if ($arr['startDate'] != "1970-01-01" && $arr['endDate'] != "1970-01-01") {
 
-	$where = "WHERE CAST(sada_promo.timestamp AS DATE) BETWEEN '".$arr['startDate']."' and '".$arr['endDate']."'";
+// 	$where = "WHERE CAST(sada_promo.timestamp AS DATE) BETWEEN '".$arr['startDate']."' and '".$arr['endDate']."'";
 
-	if ($arr['tl'] != 0) {
+// 	if ($arr['tl'] != 0) {
 
-		$where .= " AND sada_user.id_user='".$arr['tl']."'";
+// 		$where .= " AND sada_user.id_user='".$arr['tl']."'";
 
-	}
+// 	}
 
-	else{
+// 	else{
 
-		if ($arr['ba'] != 0) {
+// 		if ($arr['ba'] != 0) {
 
-			$where .= " AND sada_user.id_user='".$arr['ba']."'";
+// 			$where .= " AND sada_user.id_user='".$arr['ba']."'";
 
-			if ($arr['toko'] != 0) {
+// 			if ($arr['toko'] != 0) {
 
-				$where .= " AND toko.id_toko='".$arr['toko']."'";
+// 				$where .= " AND toko.id_toko='".$arr['toko']."'";
 
-				if ($arr['cabang'] != 0) {
+// 				if ($arr['cabang'] != 0) {
 
-					$where .= " AND cabang.id_cabang='".$arr['cabang']."'";
+// 					$where .= " AND cabang.id_cabang='".$arr['cabang']."'";
 
-					if ($arr['kota'] != 0) {
+// 					if ($arr['kota'] != 0) {
 
-						$where .= " AND kota.id_kota='".$arr['kota']."'";
+// 						$where .= " AND kota.id_kota='".$arr['kota']."'";
 
-					}
+// 					}
 
-				}
+// 				}
 
-			}
+// 			}
 
-		}
+// 		}
 
-		else{
+// 		else{
 
-			if ($arr['toko'] != 0) {
+// 			if ($arr['toko'] != 0) {
 
-				$where = " WHERE toko.id_toko='".$arr['toko']."'";
+// 				$where = " WHERE toko.id_toko='".$arr['toko']."'";
 
-				if ($arr['cabang'] != 0) {
+// 				if ($arr['cabang'] != 0) {
 
-					$where = " AND cabang.id_cabang='".$arr['cabang']."'";
+// 					$where = " AND cabang.id_cabang='".$arr['cabang']."'";
 
-					if ($arr['kota'] != 0) {
+// 					if ($arr['kota'] != 0) {
 
-						$where .= " AND kota.id_kota='".$arr['kota']."'";
+// 						$where .= " AND kota.id_kota='".$arr['kota']."'";
 
-					}
+// 					}
 
-				}
+// 				}
 
-			}
+// 			}
 
-			else{
+// 			else{
 
-				if ($arr['cabang'] != 0) {
+// 				if ($arr['cabang'] != 0) {
 
-					$where = " WHERE cabang.id_cabang='".$arr['cabang']."'";
+// 					$where = " WHERE cabang.id_cabang='".$arr['cabang']."'";
 
-					if ($arr['kota'] != 0) {
+// 					if ($arr['kota'] != 0) {
 
-						$where .= " AND kota.id_kota='".$arr['kota']."'";
+// 						$where .= " AND kota.id_kota='".$arr['kota']."'";
 
-					}
+// 					}
 
-				}
+// 				}
 
-			}        
+// 			}        
 
-		}
+// 		}
 
-	}
+// 	}
 
-}
+// }
 
-else{
+// else{
 
-	if ($arr['tl'] != 0) {
+// 	if ($arr['tl'] != 0) {
 
-		$where = " WHERE sada_user.id_user='".$arr['tl']."'";
+// 		$where = " WHERE sada_user.id_user='".$arr['tl']."'";
 
-	}
+// 	}
 
-	else{
+// 	else{
 
-		if ($arr['ba'] != 0) {
+// 		if ($arr['ba'] != 0) {
 
-			$where = " WHERE sada_user.id_user='".$arr['ba']."'";
+// 			$where = " WHERE sada_user.id_user='".$arr['ba']."'";
 
-		}
+// 		}
 
-		else{
+// 		else{
 
-			if ($arr['toko'] != 0) {
+// 			if ($arr['toko'] != 0) {
 
-				$where = " WHERE toko.id_toko='".$arr['toko']."'";
+// 				$where = " WHERE toko.id_toko='".$arr['toko']."'";
 
-			}
+// 			}
 
-		}
+// 		}
 
-	}
+// 	}
 
 
 
-}
+// }
 
-$join = "";
+// $join = "";
 
-if ($arr['tl'] == 0) {
+// if ($arr['tl'] == 0) {
 
-	if ($arr['ba'] !=0) {
+// 	if ($arr['ba'] !=0) {
 
 
 
-		if ($arr['toko'] != 0) {
+// 		if ($arr['toko'] != 0) {
 
-			$where .= " AND toko.id_toko='".$arr['toko']."'";
+// 			$where .= " AND toko.id_toko='".$arr['toko']."'";
 
-			if ($arr['cabang'] !=0) {
+// 			if ($arr['cabang'] !=0) {
 
-				if ($arr['kota'] !=0) {
+// 				if ($arr['kota'] !=0) {
 
-					$where .= " AND cabang.id_cabang in (SELECT id_cabang FROM sada_kota WHERE id_cabang='".$arr['cabang']."')";
+// 					$where .= " AND cabang.id_cabang in (SELECT id_cabang FROM sada_kota WHERE id_cabang='".$arr['cabang']."')";
 
-				}
+// 				}
 
-				else{
+// 				else{
 
-					$where .= " AND cabang.id_cabang='".$arr['cabang']."'";
+// 					$where .= " AND cabang.id_cabang='".$arr['cabang']."'";
 
-				}
+// 				}
 
-			}
+// 			}
 
-		}
+// 		}
 
-		else{
+// 		else{
 
-			if ($arr['cabang'] != 0) {
+// 			if ($arr['cabang'] != 0) {
 
-				$where .= " AND cabang.id_cabang in (SELECT id_cabang FROM sada_kota WHERE id_cabang='".$arr['cabang']."')";
+// 				$where .= " AND cabang.id_cabang in (SELECT id_cabang FROM sada_kota WHERE id_cabang='".$arr['cabang']."')";
 
-			}
+// 			}
 
-		}
+// 		}
 
-	}
+// 	}
 
-}
+// }
 
-else{
+// else{
 
-	if ($arr['ba']==0) {
+// 	if ($arr['ba']==0) {
 
-		$select .= "                                                                               ";
+// 		$select .= "                                                                               ";
 
-	}
+// 	}
 
-}
-		
-		
+// }
+
+
 		// $where = "";
 
 		// if ($arr['startDate'] != "1970-01-01" && $arr['endDate'] != "1970-01-01") {
@@ -4769,8 +4769,10 @@ else{
 		// 	}
 
 		// }
-
-
+	    $where = ($arr['ba'] == 0) ? '' : ' AND sada_user.id_user = "'.$arr['ba'].'"';
+	    $where .= ($arr['toko'] == 0) ? '' : ' AND toko.id_toko = "'.$arr['toko'].'"';
+	    $where .= ($arr['cabang'] == 0) ? '' : ' AND cabang.id_cabang = "'.$arr['cabang'].'"';
+	    $where .= ($arr['kota'] == 0) ? '' : ' AND cabang.id_kota = "'.$arr['kota'].'"';
 
 		$join .= " LEFT JOIN sada_toko toko ON sada_promo.store_id=toko.id_toko";
 
@@ -4789,7 +4791,9 @@ else{
 
 		kota.nama_kota 'nama_kota'
 
-		FROM sada_promo LEFT JOIN sada_user ON sada_promo.user_id=sada_user.id_user ".$join." ".$where." ";
+		FROM sada_promo LEFT JOIN sada_user ON sada_promo.user_id=sada_user.id_user ".$join."
+		WHERE CAST(sada_promo.timestamp AS DATE) BETWEEN '".$arr['startDate']."' and '".$arr['endDate']."' 
+		 ".$where." ";
 
 		  // echo $select;
 
