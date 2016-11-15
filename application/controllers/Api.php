@@ -3511,7 +3511,7 @@ public function reportPrm(){
 
 //     }
 
-//     $join = "";
+    $join = "";
 
 //     if ($arr['tl'] == 0) {
 
