@@ -3457,33 +3457,35 @@ public function reportPrm(){
 
   $where = "";
 
-if ($arr['startDate'] != "1970-01-01" && $arr['endDate'] != "1970-01-01") {
+$where = "";
 
-  $where = "WHERE CAST(sada_promo.timestamp AS DATE) BETWEEN '".$arr['startDate']."' AND '".$arr['endDate']."'";
+    if ($arr['startDate'] != "1970-01-01" && $arr['endDate'] != "1970-01-01") {
 
-  if ($arr['tl'] != 0) {
+      $where = "WHERE CAST(sada_promo.timestamp AS DATE) BETWEEN '".$arr['startDate']."' and '".$arr['endDate']."'";
 
-    $where .= " AND sada_user.id_user='".$arr['tl']."'";
+      if ($arr['tl'] != 0) {
 
-  }
+        $where .= " AND sada_user.id_user='".$arr['tl']."'";
 
-  else{
+      }
 
-    if ($arr['ba'] != 0) {
+      if ($arr['ba'] != 0) {
 
-      $where .= " AND sada_user.id_user='".$arr['ba']."'";
+        $where .= " AND sada_user.id_user='".$arr['ba']."'";
 
-      if ($arr['toko'] != 0) {
+        if ($arr['toko'] != 0) {
 
-        $where .= " AND toko.id_toko='".$arr['toko']."'";
+          $where .= " AND toko.id_toko='".$arr['toko']."'";
 
-        if ($arr['cabang'] != 0) {
+          if ($arr['cabang'] != 0) {
 
-          $where .= " AND cabang.id_cabang='".$arr['cabang']."'";
+            $where .= " AND cabang.id_cabang='".$arr['cabang']."'";
 
-          if ($arr['kota'] != 0) {
+            if ($arr['kota'] != 0) {
 
-            $where .= " AND kota.id_kota='".$arr['kota']."'";
+              $where .= " AND kota.id_kota='".$arr['kota']."'";
+
+            }
 
           }
 
@@ -3495,101 +3497,55 @@ if ($arr['startDate'] != "1970-01-01" && $arr['endDate'] != "1970-01-01") {
 
     else{
 
-      if ($arr['toko'] != 0) {
+      if ($arr['tl'] != 0) {
 
-        $where = " WHERE toko.id_toko='".$arr['toko']."'";
-
-        if ($arr['cabang'] != 0) {
-
-          $where = " AND cabang.id_cabang='".$arr['cabang']."'";
-
-          if ($arr['kota'] != 0) {
-
-            $where .= " AND kota.id_kota='".$arr['kota']."'";
-
-          }
-
-        }
+        $where = " WHERE sada_user.id_user='".$arr['tl']."'";
 
       }
 
-      else{
+      if ($arr['ba'] != 0) {
 
-        if ($arr['cabang'] != 0) {
-
-          $where = " WHERE cabang.id_cabang='".$arr['cabang']."'";
-
-          if ($arr['kota'] != 0) {
-
-            $where .= " AND kota.id_kota='".$arr['kota']."'";
-
-          }
-
-        }
-
-      }        
-
-    }
-
-  }
-
-}
-
-else{
-
-  if ($arr['tl'] != 0) {
-
-    $where = " WHERE sada_user.id_user='".$arr['tl']."'";
-
-  }
-
-  else{
-
-    if ($arr['ba'] != 0) {
-
-      $where = " WHERE sada_user.id_user='".$arr['ba']."'";
-
-    }
-
-    else{
-
-      if ($arr['toko'] != 0) {
-
-        $where = " WHERE toko.id_toko='".$arr['toko']."'";
+        $where = " WHERE sada_user.id_user='".$arr['ba']."'";
 
       }
 
     }
 
-  }
+    $join = "";
 
+    if ($arr['tl'] == 0) {
 
+      if ($arr['ba'] !=0) {
 
-}
+        if ($arr['toko'] != 0) {
 
-$join = "";
+          $where .= " AND toko.id_toko='".$arr['toko']."'";
 
-if ($arr['tl'] == 0) {
+          if ($arr['cabang'] !=0) {
 
-  if ($arr['ba'] !=0) {
+            if ($arr['kota'] !=0) {
 
+              $where .= " AND cabang.id_cabang in (SELECT id_cabang FROM sada_kota WHERE id_cabang='".$arr['cabang']."')";
 
+            }
 
-    if ($arr['toko'] != 0) {
+            else{
 
-      $where .= " AND toko.id_toko='".$arr['toko']."'";
+              $where .= " AND cabang.id_cabang='".$arr['cabang']."'";
 
-      if ($arr['cabang'] !=0) {
+            }
 
-        if ($arr['kota'] !=0) {
-
-          $where .= " AND cabang.id_cabang in (SELECT id_cabang FROM sada_kota WHERE id_cabang='".$arr['cabang']."')";
+          }
 
         }
 
         else{
 
-          $where .= " AND cabang.id_cabang='".$arr['cabang']."'";
+          if ($arr['cabang'] != 0) {
+
+            $where .= " AND cabang.id_cabang in (SELECT id_cabang FROM sada_kota WHERE id_cabang='".$arr['cabang']."')";
+
+          }
 
         }
 
@@ -3599,27 +3555,13 @@ if ($arr['tl'] == 0) {
 
     else{
 
-      if ($arr['cabang'] != 0) {
+      if ($arr['ba']==0) {
 
-        $where .= " AND cabang.id_cabang in (SELECT id_cabang FROM sada_kota WHERE id_cabang='".$arr['cabang']."')";
+        $select .= "";
 
       }
 
     }
-
-  }
-
-}
-
-else{
-
-  if ($arr['ba']==0) {
-
-    $select .= "                                                                               ";
-
-  }
-
-}
 
 
 
