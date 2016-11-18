@@ -242,7 +242,7 @@ else{
     if ($x_qtyBC > 89) {
         echo "green;color:white;";
     }
-    echo "'>".round($x_qtyBC)."% dari quantity(".$data->qty_BC.") * 100 / target(".$data->persen_BC.")%</td>";
+    echo "'>".round($x_qtyBC)."% </td>";
 }
 if ($data->qty_BTI == null) {
     echo "<td align='center'  style='background-color:red;color:white;'>0%</td>";
@@ -258,7 +258,7 @@ else{
     if ($x_qtyBTI > 89) {
         echo "green;color:white;";
     }
-    echo "'>".round($x_qtyBTI)."% dari quantity(".$data->qty_BTI.") * 100 / target(".$data->persen_BTI.")%</td>";
+    echo "'>".round($x_qtyBTI)."%</td>";
 }
 if ($data->qty_Rusk == null) {
     echo "<td align='center'  style='background-color:red;color:white;'>0%</td>";
