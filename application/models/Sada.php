@@ -3272,7 +3272,7 @@ public function outOfStockReport($filter)
 
   }
 
-  if($filter['filterCabang'] != '' && $filter['filterKota'] == ''){
+  if($filter['filterCabangs'] != '' && $filter['filterKota'] == ''){
 
     $this->db->where('k.id_cabang',$filter['filterCabang']);
 
