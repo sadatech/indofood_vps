@@ -3252,7 +3252,7 @@ public function outOfStockReport($filter)
 
   ->join('sada_kota k ', 't.id_kota = k.id_kota','inner')
 
-  ->join('sada_cabang c','k.id_cabangs = c.id_cabang','inner')
+  ->join('sada_cabang c','k.id_cabang = c.id_cabang','inner')
 
   ->join('sada_user u','o.user_id = u.id_user','inner')
 

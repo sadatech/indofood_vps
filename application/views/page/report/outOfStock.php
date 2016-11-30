@@ -40,11 +40,11 @@
                     </div>
                     <div class="col-md-8" style="margin-top:15px;margin-left:-15px">
                       <div class="col-md-3">
-                        <input id="startDate"type="text" class="bs-select form-control input-small date-picker" value="05/29/2016" name="startDate" placeholder="Start Date" data-width="13%">
+                        <input id="startDate"type="text" class="bs-select form-control input-small date-picker" name="startDate" placeholder="Start Date" data-width="13%">
 
                     </div>
                     <div class="col-md-3">
-                        <input id="endDate" type="text" class="bs-select form-control input-small date-picker" name="endDate" value="<?php echo date("m/d/Y"); ?>" placeholder="End Date" data-width="13%">
+                        <input id="endDate" type="text" class="bs-select form-control input-small date-picker" name="endDate" placeholder="End Date" data-width="13%">
                     </div>
                     <div class="col-md-2">
                       <button id="filter"  type="submit"name="filter" class="btn sbold green" type="button">Filter</button>
