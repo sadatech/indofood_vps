@@ -27,7 +27,7 @@ $( document ).ready(function() {
       data : [{id:0,text : 'Toko'}],
     });
     var base_url = window.location.origin;
-    var base_url_semmi = window.location.origin+'/indofod_git';
+    var base_url_semmi = window.location.origin+'';
     $.getJSON(base_url_semmi+'/api/getTlCabangAndkota?key=ganteng&id_tl='+id_tl,function(data){
       var arrCabang = [{id:0, text : 'Cabang'}];
       var arrKota = [{id:0, text : 'Kota'}];
@@ -54,7 +54,7 @@ $( document ).ready(function() {
     }
 
     var base_url = window.location.origin;
-    var base_url_semmi = window.location.origin+'/indofod_git';
+    var base_url_semmi = window.location.origin+'';
     $.getJSON(base_url_semmi+'/api/getAssignedStore?key=ganteng&id_user='+id_user,function(data){
       var arr = [{id:0, text : 'Toko'}];
       $.each(data,function(key,value){
@@ -92,7 +92,7 @@ $( document ).ready(function() {
       return;
     }
     var base_url = window.location.origin;
-    var base_url_semmi = window.location.origin+'/indofod_git';
+    var base_url_semmi = window.location.origin+'';
     $.getJSON(base_url_semmi+'/api/getCabangInKota?key=ganteng&id_toko='+id_toko,function(data){
       var arr = [{id : 0, text : 'Cabang'}];
       arr.push({id : data.id, text : data.nama});
@@ -122,7 +122,7 @@ $( document ).ready(function() {
       }
 
       var base_url = window.location.origin;
-      var base_url_semmi = window.location.origin+'/indofod_git';
+      var base_url_semmi = window.location.origin+'';
       $.getJSON(base_url_semmi+'/api/getKotaInCabang?key=ganteng&id_cabang='+id_cabang,function(data){
         var arr = [{id:0, text : 'Kota'}];
         $.each(data,function(key,value){
@@ -160,7 +160,7 @@ $("#oos").validate({
         var startDate = $('#startDate').val();
         var endDate = $('#endDate').val();
         var base_url = window.location.origin;
-        var base_url_semmi = window.location.origin+'/indofod_git';
+        var base_url_semmi = window.location.origin+'';
         // Ini Kalau mau pake phpexcel
         var href = base_url_semmi+'/api/oosExcelReport?key=ganteng&ba='+baFilter+'&tl='+tlFilter+'&cabang='+cabangFilter+'&kota='+kotaFilter+'&startDate='+startDate+'&endDate='+endDate+'&toko='+tokoFilter;
         $('#excelDownload').attr('href',href);
@@ -242,7 +242,7 @@ $("#oos").validate({
 function fetchBa() {
 
   var base_url = window.location.origin;
-  var base_url_semmi = window.location.origin+'/indofod_git';
+  var base_url_semmi = window.location.origin+'';
   $.getJSON(base_url_semmi+'/api/getBaName?key=ganteng',function(data){
     // console.log(JSON.stringify(data));
     var arr = [{id : 0, text : 'BA'}];
@@ -259,7 +259,7 @@ function fetchBa() {
 
 function fetchToko() {
   var base_url = window.location.origin;
-  var base_url_semmi = window.location.origin+'/indofod_git';
+  var base_url_semmi = window.location.origin+'';
   $.getJSON(base_url_semmi+'/api/getToko?key=ganteng',function(data){
     // console.log(JSON.stringify(data));
     var arr = [{id : 0, text : 'Toko'}];
@@ -277,7 +277,7 @@ function fetchToko() {
 function fetchCabang() {
 
   var base_url = window.location.origin;
-  var base_url_semmi = window.location.origin+'/indofod_git';
+  var base_url_semmi = window.location.origin+'';
   $.getJSON(base_url_semmi+'/api/getAllCabang?key=ganteng',function(data){
     var arr = [{id : 0, text : 'Cabang'}];
     $.each(data ,function(key,value){
@@ -292,7 +292,7 @@ function fetchCabang() {
 
 function fetchTl() {
   var base_url = window.location.origin;
-  var base_url_semmi = window.location.origin+'/indofod_git';
+  var base_url_semmi = window.location.origin+'';
   $.getJSON(base_url_semmi+'/api/getTl?key=ganteng',function(data){
     // console.log(JSON.stringify(data));
     var arr = [{id : 0, text : 'Tl'}];
