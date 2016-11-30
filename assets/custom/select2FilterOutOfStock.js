@@ -188,7 +188,7 @@ $("#oos").validate({
           ],
           'ajax' : {
             'url' : 'api/oosReport?key=ganteng',
-            'type' : 'GET',
+            'type' : 'POST',
             'data' : filter
           },
           'columns' : [
