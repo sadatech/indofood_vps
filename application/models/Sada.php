@@ -2446,7 +2446,7 @@ INNER JOIN sada_user USER ON USER .id_user = cron_produk_terjual.id_user
 INNER JOIN sada_produk produk ON produk.id_produk = cron_produk_terjual.id_produk
 INNER JOIN sada_toko toko ON toko.id_toko = cron_produk_terjual.id_toko
 INNER JOIN sada_kota kota ON kota.id_kota = toko.id_kota
-INNER JOIN sada_cabang cabangs ON cabang.id_cabang = kota.id_cabang
+INNER JOIN sada_cabang cabang ON cabang.id_cabang = kota.id_cabang
 WHERE
   CAST(tgl AS DATE) BETWEEN '$a'
 AND '$b'
