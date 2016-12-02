@@ -2624,7 +2624,278 @@ $headers = 'From: rizaldi oos_info@ba-promina.co.id' . "\r\n" ;
 
   }
 
+  public function filterReportOptimization()
 
+  {
+
+      // Post filter
+
+    $filterTl = ($this->input->post('tl') == "0") ? "" : $this->input->post('tl');
+
+    $filterName = ($this->input->post('ba') == "0") ? "" : $this->input->post('ba');
+
+    $filterToko = (null != $this->input->post('toko') && $this->input->post('toko') !=0) ? $this->input->post('toko') : "";
+
+    $filterCabang = ($this->input->post('cabang') == "0") ? "" : $this->input->post('cabang');
+
+    $filterKota = ($this->input->post('kota') == "0") ? "" : $this->input->post('kota');
+
+    $filterHasilReport =($this->input->post('filterKategori') == "0") ? "" : $this->input->post('filterKategori');
+
+    $startDate =  date('Y-m-d H:i:s', strtotime($this->input->post("startDate")." 00:00:00"));
+
+    $endDate = date('Y-m-d H:i:s', strtotime($this->input->post("endDate")." 23:59:59"));
+
+
+    
+
+      // Query Result
+
+    $skuFilter =[
+
+    'baName' => $filterName,
+
+    'tokoFilter' => $filterToko,
+
+    'cabangFilter' => $filterCabang,
+
+    'kotaFilter' => $filterKota,
+
+    'startTime' => $startDate,
+
+    'endTime' => $endDate
+
+    ];
+
+    $query = $this->sada->optimizationSkuReportHeader($skuFilter);
+
+    $result = [];
+
+    $arrayCount =0;
+
+    foreach ($query->result() as  $value) {
+
+      $countFilter =[
+
+      'user_id' => $value->id_user,
+
+      'toko_id' => $value->id_toko,
+
+      'tanggal' => $value->tgl
+
+      ];
+
+      // $queryCountBc = $this->sada->skuCount($countFilter,'BC','box');
+
+      // $queryCountBti = $this->sada->skuCount($countFilter,'BTI','box');
+
+      // $queryCountRusk = $this->sada->skuCount($countFilter,'Rusk','box');
+
+      // $queryCountPudding = $this->sada->skuCount($countFilter,'Pudding','box');
+
+      // $queryCountOthers = $this->sada->skuCount($countFilter,'Others','box');
+
+      // $queryCountBcsSachet = $this->sada->skuCount($countFilter,'BC','sachet');
+
+      // $queryCountBtiSachet = $this->sada->skuCount($countFilter,'BTI','sachet');
+
+        // $queryCountRuskSachet = $this->sada->skuCount($countFilter,'Rusk','sachet');
+
+        // $queryCountPuddingSachet = $this->sada->skuCount($countFilter,'Pudding','sachet');
+
+        // $queryCountOthersSachet = $this->sada->skuCount($countFilter,'Others','sachet');
+
+
+
+      // if($filterHasilReport == '1'){
+
+      //   $result[$arrayCount] = [
+
+      //       //  ($arrayCount+=1),
+
+      //   $value->nama_cabang,
+
+      //   $value->nama_kota,
+
+      //   $value->store_id,
+
+      //   $value->namaToko,
+
+      //   $value->namaBa,
+
+      //   ($value->stay_mobile == "Y" ) ? "Stay":"Mobile",
+
+      //   $value->tgl,
+
+      //   $value->akumulasi_box_bc,
+      //   $value->akumulasi_box_bti,
+      //   $value->akumulasi_box_rusk,
+      //   $value->akumulasi_box_pudding,
+      //   $value->akumulasi_box_others,
+      //   // ($queryCountBc->row()->qty == null ) ? 0:$queryCountBc->row()->qty ,
+
+      //   // ($queryCountBti->row()->qty == null )? 0: $queryCountBti->row()->qty,
+
+      //   // ($queryCountRusk->row()->qty == null) ? 0: $queryCountRusk->row()->qty,
+
+      //   // ($queryCountPudding->row()->qty == null) ? 0: $queryCountPudding->row()->qty,
+
+      //   // ($queryCountOthers->row()->qty == null) ? 0: $queryCountOthers->row()->qty,
+
+      //       //  ($queryCountBcsSachet->row()->qty == null) ? 0: $queryCountBcsSachet->row()->qty,
+
+      //       //  ($queryCountBtiSachet->row()->qty == null) ? 0: $queryCountBtiSachet->row()->qty
+
+      //       //  ($queryCountRuskSachet->row()->qty == null) ? 0: $queryCountRuskSachet->row()->qty,
+
+      //       //  ($queryCountPuddingSachet->row()->qty == null) ? 0: $queryCountPuddingSachet->row()->qty,
+
+      //       //  ($queryCountOthersSachet->row()->qty == null) ? 0:$queryCountOthersSachet->row()->qty
+
+      //   ];
+
+      // }else if($filterHasilReport == '2'){
+
+      //   $result[$arrayCount] = [
+
+      //       //  ($arrayCount+=1),
+
+      //   $value->nama_cabang,
+
+      //   $value->nama_kota,
+
+      //   $value->store_id,
+
+      //   $value->namaToko,
+
+      //   $value->namaBa,
+
+      //   ($value->stay_mobile == "Y" ) ? "Stay":"Mobile",
+
+      //   $value->tgl,
+
+      //   $value->akumulasi_sachet_bc,
+      //   $value->akumulasi_sachet_bti,
+      //   ];
+
+      // }else if($filterHasilReport == '3'){
+
+      //   $result[$arrayCount] = [
+
+      //       //  ($arrayCount+=1),
+
+      //   $value->nama_cabang,
+
+      //   $value->nama_kota,
+
+      //   $value->store_id,
+
+      //   $value->namaToko,
+
+      //   $value->namaBa,
+
+      //   ($value->stay_mobile == "Y" ) ? "Stay":"Mobile",
+
+      //   $value->tgl
+
+      //   ];
+
+      //   $produk = $this->sada->getProdukAndCategory();
+
+      //   foreach ($produk->result() as $countDetails) {
+
+      //     $produkDetails = $this->sada->skuDetails($countFilter['tanggal'],'box',$countDetails->id_produk,$countFilter['user_id'],$countFilter['toko_id']);
+
+      //     array_push($result[$arrayCount],($produkDetails->row()->qty == null ) ? 0: $produkDetails->row()->qty );
+
+      //     if($countDetails->kategoriNama == 'BC' || $countDetails->kategoriNama == 'BTI'){
+
+      //       $produkSachet = $this->sada->skuDetails($countFilter['tanggal'],'sachet',$countDetails->id_produk,$countFilter['user_id'],$countFilter['toko_id']);
+
+      //       array_push($result[$arrayCount],($produkSachet->row()->qty == null ) ? 0: $produkSachet->row()->qty );
+
+      //     }
+
+      //   }
+
+      // }else{
+
+        $result[$arrayCount] = [
+
+              //  ($arrayCount+=1),
+
+        $value->nama_cabang,
+
+        $value->nama_kota,
+
+        $value->store_id,
+
+        $value->namaToko,
+
+        $value->namaBa,
+
+        ($value->stay_mobile == "Y" ) ? "Stay":"Mobile",
+
+        $value->tgl,
+
+        $value->akumulasi_box_bc,
+        $value->akumulasi_box_bti,
+        $value->akumulasi_box_rusk,
+        $value->akumulasi_box_pudding,
+        $value->akumulasi_box_others,
+        $value->akumulasi_sachet_bc,
+        $value->akumulasi_sachet_bti,
+        // ($queryCountBc->row()->qty == null ) ? 0:$queryCountBc->row()->qty ,
+
+        // ($queryCountBti->row()->qty == null )? 0: $queryCountBti->row()->qty,
+
+        // ($queryCountRusk->row()->qty == null) ? 0: $queryCountRusk->row()->qty,
+
+        // ($queryCountPudding->row()->qty == null) ? 0: $queryCountPudding->row()->qty,
+
+        // ($queryCountOthers->row()->qty == null) ? 0: $queryCountOthers->row()->qty,
+
+        // ($queryCountBcsSachet->row()->qty == null) ? 0: $queryCountBcsSachet->row()->qty,
+
+        // ($queryCountBtiSachet->row()->qty == null) ? 0: $queryCountBtiSachet->row()->qty
+
+        ];
+
+
+
+        $produk = $this->sada->getProdukAndCategory();
+
+        foreach ($produk->result() as $countDetails) {
+
+          $produkDetails = $this->sada->skuDetails($countFilter['tanggal'],'box',$countDetails->id_produk,$countFilter['user_id'],$countFilter['toko_id']);
+
+          array_push($result[$arrayCount],($produkDetails->row()->qty == null ) ? 0: $produkDetails->row()->qty );
+
+          if($countDetails->kategoriNama == 'BC' || $countDetails->kategoriNama == 'BTI'){
+
+            $produkSachet = $this->sada->skuDetails($countFilter['tanggal'],'sachet',$countDetails->id_produk,$countFilter['user_id'],$countFilter['toko_id']);
+
+            array_push($result[$arrayCount],($produkSachet->row()->qty == null ) ? 0: $produkSachet->row()->qty );
+
+          }
+
+        }
+        $arrayCount++;
+      }
+
+      
+
+    // }
+
+    $response =[
+
+    'data' => $result,
+
+    ];
+
+    echo json_encode($response,JSON_PRETTY_PRINT);
+
+  }
 
   public function filterReport()
 

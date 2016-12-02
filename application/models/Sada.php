@@ -2412,6 +2412,56 @@ public function getCabangInKota($id_toko)
 
 }
 
+public function optimizationSkuReportHeader($filter)
+{
+  $a = $filter['startTime'];
+
+  $b = $filter['endTime'];
+
+  $user = ($filter['baName'] == '') ? '' : ' AND cron_produk_terjual.id_user = "'.$filter['baName'].'"';
+  $toko = ($filter['tokoFilter'] == '') ? '' : ' AND cron_produk_terjual.id_toko = "'.$filter['tokoFilter'].'"';
+  $cabang = ($filter['cabangFilter'] == '') ? '' : ' AND kota.id_cabang = "'.$filter['cabangFilter'].'"';
+  $kota = ($filter['kotaFilter'] == '') ? '' : ' AND kota.id_kota = "'.$filter['kotaFilter'].'"';
+
+  $sql = "SELECT DISTINCT
+  USER .nama AS namaBa,
+  `USER`.stay as stay_mobile,
+  cabang.nama AS nama_cabang,
+  kota.nama_kota AS nama_kota,
+  toko.store_id,
+  `USER`.id_user,
+  toko.nama AS namaToko,
+  toko.id_toko,
+  DATE(cron_produk_terjual.tgl) AS tgl,
+  cron_produk_terjual.qty_boxbc_perday AS akumulasi_box_bc,
+  cron_produk_terjual.qty_boxbti_perday AS akumulasi_box_bti,
+  cron_produk_terjual.qty_boxrusk_perday AS akumulasi_box_rusk,
+  cron_produk_terjual.qty_boxpudding_perday AS akumulasi_box_pudding,
+  cron_produk_terjual.qty_boxothers_perday AS akumulasi_box_others,
+  cron_produk_terjual.qty_sachetbc_perday AS akumulasi_sachet_bc,
+  cron_produk_terjual.qty_sachetbti_perday AS akumulasi_sachet_bti
+FROM
+  sada_prtj_cron_temp cron_produk_terjual
+INNER JOIN sada_user USER ON USER .id_user = cron_produk_terjual.id_user
+INNER JOIN sada_produk produk ON produk.id_produk = cron_produk_terjual.id_produk
+INNER JOIN sada_toko toko ON toko.id_toko = cron_produk_terjual.id_toko
+INNER JOIN sada_kota kota ON kota.id_kota = toko.id_kota
+INNER JOIN sada_cabang cabangs ON cabang.id_cabang = kota.id_cabang
+WHERE
+  CAST(tgl AS DATE) BETWEEN '$a'
+AND '$b'
+$user
+$toko
+$cabang
+$kota
+ORDER BY
+  cron_produk_terjual.id_user
+";
+
+  $ql = $this->db->query($sql);
+
+return $ql;
+}
 
 public function skuReportHeader($filter)
 {
