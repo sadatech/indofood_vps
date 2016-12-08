@@ -220,7 +220,7 @@ $( document ).ready(function() {
             }
           ],
           ajax : {
-            'url' : '/api/filterReport?key=ganteng',
+            'url' : '/api/filterReportOptimization?key=ganteng',
             'type' : 'POST',
             'data' : filter
           }

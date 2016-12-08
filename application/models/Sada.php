@@ -2441,7 +2441,7 @@ public function optimizationSkuReportHeader($filter)
   cron_produk_terjual.qty_sachetbc_perday AS akumulasi_sachet_bc,
   cron_produk_terjual.qty_sachetbti_perday AS akumulasi_sachet_bti
 FROM
-  sada_prtj_cron_temp cron_produk_terjual
+  sada_prtj_cron cron_produk_terjual
 INNER JOIN sada_user USER ON USER .id_user = cron_produk_terjual.id_user
 INNER JOIN sada_produk produk ON produk.id_produk = cron_produk_terjual.id_produk
 INNER JOIN sada_toko toko ON toko.id_toko = cron_produk_terjual.id_toko
@@ -2982,6 +2982,33 @@ public function skuDetails($tanggal,$tipe,$produkId,$_user_id,$_toko_id)
   //     AND `pt`.`tipe` = '".$tipe."'
   //     AND `p`.`id_produk` = '".$produkId."'";
   // return $this->db->query($q);
+}
+
+public function skuDetailsOptimization($tanggal,$tipe,$produkId,$_user_id,$_toko_id)
+
+{
+
+  $this->db->select('pt.qty_perday')
+
+  ->from('sada_prtj_cron pt')
+
+  ->join('sada_produk p','pt.id_produk = p.id_produk','inner')
+
+  ->where('DATE(pt.tgl)',$tanggal)
+
+  ->where('pt.tipe',$tipe)
+
+  ->where('p.id_produk',$produkId)
+
+  ->where('pt.id_toko',$_toko_id);
+
+   if($_user_id != ''){
+
+    $this->db->where('pt.id_user',$_user_id);
+
+  }
+
+  return $this->db->get();
 }
 
 public function editTarget($id)
