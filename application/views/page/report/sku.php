@@ -85,15 +85,15 @@
                 </div>
 
             </div>
-<table class="table table-striped table-responsive table-bordered table-hover table-checkable order-column" id="skuDataTable">
-    <thead>
+<table style='white-space:nowrap;text-align:center;' class="table table-striped table-responsive table-bordered table-hover table-checkable order-column" id="skuDataTable">
+    <thead align='center'>
         <tr id='headerSku'>
 
         </tr>
     </thead>
-    <tbody id= "hasilFilter" >
+    <!-- <tbody id= "hasilFilter" >
         <tr  class="odd gradeX"></tr>
-    </tbody>
+    </tbody> -->
 </table>
 <!-- <div class="btn-group" >
       <a class="btn sbold green" type="submit" id="excelDownload" href="#" target="_blank"> Download Excel </a>
