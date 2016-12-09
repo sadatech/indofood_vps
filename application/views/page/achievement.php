@@ -18,7 +18,7 @@
                             <tr style="background: #548235;color: white;">
                                 <th align="center" width="20%"> Compass </th>
                                 <th align="center" width="20%"> Region </th>
-                                <th align="center">  Cabang</th>
+                                <th align="center">  Area (Cabang) (Dijumlah per cabang)</th>
                                 <th align="center" class="numeric"> BC </th>
                                 <th align="center" class="numeric"> BTI </th>
                                 <th align="center" class="numeric"> RUSK </th>
@@ -242,7 +242,7 @@ else{
     if ($x_qtyBC > 89) {
         echo "green;color:white;";
     }
-    echo "'>".round($x_qtyBC)."% </td>";
+    echo "'>".round($x_qtyBC)."%";
 }
 if ($data->qty_BTI == null) {
     echo "<td align='center'  style='background-color:red;color:white;'>0%</td>";
@@ -258,7 +258,7 @@ else{
     if ($x_qtyBTI > 89) {
         echo "green;color:white;";
     }
-    echo "'>".round($x_qtyBTI)."%</td>";
+    echo "'>".round($x_qtyBTI)."%";
 }
 if ($data->qty_Rusk == null) {
     echo "<td align='center'  style='background-color:red;color:white;'>0%</td>";
@@ -336,10 +336,12 @@ WHERE
     sada_cabang.id_cabang = '".$cabang->id_cabang."'
 
 ";
-                                    echo "<td align='center'>".round($jml_qty * 100 / $jml_target)."%(".$jml_target.")</td>";
+echo "<td align='center'>".round($jml_qty * 100 / $jml_target)."%</td>";
 $data_q = $this->db->query($qry)->row();
-$switch = $data_q->COUNT_SWITCHING * 100 / 70;
-$nRecruitment = $data_q->COUNT_nRECRUIT * 100 / 20;
+$persen_switching = 70;
+$persen_nrecruit = 20;
+$switch = $data_q->COUNT_SWITCHING * 100 / $persen_switching;
+$nRecruitment = $data_q->COUNT_nRECRUIT * 100 / $persen_nrecruit;
                                     echo "<td align='center' style='background-color:";
     if ($switch < 84) {
         echo "red;color:white;";
@@ -382,6 +384,13 @@ echo "</tr>";
     $dat[] = $datas;
     $tar_bcS[] = $data->persen_BC;
 
+    $datas_q['sum_switching'] = $data_q->COUNT_SWITCHING;
+    $datas_q['sum_newRecruit'] = $data_q->COUNT_nRECRUIT;
+
+    $datas_q['tar_switching'] = $persen_switching;
+    $datas_q['tar_nrecruit'] = $persen_nrecruit;
+    $dats[] = $datas_q;
+
     $dat_BTI[] = $data->qty_BTI;
     $tar_BTI[] = $data->persen_BTI;
     $dat_BC[] = $data->qty_BC * 100 / $data->persen_BC;
@@ -390,8 +399,13 @@ echo "</tr>";
     $dat_Pudding[] = $data->qty_Pudding * 100 / $data->persen_Pudding;
     $dat_Others[] = $data->qty_Others * 100 / $data->persen_Others;
 
+    $dataz['jml_target'] = $jml_target;
+    $dataz['jml_qty'] = $jml_qty;
+    $dataz_target_qty[] = $dataz;
+
 
 }
+// echo json_encode($dats);
 ?>
 <tr>
     <td style="" align="center"></td>
@@ -454,9 +468,40 @@ echo "</tr>";
         echo round($sum_qty_others * 100 / $sum_tar_others)."%";
          ?>
     </td>
-    <td style="" align="center">Total Total</td>
-    <td style="" align="center">Total Switching</td>
-    <td style="" align="center">Total New Recruit</td>
+    
+    <td style="" align="center">
+        <?php 
+        $sum_qty_all = 0;
+        $sum_tar_all = 0;
+        foreach ($dataz_target_qty as $val) {
+            $sum_qty_all += $val['jml_qty'];
+            $sum_tar_all += $val['jml_target'];
+        }
+        echo round($sum_qty_all * 100 / $sum_tar_all)."%";
+         ?>
+    </td>
+    <td style="" align="center">
+        <?php 
+        $sum_switching = 0;
+        $sum_tar_switching = 0;
+        foreach ($dats as $val) {
+            $sum_switching += $val['sum_switching'];
+            $sum_tar_switching += $val['tar_switching'];
+        }
+        echo round($sum_switching * 100 / $sum_tar_switching)."%";
+         ?>
+    </td>
+    <td style="" align="center">
+        <?php 
+        $sum_nrecruit = 0;
+        $sum_tar_nrecruit = 0;
+        foreach ($dats as $val) {
+            $sum_nrecruit += $val['sum_newRecruit'];
+            $sum_tar_nrecruit += $val['tar_nrecruit'];
+        }
+        echo round($sum_nrecruit * 100 / $sum_tar_nrecruit)."%";
+         ?>
+    </td>
 </tr>
 <?php } ?>
 <tr>
