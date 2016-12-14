@@ -40,18 +40,4 @@ $(document).ready(function() {
     $(wrapper_test).on("click",".remove_pic", function(e){
         e.preventDefault(); $(this).parent('div').remove(); x--;
     })
-    // $(add_button_aspm).click(function(e) {
-    //     e.preventDefault();
-    //     if (x_2 < max_fields) {
-    //         x_2++;
-    //         $(wrapper_aspm).append('<div class="input-group"><span class="input-group-addon"><i class="fa fa-plus-square-o"></i></span><input id="" type="text" class="form-control" name="aspm[]" placeholder="ASPM" style="width: 90%;"><a href="#" id="" class="btn btn-danger remove_aspm"><span style="padding:10px;"><i class="glyphicon glyphicon-minus"></i></span></a>');
-    //         $(wrapper_email_aspm).append('<div class="input-group"><span class="input-group-addon"><i class="fa fa-plus-square-o"></i></span><input id="" type="text" class="form-control" name="emailaspm[]" placeholder="Email ASPM" style="width: 90%;"><a href="#" id="" class="btn btn-danger remove_aspm"><span style="padding:10px;"><i class="glyphicon glyphicon-minus"></i></span></a>');
-    //     }
-    // });
-    // $(wrapper_aspm).on("click",".remove_aspm", function(e){
-    //     e.preventDefault(); $(this).parent('div').remove(); x_2--;
-    // })
-    // $(wrapper_email_aspm).on("click",".remove_aspm", function(e){
-    //     e.preventDefault(); $(this).parent('div').remove(); x_2--;
-    // })
 });
