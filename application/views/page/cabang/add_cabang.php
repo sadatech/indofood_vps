@@ -40,7 +40,6 @@
                 <i class="fa fa-user-plus"></i>
                 <span class="caption-subject bold uppercase"> <?php echo $title ?></span>
             </div>
-<a href="#" id="add_pic" class="btn btn-primary add_pic"><i class="glyphicon glyphicon-plus"></i></a>
         </div>
         <div class="portlet-body form">
             <?php echo form_open('', array()); ?>
