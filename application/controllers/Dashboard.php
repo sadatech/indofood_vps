@@ -2710,19 +2710,35 @@ public function dataToko()
 					$i = '<span  class="label label-sm label-info"><small>Target belum ditentukan</small></span>';
 
 				}
+				
+				$duplicate = $this->db->get_where('sada_target',array('id_toko' => $datatable->id_toko, 'id_kategori' => $datatable->id_kategori));
+				if ($select2->num_rows() == 7) {
+					if ($duplicate->num_rows() > 0) {
+						
+					}
+					else{
+						$row[] = '
 
-				$row[] = '
+							<center>
 
-				<center>
+								'.$i.'
 
+							</center>
 
+						';
+					}
+				}
+				else{
+					$row[] = '
 
-					'.$i.' '.anchor('toko/target/'.$datatable->id_toko, 'Set target', array('class'=>'btn btn-xs blue-hoki')).'
+					<center>
 
-				</center>
+						'.$i.' '.anchor('toko/target/'.$datatable->id_toko, 'Set target', array('class'=>'btn btn-xs blue-hoki')).'
+
+					</center>
 
 				';
-
+				}
 			}
 
 			else{
