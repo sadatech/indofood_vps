@@ -14,6 +14,7 @@ $RequestDomain = 'example.com';
 // That's it for configuration!
 // Credits to Chris Hope (http://www.electrictoolbox.com/chris-hope/) for this function.
 // http://www.electrictoolbox.com/php-get-headers-sent-from-browser/
+//test
 if(!function_exists('apache_request_headers')) {
     function apache_request_headers() {
         $headers = array();
