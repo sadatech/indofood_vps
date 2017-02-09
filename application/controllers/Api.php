@@ -1895,7 +1895,7 @@ public function inputContactForm()
   $aksesUser = $this->sada->getUserStatus($data['user_id']);
 
   $isSpg = ($aksesUser->akses == 1) ? true : false ;
-
+  $newRecruit = ($tipe == 'newRecruit') ? null : $tipe;
   $input = [
 
   'user_id' => $data['user_id'],
@@ -1912,7 +1912,7 @@ public function inputContactForm()
 
   'ttl' => $data['ttl'],
 
-  'tipe' => $tipe,
+  'tipe' => $newRecruit,
 
   'beli' => $data['beli'],
 
