@@ -1897,7 +1897,7 @@ public function inputContactForm()
   $isSpg = ($aksesUser->akses == 1) ? true : false ;
   $newRecruit = ($tipe == 'newRecruit') ? null : $data['oldProduct'];
   $input = [
-
+//
   'user_id' => $data['user_id'],
 
   'kategori_id' => $data['kategori_id'],
