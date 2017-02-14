@@ -1423,7 +1423,7 @@ function _getLoginMobile($dataLogin)
 
               'Success' => false,
 
-              'Info' => 'Data User Gak Ada');
+              'Info' => 'NIK , Store ID Atau Password Salah');
 
 
 
