@@ -579,7 +579,7 @@ public function dataUser()
 
 		$q = "";
 		if ($_POST['search']['value']) {
-			$q .= "";
+			$q .= " WHERE status = 'Y'";
 		}
 		else{
 			$q .= " WHERE status = 'Y'";
