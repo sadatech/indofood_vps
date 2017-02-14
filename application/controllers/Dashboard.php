@@ -579,13 +579,13 @@ public function dataUser()
 
 		$q = "";
 		if ($_POST['search']['value']) {
-			$q .= " WHERE status = 'Y'";
+			$q .= " AND status = 'Y'";
 		}
 		else{
 			$q .= " WHERE status = 'Y'";
 		}
 
-		$list = $this->datatable->get_datatables_users($table.$q,$column,$odb);
+		$list = $this->datatable->get_datatables_users($table,$column,$odb);
 
 		$data = array();
 

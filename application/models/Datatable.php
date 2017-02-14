@@ -59,6 +59,7 @@ class Datatable extends CI_Model {
 				else
 				{
 					$this->db->or_like($item, $_POST['search']['value']);
+					$this->db->where("status","Y");
 				}
 
 				if(count($column) - 1 == $i) 
