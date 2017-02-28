@@ -38,7 +38,7 @@ $(document).ready(function() {
         "processing": true,
         "serverSide": true,
         "ajax": {
-            "url": base_url+"/indofood/users.jsp",
+            "url": base_url+"/users.jsp",
             "type": "POST"
         },
         "search": {
