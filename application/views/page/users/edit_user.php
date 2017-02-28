@@ -337,27 +337,28 @@
                                                     <select id="select_kota" name="toko_tl[]" class="form-control" multiple style="width: 100%;">
 
                                                         <?php
-                                                            foreach ($tokoa->result() as $tokos) {
+                                                            if ($loopEditUser->akses == 2 || $loopEditUser->akses == 3) {
+                                                            }
+                                                            else{
+                                                                foreach ($tokoa->result() as $tokos) {
                                                                 $idtoko[] = $tokos->id_toko;
-                                                                    $data = $this->db->select('nama,id_toko')->where('id_toko',$tokos->id_toko)->get('sada_toko');
+                                                                        $data = $this->db->select('nama,id_toko')->where('id_toko',$tokos->id_toko)->get('sada_toko');
 
-                                                                    foreach ($data->result() as $l) {
-                                                                        echo "<option selected value='".$l->id_toko."'>".$l->nama."</option>";
-                                                                    }
+                                                                        foreach ($data->result() as $l) {
+                                                                            echo "<option selected value='".$l->id_toko."'>".$l->nama."</option>";
+                                                                        }
 
+                                                                }
+                                                                $data = $this->db->select('sada_toko.*')
+                                                                        ->join("sada_kota","sada_toko.id_kota = sada_kota.id_kota")
+                                                                        ->join("sada_cabang","sada_cabang.id_cabang = sada_kota.id_cabang")
+                                                                        ->where_in("sada_cabang.id_cabang",$id_cabang)
+                                                                        ->where_not_in('id_toko',$idtoko)->get('sada_toko');
+
+                                                                        foreach ($data->result() as $l) {
+                                                                            echo "<option value='".$l->id_toko."'>".$l->nama."</option>";
+                                                                }
                                                             }
-                                                            $data = $this->db->select('sada_toko.*')
-                                                                    ->join("sada_kota","sada_toko.id_kota = sada_kota.id_kota")
-                                                                    ->join("sada_cabang","sada_cabang.id_cabang = sada_kota.id_cabang")
-                                                                    ->where_in("sada_cabang.id_cabang",$id_cabang)
-                                                                    ->where_not_in('id_toko',$idtoko)->get('sada_toko');
-
-                                                                    foreach ($data->result() as $l) {
-                                                                        echo "<option value='".$l->id_toko."'>".$l->nama."</option>";
-                                                            }
-
-//                                                            
-
                                                         ?>
 
                                                     </select>
