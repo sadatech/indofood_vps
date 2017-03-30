@@ -42,23 +42,23 @@ class Dashboard extends CI_Controller {
 
 		$dataDas['page'] = "users/data";
 
-		$dataDas['reportAcv'] = $this->sada->acvNatReport();
+		// $dataDas['reportAcv'] = $this->sada->acvNatReport();
 
-		$dataDas['region'] = $this->db->get("sada_region");
+		// $dataDas['region'] = $this->db->get("sada_region");
 
-		foreach ($dataDas['region']->result() as $key => $value) {
+		// foreach ($dataDas['region']->result() as $key => $value) {
 
-			$cab = $this->db->get_where("sada_cabang",array('id_region'=>$value->id_region));
+		// 	$cab = $this->db->get_where("sada_cabang",array('id_region'=>$value->id_region));
 
-			foreach ($cab->result() as $vcabang) {
+		// 	foreach ($cab->result() as $vcabang) {
 
-				$dataDas['achievements'] = $this->sada->CountAchievement($vcabang->id_cabang);
+		// 		$dataDas['achievements'] = $this->sada->CountAchievement($vcabang->id_cabang);
 
-			}
+		// 	}
 
-		}
+		// }
 
-		$dataDas['sampling'] = $this->sada->achievementSamplingReport();
+		// $dataDas['sampling'] = $this->sada->achievementSamplingReport();
 
 		$this->load->view('view_awal', $dataDas, FALSE);
 
