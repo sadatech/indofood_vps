@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-12">
+    <!-- <div class="col-md-12">
         <div class="portlet box bg-green-haze">
             <div class="portlet-title">
                 <div class="caption">
@@ -520,7 +520,7 @@ echo "</tr>";
 
 </table>
 </div>
-</div>
+</div> -->
 <!-- END SAMPLE TABLE PORTLET-->
 <!-- BEGIN SAMPLE TABLE PORTLET-->
 
