@@ -40,7 +40,7 @@ class Dashboard extends CI_Controller {
 
 		
 
-		$dataDas['page'] = "achievement";
+		$dataDas['page'] = "users/data";
 
 		$dataDas['reportAcv'] = $this->sada->acvNatReport();
 
